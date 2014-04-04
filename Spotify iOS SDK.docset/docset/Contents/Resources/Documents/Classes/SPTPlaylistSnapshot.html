@@ -4,7 +4,6 @@
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
 		<title>SPTPlaylistSnapshot Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
-		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
 		<meta name="generator" content="appledoc 2.2 (build 961)" />
@@ -172,8 +171,8 @@
 </tr>
 						</tbody></table></div>
 					
-					
-					
+                    
+                    
 					
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
@@ -197,92 +196,78 @@
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/name">&nbsp;&nbsp;name</a></code>
-		<span class="tooltip"><p>The name of the playlist.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/version">&nbsp;&nbsp;version</a></code>
-		<span class="tooltip"><p>The version of the playlist. This is an opaque value, but newer versions of
-the same playlist will have a higher value.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/uri">&nbsp;&nbsp;uri</a></code>
-		<span class="tooltip"><p>The Spotify URI of the playlist.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/collaborative">&nbsp;&nbsp;collaborative</a></code>
-		<span class="tooltip"><p><code>YES</code> if the playlist is collaborative (i.e., can be modified by anyone), otherwise <code>NO</code>.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/creator">&nbsp;&nbsp;creator</a></code>
-		<span class="tooltip"><p>The user<a href="#//api/name/name">name</a> of the playlist&rsquo;s creator.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/tracks">&nbsp;&nbsp;tracks</a></code>
-		<span class="tooltip"><p>The tracks of the playlist, as <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> objects.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/dateModified">&nbsp;&nbsp;dateModified</a></code>
-		<span class="tooltip"><p>The last time the playlist was modified.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/playlistWithURI:session:callback:">+&nbsp;playlistWithURI:session:callback:</a></code>
-		<span class="tooltip"><p>Request the playlist at the given Spotify URI.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setPlaylistName:withSession:callback:">&ndash;&nbsp;setPlaylistName:withSession:callback:</a></code>
-		<span class="tooltip"><p>Set the playlist&rsquo;s <a href="#//api/name/name">name</a>.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setPlaylistDescription:withSession:callback:">&ndash;&nbsp;setPlaylistDescription:withSession:callback:</a></code>
-		<span class="tooltip"><p>Set the playlist&rsquo;s description.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/setPlaylistIsCollaborative:withSession:callback:">&ndash;&nbsp;setPlaylistIsCollaborative:withSession:callback:</a></code>
-		<span class="tooltip"><p>Set the playlist&rsquo;s <a href="#//api/name/collaborative">collaborative</a> status.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/deletePlaylistWithSession:callback:">&ndash;&nbsp;deletePlaylistWithSession:callback:</a></code>
-		<span class="tooltip"><p>Delete the playlist.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/addTracksToPlaylist:withSession:callback:">&ndash;&nbsp;addTracksToPlaylist:withSession:callback:</a></code>
-		<span class="tooltip"><p>Append <a href="#//api/name/tracks">tracks</a> to the playlist.</p></span>
 	</span>
 	
 	
@@ -309,9 +294,11 @@ the same playlist will have a higher value.</p></span>
 		<p><code>YES</code> if the playlist is collaborative (i.e., can be modified by anyone), otherwise <code>NO</code>.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL collaborative</code></div>
-	
+
+    
 	
 	
 	
@@ -343,9 +330,11 @@ the same playlist will have a higher value.</p></span>
 		<p>The user<a href="#//api/name/name">name</a> of the playlist&rsquo;s creator.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy) NSString *creator</code></div>
-	
+
+    
 	
 	
 	
@@ -377,9 +366,11 @@ the same playlist will have a higher value.</p></span>
 		<p>The last time the playlist was modified.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy) NSDate *dateModified</code></div>
-	
+
+    
 	
 	
 	
@@ -411,9 +402,11 @@ the same playlist will have a higher value.</p></span>
 		<p>The name of the playlist.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy) NSString *name</code></div>
-	
+
+    
 	
 	
 	
@@ -445,9 +438,11 @@ the same playlist will have a higher value.</p></span>
 		<p>The tracks of the playlist, as <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> objects.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy) NSArray *tracks</code></div>
-	
+
+    
 	
 	
 	
@@ -479,9 +474,11 @@ the same playlist will have a higher value.</p></span>
 		<p>The Spotify URI of the playlist.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, copy) NSURL *uri</code></div>
-	
+
+    
 	
 	
 	
@@ -514,9 +511,11 @@ the same playlist will have a higher value.</p></span>
 the same playlist will have a higher value.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSInteger version</code></div>
-	
+
+    
 	
 	
 	
@@ -556,9 +555,11 @@ the same playlist will have a higher value.</p>
 		<p>Request the playlist at the given Spotify URI.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>+ (void)playlistWithURI:(NSURL *)<em>uri</em> session:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -623,9 +624,11 @@ the same playlist will have a higher value.</p>
 		<p>Append <a href="#//api/name/tracks">tracks</a> to the playlist.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)addTracksToPlaylist:(NSArray *)<em>tracks</em> withSession:(SPTSession *)<em>session</em> callback:(SPTPlaylistMutationCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -677,9 +680,11 @@ the same playlist will have a higher value.</p>
 		<p>Delete the playlist.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)deletePlaylistWithSession:(SPTSession *)<em>session</em> callback:(SPTPlaylistMutationCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -726,9 +731,11 @@ the same playlist will have a higher value.</p>
 		<p>Set the playlist&rsquo;s description.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)setPlaylistDescription:(NSString *)<em>desc</em> withSession:(SPTSession *)<em>session</em> callback:(SPTPlaylistMutationCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -780,9 +787,11 @@ the same playlist will have a higher value.</p>
 		<p>Set the playlist&rsquo;s <a href="#//api/name/collaborative">collaborative</a> status.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)setPlaylistIsCollaborative:(BOOL)<em>collaborative</em> withSession:(SPTSession *)<em>session</em> callback:(SPTPlaylistMutationCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -834,9 +843,11 @@ the same playlist will have a higher value.</p>
 		<p>Set the playlist&rsquo;s <a href="#//api/name/name">name</a>.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)setPlaylistName:(NSString *)<em>name</em> withSession:(SPTSession *)<em>session</em> callback:(SPTPlaylistMutationCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -881,6 +892,8 @@ the same playlist will have a higher value.</p>
 					</div>
 					
 					
+                    
+                    
 				</div>
 				<div class="main-navigation navigation-bottom">
 					<ul>
@@ -891,7 +904,7 @@ the same playlist will have a higher value.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-03-06)</span><br />
+						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-04-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
 						

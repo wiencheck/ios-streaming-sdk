@@ -23,6 +23,8 @@
 #import "SPTJSONDecoding.h"
 #import "SPTRequest.h"
 
+@class SPTImage;
+
 /** This class represents an artist on the Spotify service. */
 @interface SPTArtist : NSObject <SPTJSONObject>
 
@@ -42,7 +44,22 @@
 /** The Spotify URI of the artist. */
 @property (nonatomic, readonly, copy) NSURL *uri;
 
-/** An array of albums for the artist, as `SPTPartialAlbum` objects. */
-@property (nonatomic, readonly, copy) NSArray *albums;
+/** The HTTP open.spotify.com URL of the artist. */
+@property (nonatomic, readonly, copy) NSURL *sharingURL;
+
+/** Returns a list of genre strings for the artist. */
+@property (nonatomic, readonly, copy) NSArray *genres;
+
+/** Returns a list of artist images in various sizes, as `SPTImage` objects. */
+@property (nonatomic, readonly, copy) NSArray *images;
+
+/** Convenience method that returns the smallest available artist image. */
+@property (nonatomic, readonly) SPTImage *smallestImage;
+
+/** Convenience method that returns the largest available artist image. */
+@property (nonatomic, readonly) SPTImage *largestImage;
+
+/** The popularity of the artist as a value between 0.0 (least popular) to 100.0 (most popular). */
+@property (nonatomic, readonly) double popularity;
 
 @end

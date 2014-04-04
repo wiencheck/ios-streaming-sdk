@@ -10,9 +10,9 @@
 #import <Spotify/Spotify.h>
 #import "ViewController.h"
 
-//#error Please fill in your application's details here and remove this error to run the sample.
-static NSString * const kClientId = @"spotify-ios-sdk-beta";
-static NSString * const kCallbackURL = @"spotify-ios-sdk-beta://callback";
+#error Please fill in your application's details here and remove this error to run the sample.
+static NSString * const kClientId = @"";
+static NSString * const kCallbackURL = @"";
 
 static NSString * const kSessionUserDefaultsKey = @"SpotifySession";
 
@@ -73,7 +73,7 @@ static NSString * const kSessionUserDefaultsKey = @"SpotifySession";
 
 	if ([[SPTAuth defaultInstance] canHandleURL:url withDeclaredRedirectURL:[NSURL URLWithString:kCallbackURL]]) {
 		[[SPTAuth defaultInstance] handleAuthCallbackWithTriggeredAuthURL:url
-											tokenSwapServiceEndpointAtURL:[NSURL URLWithString:@"http://usa.ikennd.ac:1234/swap"]
+											tokenSwapServiceEndpointAtURL:[NSURL URLWithString:@"http://localhost:1234/swap"]
 																 callback:authCallback];
 		return YES;
 	}

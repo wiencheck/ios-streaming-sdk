@@ -4,7 +4,6 @@
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
 		<title>SPTAuth Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
-		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
 		<meta name="generator" content="appledoc 2.2 (build 961)" />
@@ -144,8 +143,8 @@
 </tr>
 						</tbody></table></div>
 					
-					
-					
+                    
+                    
 					
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
@@ -170,7 +169,6 @@ authentication service.</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/defaultInstance">+&nbsp;defaultInstance</a></code>
-		<span class="tooltip"><p>Returns a pre-created <code>SPTAuth</code> instance for convenience.</p></span>
 	</span>
 	
 	
@@ -185,14 +183,12 @@ authentication service.</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/loginURLForClientId:declaredRedirectURL:">&ndash;&nbsp;loginURLForClientId:declaredRedirectURL:</a></code>
-		<span class="tooltip"><p>Returns a URL that, when opened, will begin the Spotify authentication process.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/loginURLForClientId:declaredRedirectURL:scopes:">&ndash;&nbsp;loginURLForClientId:declaredRedirectURL:scopes:</a></code>
-		<span class="tooltip"><p>Returns a URL that, when opened, will begin the Spotify authentication process.</p></span>
 	</span>
 	
 	
@@ -207,28 +203,24 @@ authentication service.</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/canHandleURL:withDeclaredRedirectURL:">&ndash;&nbsp;canHandleURL:withDeclaredRedirectURL:</a></code>
-		<span class="tooltip"><p>Find out if the given URL appears to be a Spotify authentication URL.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/supportsApplicationAuthentication">&ndash;&nbsp;supportsApplicationAuthentication</a></code>
-		<span class="tooltip"><p>Check if &ldquo;flip-flop&rdquo; application authentication is supported.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/spotifyApplicationIsInstalled">&ndash;&nbsp;spotifyApplicationIsInstalled</a></code>
-		<span class="tooltip"><p>Check if Spotify application is installed.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/handleAuthCallbackWithTriggeredAuthURL:tokenSwapServiceEndpointAtURL:callback:">&ndash;&nbsp;handleAuthCallbackWithTriggeredAuthURL:tokenSwapServiceEndpointAtURL:callback:</a></code>
-		<span class="tooltip"><p>Handle a Spotify authentication callback URL, returning a Spotify username and OAuth credential.</p></span>
 	</span>
 	
 	
@@ -257,9 +249,11 @@ authentication service.</p>
 		<p>Returns a pre-created <code>SPTAuth</code> instance for convenience.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>+ (SPTAuth *)defaultInstance</code></div>
-	
+
+    
 	
 	
 	
@@ -304,9 +298,11 @@ authentication service.</p>
 		<p>Find out if the given URL appears to be a Spotify authentication URL.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (BOOL)canHandleURL:(NSURL *)<em>callbackURL</em> withDeclaredRedirectURL:(NSURL *)<em>declaredURL</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -364,9 +360,11 @@ you receive through here to filter them.</p>
 		<p>Handle a Spotify authentication callback URL, returning a Spotify username and OAuth credential.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)handleAuthCallbackWithTriggeredAuthURL:(NSURL *)<em>url</em> tokenSwapServiceEndpointAtURL:(NSURL *)<em>tokenSwapURL</em> callback:(SPTAuthCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -425,9 +423,11 @@ triggered.</p><div class="note"><p><strong>Note:</strong> This method requires t
 		<p>Returns a URL that, when opened, will begin the Spotify authentication process.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (NSURL *)loginURLForClientId:(NSString *)<em>clientId</em> declaredRedirectURL:(NSURL *)<em>declaredURL</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -485,9 +485,11 @@ happen in Safari. Displaying this inside your application is against the Spotify
 		<p>Returns a URL that, when opened, will begin the Spotify authentication process.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (NSURL *)loginURLForClientId:(NSString *)<em>clientId</em> declaredRedirectURL:(NSURL *)<em>declaredURL</em> scopes:(NSArray *)<em>scopes</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -550,9 +552,11 @@ happen in Safari. Displaying this inside your application is against the Spotify
 		<p>Check if Spotify application is installed.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (BOOL)spotifyApplicationIsInstalled</code></div>
-	
+
+    
 	
 	
 	
@@ -589,9 +593,11 @@ happen in Safari. Displaying this inside your application is against the Spotify
 		<p>Check if &ldquo;flip-flop&rdquo; application authentication is supported.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (BOOL)supportsApplicationAuthentication</code></div>
-	
+
+    
 	
 	
 	
@@ -621,6 +627,8 @@ happen in Safari. Displaying this inside your application is against the Spotify
 					</div>
 					
 					
+                    
+                    
 				</div>
 				<div class="main-navigation navigation-bottom">
 					<ul>
@@ -631,7 +639,7 @@ happen in Safari. Displaying this inside your application is against the Spotify
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-03-06)</span><br />
+						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-04-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
 						

@@ -34,6 +34,7 @@ extern NSString * const SPTAudioStreamingMetadataAlbumURI;
 extern NSString * const SPTAudioStreamingMetadataTrackDuration;
 
 @class SPTSession;
+@class SPTCoreAudioController;
 @protocol SPTAudioStreamingDelegate;
 @protocol SPTAudioStreamingPlaybackDelegate;
 
@@ -47,6 +48,17 @@ extern NSString * const SPTAudioStreamingMetadataTrackDuration;
  @return Returns an initialised `SPAudioStreamingController` instance.
  */
 -(id)initWithCompanyName:(NSString *)companyName appName:(NSString *)appName;
+
+/** Initialise a new `SPAudioStreamingController`.
+
+ This is the designated initialiser of this class.
+
+ @param companyName Your company name.
+ @param appName Your application's name.
+ @param audioController An instance of SPTCoreAudioController to output audio to, or `nil` to use the default.
+ @return Returns an initialised `SPAudioStreamingController` instance.
+ */
+-(id)initWithCompanyName:(NSString *)companyName appName:(NSString *)appName audioController:(SPTCoreAudioController *)audioController;
 
 /** Log into the Spotify service for audio playback.
  

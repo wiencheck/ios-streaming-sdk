@@ -4,7 +4,6 @@
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
 		<title>SPTRequest Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
-		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
 		<meta name="generator" content="appledoc 2.2 (build 961)" />
@@ -42,9 +41,9 @@
 	
 	<option value="class_methods">Class Methods</option>
 	
-	<option value="//api/name/performSearchWithQuery:ofQueryType:withPageOffset:withSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ performSearchWithQuery:ofQueryType:withPageOffset:withSession:callback:</option>
+	<option value="//api/name/performSearchWithQuery:queryType:offset:session:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ performSearchWithQuery:queryType:offset:session:callback:</option>
 	
-	<option value="//api/name/performSearchWithQuery:ofQueryType:withSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ performSearchWithQuery:ofQueryType:withSession:callback:</option>
+	<option value="//api/name/performSearchWithQuery:queryType:session:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ performSearchWithQuery:queryType:session:callback:</option>
 	
 	<option value="//api/name/playlistsForUser:withSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ playlistsForUser:withSession:callback:</option>
 	
@@ -80,9 +79,9 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performSearchWithQuery:ofQueryType:withPageOffset:withSession:callback:">performSearchWithQuery:ofQueryType:withPageOffset:withSession:callback:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performSearchWithQuery:queryType:offset:session:callback:">performSearchWithQuery:queryType:offset:session:callback:</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performSearchWithQuery:ofQueryType:withSession:callback:">performSearchWithQuery:ofQueryType:withSession:callback:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performSearchWithQuery:queryType:session:callback:">performSearchWithQuery:queryType:session:callback:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playlistsForUser:withSession:callback:">playlistsForUser:withSession:callback:</a></span></li>
 	
@@ -123,8 +122,8 @@
 </tr>
 						</tbody></table></div>
 					
-					
-					
+                    
+                    
 					
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
@@ -148,35 +147,30 @@
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/requestItemAtURI:withSession:callback:">+&nbsp;requestItemAtURI:withSession:callback:</a></code>
-		<span class="tooltip"><p>Request the item at the given Spotify URI.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/requestItemFromPartialObject:withSession:callback:">+&nbsp;requestItemFromPartialObject:withSession:callback:</a></code>
-		<span class="tooltip"><p>Convert an <a href="../Protocols/SPTPartialObject.html"><code>SPTPartialObject</code></a> into a &ldquo;full&rdquo; metadata object.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/playlistsForUser:withSession:callback:">+&nbsp;playlistsForUser:withSession:callback:</a></code>
-		<span class="tooltip"><p>Get the authenticated user&rsquo;s playlist list.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/performSearchWithQuery:ofQueryType:withPageOffset:withSession:callback:">+&nbsp;performSearchWithQuery:ofQueryType:withPageOffset:withSession:callback:</a></code>
-		<span class="tooltip"><p>Performs a search with a given query and offset</p></span>
+		<code><a href="#//api/name/performSearchWithQuery:queryType:offset:session:callback:">+&nbsp;performSearchWithQuery:queryType:offset:session:callback:</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/performSearchWithQuery:ofQueryType:withSession:callback:">+&nbsp;performSearchWithQuery:ofQueryType:withSession:callback:</a></code>
-		<span class="tooltip"><p>Performs a search with a given query.</p></span>
+		<code><a href="#//api/name/performSearchWithQuery:queryType:session:callback:">+&nbsp;performSearchWithQuery:queryType:session:callback:</a></code>
 	</span>
 	
 	
@@ -196,8 +190,8 @@
 						<h2 class="subtitle subtitle-methods">Class Methods</h2>
 						
 						<div class="section-method">
-	<a name="//api/name/performSearchWithQuery:ofQueryType:withPageOffset:withSession:callback:" title="performSearchWithQuery:ofQueryType:withPageOffset:withSession:callback:"></a>
-	<h3 class="subsubtitle method-title">performSearchWithQuery:ofQueryType:withPageOffset:withSession:callback:</h3>
+	<a name="//api/name/performSearchWithQuery:queryType:offset:session:callback:" title="performSearchWithQuery:queryType:offset:session:callback:"></a>
+	<h3 class="subsubtitle method-title">performSearchWithQuery:queryType:offset:session:callback:</h3>
 	
 	
 	
@@ -205,9 +199,11 @@
 		<p>Performs a search with a given query and offset</p>
 	</div>		
 	
-	
-	<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> ofQueryType:(SPTSearchQueryType)<em>searchQueryType</em> withPageOffset:(NSInteger)<em>searchPageOffset</em> withSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
-	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> offset:(NSInteger)<em>offset</em> session:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -223,8 +219,8 @@
 		</dl>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>searchPageOffset</em></dt>
-			<dd><p>Which page of results to return.</p></dd>
+			<dt><em>offset</em></dt>
+			<dd><p>The index at which to start returning results.</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -260,8 +256,8 @@
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/performSearchWithQuery:ofQueryType:withSession:callback:" title="performSearchWithQuery:ofQueryType:withSession:callback:"></a>
-	<h3 class="subsubtitle method-title">performSearchWithQuery:ofQueryType:withSession:callback:</h3>
+	<a name="//api/name/performSearchWithQuery:queryType:session:callback:" title="performSearchWithQuery:queryType:session:callback:"></a>
+	<h3 class="subsubtitle method-title">performSearchWithQuery:queryType:session:callback:</h3>
 	
 	
 	
@@ -269,9 +265,11 @@
 		<p>Performs a search with a given query.</p>
 	</div>		
 	
-	
-	<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> ofQueryType:(SPTSearchQueryType)<em>searchQueryType</em> withSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
-	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> session:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -328,9 +326,11 @@
 		<p>Get the authenticated user&rsquo;s playlist list.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>+ (void)playlistsForUser:(NSString *)<em>userName</em> withSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -382,9 +382,11 @@
 		<p>Request the item at the given Spotify URI.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>+ (void)requestItemAtURI:(NSURL *)<em>uri</em> withSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -441,9 +443,11 @@
 		<p>Convert an <a href="../Protocols/SPTPartialObject.html"><code>SPTPartialObject</code></a> into a &ldquo;full&rdquo; metadata object.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>+ (void)requestItemFromPartialObject:(id&lt;SPTPartialObject&gt;)<em>partialObject</em> withSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -490,6 +494,8 @@
 					
 					
 					
+                    
+                    
 				</div>
 				<div class="main-navigation navigation-bottom">
 					<ul>
@@ -500,7 +506,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-03-06)</span><br />
+						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-04-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
 						

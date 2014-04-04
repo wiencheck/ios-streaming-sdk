@@ -27,7 +27,4 @@
  to a full album object using `SPTRequest`. */
 @interface SPTPartialAlbum : NSObject <SPTPartialObject, SPTJSONObject>
 
-/** A HTTP URL for the thumbnail image of this album. */
-@property (nonatomic, readonly, copy) NSURL *thumbnailURL;
-
 @end

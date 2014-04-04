@@ -126,6 +126,12 @@ typedef NS_ENUM(NSUInteger, SPTPlaybackEndReason) {
  */
 -(void)skipToPreviousTrack:(BOOL)disallowSameTrackRestart;
 
+/** Seeks playback to the given location in the current track.
+ 
+ @param offset The offset to seek to. Must be equal or less than the length of the currently playing track.
+ */
+-(void)seekToOffset:(NSTimeInterval)offset;
+
 /** Pauses playback at the current position.
 
  If no track is playing, does nothing.
@@ -147,6 +153,9 @@ typedef NS_ENUM(NSUInteger, SPTPlaybackEndReason) {
 
 /** Returns the index of the currently playing track in the current track provider, or `NSNotFound` if no track is playing. */
 @property (nonatomic, readonly) NSInteger indexOfCurrentTrack;
+
+/** Returns the current approximate playback position of the current track. */
+@property (nonatomic, readonly) NSTimeInterval currentPlaybackPosition;
 
 /** Returns `YES` if playback is paused, otherwise `NO`. */
 @property (nonatomic, readonly) BOOL paused;

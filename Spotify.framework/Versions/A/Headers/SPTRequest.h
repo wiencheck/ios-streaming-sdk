@@ -69,11 +69,11 @@ typedef NS_ENUM(NSUInteger, SPTSearchQueryType) {
  
  @param searchQuery The query to pass to the search.
  @param searchQueryType The type of search to do.
- @param searchPageOffset Which page of results to return.
+ @param offset The index at which to start returning results.
  @param session An authenticated session. Can be `nil`.
  @param block The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.
  */
-+(void)performSearchWithQuery:(NSString *)searchQuery ofQueryType:(SPTSearchQueryType)searchQueryType withPageOffset:(NSInteger)searchPageOffset withSession:(SPTSession *)session callback:(SPTRequestCallback)block;
++(void)performSearchWithQuery:(NSString *)searchQuery queryType:(SPTSearchQueryType)searchQueryType offset:(NSInteger)offset session:(SPTSession *)session callback:(SPTRequestCallback)block;
 
 /** Performs a search with a given query.
 
@@ -82,6 +82,6 @@ typedef NS_ENUM(NSUInteger, SPTSearchQueryType) {
  @param session An authenticated session. Can be `nil`.
  @param block The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.
  */
-+(void)performSearchWithQuery:(NSString *)searchQuery ofQueryType:(SPTSearchQueryType)searchQueryType withSession:(SPTSession *)session callback:(SPTRequestCallback)block;
++(void)performSearchWithQuery:(NSString *)searchQuery queryType:(SPTSearchQueryType)searchQueryType session:(SPTSession *)session callback:(SPTRequestCallback)block;
 
 @end

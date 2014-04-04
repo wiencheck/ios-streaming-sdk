@@ -4,7 +4,6 @@
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
 		<title>SPTTrackPlayer Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
-		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
 		<meta name="generator" content="appledoc 2.2 (build 961)" />
@@ -40,6 +39,8 @@
 	
 	<option value="properties">Properties</option>
 	
+	<option value="//api/name/currentPlaybackPosition">&nbsp;&nbsp;&nbsp;&nbsp;currentPlaybackPosition</option>
+	
 	<option value="//api/name/currentProvider">&nbsp;&nbsp;&nbsp;&nbsp;currentProvider</option>
 	
 	<option value="//api/name/delegate">&nbsp;&nbsp;&nbsp;&nbsp;delegate</option>
@@ -72,6 +73,8 @@
 	<option value="//api/name/playTrackProvider:fromIndex:">&nbsp;&nbsp;&nbsp;&nbsp;- playTrackProvider:fromIndex:</option>
 	
 	<option value="//api/name/resumePlayback">&nbsp;&nbsp;&nbsp;&nbsp;- resumePlayback</option>
+	
+	<option value="//api/name/seekToOffset:">&nbsp;&nbsp;&nbsp;&nbsp;- seekToOffset:</option>
 	
 	<option value="//api/name/skipToNextTrack">&nbsp;&nbsp;&nbsp;&nbsp;- skipToNextTrack</option>
 	
@@ -107,6 +110,8 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentPlaybackPosition">currentPlaybackPosition</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentProvider">currentProvider</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/delegate">delegate</a></span></li>
@@ -140,6 +145,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playTrackProvider:fromIndex:">playTrackProvider:fromIndex:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resumePlayback">resumePlayback</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/seekToOffset:">seekToOffset:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/skipToNextTrack">skipToNextTrack</a></span></li>
 	
@@ -176,8 +183,8 @@
 </tr>
 						</tbody></table></div>
 					
-					
-					
+                    
+                    
 					
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
@@ -203,28 +210,24 @@ aforementioned classes directly.</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/initWithCompanyName:appName:">&ndash;&nbsp;initWithCompanyName:appName:</a></code>
-		<span class="tooltip"><p>Initialises a new track player.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/initWithStreamingController:">&ndash;&nbsp;initWithStreamingController:</a></code>
-		<span class="tooltip"><p>Initialises a new track player with the given <a href="../Classes/SPTAudioStreamingController.html"><code>SPTAudioStreamingController</code></a>.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/enablePlaybackWithSession:callback:">&ndash;&nbsp;enablePlaybackWithSession:callback:</a></code>
-		<span class="tooltip"><p>Attempts to enable playback with the given session.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
-		<span class="tooltip"><p>Returns the delegate of the track player.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -239,42 +242,42 @@ aforementioned classes directly.</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/playTrackProvider:fromIndex:">&ndash;&nbsp;playTrackProvider:fromIndex:</a></code>
-		<span class="tooltip"><p>Play the given track provider from the given index.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/playTrackProvider:">&ndash;&nbsp;playTrackProvider:</a></code>
-		<span class="tooltip"><p>Play the given track provider.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/skipToNextTrack">&ndash;&nbsp;skipToNextTrack</a></code>
-		<span class="tooltip"><p>Skips playback to the next track.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/skipToPreviousTrack:">&ndash;&nbsp;skipToPreviousTrack:</a></code>
-		<span class="tooltip"><p>Skips playback to the previous track.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/seekToOffset:">&ndash;&nbsp;seekToOffset:</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/pausePlayback">&ndash;&nbsp;pausePlayback</a></code>
-		<span class="tooltip"><p>Pauses playback at the current position.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/resumePlayback">&ndash;&nbsp;resumePlayback</a></code>
-		<span class="tooltip"><p>Resumes playback from the currently <a href="#//api/name/paused">paused</a> position.</p></span>
 	</span>
 	
 	
@@ -289,35 +292,36 @@ aforementioned classes directly.</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/currentProvider">&nbsp;&nbsp;currentProvider</a></code>
-		<span class="tooltip"><p>Returns the track provider currently being used for playback.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/indexOfCurrentTrack">&nbsp;&nbsp;indexOfCurrentTrack</a></code>
-		<span class="tooltip"><p>Returns the index of the currently playing track in the current track provider, or <code>NSNotFound</code> if no track is playing.</p></span>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentPlaybackPosition">&nbsp;&nbsp;currentPlaybackPosition</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/paused">&nbsp;&nbsp;paused</a></code>
-		<span class="tooltip"><p>Returns <code>YES</code> if playback is paused, otherwise <code>NO</code>.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/repeatEnabled">&nbsp;&nbsp;repeatEnabled</a></code>
-		<span class="tooltip"><p>Returns <code>YES</code> if repeat is enabled, otherwise <code>NO</code>.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/playbackIsAvailable">&nbsp;&nbsp;playbackIsAvailable</a></code>
-		<span class="tooltip"><p>Returns <code>YES</code> if audio playback is available, otherwise <code>NO</code>.</p></span>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -335,6 +339,42 @@ aforementioned classes directly.</p>
 						<h2 class="subtitle subtitle-methods">Properties</h2>
 						
 						<div class="section-method">
+	<a name="//api/name/currentPlaybackPosition" title="currentPlaybackPosition"></a>
+	<h3 class="subsubtitle method-title">currentPlaybackPosition</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the current approximate playback position of the current track.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSTimeInterval currentPlaybackPosition</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTTrackPlayer.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/currentProvider" title="currentProvider"></a>
 	<h3 class="subsubtitle method-title">currentProvider</h3>
 	
@@ -344,9 +384,11 @@ aforementioned classes directly.</p>
 		<p>Returns the track provider currently being used for playback.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) id&lt;SPTTrackProvider&gt; currentProvider</code></div>
-	
+
+    
 	
 	
 	
@@ -378,9 +420,11 @@ aforementioned classes directly.</p>
 		<p>Returns the delegate of the track player.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;SPTTrackPlayerDelegate&gt; delegate</code></div>
-	
+
+    
 	
 	
 	
@@ -412,9 +456,11 @@ aforementioned classes directly.</p>
 		<p>Returns the index of the currently playing track in the current track provider, or <code>NSNotFound</code> if no track is playing.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSInteger indexOfCurrentTrack</code></div>
-	
+
+    
 	
 	
 	
@@ -446,9 +492,11 @@ aforementioned classes directly.</p>
 		<p>Returns <code>YES</code> if playback is paused, otherwise <code>NO</code>.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL paused</code></div>
-	
+
+    
 	
 	
 	
@@ -480,9 +528,11 @@ aforementioned classes directly.</p>
 		<p>Returns <code>YES</code> if audio playback is available, otherwise <code>NO</code>.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL playbackIsAvailable</code></div>
-	
+
+    
 	
 	
 	
@@ -530,9 +580,11 @@ become available.</p>
 		<p>Returns <code>YES</code> if repeat is enabled, otherwise <code>NO</code>.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL repeatEnabled</code></div>
-	
+
+    
 	
 	
 	
@@ -580,9 +632,11 @@ the end of the last track is reached.</p>
 		<p>Attempts to enable playback with the given session.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)enablePlaybackWithSession:(SPTSession *)<em>session</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -630,9 +684,11 @@ the block&rsquo;s <code>error</code> parameter will contain information.</p></dd
 		<p>Initialises a new track player.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (id)initWithCompanyName:(NSString *)<em>companyName</em> appName:(NSString *)<em>appName</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -698,9 +754,11 @@ the block&rsquo;s <code>error</code> parameter will contain information.</p></dd
 		<p>Initialises a new track player with the given <a href="../Classes/SPTAudioStreamingController.html"><code>SPTAudioStreamingController</code></a>.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (id)initWithStreamingController:(SPTAudioStreamingController *)<em>streamingController</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -761,9 +819,11 @@ the block&rsquo;s <code>error</code> parameter will contain information.</p></dd
 		<p>Pauses playback at the current position.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)pausePlayback</code></div>
-	
+
+    
 	
 	
 	
@@ -800,9 +860,11 @@ the block&rsquo;s <code>error</code> parameter will contain information.</p></dd
 		<p>Play the given track provider.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)playTrackProvider:(id&lt;SPTTrackProvider&gt;)<em>provider</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -861,9 +923,11 @@ will be played from the beginning.</p>
 		<p>Play the given track provider from the given index.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)playTrackProvider:(id&lt;SPTTrackProvider&gt;)<em>provider</em> fromIndex:(NSInteger)<em>index</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -916,9 +980,11 @@ will be played from the given index.</p>
 		<p>Resumes playback from the currently <a href="#//api/name/paused">paused</a> position.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)resumePlayback</code></div>
-	
+
+    
 	
 	
 	
@@ -946,6 +1012,52 @@ will be played from the given index.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/seekToOffset:" title="seekToOffset:"></a>
+	<h3 class="subsubtitle method-title">seekToOffset:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Seeks playback to the given location in the current track.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)seekToOffset:(NSTimeInterval)<em>offset</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>offset</em></dt>
+			<dd><p>The offset to seek to. Must be equal or less than the length of the currently playing track.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTTrackPlayer.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/skipToNextTrack" title="skipToNextTrack"></a>
 	<h3 class="subsubtitle method-title">skipToNextTrack</h3>
 	
@@ -955,9 +1067,11 @@ will be played from the given index.</p>
 		<p>Skips playback to the next track.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)skipToNextTrack</code></div>
-	
+
+    
 	
 	
 	
@@ -989,9 +1103,11 @@ will be played from the given index.</p>
 		<p>Skips playback to the previous track.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)skipToPreviousTrack:(BOOL)<em>disallowSameTrackRestart</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -1034,6 +1150,8 @@ other media players.</p>
 					</div>
 					
 					
+                    
+                    
 				</div>
 				<div class="main-navigation navigation-bottom">
 					<ul>
@@ -1044,7 +1162,7 @@ other media players.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-03-06)</span><br />
+						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-04-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
 						

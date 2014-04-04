@@ -60,8 +60,18 @@
  */
 -(void)clearAudioBuffers;
 
+/**
+ Attempts to deliver the passed audio frames passed to the audio output pipeline.
+ 
+ @param audioFrames A buffer containing the audio frames. 
+ @param frameCount The number of frames included in the buffer.
+ @param audioDescription A description of the audio contained in `audioFrames`.
+ @return Returns the number of frames actually delievered to the audio pipeline. If this is less than `frameCount`, 
+  you need to retry delivery again later as the internal buffers are full.
+ */
 -(NSInteger)attemptToDeliverAudioFrames:(const void *)audioFrames ofCount:(NSInteger)frameCount streamDescription:(AudioStreamBasicDescription)audioDescription;
 
+/** Returns the number of bytes in the audio buffer. */
 -(uint32_t)bytesInAudioBuffer;
 
 ///----------------------------

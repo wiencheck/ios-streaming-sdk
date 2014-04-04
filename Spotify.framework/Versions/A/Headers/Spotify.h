@@ -47,6 +47,7 @@
 #import "SPTPlaylistList.h"
 #import "SPTPlaylistSnapshot.h"
 #import "SPTTrack.h"
+#import "SPTImage.h"
 
 // Audio playback
 

@@ -24,7 +24,20 @@
 #import "SPTRequest.h"
 #import "SPTTypes.h"
 
+@class SPTImage;
 @class SPTPartialArtist;
+
+/// Defines the various types albums can be in relation to a given artist.
+typedef NS_ENUM(NSUInteger, SPTAlbumType) {
+	/// Specifies that the given album is a "standard" album.
+	SPTAlbumTypeAlbum,
+	/// Specifies that the given album is a single.
+	SPTAlbumTypeSingle,
+	/// Specifies that the given album is a compilation album.
+	SPTAlbumTypeCompilation,
+	/// Specifies that the given album is an "appears on" album that the artist appears on, but didn't author.
+	SPTAlbumTypeAppearsOn
+};
 
 /** This class represents an album on the Spotify service. */
 @interface SPTAlbum : NSObject <SPTJSONObject, SPTTrackProvider>
@@ -45,19 +58,40 @@
 /** The Spotify URI of the album. */
 @property (nonatomic, readonly, copy) NSURL *uri;
 
+/** The HTTP open.spotify.com URL of the album. */
+@property (nonatomic, readonly, copy) NSURL *sharingURL;
+
 /** Any external IDs of the album, such as the UPC code. */
 @property (nonatomic, readonly, copy) NSDictionary *externalIds;
 
 /** An array of ISO 3166 country codes in which the album is available. */
 @property (nonatomic, readonly, copy) NSArray *availableTerritories;
 
-/** The artist of this album. */
-@property (nonatomic, readonly) SPTPartialArtist *artist;
+/** An array of artists for this album, as `SPTPartialArtist` objects. */
+@property (nonatomic, readonly) NSArray *artists;
 
 /** An array of tracks contained by this album, as `SPTPartialTrack` objects. */
 @property (nonatomic, readonly, copy) NSArray *tracks;
 
 /** The release year of the album if known, otherwise `0`. */
 @property (nonatomic, readonly) NSInteger releaseYear;
+
+/** Returns the album type of this album. */
+@property (nonatomic, readonly) SPTAlbumType type;
+
+/** Returns a list of genre strings for the album. */
+@property (nonatomic, readonly, copy) NSArray *genres;
+
+/** Returns a list of album covers in various sizes, as `SPTImage` objects. */
+@property (nonatomic, readonly, copy) NSArray *covers;
+
+/** Convenience method that returns the smallest available cover image. */
+@property (nonatomic, readonly) SPTImage *smallestCover;
+
+/** Convenience method that returns the largest available cover image. */
+@property (nonatomic, readonly) SPTImage *largestCover;
+
+/** The popularity of the album as a value between 0.0 (least popular) to 100.0 (most popular). */
+@property (nonatomic, readonly) double popularity;
 
 @end
