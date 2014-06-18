@@ -29,7 +29,7 @@
 			<string>com.spotify.simpletrackplayback-auth</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>spotify-ios-sdk-beta</string>
+				<string>YOUR_PROTOCOL_PREFIX_HERE</string>
 			</array>
 		</dict>
 	</array>

@@ -64,7 +64,7 @@
 	} else {
 		NSInteger index = self.trackPlayer.indexOfCurrentTrack;
 		SPTAlbum *album = (SPTAlbum *)self.trackPlayer.currentProvider;
-		self.titleLabel.text = [album.tracks[index] name];
+		self.titleLabel.text = [album.tracksForPlayback[index] name];
 		self.albumLabel.text = album.name;
 		self.artistLabel.text = ((SPTArtist *)album.artists.firstObject).name;
 		self.coverView.image = nil;
@@ -130,7 +130,7 @@
 		}
 
 		[SPTRequest requestItemAtURI:[NSURL URLWithString:@"spotify:album:4L1HDyfdGIkACuygktO7T7"]
-						 withSession:nil
+						 withSession:session
 							callback:^(NSError *error, id object) {
 
 								if (error != nil) {
@@ -142,7 +142,6 @@
 
 							}];
 	}];
-
 }
 
 #pragma mark - Track Player Delegates
@@ -163,7 +162,7 @@
 	NSLog(@"Ended playback of provider %@ with error %@", provider.uri, error);
 }
 
--(void)trackPlayer:(SPTTrackPlayer *)player didDidReceiveMessageForEndUser:(NSString *)message {
+-(void)trackPlayer:(SPTTrackPlayer *)player didReceiveMessageForEndUser:(NSString *)message {
 	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message from Spotify"
 														message:message
 													   delegate:nil

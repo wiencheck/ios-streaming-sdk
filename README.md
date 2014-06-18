@@ -28,26 +28,10 @@ file.
 **IMPORTANT:** This SDK is pre-release software and is not supported, and must
 not be shipped to end users. It *will* stop working in the future.
 
-
-OAuth/SPTAuth Credentials
-=======
-
-For the beta release, please use the following OAuth credentials:
-
-* Client ID: `spotify-ios-sdk-beta`
-* Client Callback URL: `spotify-ios-sdk-beta://callback`,
-  `spotify-ios-sdk-beta-alternate://callback` or
-  `spotify-ios-sdk-beta-alternate-2://callback`
-* Client Secret: `ba95c775e4b39b8d60b27bcfced57ba473c10046`
-
-These credentials will be invalidated when the beta period is over. At this
-point, you'll be able to request your own personal credentials for future use.
-
-
 Getting Started
 =======
 
-Getting the Spotify iOS SDK into your applcation is easy:
+Getting the Spotify iOS SDK into your application is easy:
 
 1. Add the `Spotify.framework` library to your Xcode project.
 2. Add the `-ObjC` flag to your project's `Other Linker Flags` build setting.
@@ -61,12 +45,13 @@ Dash. This, along with the included demo projects, should give you everything
 you need to get going. The classes that'll get you started are:
 
 * `SPTAuth` contains methods of authenticating users. See the "Basic Auth" demo
-  project for a working example of this.
+  project for a working example of this. Be sure to to read the "Authentication and
+  Scopes" and "Session Lifetime" sections below, as authentication is quite involved.
 
-  **Note:** To perform audio playback, you must request the `login` scope when
-  using `SPTAuth`. To do so, pass an array containing the string `@"login"` to
+  **Note:** To perform audio playback, you must request the `SPTAuthStreamingScope`
+  scope when using `SPTAuth`. To do so, pass an array containing the constant to
   `-loginURLForClientId:declaredRedirectURL:scopes:`. The supplied demo
-  projects already do this.
+  projects already do this if needed.
 
 * `SPTRequest` contains methods for searching, getting playlists and doing
   metadata lookup. Most metadata classes (`SPTTrack`, `SPTArtist`, `SPTAlbum` and
@@ -76,6 +61,88 @@ you need to get going. The classes that'll get you started are:
   and `SPTPlaylist`) with basic playback controls. `SPTAudioStreamingController`
   gives you more direct access to audio streaming if you need it.
 
+Authenticating and Scopes
+=======
+
+You can generate your application's Client ID, Client Secret and define your
+callback URIs at the [My Applications](https://developer.spotify.com/my-applications/)
+section of the Spotify Developer Website. The temporary keys given out for previous
+SDK Releases will not work with Beta 3 and newer.
+
+When connecting a user to your app, you *must* provide the scopes your application
+needs to operate. A scope is a permission to access a certain part of a user's account,
+and if you don't ask for the scopes you need you will receive permission denied errors
+when trying to perform various tasks.
+
+You do *not* need a scope to access non-user specific information, such as to perform
+searches, look up metadata, etc.
+
+Common scopes include:
+
+* `SPTAuthStreamingScope` allows music streaming for Premium users.
+
+* `SPTAuthUserReadPrivateScope` allows access to a user's private information, such
+  as full display name, user photo, etc.
+
+* `SPTAuthPlaylistReadScope` and `SPTAuthPlaylistReadPrivateScope` allows access to
+  a user's public and private playlists, respectively.
+
+* `SPTAuthPlaylistModifyScope` and `SPTAuthPlaylistModifyPrivateScope` allows
+  modification of a user's public and private playlists, respectively.
+
+A full list of scopes is available in the documentation and in `SPTAuth.h`.
+
+If your application's scope needs change after a user is connected to your app, you
+will need to throw out your stored credentials and re-authenticate the user with the
+new scopes.
+
+**Important:** Only ask for the scopes your application needs. Requesting playlist
+access when your app doesn't use playlists, for example, is bad form.
+
+Session Lifetime
+=======
+
+Once your user is authenticated, you will receive an `SPTSession` object that allows
+you to perform authenticated requests. This session is only valid for a certain
+period of time, and must be refreshed.
+
+You can find out if the session is still valid by calling the `-isValid` method on
+`SPTSession`, and the expiration date using the `expirationDate` property. Once
+the session is no longer valid, you can renew it using `SPTAuth`'s
+`-renewSession:withServiceEndpointAtURL:callback:` method.
+
+As an example, when your application is launched you'll want to restore your stored
+session then check if it's valid and renew it if necessary. Your code flow would go
+something like this:
+
+```
+SPTSession *session = …; // Restore session
+
+if (session == nil) {
+    // No session at all - use SPTAuth to ask the user
+    // for access to their account.
+    [self presentFirstTimeLoginToUser];
+
+} else if ([session isValid]) {
+    // Our session is valid - go straight to music playback.
+    [self playMusicWithSession:session];
+
+} else {
+    // Session expired - we need to refresh it before continuing.
+    // This process doesn't involve user interaction unless it fails.
+    NSURL *refreshServiceEndpoint = …;
+    [[SPTAuth defaultInstance] renewSession:session
+                   withServiceEndpointAtURL:refreshServiceEndpoint
+                                   callback:^(NSError *error, SPTSession *session)
+        {
+            if (error == nil) {
+                [self playMusicWithSession:session];
+            } else {
+                [self handleError:error];
+            }
+        }];
+}
+```
 
 Migrating from CocoaLibSpotify
 =======
