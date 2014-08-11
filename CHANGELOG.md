@@ -1,3 +1,65 @@
+Spotify iOS SDK Beta 4
+======================
+
+**What's New**
+
+* Added support for the "Implicit Grant" authentication flow. This flow doesn't
+  require a Token Swap Service, but sessions only last an hour and you'll have
+  to re-authenticate the user via Safari.
+
+* Audio is now cached to storage during playback, improving the playback
+  experience significantly. See the new `SPTAudioStreamingController` APIs
+  for controlling the cache
+  ([Issue #68](https://github.com/spotify/ios-sdk/issues/68)).
+
+* Added support for the "Your Music" feature with the following APIs on
+  `SPTRequest`:
+  * `+savedTracksForUserInSession:callback:` to get a user's saved tracks.
+  * `+saveTracks:forUserInSession:callback:` to save new tracks.
+  * `+removeTracksFromSaved:forUserInSession:callback` to un-save tracks.
+  * `+savedTracksContains:forUserInSession:callback` to check if track(s) are
+    saved without downloading the whole list.
+
+  ([Issue #5](https://github.com/spotify/ios-sdk/issues/5)).
+
+* Added `[SPTArtist -requestRelatedArtists:callback:]` to request an artist's
+  related artists.
+
+* Added `[SPTPlaylistSnapshot -setTracksInPlaylist:withSession:callback:]`
+
+* Added `[SPTPlaylistSnapshot -changePlaylistDetails:withSession:callback:]`
+  ([Issue #67](https://github.com/spotify/ios-sdk/issues/67)).
+
+
+**Bugs Fixed**
+
+* Bitrate constants are documented correctly
+  ([Issue #86](https://github.com/spotify/ios-sdk/issues/86)).
+
+* Playback error codes are documented correctly
+  ([Issue #91](https://github.com/spotify/ios-sdk/issues/91)).
+
+* Creating playlists now works correctly
+  ([Issue #90](https://github.com/spotify/ios-sdk/issues/90)).
+
+* `SPTListPage` objects returned from search requests now return correct results
+  when calling `-requestNextPageWithSession:callback:`
+  ([Issue #87](https://github.com/spotify/ios-sdk/issues/87)).
+
+* `[SPTAudioStreamingController -seekToOffset:callback:]` now works correctly when
+  called within the `-playURI:` callback block
+  ([Issue #70](https://github.com/spotify/ios-sdk/issues/70)).
+
+* The library now works in the 64-bit iOS Simulator
+  ([Issue #11](https://github.com/spotify/ios-sdk/issues/11)).
+
+* The `[SPTAudioStreamingController -currentTrackMetadata]` property now
+  correctly returns metadata
+  ([Issue #101](https://github.com/spotify/ios-sdk/issues/101)).
+
+* Scopes are now working properly
+  ([Issue #99](https://github.com/spotify/ios-sdk/issues/99)).
+
 Spotify iOS SDK Beta 3
 ======================
 

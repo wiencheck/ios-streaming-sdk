@@ -4,7 +4,6 @@
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
 		<title>SPTAuth Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
-		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
 		<meta name="generator" content="appledoc 2.2 (build 963)" />
@@ -51,11 +50,15 @@
 	
 	<option value="//api/name/canHandleURL:withDeclaredRedirectURL:">&nbsp;&nbsp;&nbsp;&nbsp;- canHandleURL:withDeclaredRedirectURL:</option>
 	
+	<option value="//api/name/handleAuthCallbackWithTriggeredAuthURL:callback:">&nbsp;&nbsp;&nbsp;&nbsp;- handleAuthCallbackWithTriggeredAuthURL:callback:</option>
+	
 	<option value="//api/name/handleAuthCallbackWithTriggeredAuthURL:tokenSwapServiceEndpointAtURL:callback:">&nbsp;&nbsp;&nbsp;&nbsp;- handleAuthCallbackWithTriggeredAuthURL:tokenSwapServiceEndpointAtURL:callback:</option>
 	
 	<option value="//api/name/loginURLForClientId:declaredRedirectURL:">&nbsp;&nbsp;&nbsp;&nbsp;- loginURLForClientId:declaredRedirectURL:</option>
 	
 	<option value="//api/name/loginURLForClientId:declaredRedirectURL:scopes:">&nbsp;&nbsp;&nbsp;&nbsp;- loginURLForClientId:declaredRedirectURL:scopes:</option>
+	
+	<option value="//api/name/loginURLForClientId:declaredRedirectURL:scopes:withResponseType:">&nbsp;&nbsp;&nbsp;&nbsp;- loginURLForClientId:declaredRedirectURL:scopes:withResponseType:</option>
 	
 	<option value="//api/name/renewSession:withServiceEndpointAtURL:callback:">&nbsp;&nbsp;&nbsp;&nbsp;- renewSession:withServiceEndpointAtURL:callback:</option>
 	
@@ -107,11 +110,15 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/canHandleURL:withDeclaredRedirectURL:">canHandleURL:withDeclaredRedirectURL:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/handleAuthCallbackWithTriggeredAuthURL:callback:">handleAuthCallbackWithTriggeredAuthURL:callback:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/handleAuthCallbackWithTriggeredAuthURL:tokenSwapServiceEndpointAtURL:callback:">handleAuthCallbackWithTriggeredAuthURL:tokenSwapServiceEndpointAtURL:callback:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loginURLForClientId:declaredRedirectURL:">loginURLForClientId:declaredRedirectURL:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loginURLForClientId:declaredRedirectURL:scopes:">loginURLForClientId:declaredRedirectURL:scopes:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loginURLForClientId:declaredRedirectURL:scopes:withResponseType:">loginURLForClientId:declaredRedirectURL:scopes:withResponseType:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renewSession:withServiceEndpointAtURL:callback:">renewSession:withServiceEndpointAtURL:callback:</a></span></li>
 	
@@ -150,8 +157,8 @@
 </tr>
 						</tbody></table></div>
 					
-					
-					
+                    
+                    
 					
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
@@ -176,7 +183,6 @@ authentication service.</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/defaultInstance">+&nbsp;defaultInstance</a></code>
-		<span class="tooltip"><p>Returns a pre-created <code>SPTAuth</code> instance for convenience.</p></span>
 	</span>
 	
 	
@@ -191,14 +197,18 @@ authentication service.</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/loginURLForClientId:declaredRedirectURL:">&ndash;&nbsp;loginURLForClientId:declaredRedirectURL:</a></code>
-		<span class="tooltip"><p>Returns a URL that, when opened, will begin the Spotify authentication process.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/loginURLForClientId:declaredRedirectURL:scopes:">&ndash;&nbsp;loginURLForClientId:declaredRedirectURL:scopes:</a></code>
-		<span class="tooltip"><p>Returns a URL that, when opened, will begin the Spotify authentication process.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/loginURLForClientId:declaredRedirectURL:scopes:withResponseType:">&ndash;&nbsp;loginURLForClientId:declaredRedirectURL:scopes:withResponseType:</a></code>
 	</span>
 	
 	
@@ -213,28 +223,30 @@ authentication service.</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/canHandleURL:withDeclaredRedirectURL:">&ndash;&nbsp;canHandleURL:withDeclaredRedirectURL:</a></code>
-		<span class="tooltip"><p>Find out if the given URL appears to be a Spotify authentication URL.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/supportsApplicationAuthentication">&ndash;&nbsp;supportsApplicationAuthentication</a></code>
-		<span class="tooltip"><p>Check if &ldquo;flip-flop&rdquo; application authentication is supported.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/spotifyApplicationIsInstalled">&ndash;&nbsp;spotifyApplicationIsInstalled</a></code>
-		<span class="tooltip"><p>Check if Spotify application is installed.</p></span>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/handleAuthCallbackWithTriggeredAuthURL:callback:">&ndash;&nbsp;handleAuthCallbackWithTriggeredAuthURL:callback:</a></code>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/handleAuthCallbackWithTriggeredAuthURL:tokenSwapServiceEndpointAtURL:callback:">&ndash;&nbsp;handleAuthCallbackWithTriggeredAuthURL:tokenSwapServiceEndpointAtURL:callback:</a></code>
-		<span class="tooltip"><p>Handle a Spotify authentication callback URL, returning a Spotify username and OAuth credential.</p></span>
 	</span>
 	
 	
@@ -249,7 +261,6 @@ authentication service.</p>
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/renewSession:withServiceEndpointAtURL:callback:">&ndash;&nbsp;renewSession:withServiceEndpointAtURL:callback:</a></code>
-		<span class="tooltip"><p>Request a new access token using an existing <a href="../Classes/SPTSession.html">SPTSession</a> object containing a refresh token.</p></span>
 	</span>
 	
 	
@@ -278,9 +289,11 @@ authentication service.</p>
 		<p>Returns a pre-created <code>SPTAuth</code> instance for convenience.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>+ (SPTAuth *)defaultInstance</code></div>
-	
+
+    
 	
 	
 	
@@ -325,9 +338,11 @@ authentication service.</p>
 		<p>Find out if the given URL appears to be a Spotify authentication URL.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (BOOL)canHandleURL:(NSURL *)<em>callbackURL</em> withDeclaredRedirectURL:(NSURL *)<em>declaredURL</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -376,6 +391,64 @@ you receive through here to filter them.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/handleAuthCallbackWithTriggeredAuthURL:callback:" title="handleAuthCallbackWithTriggeredAuthURL:callback:"></a>
+	<h3 class="subsubtitle method-title">handleAuthCallbackWithTriggeredAuthURL:callback:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Handle a Spotify authentication callback URL, returning a Spotify username and OAuth credential.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)handleAuthCallbackWithTriggeredAuthURL:(NSURL *)<em>url</em> callback:(SPTAuthCallback)<em>block</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>url</em></dt>
+			<dd><p>The complete callback URL as triggered in your application.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>block</em></dt>
+			<dd><p>The callback block to be triggered when authentication succeeds or fails.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This URL is obtained when your application delegate&rsquo;s <code>application:openURL:sourceApplication:annotation:</code>
+method is triggered. Use <a href="#//api/name/canHandleURL:withDeclaredRedirectURL:"><code>[SPTAuth canHandleURL:withDeclaredRedirectURL:]</code></a> to easily filter out other URLs that may be
+triggered.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTAuth.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/handleAuthCallbackWithTriggeredAuthURL:tokenSwapServiceEndpointAtURL:callback:" title="handleAuthCallbackWithTriggeredAuthURL:tokenSwapServiceEndpointAtURL:callback:"></a>
 	<h3 class="subsubtitle method-title">handleAuthCallbackWithTriggeredAuthURL:tokenSwapServiceEndpointAtURL:callback:</h3>
 	
@@ -385,9 +458,11 @@ you receive through here to filter them.</p>
 		<p>Handle a Spotify authentication callback URL, returning a Spotify username and OAuth credential.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)handleAuthCallbackWithTriggeredAuthURL:(NSURL *)<em>url</em> tokenSwapServiceEndpointAtURL:(NSURL *)<em>tokenSwapURL</em> callback:(SPTAuthCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -446,9 +521,11 @@ triggered.</p><div class="note"><p><strong>Note:</strong> This method requires t
 		<p>Returns a URL that, when opened, will begin the Spotify authentication process.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (NSURL *)loginURLForClientId:(NSString *)<em>clientId</em> declaredRedirectURL:(NSURL *)<em>declaredURL</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -506,9 +583,11 @@ happen in Safari. Displaying this inside your application is against the Spotify
 		<p>Returns a URL that, when opened, will begin the Spotify authentication process.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (NSURL *)loginURLForClientId:(NSString *)<em>clientId</em> declaredRedirectURL:(NSURL *)<em>declaredURL</em> scopes:(NSArray *)<em>scopes</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -562,6 +641,78 @@ happen in Safari. Displaying this inside your application is against the Spotify
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/loginURLForClientId:declaredRedirectURL:scopes:withResponseType:" title="loginURLForClientId:declaredRedirectURL:scopes:withResponseType:"></a>
+	<h3 class="subsubtitle method-title">loginURLForClientId:declaredRedirectURL:scopes:withResponseType:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a URL that, when opened, will begin the Spotify authentication process.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSURL *)loginURLForClientId:(NSString *)<em>clientId</em> declaredRedirectURL:(NSURL *)<em>declaredURL</em> scopes:(NSArray *)<em>scopes</em> withResponseType:(NSString *)<em>responseType</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>clientId</em></dt>
+			<dd><p>Your client ID as declared in the Spotify Developer Centre.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>declaredURL</em></dt>
+			<dd><p>Your callback URL as declared in the Spotify Developer Centre.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>scopes</em></dt>
+			<dd><p>The custom scopes to request from the auth API.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>responseType</em></dt>
+			<dd><p>Authentication response code type, defaults to &ldquo;code&rdquo;, use &ldquo;token&rdquo; if you want to bounce directly to the app without refresh tokens.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The URL to pass to <code>UIApplication</code>&rsquo;s <code>-openURL:</code> method.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="warning"><p><strong>Warning:</strong> You must open this URL with the system handler to have the auth process
+happen in Safari. Displaying this inside your application is against the Spotify ToS.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTAuth.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/renewSession:withServiceEndpointAtURL:callback:" title="renewSession:withServiceEndpointAtURL:callback:"></a>
 	<h3 class="subsubtitle method-title">renewSession:withServiceEndpointAtURL:callback:</h3>
 	
@@ -571,9 +722,11 @@ happen in Safari. Displaying this inside your application is against the Spotify
 		<p>Request a new access token using an existing <a href="../Classes/SPTSession.html">SPTSession</a> object containing a refresh token.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)renewSession:(SPTSession *)<em>session</em> withServiceEndpointAtURL:(NSURL *)<em>endpointURL</em> callback:(SPTAuthCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -625,9 +778,11 @@ happen in Safari. Displaying this inside your application is against the Spotify
 		<p>Check if Spotify application is installed.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (BOOL)spotifyApplicationIsInstalled</code></div>
-	
+
+    
 	
 	
 	
@@ -664,9 +819,11 @@ happen in Safari. Displaying this inside your application is against the Spotify
 		<p>Check if &ldquo;flip-flop&rdquo; application authentication is supported.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (BOOL)supportsApplicationAuthentication</code></div>
-	
+
+    
 	
 	
 	
@@ -696,6 +853,8 @@ happen in Safari. Displaying this inside your application is against the Spotify
 					</div>
 					
 					
+                    
+                    
 				</div>
 				<div class="main-navigation navigation-bottom">
 					<ul>
@@ -706,7 +865,7 @@ happen in Safari. Displaying this inside your application is against the Spotify
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-06-18)</span><br />
+						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-08-11)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

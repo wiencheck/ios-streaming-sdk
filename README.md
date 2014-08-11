@@ -9,7 +9,7 @@ Welcome to Spotify iOS SDK! This ReadMe is for people who wish to develop iOS
 applications containing Spotify-related functionality, such as audio streaming,
 playlist manipulation, searching and more.
 
-Usage of this SDK is bound under the [Libspotify Terms of Use](https://developer.spotify.com/technologies/libspotify/terms-of-use-us/).
+Usage of this SDK is bound under the [Developer Terms of Use](https://developer.spotify.com/developer-terms-of-use/).
 
 
 Beta Release Information
@@ -115,7 +115,7 @@ As an example, when your application is launched you'll want to restore your sto
 session then check if it's valid and renew it if necessary. Your code flow would go
 something like this:
 
-```
+```objc
 SPTSession *session = …; // Restore session
 
 if (session == nil) {

@@ -23,6 +23,8 @@
 	<string>3.0</string>
 	<key>DocSetPlatformFamily</key>
 	<string>spotify</string>
+	<key>DashDocSetFamily</key>
+	<string>appledoc</string>
 	<key>DocSetPublisherIdentifier</key>
 	<string>com.spotify.documentation</string>
 	<key>DocSetPublisherName</key>

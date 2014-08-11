@@ -4,7 +4,6 @@
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
 		<title>SPTPlaybackEndReason Constants Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
-		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
 		<meta name="generator" content="appledoc 2.2 (build 963)" />
@@ -67,12 +66,148 @@
 </tr>
 						</tbody></table></div>
 					
+                    
+                    
 					
 					
 					
 					
+                    
+                    
+                    <h3 class="subsubtitle method-title">SPTPlaybackEndReason</h3>
+                    
+					
+					<div class="section section-overview">
+                        <p>Defines reasons for playback ending that aren&rsquo;t considered errors.</p>
+					</div>
 					
 					
+                    <div class="section">
+                        <!-- display enum values -->
+                        
+                        <h4 class="method-subtitle">Definition</h4>
+                        <code>typedef NS_ENUM(NSUInteger, SPTPlaybackEndReason ) {<br/>
+                            
+                            &nbsp;&nbsp; <a href="">SPTPlaybackEndReasonUnknown</a> = 0,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">SPTPlaybackEndReasonStartedNewProvider</a>,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">SPTPlaybackEndReasonEndOfTracks</a>,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">SPTPlaybackEndReasonNoPlayableTracks</a>,<br/>
+                            
+                            &nbsp;&nbsp; <a href="">SPTPlaybackEndReasonLoggedOut</a>,<br/>
+                            
+                            };</code>
+                    
+                    </div>
+                    
+                    <div class="section section-methods">
+                        <h4 class="method-subtitle">Constants</h4>
+                        <dl class="termdef">
+                            
+                            <dt><a name="" title="SPTPlaybackEndReasonUnknown"></a><code>SPTPlaybackEndReasonUnknown</code></dt>
+<dd>
+
+
+<p>Playback ended for an unknown reason.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTTrackPlayer.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPTPlaybackEndReasonStartedNewProvider"></a><code>SPTPlaybackEndReasonStartedNewProvider</code></dt>
+<dd>
+
+
+<p>Playback ended because a new provider started playing.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTTrackPlayer.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPTPlaybackEndReasonEndOfTracks"></a><code>SPTPlaybackEndReasonEndOfTracks</code></dt>
+<dd>
+
+
+<p>Playback ended because the player reached the end of the track list and repeat is not enabled.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTTrackPlayer.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPTPlaybackEndReasonNoPlayableTracks"></a><code>SPTPlaybackEndReasonNoPlayableTracks</code></dt>
+<dd>
+
+
+<p>Playback ended because the provider does not contain any playable tracks.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTTrackPlayer.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPTPlaybackEndReasonLoggedOut"></a><code>SPTPlaybackEndReasonLoggedOut</code></dt>
+<dd>
+
+
+<p>Playback ended because the playback session logged out.</p>
+
+    
+
+    
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTTrackPlayer.h</code>.
+	</p>
+	
+</dd>
+                            
+                        </dl>
+                    </div>
+                    
+                    
+                    
+                    
+
+                    
+                    
+                    
+                    <div class="method-subsection declared-in-section">
+                        <h4 class="method-subtitle">Declared In</h4>
+                        <code class="declared-in-ref">SPTTrackPlayer.h</code><br />
+                    </div>				
+                    
+                    
+                    
 				</div>
 				<div class="main-navigation navigation-bottom">
 					<ul>
@@ -83,7 +218,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-06-18)</span><br />
+						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-08-11)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

@@ -4,7 +4,6 @@
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
 		<title>SPTTrackPlayerDelegate Protocol Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
-		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
 		<meta name="generator" content="appledoc 2.2 (build 963)" />
@@ -123,8 +122,8 @@
 </tr>
 						</tbody></table></div>
 					
-					
-					
+                    
+                    
 					
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
@@ -148,35 +147,30 @@
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/trackPlayer:didStartPlaybackOfTrackAtIndex:ofProvider:">&ndash;&nbsp;trackPlayer:didStartPlaybackOfTrackAtIndex:ofProvider:</a></code>
-		<span class="tooltip"><p>Called when a new track started playing.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/trackPlayer:didEndPlaybackOfTrackAtIndex:ofProvider:">&ndash;&nbsp;trackPlayer:didEndPlaybackOfTrackAtIndex:ofProvider:</a></code>
-		<span class="tooltip"><p>Called when a track finished playing.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/trackPlayer:didEndPlaybackOfProvider:withReason:">&ndash;&nbsp;trackPlayer:didEndPlaybackOfProvider:withReason:</a></code>
-		<span class="tooltip"><p>Called when a provider finished playing with a reason that is not considered an error.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/trackPlayer:didEndPlaybackOfProvider:withError:">&ndash;&nbsp;trackPlayer:didEndPlaybackOfProvider:withError:</a></code>
-		<span class="tooltip"><p>Called when a provider finished playing with an error.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/trackPlayer:didReceiveMessageForEndUser:">&ndash;&nbsp;trackPlayer:didReceiveMessageForEndUser:</a></code>
-		<span class="tooltip"><p>Called when the track player recieved a message for the end user from the Spotify service.</p></span>
 	</span>
 	
 	
@@ -207,9 +201,11 @@
 		<p>Called when a provider finished playing with an error.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)trackPlayer:(SPTTrackPlayer *)<em>player</em> didEndPlaybackOfProvider:(id&lt;SPTTrackProvider&gt;)<em>provider</em> withError:(NSError *)<em>error</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -266,9 +262,11 @@
 		<p>Called when a provider finished playing with a reason that is not considered an error.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)trackPlayer:(SPTTrackPlayer *)<em>player</em> didEndPlaybackOfProvider:(id&lt;SPTTrackProvider&gt;)<em>provider</em> withReason:(SPTPlaybackEndReason)<em>reason</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -325,9 +323,11 @@
 		<p>Called when a track finished playing.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)trackPlayer:(SPTTrackPlayer *)<em>player</em> didEndPlaybackOfTrackAtIndex:(NSInteger)<em>index</em> ofProvider:(id&lt;SPTTrackProvider&gt;)<em>provider</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -379,9 +379,11 @@
 		<p>Called when the track player recieved a message for the end user from the Spotify service.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)trackPlayer:(SPTTrackPlayer *)<em>player</em> didReceiveMessageForEndUser:(NSString *)<em>message</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -433,9 +435,11 @@
 		<p>Called when a new track started playing.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)trackPlayer:(SPTTrackPlayer *)<em>player</em> didStartPlaybackOfTrackAtIndex:(NSInteger)<em>index</em> ofProvider:(id&lt;SPTTrackProvider&gt;)<em>provider</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -480,6 +484,8 @@
 					</div>
 					
 					
+                    
+                    
 				</div>
 				<div class="main-navigation navigation-bottom">
 					<ul>
@@ -490,7 +496,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-06-18)</span><br />
+						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-08-11)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

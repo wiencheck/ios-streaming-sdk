@@ -117,8 +117,7 @@
 
 	if (self.trackPlayer == nil) {
 
-		self.trackPlayer = [[SPTTrackPlayer alloc] initWithCompanyName:@"Spotify"
-															   appName:@"SimplePlayer"];
+		self.trackPlayer = [[SPTTrackPlayer alloc] init];
 		self.trackPlayer.delegate = self;
 	}
 

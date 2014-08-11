@@ -4,7 +4,6 @@
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
 		<title>SPTAudioStreamingPlaybackDelegate Protocol Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
-		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
 		<meta name="generator" content="appledoc 2.2 (build 963)" />
@@ -147,8 +146,8 @@
 </tr>
 						</tbody></table></div>
 					
-					
-					
+                    
+                    
 					
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
@@ -172,77 +171,66 @@
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/audioStreaming:didChangePlaybackStatus:">&ndash;&nbsp;audioStreaming:didChangePlaybackStatus:</a></code>
-		<span class="tooltip"><p>Called when playback status changes.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/audioStreaming:didSeekToOffset:">&ndash;&nbsp;audioStreaming:didSeekToOffset:</a></code>
-		<span class="tooltip"><p>Called when playback is seeked &ldquo;unaturally&rdquo; to a new location.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/audioStreaming:didChangeVolume:">&ndash;&nbsp;audioStreaming:didChangeVolume:</a></code>
-		<span class="tooltip"><p>Called when playback volume changes.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/audioStreaming:didChangeShuffleStatus:">&ndash;&nbsp;audioStreaming:didChangeShuffleStatus:</a></code>
-		<span class="tooltip"><p>Called when shuffle status changes.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/audioStreaming:didChangeRepeatStatus:">&ndash;&nbsp;audioStreaming:didChangeRepeatStatus:</a></code>
-		<span class="tooltip"><p>Called when repeat status changes.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/audioStreaming:didChangeToTrack:">&ndash;&nbsp;audioStreaming:didChangeToTrack:</a></code>
-		<span class="tooltip"><p>Called when playback moves to a new track.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/audioStreamingDidSkipToNextTrack:">&ndash;&nbsp;audioStreamingDidSkipToNextTrack:</a></code>
-		<span class="tooltip"><p>Called when the audio streaming object requests playback skips to the next track.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/audioStreamingDidSkipToPreviousTrack:">&ndash;&nbsp;audioStreamingDidSkipToPreviousTrack:</a></code>
-		<span class="tooltip"><p>Called when the audio streaming object requests playback skips to the previous track.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/audioStreamingDidBecomeActivePlaybackDevice:">&ndash;&nbsp;audioStreamingDidBecomeActivePlaybackDevice:</a></code>
-		<span class="tooltip"><p>Called when the audio streaming object becomes the active playback device on the user&rsquo;s account.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/audioStreamingDidBecomeInactivePlaybackDevice:">&ndash;&nbsp;audioStreamingDidBecomeInactivePlaybackDevice:</a></code>
-		<span class="tooltip"><p>Called when the audio streaming object becomes an inactive playback device on the user&rsquo;s account.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/audioStreamingDidLosePermissionForPlayback:">&ndash;&nbsp;audioStreamingDidLosePermissionForPlayback:</a></code>
-		<span class="tooltip"><p>Called when the streaming controller lost permission to play audio.</p></span>
 	</span>
 	
 	
@@ -273,9 +261,11 @@
 		<p>Called when playback status changes.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didChangePlaybackStatus:(BOOL)<em>isPlaying</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -322,9 +312,11 @@
 		<p>Called when repeat status changes.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didChangeRepeatStatus:(BOOL)<em>isRepeated</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -371,9 +363,11 @@
 		<p>Called when shuffle status changes.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didChangeShuffleStatus:(BOOL)<em>isShuffled</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -420,9 +414,11 @@
 		<p>Called when playback moves to a new track.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didChangeToTrack:(NSDictionary *)<em>trackMetadata</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -469,9 +465,11 @@
 		<p>Called when playback volume changes.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didChangeVolume:(SPTVolume)<em>volume</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -518,9 +516,11 @@
 		<p>Called when playback is seeked &ldquo;unaturally&rdquo; to a new location.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didSeekToOffset:(NSTimeInterval)<em>offset</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -567,9 +567,11 @@
 		<p>Called when the audio streaming object becomes the active playback device on the user&rsquo;s account.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidBecomeActivePlaybackDevice:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -611,9 +613,11 @@
 		<p>Called when the audio streaming object becomes an inactive playback device on the user&rsquo;s account.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidBecomeInactivePlaybackDevice:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -655,9 +659,11 @@
 		<p>Called when the streaming controller lost permission to play audio.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidLosePermissionForPlayback:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -704,9 +710,11 @@
 		<p>Called when the audio streaming object requests playback skips to the next track.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidSkipToNextTrack:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -748,9 +756,11 @@
 		<p>Called when the audio streaming object requests playback skips to the previous track.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidSkipToPreviousTrack:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -785,6 +795,8 @@
 					</div>
 					
 					
+                    
+                    
 				</div>
 				<div class="main-navigation navigation-bottom">
 					<ul>
@@ -795,7 +807,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-06-18)</span><br />
+						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-08-11)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

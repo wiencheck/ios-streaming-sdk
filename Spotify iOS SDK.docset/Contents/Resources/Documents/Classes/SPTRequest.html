@@ -4,7 +4,6 @@
 		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
 		<title>SPTRequest Class Reference</title>
 		<meta id="xcode-display" name="xcode-display" content="render"/>
-		<meta name="viewport" content="width=550" />
 		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
 		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
 		<meta name="generator" content="appledoc 2.2 (build 963)" />
@@ -48,9 +47,17 @@
 	
 	<option value="//api/name/playlistsForUserInSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ playlistsForUserInSession:callback:</option>
 	
+	<option value="//api/name/removeTracksFromSaved:forUserInSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ removeTracksFromSaved:forUserInSession:callback:</option>
+	
 	<option value="//api/name/requestItemAtURI:withSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ requestItemAtURI:withSession:callback:</option>
 	
 	<option value="//api/name/requestItemFromPartialObject:withSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ requestItemFromPartialObject:withSession:callback:</option>
+	
+	<option value="//api/name/saveTracks:forUserInSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ saveTracks:forUserInSession:callback:</option>
+	
+	<option value="//api/name/savedTracksContains:forUserInSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ savedTracksContains:forUserInSession:callback:</option>
+	
+	<option value="//api/name/savedTracksForUserInSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ savedTracksForUserInSession:callback:</option>
 	
 	<option value="//api/name/starredListForUserInSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ starredListForUserInSession:callback:</option>
 	
@@ -82,6 +89,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Search">Search</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Your Music Library">Your Music Library</a></span></li>
+	
 </ul></li>
 
 
@@ -98,9 +107,17 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playlistsForUserInSession:callback:">playlistsForUserInSession:callback:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeTracksFromSaved:forUserInSession:callback:">removeTracksFromSaved:forUserInSession:callback:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestItemAtURI:withSession:callback:">requestItemAtURI:withSession:callback:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestItemFromPartialObject:withSession:callback:">requestItemFromPartialObject:withSession:callback:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/saveTracks:forUserInSession:callback:">saveTracks:forUserInSession:callback:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/savedTracksContains:forUserInSession:callback:">savedTracksContains:forUserInSession:callback:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/savedTracksForUserInSession:callback:">savedTracksForUserInSession:callback:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/starredListForUserInSession:callback:">starredListForUserInSession:callback:</a></span></li>
 	
@@ -139,8 +156,8 @@
 </tr>
 						</tbody></table></div>
 					
-					
-					
+                    
+                    
 					
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
@@ -164,14 +181,12 @@
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/requestItemAtURI:withSession:callback:">+&nbsp;requestItemAtURI:withSession:callback:</a></code>
-		<span class="tooltip"><p>Request the item at the given Spotify URI.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/requestItemFromPartialObject:withSession:callback:">+&nbsp;requestItemFromPartialObject:withSession:callback:</a></code>
-		<span class="tooltip"><p>Convert an <a href="../Protocols/SPTPartialObject.html"><code>SPTPartialObject</code></a> into a &ldquo;full&rdquo; metadata object.</p></span>
 	</span>
 	
 	
@@ -186,14 +201,12 @@
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/playlistsForUserInSession:callback:">+&nbsp;playlistsForUserInSession:callback:</a></code>
-		<span class="tooltip"><p>Get the authenticated user&rsquo;s playlist list.</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/starredListForUserInSession:callback:">+&nbsp;starredListForUserInSession:callback:</a></code>
-		<span class="tooltip"><p>Get the authenticated user&rsquo;s starred playlist.</p></span>
 	</span>
 	
 	
@@ -208,7 +221,6 @@
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/userInformationForUserInSession:callback:">+&nbsp;userInformationForUserInSession:callback:</a></code>
-		<span class="tooltip"><p>Get the authenticated user&rsquo;s information.</p></span>
 	</span>
 	
 	
@@ -223,14 +235,44 @@
 							<li>
 	<span class="tooltip">
 		<code><a href="#//api/name/performSearchWithQuery:queryType:offset:session:callback:">+&nbsp;performSearchWithQuery:queryType:offset:session:callback:</a></code>
-		<span class="tooltip"><p>Performs a search with a given query and offset</p></span>
 	</span>
 	
 	
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/performSearchWithQuery:queryType:session:callback:">+&nbsp;performSearchWithQuery:queryType:session:callback:</a></code>
-		<span class="tooltip"><p>Performs a search with a given query.</p></span>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Your Music Library" name="task_Your Music Library"></a>
+						<h3 class="subsubtitle task-title">Your Music Library</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/savedTracksForUserInSession:callback:">+&nbsp;savedTracksForUserInSession:callback:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/saveTracks:forUserInSession:callback:">+&nbsp;saveTracks:forUserInSession:callback:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/savedTracksContains:forUserInSession:callback:">+&nbsp;savedTracksContains:forUserInSession:callback:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeTracksFromSaved:forUserInSession:callback:">+&nbsp;removeTracksFromSaved:forUserInSession:callback:</a></code>
 	</span>
 	
 	
@@ -259,9 +301,11 @@
 		<p>Performs a search with a given query and offset</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> offset:(NSInteger)<em>offset</em> session:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -323,9 +367,11 @@
 		<p>Performs a search with a given query.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> session:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -382,9 +428,11 @@
 		<p>Get the authenticated user&rsquo;s playlist list.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>+ (void)playlistsForUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -423,6 +471,63 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/removeTracksFromSaved:forUserInSession:callback:" title="removeTracksFromSaved:forUserInSession:callback:"></a>
+	<h3 class="subsubtitle method-title">removeTracksFromSaved:forUserInSession:callback:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Removes a set of tracks from the authenticated user&rsquo;s Your Music Library.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)removeTracksFromSaved:(NSArray *)<em>tracks</em> forUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tracks</em></dt>
+			<dd><p>An array of <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a> or <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> objects.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>session</em></dt>
+			<dd><p>An authenticated session. Must be valid and authenticated with the
+<code>SPTAuthUserLibraryModify</code> scope.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>block</em></dt>
+			<dd><p>The block to be called when the operation is complete.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTRequest.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/requestItemAtURI:withSession:callback:" title="requestItemAtURI:withSession:callback:"></a>
 	<h3 class="subsubtitle method-title">requestItemAtURI:withSession:callback:</h3>
 	
@@ -432,9 +537,11 @@
 		<p>Request the item at the given Spotify URI.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>+ (void)requestItemAtURI:(NSURL *)<em>uri</em> withSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -491,9 +598,11 @@
 		<p>Convert an <a href="../Protocols/SPTPartialObject.html"><code>SPTPartialObject</code></a> into a &ldquo;full&rdquo; metadata object.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>+ (void)requestItemFromPartialObject:(id&lt;SPTPartialObject&gt;)<em>partialObject</em> withSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -536,6 +645,172 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/saveTracks:forUserInSession:callback:" title="saveTracks:forUserInSession:callback:"></a>
+	<h3 class="subsubtitle method-title">saveTracks:forUserInSession:callback:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Adds a set of tracks to the authenticated user&rsquo;s Your Music Library.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)saveTracks:(NSArray *)<em>tracks</em> forUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tracks</em></dt>
+			<dd><p>An array of <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a> or <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> objects.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>session</em></dt>
+			<dd><p>An authenticated session. Must be valid and authenticated with the
+<code>SPTAuthUserLibraryModify</code> scope.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>block</em></dt>
+			<dd><p>The block to be called when the operation is complete.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTRequest.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/savedTracksContains:forUserInSession:callback:" title="savedTracksContains:forUserInSession:callback:"></a>
+	<h3 class="subsubtitle method-title">savedTracksContains:forUserInSession:callback:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Checks whether the authenticated user&rsquo;s Your Music Library contains a set of tracks.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)savedTracksContains:(NSArray *)<em>tracks</em> forUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tracks</em></dt>
+			<dd><p>An array of <a href="../Classes/SPTTrack.html"><code>SPTTrack</code></a> or <a href="../Classes/SPTPartialTrack.html"><code>SPTPartialTrack</code></a> objects.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>session</em></dt>
+			<dd><p>An authenticated session. Must be valid and authenticated with the
+<code>SPTAuthUserLibraryRead</code> scope.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>block</em></dt>
+			<dd><p>The block to be called when the operation is complete. The block will pass an NSArray of Bool values on success, otherwise an error.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTRequest.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/savedTracksForUserInSession:callback:" title="savedTracksForUserInSession:callback:"></a>
+	<h3 class="subsubtitle method-title">savedTracksForUserInSession:callback:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Gets the authenticated user&rsquo;s Your Music Library tracks</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)savedTracksForUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>session</em></dt>
+			<dd><p>An authenticated session. Must be valid and authenticated with the
+<code>SPTAuthUserLibraryRead</code> scope.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>block</em></dt>
+			<dd><p>The block will pass an <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a> containing results on success, otherwise an error.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTRequest.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/starredListForUserInSession:callback:" title="starredListForUserInSession:callback:"></a>
 	<h3 class="subsubtitle method-title">starredListForUserInSession:callback:</h3>
 	
@@ -545,9 +820,11 @@
 		<p>Get the authenticated user&rsquo;s starred playlist.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>+ (void)starredListForUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -595,9 +872,11 @@
 		<p>Get the authenticated user&rsquo;s information.</p>
 	</div>		
 	
-	
+    
+
 	<div class="method-subsection method-declaration"><code>+ (void)userInformationForUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
-	
+
+    
 	
 	<div class="method-subsection arguments-section parameters">
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
@@ -649,6 +928,8 @@ scopes required for the information you require. See the <a href="../Classes/SPT
 					
 					
 					
+                    
+                    
 				</div>
 				<div class="main-navigation navigation-bottom">
 					<ul>
@@ -659,7 +940,7 @@ scopes required for the information you require. See the <a href="../Classes/SPT
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-06-18)</span><br />
+						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-08-11)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
