@@ -19,8 +19,9 @@ require 'sqlite3'
 #
 # $ ruby spotify_token_swap.rb
 #
-# IMPORTANT: You will get authorization failures if you
-# don't insert your own client credentials below.
+# IMPORTANT: The example credentials will work for the
+# example apps, you should use your own in your real
+# environment. as these might change at any time.
 #
 # Once the service is running, pass the public URI to
 # it (such as http://localhost:1234/swap if you run it
@@ -34,15 +35,21 @@ require 'sqlite3'
 #                                        callback:callback];
 #
 
-raise "Please enter your credentials here and remove this error to run the service"
-CLIENT_ID = ""
-CLIENT_SECRET = ""
-CLIENT_CALLBACK_URL = ""
+print "\e[31m------------------------------------------------------\e[0m\n"
+print "\e[31mYou're using example credentials, please replace these\e[0m\n"
+print "\e[31mwith your own and remove this silly warning.\e[0m\n"
+print "\e[31m------------------------------------------------------\e[0m\n"
+print "\7\7"
+sleep(2)
+CLIENT_ID = "e6695c6d22214e0f832006889566df9c"
+CLIENT_SECRET = "29eb02041ba646179a1189dccac112c7"
+CLIENT_CALLBACK_URL = "spotifyiossdkexample://"
 AUTH_HEADER = "Basic " + Base64.strict_encode64(CLIENT_ID + ":" + CLIENT_SECRET)
 SPOTIFY_ACCOUNTS_ENDPOINT = URI.parse("https://accounts.spotify.com")
-SPOTIFY_PROFILE_ENDPOINT = URI.parse("https://api.spotify.com")
+SPOTIFY_API_ENDPOINT = URI.parse("https://api.spotify.com")
 
 set :port, 1234 # The port to bind to.
+set :bind, '0.0.0.0' # IP address of the interface to listen on (all)
 
 # A DB for storing refresh tokens for user access tokens.
 db = SQLite3::Database.new("spotify_token_swap.db")
@@ -120,7 +127,7 @@ end
 
 def get_profile_data(access_token)
 
-    http = Net::HTTP.new(SPOTIFY_PROFILE_ENDPOINT.host, SPOTIFY_PROFILE_ENDPOINT.port)
+    http = Net::HTTP.new(SPOTIFY_API_ENDPOINT.host, SPOTIFY_API_ENDPOINT.port)
     http.use_ssl = true
 
     request = Net::HTTP::Get.new("/v1/me")

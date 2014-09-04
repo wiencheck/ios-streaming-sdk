@@ -29,7 +29,7 @@
 			<string>com.spotify.sso.callback</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>YOUR_PROTOCOL_PREFIX_HERE</string>
+				<string>spotifyiossdkexample</string>
 			</array>
 		</dict>
 	</array>

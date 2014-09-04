@@ -53,6 +53,8 @@
 	
 	<option value="//api/name/audioStreaming:didChangeVolume:">&nbsp;&nbsp;&nbsp;&nbsp;- audioStreaming:didChangeVolume:</option>
 	
+	<option value="//api/name/audioStreaming:didFailToPlayTrack:">&nbsp;&nbsp;&nbsp;&nbsp;- audioStreaming:didFailToPlayTrack:</option>
+	
 	<option value="//api/name/audioStreaming:didSeekToOffset:">&nbsp;&nbsp;&nbsp;&nbsp;- audioStreaming:didSeekToOffset:</option>
 	
 	<option value="//api/name/audioStreamingDidBecomeActivePlaybackDevice:">&nbsp;&nbsp;&nbsp;&nbsp;- audioStreamingDidBecomeActivePlaybackDevice:</option>
@@ -102,6 +104,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/audioStreaming:didChangeToTrack:">audioStreaming:didChangeToTrack:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/audioStreaming:didChangeVolume:">audioStreaming:didChangeVolume:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/audioStreaming:didFailToPlayTrack:">audioStreaming:didFailToPlayTrack:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/audioStreaming:didSeekToOffset:">audioStreaming:didSeekToOffset:</a></span></li>
 	
@@ -206,6 +210,12 @@
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/audioStreaming:didFailToPlayTrack:">&ndash;&nbsp;audioStreaming:didFailToPlayTrack:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/audioStreamingDidSkipToNextTrack:">&ndash;&nbsp;audioStreamingDidSkipToNextTrack:</a></code>
 	</span>
 	
@@ -263,7 +273,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didChangePlaybackStatus:(BOOL)<em>isPlaying</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(id)<em>audioStreaming</em> didChangePlaybackStatus:(id)<em>isPlaying</em></code></div>
 
     
 	
@@ -314,7 +324,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didChangeRepeatStatus:(BOOL)<em>isRepeated</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(id)<em>audioStreaming</em> didChangeRepeatStatus:(id)<em>isRepeated</em></code></div>
 
     
 	
@@ -365,7 +375,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didChangeShuffleStatus:(BOOL)<em>isShuffled</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(id)<em>audioStreaming</em> didChangeShuffleStatus:(id)<em>isShuffled</em></code></div>
 
     
 	
@@ -416,7 +426,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didChangeToTrack:(NSDictionary *)<em>trackMetadata</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(id)<em>audioStreaming</em> didChangeToTrack:(id)<em>trackMetadata</em></code></div>
 
     
 	
@@ -467,7 +477,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didChangeVolume:(SPTVolume)<em>volume</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(id)<em>audioStreaming</em> didChangeVolume:(id)<em>volume</em></code></div>
 
     
 	
@@ -507,6 +517,58 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/audioStreaming:didFailToPlayTrack:" title="audioStreaming:didFailToPlayTrack:"></a>
+	<h3 class="subsubtitle method-title">audioStreaming:didFailToPlayTrack:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when the streaming controller fails to play a track.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(id)<em>audioStreaming</em> didFailToPlayTrack:(id)<em>trackUri</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>audioStreaming</em></dt>
+			<dd><p>The object that sent the message.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This typically happens when the track is not available in the current users' region, if you&rsquo;re playing
+multiple tracks the playback will start playing the next track automatically</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTAudioStreamingController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/audioStreaming:didSeekToOffset:" title="audioStreaming:didSeekToOffset:"></a>
 	<h3 class="subsubtitle method-title">audioStreaming:didSeekToOffset:</h3>
 	
@@ -518,7 +580,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didSeekToOffset:(NSTimeInterval)<em>offset</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(id)<em>audioStreaming</em> didSeekToOffset:(id)<em>offset</em></code></div>
 
     
 	
@@ -569,7 +631,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidBecomeActivePlaybackDevice:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidBecomeActivePlaybackDevice:(id)<em>audioStreaming</em></code></div>
 
     
 	
@@ -615,7 +677,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidBecomeInactivePlaybackDevice:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidBecomeInactivePlaybackDevice:(id)<em>audioStreaming</em></code></div>
 
     
 	
@@ -661,7 +723,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidLosePermissionForPlayback:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidLosePermissionForPlayback:(id)<em>audioStreaming</em></code></div>
 
     
 	
@@ -712,7 +774,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidSkipToNextTrack:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidSkipToNextTrack:(id)<em>audioStreaming</em></code></div>
 
     
 	
@@ -758,7 +820,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidSkipToPreviousTrack:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidSkipToPreviousTrack:(id)<em>audioStreaming</em></code></div>
 
     
 	
@@ -797,6 +859,9 @@
 					
                     
                     
+                    
+                    
+
 				</div>
 				<div class="main-navigation navigation-bottom">
 					<ul>
@@ -807,7 +872,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-08-11)</span><br />
+						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-09-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

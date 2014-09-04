@@ -68,6 +68,10 @@
 	
 	<option value="instance_methods">Instance Methods</option>
 	
+	<option value="//api/name/getAbsoluteTrackMetadata:callback:">&nbsp;&nbsp;&nbsp;&nbsp;- getAbsoluteTrackMetadata:callback:</option>
+	
+	<option value="//api/name/getRelativeTrackMetadata:callback:">&nbsp;&nbsp;&nbsp;&nbsp;- getRelativeTrackMetadata:callback:</option>
+	
 	<option value="//api/name/init">&nbsp;&nbsp;&nbsp;&nbsp;- init</option>
 	
 	<option value="//api/name/initWithCompanyName:appName:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithCompanyName:appName:</option>
@@ -76,7 +80,15 @@
 	
 	<option value="//api/name/loginWithSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;- loginWithSession:callback:</option>
 	
+	<option value="//api/name/logout:">&nbsp;&nbsp;&nbsp;&nbsp;- logout:</option>
+	
+	<option value="//api/name/playTrackProvider:callback:">&nbsp;&nbsp;&nbsp;&nbsp;- playTrackProvider:callback:</option>
+	
+	<option value="//api/name/playTrackProvider:fromIndex:callback:">&nbsp;&nbsp;&nbsp;&nbsp;- playTrackProvider:fromIndex:callback:</option>
+	
 	<option value="//api/name/playURI:callback:">&nbsp;&nbsp;&nbsp;&nbsp;- playURI:callback:</option>
+	
+	<option value="//api/name/queueTrackProvider:clearQueue:callback:">&nbsp;&nbsp;&nbsp;&nbsp;- queueTrackProvider:clearQueue:callback:</option>
 	
 	<option value="//api/name/queueURI:callback:">&nbsp;&nbsp;&nbsp;&nbsp;- queueURI:callback:</option>
 	
@@ -156,6 +168,10 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getAbsoluteTrackMetadata:callback:">getAbsoluteTrackMetadata:callback:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getRelativeTrackMetadata:callback:">getRelativeTrackMetadata:callback:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/init">init</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithCompanyName:appName:">initWithCompanyName:appName:</a></span></li>
@@ -164,7 +180,15 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loginWithSession:callback:">loginWithSession:callback:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logout:">logout:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playTrackProvider:callback:">playTrackProvider:callback:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playTrackProvider:fromIndex:callback:">playTrackProvider:fromIndex:callback:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playURI:callback:">playURI:callback:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/queueTrackProvider:clearQueue:callback:">queueTrackProvider:clearQueue:callback:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/queueURI:callback:">queueURI:callback:</a></span></li>
 	
@@ -219,7 +243,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>This class manages audio streaming from Spotify.</p>
+						<p>This class manages audio streaming from Spotify.</p><div class="note"><p><strong>Note:</strong> There must be only one concurrent instance of this class in your app.</p></div>
 					</div>
 					
 					
@@ -256,6 +280,12 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/loginWithSession:callback:">&ndash;&nbsp;loginWithSession:callback:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logout:">&ndash;&nbsp;logout:</a></code>
 	</span>
 	
 	
@@ -331,6 +361,18 @@
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/playTrackProvider:callback:">&ndash;&nbsp;playTrackProvider:callback:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/playTrackProvider:fromIndex:callback:">&ndash;&nbsp;playTrackProvider:fromIndex:callback:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/queueURI:callback:">&ndash;&nbsp;queueURI:callback:</a></code>
 	</span>
 	
@@ -343,6 +385,12 @@
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/queueTrackProvider:clearQueue:callback:">&ndash;&nbsp;queueTrackProvider:clearQueue:callback:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/skipNext:">&ndash;&nbsp;skipNext:</a></code>
 	</span>
 	
@@ -350,6 +398,18 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/skipPrevious:">&ndash;&nbsp;skipPrevious:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getRelativeTrackMetadata:callback:">&ndash;&nbsp;getRelativeTrackMetadata:callback:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getAbsoluteTrackMetadata:callback:">&ndash;&nbsp;getAbsoluteTrackMetadata:callback:</a></code>
 	</span>
 	
 	
@@ -696,7 +756,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL repeat</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) BOOL repeat</code></div>
 
     
 	
@@ -732,7 +792,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) BOOL shuffle</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) BOOL shuffle</code></div>
 
     
 	
@@ -839,6 +899,112 @@
 						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
 						
 						<div class="section-method">
+	<a name="//api/name/getAbsoluteTrackMetadata:callback:" title="getAbsoluteTrackMetadata:callback:"></a>
+	<h3 class="subsubtitle method-title">getAbsoluteTrackMetadata:callback:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns basic metadata about a specific track in the current track list, or <code>nil</code> if it doesn&rsquo;t exist or is unknown.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)getAbsoluteTrackMetadata:(id)<em>index</em> callback:(id)<em>block</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Metadata is under the following keys:</p>
+
+<ul>
+<li><code>SPTAudioStreamingMetadataTrackName</code>: The track&rsquo;s name.</li>
+<li><code>SPTAudioStreamingMetadataTrackURI</code>: The track&rsquo;s Spotify URI.</li>
+<li><code>SPTAudioStreamingMetadataArtistName</code>: The track&rsquo;s artist&rsquo;s name.</li>
+<li><code>SPTAudioStreamingMetadataArtistURI</code>: The track&rsquo;s artist&rsquo;s Spotify URI.</li>
+<li><code>SPTAudioStreamingMetadataAlbumName</code>: The track&rsquo;s album&rsquo;s name.</li>
+<li><code>SPTAudioStreamingMetadataAlbumURI</code>: The track&rsquo;s album&rsquo;s URI.</li>
+<li><code>SPTAudioStreamingMetadataTrackDuration</code>: The track&rsquo;s duration as an <code>NSTimeInterval</code> boxed in an <code>NSNumber</code>.</li>
+</ul>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTAudioStreamingController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getRelativeTrackMetadata:callback:" title="getRelativeTrackMetadata:callback:"></a>
+	<h3 class="subsubtitle method-title">getRelativeTrackMetadata:callback:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns basic metadata about a track relative to the currently playing song, or <code>nil</code> if it doesn&rsquo;t exist or is unknown.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)getRelativeTrackMetadata:(id)<em>index</em> callback:(id)<em>block</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Passing an index of zero would mean the currently playing song, passing -1 is the previous one, passing 1 is the next one.</p>
+
+<p>Metadata is under the following keys:</p>
+
+<ul>
+<li><code>SPTAudioStreamingMetadataTrackName</code>: The track&rsquo;s name.</li>
+<li><code>SPTAudioStreamingMetadataTrackURI</code>: The track&rsquo;s Spotify URI.</li>
+<li><code>SPTAudioStreamingMetadataArtistName</code>: The track&rsquo;s artist&rsquo;s name.</li>
+<li><code>SPTAudioStreamingMetadataArtistURI</code>: The track&rsquo;s artist&rsquo;s Spotify URI.</li>
+<li><code>SPTAudioStreamingMetadataAlbumName</code>: The track&rsquo;s album&rsquo;s name.</li>
+<li><code>SPTAudioStreamingMetadataAlbumURI</code>: The track&rsquo;s album&rsquo;s URI.</li>
+<li><code>SPTAudioStreamingMetadataTrackDuration</code>: The track&rsquo;s duration as an <code>NSTimeInterval</code> boxed in an <code>NSNumber</code>.</li>
+</ul>
+
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTAudioStreamingController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/init" title="init"></a>
 	<h3 class="subsubtitle method-title">init</h3>
 	
@@ -891,7 +1057,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (id)initWithCompanyName:(NSString *)<em>companyName</em> appName:(NSString *)<em>appName</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithCompanyName:(id)<em>companyName</em> appName:(id)<em>appName</em></code></div>
 
     
 	
@@ -900,12 +1066,12 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>companyName</em></dt>
-			<dd><p>Your company name.</p></dd>
+			<dd><p>Your company name. or <code>nil</code> to use your bundle identifier</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>appName</em></dt>
-			<dd><p>Your application&rsquo;s name.</p></dd>
+			<dd><p>Your application&rsquo;s name. or <code>nil</code> to use your app name</p></dd>
 		</dl>
 		
 	</div>
@@ -947,7 +1113,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (id)initWithCompanyName:(NSString *)<em>companyName</em> appName:(NSString *)<em>appName</em> audioController:(SPTCoreAudioController *)<em>audioController</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (id)initWithCompanyName:(id)<em>companyName</em> appName:(id)<em>appName</em> audioController:(id)<em>audioController</em></code></div>
 
     
 	
@@ -956,12 +1122,12 @@
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>companyName</em></dt>
-			<dd><p>Your company name.</p></dd>
+			<dd><p>Your company name. or <code>nil</code> to use your bundle identifier</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
 			<dt><em>appName</em></dt>
-			<dd><p>Your application&rsquo;s name.</p></dd>
+			<dd><p>Your application&rsquo;s name. or <code>nil</code> to use your app name</p></dd>
 		</dl>
 		
 		<dl class="argument-def parameter-def">
@@ -1013,7 +1179,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)loginWithSession:(SPTSession *)<em>session</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)loginWithSession:(id)<em>session</em> callback:(id)<em>block</em></code></div>
 
     
 	
@@ -1060,6 +1226,172 @@ failure, an <code>NSError</code> object will be passed.</p></dd>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/logout:" title="logout:"></a>
+	<h3 class="subsubtitle method-title">logout:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Log out of the Spotify service</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)logout:(id)<em>block</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>block</em></dt>
+			<dd><p>The callback block to be executed when logout succeeds or fails. In the cause of
+failure, an <code>NSError</code> object will be passed.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTAudioStreamingController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/playTrackProvider:callback:" title="playTrackProvider:callback:"></a>
+	<h3 class="subsubtitle method-title">playTrackProvider:callback:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Play a track provider.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)playTrackProvider:(id)<em>provider</em> callback:(id)<em>block</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>provider</em></dt>
+			<dd><p>A track provider.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>block</em></dt>
+			<dd><p>The callback block to be executed when the playback command has been
+received, which will pass back an <code>NSError</code> object if an error ocurred.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Supported types: <a href="../Classes/SPTTrack.html">SPTTrack</a>, <a href="../Classes/SPTAlbum.html">SPTAlbum</a> and SPTPlaylist</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTAudioStreamingController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/playTrackProvider:fromIndex:callback:" title="playTrackProvider:fromIndex:callback:"></a>
+	<h3 class="subsubtitle method-title">playTrackProvider:fromIndex:callback:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Play a track provider.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)playTrackProvider:(id)<em>provider</em> fromIndex:(id)<em>index</em> callback:(id)<em>block</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>provider</em></dt>
+			<dd><p>A track provider.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>index</em></dt>
+			<dd><p>How many tracks to skip.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>block</em></dt>
+			<dd><p>The callback block to be executed when the playback command has been
+received, which will pass back an <code>NSError</code> object if an error ocurred.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Supported types: <a href="../Classes/SPTTrack.html">SPTTrack</a>, <a href="../Classes/SPTAlbum.html">SPTAlbum</a> and SPTPlaylist</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTAudioStreamingController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/playURI:callback:" title="playURI:callback:"></a>
 	<h3 class="subsubtitle method-title">playURI:callback:</h3>
 	
@@ -1071,7 +1403,7 @@ failure, an <code>NSError</code> object will be passed.</p></dd>
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)playURI:(NSURL *)<em>uri</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)playURI:(id)<em>uri</em> callback:(id)<em>block</em></code></div>
 
     
 	
@@ -1117,6 +1449,68 @@ received, which will pass back an <code>NSError</code> object if an error ocurre
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/queueTrackProvider:clearQueue:callback:" title="queueTrackProvider:clearQueue:callback:"></a>
+	<h3 class="subsubtitle method-title">queueTrackProvider:clearQueue:callback:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Queue a track provider.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)queueTrackProvider:(id)<em>uri</em> clearQueue:(id)<em>clear</em> callback:(id)<em>block</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>clear</em></dt>
+			<dd><p>Clear the queue before adding</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>block</em></dt>
+			<dd><p>The callback block to be executed when the playback command has been
+received, which will pass back an <code>NSError</code> object if an error ocurred.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>provider</em></dt>
+			<dd><p>A track provider.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Supported types: <a href="../Classes/SPTTrack.html">SPTTrack</a></p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTAudioStreamingController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/queueURI:callback:" title="queueURI:callback:"></a>
 	<h3 class="subsubtitle method-title">queueURI:callback:</h3>
 	
@@ -1128,7 +1522,7 @@ received, which will pass back an <code>NSError</code> object if an error ocurre
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)queueURI:(NSURL *)<em>uri</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)queueURI:(id)<em>uri</em> callback:(id)<em>block</em></code></div>
 
     
 	
@@ -1185,7 +1579,7 @@ received, which will pass back an <code>NSError</code> object if an error ocurre
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)queueURI:(NSURL *)<em>uri</em> clearQueue:(BOOL)<em>clear</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)queueURI:(id)<em>uri</em> clearQueue:(id)<em>clear</em> callback:(id)<em>block</em></code></div>
 
     
 	
@@ -1247,7 +1641,7 @@ received, which will pass back an <code>NSError</code> object if an error ocurre
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)seekToOffset:(NSTimeInterval)<em>offset</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)seekToOffset:(id)<em>offset</em> callback:(id)<em>block</em></code></div>
 
     
 	
@@ -1308,7 +1702,7 @@ received, which will pass back an <code>NSError</code> object if an error ocurre
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)setIsPlaying:(BOOL)<em>playing</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)setIsPlaying:(id)<em>playing</em> callback:(id)<em>block</em></code></div>
 
     
 	
@@ -1369,7 +1763,7 @@ received, which will pass back an <code>NSError</code> object if an error ocurre
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)setTargetBitrate:(SPTBitrate)<em>bitrate</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)setTargetBitrate:(id)<em>bitrate</em> callback:(id)<em>block</em></code></div>
 
     
 	
@@ -1428,7 +1822,7 @@ completely transparent, but you should be aware that data usage isn&rsquo;t guar
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)setVolume:(SPTVolume)<em>volume</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)setVolume:(id)<em>volume</em> callback:(id)<em>block</em></code></div>
 
     
 	
@@ -1489,7 +1883,7 @@ received, which will pass back an <code>NSError</code> object if an error ocurre
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)skipNext:(SPTErrorableOperationCallback)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)skipNext:(id)<em>block</em></code></div>
 
     
 	
@@ -1536,7 +1930,7 @@ received, which will pass back an <code>NSError</code> object if an error ocurre
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)skipPrevious:(SPTErrorableOperationCallback)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)skipPrevious:(id)<em>block</em></code></div>
 
     
 	
@@ -1576,6 +1970,9 @@ received, which will pass back an <code>NSError</code> object if an error ocurre
 					
                     
                     
+                    
+                    
+
 				</div>
 				<div class="main-navigation navigation-bottom">
 					<ul>
@@ -1586,7 +1983,7 @@ received, which will pass back an <code>NSError</code> object if an error ocurre
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-08-11)</span><br />
+						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-09-04)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

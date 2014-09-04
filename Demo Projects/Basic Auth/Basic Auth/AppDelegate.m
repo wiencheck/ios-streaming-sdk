@@ -14,8 +14,9 @@
 
 // For information on generating a client ID and callback URL,
 // and setting up a token swap service, see the Spotify iOS SDK's documentation.
-static NSString * const kClientId = @"";
-static NSString * const kCallbackURL = @"";
+#warning You're using example credentials, please replace these with your own and remove this warning.
+static NSString * const kClientId = @"e6695c6d22214e0f832006889566df9c";
+static NSString * const kCallbackURL = @"spotifyiossdkexample://";
 // If you're hosting your token swap service somewhere other than running the default script
 // on this Mac, make sure you change the URL below as appropriate.
 static NSString * const kTokenSwapServiceURL = @"http://localhost:1234/swap";

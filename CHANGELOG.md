@@ -1,3 +1,56 @@
+Spotify iOS SDK Beta 5 (Release Candidate)
+==========================================
+
+**What's New**
+
+* We merged the functionality of the `SPTTrackPlayer` into
+  `SPTAudioStreamingController`, giving you proper support for gapless
+  playback, shuffle, etc.
+
+* You can now remove tracks from playlists.
+  ([Issue #2](https://github.com/spotify/ios-sdk/issues/2))
+
+* Shuffle is properly supported.
+  ([Issue #25](https://github.com/spotify/ios-sdk/issues/25))
+
+* The examples are background-audio enabled.
+  ([Issue #35](https://github.com/spotify/ios-sdk/issues/35))
+
+* You can now call a Logout function explicitly.
+  ([Issue #42](https://github.com/spotify/ios-sdk/issues/42))
+
+* Multi-get functionality for Tracks, Albums, Artists and Playlists.
+  ([Issue #66](https://github.com/spotify/ios-sdk/issues/66))
+
+* You can add multiple tracks to playlists at once.
+  ([Issue #118](https://github.com/spotify/ios-sdk/issues/118))
+
+* A couple of easter eggs.
+
+
+**Bugs Fixed**
+
+* Follower count is returned for playlists.
+  ([Issue #57](https://github.com/spotify/ios-sdk/issues/57))
+
+* Images, external urls and description is returned for playlists.
+
+* You get a notification when a track was skipped because it's unavailable.
+  ([Issue #102](https://github.com/spotify/ios-sdk/issues/102))
+
+* `currentPlaybackPosition` is properly reset on track change.
+  ([Issue #112](https://github.com/spotify/ios-sdk/issues/112))
+
+* `SPTAuthUserReadPrivateScope` is defined.
+  ([Issue #116](https://github.com/spotify/ios-sdk/issues/116))
+
+* `SPTAudioStreamingController` completion block is called correctly.
+  ([Issue #117](https://github.com/spotify/ios-sdk/issues/117))
+
+* Partial track, album and artist return properties that were missing. (e.g.
+  available territories and external urls.)
+
+
 Spotify iOS SDK Beta 4
 ======================
 

@@ -57,10 +57,6 @@ you need to get going. The classes that'll get you started are:
   metadata lookup. Most metadata classes (`SPTTrack`, `SPTArtist`, `SPTAlbum` and
   so on) contain convenience methods too.
 
-* `SPTTrackPlayer` is a class for playing track providers (currently `SPTAlbum`
-  and `SPTPlaylist`) with basic playback controls. `SPTAudioStreamingController`
-  gives you more direct access to audio streaming if you need it.
-
 Authenticating and Scopes
 =======
 
