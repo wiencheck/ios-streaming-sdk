@@ -1,5 +1,4 @@
-**WARNING: This is a beta release of the Spotify iOS SDK, and can stop working
-at any time. This SDK release is not suitable for publicly released applications.**
+**WARNING: This is a beta release of the Spotify iOS SDK.**
 
 
 Spotify iOS SDK Readme
@@ -24,9 +23,6 @@ rather than duplicating.
 For known issues and release notes, see the
 [CHANGELOG.md](https://github.com/spotify/ios-sdk/blob/master/CHANGELOG.md)
 file.
-
-**IMPORTANT:** This SDK is pre-release software and is not supported, and must
-not be shipped to end users. It *will* stop working in the future.
 
 Getting Started
 =======

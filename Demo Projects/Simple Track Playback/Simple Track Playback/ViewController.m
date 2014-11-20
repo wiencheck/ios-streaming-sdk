@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Your Company. All rights reserved.
 //
 
+#import "Config.h"
 #import "ViewController.h"
 
 @interface ViewController () <SPTAudioStreamingDelegate>
@@ -102,7 +103,7 @@
     self.session = session;
     
     if (self.player == nil) {
-        self.player = [SPTAudioStreamingController new];
+        self.player = [[SPTAudioStreamingController alloc] initWithClientId:@kClientId];
         self.player.playbackDelegate = self;
     }
 

@@ -43,15 +43,23 @@
 	
 	<option value="//api/name/performSearchWithQuery:queryType:offset:session:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ performSearchWithQuery:queryType:offset:session:callback:</option>
 	
+	<option value="//api/name/performSearchWithQuery:queryType:offset:session:market:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ performSearchWithQuery:queryType:offset:session:market:callback:</option>
+	
 	<option value="//api/name/performSearchWithQuery:queryType:session:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ performSearchWithQuery:queryType:session:callback:</option>
+	
+	<option value="//api/name/performSearchWithQuery:queryType:session:market:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ performSearchWithQuery:queryType:session:market:callback:</option>
 	
 	<option value="//api/name/playlistsForUserInSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ playlistsForUserInSession:callback:</option>
 	
 	<option value="//api/name/removeTracksFromSaved:forUserInSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ removeTracksFromSaved:forUserInSession:callback:</option>
 	
+	<option value="//api/name/requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:session:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:session:callback:</option>
+	
 	<option value="//api/name/requestItemAtURI:withSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ requestItemAtURI:withSession:callback:</option>
 	
 	<option value="//api/name/requestItemFromPartialObject:withSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ requestItemFromPartialObject:withSession:callback:</option>
+	
+	<option value="//api/name/requestNewReleasesForCountry:limit:offset:session:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ requestNewReleasesForCountry:limit:offset:session:callback:</option>
 	
 	<option value="//api/name/saveTracks:forUserInSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;+ saveTracks:forUserInSession:callback:</option>
 	
@@ -103,15 +111,23 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performSearchWithQuery:queryType:offset:session:callback:">performSearchWithQuery:queryType:offset:session:callback:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performSearchWithQuery:queryType:offset:session:market:callback:">performSearchWithQuery:queryType:offset:session:market:callback:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performSearchWithQuery:queryType:session:callback:">performSearchWithQuery:queryType:session:callback:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/performSearchWithQuery:queryType:session:market:callback:">performSearchWithQuery:queryType:session:market:callback:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/playlistsForUserInSession:callback:">playlistsForUserInSession:callback:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeTracksFromSaved:forUserInSession:callback:">removeTracksFromSaved:forUserInSession:callback:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:session:callback:">requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:session:callback:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestItemAtURI:withSession:callback:">requestItemAtURI:withSession:callback:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestItemFromPartialObject:withSession:callback:">requestItemFromPartialObject:withSession:callback:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/requestNewReleasesForCountry:limit:offset:session:callback:">requestNewReleasesForCountry:limit:offset:session:callback:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/saveTracks:forUserInSession:callback:">saveTracks:forUserInSession:callback:</a></span></li>
 	
@@ -234,6 +250,18 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
+		<code><a href="#//api/name/performSearchWithQuery:queryType:offset:session:market:callback:">+&nbsp;performSearchWithQuery:queryType:offset:session:market:callback:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/performSearchWithQuery:queryType:session:market:callback:">+&nbsp;performSearchWithQuery:queryType:session:market:callback:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/performSearchWithQuery:queryType:offset:session:callback:">+&nbsp;performSearchWithQuery:queryType:offset:session:callback:</a></code>
 	</span>
 	
@@ -276,6 +304,18 @@
 	</span>
 	
 	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:session:callback:">+&nbsp;requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:session:callback:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/requestNewReleasesForCountry:limit:offset:session:callback:">+&nbsp;requestNewReleasesForCountry:limit:offset:session:callback:</a></code>
+	</span>
+	
+	
 </li>
 						</ul>
 						
@@ -303,7 +343,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(id)<em>searchQuery</em> queryType:(id)<em>searchQueryType</em> offset:(id)<em>offset</em> session:(id)<em>session</em> callback:(id)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> offset:(NSInteger)<em>offset</em> session:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
 
     
 	
@@ -358,6 +398,77 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/performSearchWithQuery:queryType:offset:session:market:callback:" title="performSearchWithQuery:queryType:offset:session:market:callback:"></a>
+	<h3 class="subsubtitle method-title">performSearchWithQuery:queryType:offset:session:market:callback:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Performs a search with a given query, offset and market filtering</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> offset:(NSInteger)<em>offset</em> session:(SPTSession *)<em>session</em> market:(NSString *)<em>market</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>searchQuery</em></dt>
+			<dd><p>The query to pass to the search.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>searchQueryType</em></dt>
+			<dd><p>The type of search to do.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>offset</em></dt>
+			<dd><p>The index at which to start returning results.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>session</em></dt>
+			<dd><p>An authenticated session. Can be <code>nil</code>.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>market</em></dt>
+			<dd><p>Either a ISO 3166-1 country code to filter the results to, or <code>from_token</code> to pick the market from the session (requires the <code>user-read-private</code> scope), or <code>nil</code> for no market filtering.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>block</em></dt>
+			<dd><p>The block to be called when the operation is complete. The block will pass an <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a> containing results on success, otherwise an error.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTRequest.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/performSearchWithQuery:queryType:session:callback:" title="performSearchWithQuery:queryType:session:callback:"></a>
 	<h3 class="subsubtitle method-title">performSearchWithQuery:queryType:session:callback:</h3>
 	
@@ -369,7 +480,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(id)<em>searchQuery</em> queryType:(id)<em>searchQueryType</em> session:(id)<em>session</em> callback:(id)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> session:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
 
     
 	
@@ -419,6 +530,72 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/performSearchWithQuery:queryType:session:market:callback:" title="performSearchWithQuery:queryType:session:market:callback:"></a>
+	<h3 class="subsubtitle method-title">performSearchWithQuery:queryType:session:market:callback:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Performs a search with a given query and market filtering</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)performSearchWithQuery:(NSString *)<em>searchQuery</em> queryType:(SPTSearchQueryType)<em>searchQueryType</em> session:(SPTSession *)<em>session</em> market:(NSString *)<em>market</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>searchQuery</em></dt>
+			<dd><p>The query to pass to the search.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>searchQueryType</em></dt>
+			<dd><p>The type of search to do.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>session</em></dt>
+			<dd><p>An authenticated session. Can be <code>nil</code>.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>market</em></dt>
+			<dd><p>Either a ISO 3166-1 country code to filter the results to, or <code>from_token</code> to pick the market from the session (requires the <code>user-read-private</code> scope), or <code>nil</code> for no market filtering.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>block</em></dt>
+			<dd><p>The block to be called when the operation is complete. The block will pass an <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a> containing results on success, otherwise an error.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTRequest.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/playlistsForUserInSession:callback:" title="playlistsForUserInSession:callback:"></a>
 	<h3 class="subsubtitle method-title">playlistsForUserInSession:callback:</h3>
 	
@@ -430,7 +607,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (void)playlistsForUserInSession:(id)<em>session</em> callback:(id)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (void)playlistsForUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
 
     
 	
@@ -482,7 +659,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (void)removeTracksFromSaved:(id)<em>tracks</em> forUserInSession:(id)<em>session</em> callback:(id)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (void)removeTracksFromSaved:(NSArray *)<em>tracks</em> forUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
 
     
 	
@@ -528,6 +705,87 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:session:callback:" title="requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:session:callback:"></a>
+	<h3 class="subsubtitle method-title">requestFeaturedPlaylistsForCountry:limit:offset:locale:timestamp:session:callback:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Get a list of featured playlists</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)requestFeaturedPlaylistsForCountry:(NSString *)<em>country</em> limit:(NSInteger)<em>limit</em> offset:(NSInteger)<em>offset</em> locale:(NSString *)<em>locale</em> timestamp:(NSDate *)<em>timestamp</em> session:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>country</em></dt>
+			<dd><p>A ISO 3166-1 country code to get playlists for, or <code>nil</code> to get global recommendations.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>limit</em></dt>
+			<dd><p>The number of results to return, max 50.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>offset</em></dt>
+			<dd><p>The index at which to start returning results.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>locale</em></dt>
+			<dd><p>The locale of the user, for localized recommendations, <code>nil</code> will default to American English.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>timestamp</em></dt>
+			<dd><p>The time of day to get recommendations for (without timezone), or <code>nil</code> for current local time</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>session</em></dt>
+			<dd><p>An authenticated session. Must be valid and authenticated with the</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>block</em></dt>
+			<dd><p>The block to be called when the operation is complete, containing a <a href="../Classes/SPTFeaturedPlaylistList.html"><code>SPTFeaturedPlaylistList</code></a></p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>See <a href="https://developer.spotify.com/web-api/get-list-featured-playlists/">https://developer.spotify.com/web-api/get-list-featured-playlists/</a> for more information on parameters</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTRequest.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/requestItemAtURI:withSession:callback:" title="requestItemAtURI:withSession:callback:"></a>
 	<h3 class="subsubtitle method-title">requestItemAtURI:withSession:callback:</h3>
 	
@@ -539,7 +797,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (void)requestItemAtURI:(id)<em>uri</em> withSession:(id)<em>session</em> callback:(id)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (void)requestItemAtURI:(NSURL *)<em>uri</em> withSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
 
     
 	
@@ -600,7 +858,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (void)requestItemFromPartialObject:(id)<em>partialObject</em> withSession:(id)<em>session</em> callback:(id)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (void)requestItemFromPartialObject:(id&lt;SPTPartialObject&gt;)<em>partialObject</em> withSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
 
     
 	
@@ -645,6 +903,77 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/requestNewReleasesForCountry:limit:offset:session:callback:" title="requestNewReleasesForCountry:limit:offset:session:callback:"></a>
+	<h3 class="subsubtitle method-title">requestNewReleasesForCountry:limit:offset:session:callback:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Get a list of new releases.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)requestNewReleasesForCountry:(NSString *)<em>country</em> limit:(NSInteger)<em>limit</em> offset:(NSInteger)<em>offset</em> session:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>country</em></dt>
+			<dd><p>A ISO 3166-1 country code to get releases for, or <code>nil</code> for global releases.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>limit</em></dt>
+			<dd><p>The number of results to return, max 50.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>offset</em></dt>
+			<dd><p>The index at which to start returning results.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>session</em></dt>
+			<dd><p>An authenticated session. Must be valid and authenticated with the <code>SPTAuthUserLibraryModify</code> scope.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>block</em></dt>
+			<dd><p>The block to be called when the operation is complete, containing a <a href="../Classes/SPTListPage.html"><code>SPTListPage</code></a></p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>See <a href="https://developer.spotify.com/web-api/get-list-new-releases/">https://developer.spotify.com/web-api/get-list-new-releases/</a> for more information on parameters</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTRequest.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/saveTracks:forUserInSession:callback:" title="saveTracks:forUserInSession:callback:"></a>
 	<h3 class="subsubtitle method-title">saveTracks:forUserInSession:callback:</h3>
 	
@@ -656,7 +985,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (void)saveTracks:(id)<em>tracks</em> forUserInSession:(id)<em>session</em> callback:(id)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (void)saveTracks:(NSArray *)<em>tracks</em> forUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
 
     
 	
@@ -713,7 +1042,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (void)savedTracksContains:(id)<em>tracks</em> forUserInSession:(id)<em>session</em> callback:(id)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (void)savedTracksContains:(NSArray *)<em>tracks</em> forUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
 
     
 	
@@ -770,7 +1099,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (void)savedTracksForUserInSession:(id)<em>session</em> callback:(id)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (void)savedTracksForUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
 
     
 	
@@ -822,7 +1151,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (void)starredListForUserInSession:(id)<em>session</em> callback:(id)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (void)starredListForUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
 
     
 	
@@ -874,7 +1203,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (void)userInformationForUserInSession:(id)<em>session</em> callback:(id)<em>block</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (void)userInformationForUserInSession:(SPTSession *)<em>session</em> callback:(SPTRequestCallback)<em>block</em></code></div>
 
     
 	
@@ -943,7 +1272,7 @@ scopes required for the information you require. See the <a href="../Classes/SPT
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-09-04)</span><br />
+						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-11-21)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

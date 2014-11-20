@@ -44,6 +44,16 @@
 - (instancetype)initWithUserName:(NSString *)userName accessToken:(NSString *)accessToken expirationDate:(NSDate *)expirationDate;
 
 /**
+ @brief The deignated initializer for `SPTSession`.
+ @param userName The username of the user.
+ @param accessToken The access token of the user.
+ @param encryptedRefreshToken The encrypted refresh token of the user.
+ @param expirationDate The expiration date of the access token.
+ @return An initialized `SPTSession` object.
+ */
+- (instancetype)initWithUserName:(NSString *)userName accessToken:(NSString *)accessToken encryptedRefreshToken:(NSString *)encryptedRefreshToken expirationDate:(NSDate *)expirationDate;
+
+/**
  @brief Initializer that takes an `NSTimeInterval` until the access token expires, instead of an `NSDate`.
  @param userName The username of the user.
  @param accessToken The access token of the user.
@@ -68,6 +78,9 @@
 
 /** @brief The access token of the authenticated user. */
 @property (nonatomic, copy, readonly) NSString *accessToken;
+
+/** @brief The encrypted refresh token. */
+@property (nonatomic, copy, readonly) NSString *encryptedRefreshToken;
 
 /** @brief The expiration date of the access token. */
 @property (nonatomic, copy, readonly) NSDate *expirationDate;

@@ -38,7 +38,7 @@ typedef NS_ENUM(NSUInteger, SPTProduct) {
 };
 
 /** This class represents a user on the Spotify service. */
-@interface SPTUser : NSObject <SPTJSONObject>
+@interface SPTUser : SPTJSONObjectBase
 
 ///----------------------------
 /// @name Properties
@@ -99,5 +99,8 @@ typedef NS_ENUM(NSUInteger, SPTProduct) {
  `SPTAuthUserReadPrivateScope` scope.
  */
 @property (nonatomic, readonly) SPTProduct product;
+
+/** The number of followers this user has. */
+@property (nonatomic, readonly) long followerCount;
 
 @end

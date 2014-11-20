@@ -39,7 +39,7 @@ typedef NS_ENUM(NSUInteger, SPTAlbumType) {
 
 /** Represents a "partial" album on the Spotify service. You can promote this
  to a full album object using `SPTRequest`. */
-@interface SPTPartialAlbum : NSObject <SPTPartialObject, SPTJSONObject>
+@interface SPTPartialAlbum : SPTJSONObjectBase <SPTPartialObject>
 
 ///----------------------------
 /// @name Properties

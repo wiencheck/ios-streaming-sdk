@@ -19,20 +19,7 @@
 		37E2C9E418B4DF7D00D5D823 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E2C9E218B4DF7D00D5D823 /* Main_iPhone.storyboard */; };
 		37E2C9EA18B4DF7D00D5D823 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E2C9E918B4DF7D00D5D823 /* ViewController.m */; };
 		37E2C9EC18B4DF7D00D5D823 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E2C9EB18B4DF7D00D5D823 /* Images.xcassets */; };
-		37E2C9F318B4DF7D00D5D823 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E2C9F218B4DF7D00D5D823 /* XCTest.framework */; };
-		37E2C9F418B4DF7D00D5D823 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E2C9D018B4DF7D00D5D823 /* Foundation.framework */; };
-		37E2C9F518B4DF7D00D5D823 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E2C9D418B4DF7D00D5D823 /* UIKit.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		37E2C9F618B4DF7D00D5D823 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 37E2C9C518B4DF7D00D5D823 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 37E2C9CC18B4DF7D00D5D823;
-			remoteInfo = "Empty iOS SDK Project";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		377A23B818BDFE2300EC584A /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = ../../Spotify.framework; sourceTree = "<group>"; };
@@ -52,8 +39,7 @@
 		37E2C9E818B4DF7D00D5D823 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		37E2C9E918B4DF7D00D5D823 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		37E2C9EB18B4DF7D00D5D823 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		37E2C9F118B4DF7D00D5D823 /* Simple Track PlaybackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Simple Track PlaybackTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		37E2C9F218B4DF7D00D5D823 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CECF6ACB1A1B7EFB000A29BD /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,16 +53,6 @@
 				37E2C9D318B4DF7D00D5D823 /* CoreGraphics.framework in Frameworks */,
 				37E2C9D518B4DF7D00D5D823 /* UIKit.framework in Frameworks */,
 				37E2C9D118B4DF7D00D5D823 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		37E2C9EE18B4DF7D00D5D823 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				37E2C9F318B4DF7D00D5D823 /* XCTest.framework in Frameworks */,
-				37E2C9F518B4DF7D00D5D823 /* UIKit.framework in Frameworks */,
-				37E2C9F418B4DF7D00D5D823 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				37E2C9CD18B4DF7D00D5D823 /* Simple Track Playback.app */,
-				37E2C9F118B4DF7D00D5D823 /* Simple Track PlaybackTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,7 +85,6 @@
 				37E2C9D018B4DF7D00D5D823 /* Foundation.framework */,
 				37E2C9D218B4DF7D00D5D823 /* CoreGraphics.framework */,
 				37E2C9D418B4DF7D00D5D823 /* UIKit.framework */,
-				37E2C9F218B4DF7D00D5D823 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -118,6 +92,7 @@
 		37E2C9D618B4DF7D00D5D823 /* Simple Track Playback */ = {
 			isa = PBXGroup;
 			children = (
+				CECF6ACB1A1B7EFB000A29BD /* Config.h */,
 				37E2C9DF18B4DF7D00D5D823 /* AppDelegate.h */,
 				37E2C9E018B4DF7D00D5D823 /* AppDelegate.m */,
 				37E2C9E218B4DF7D00D5D823 /* Main_iPhone.storyboard */,
@@ -160,24 +135,6 @@
 			productReference = 37E2C9CD18B4DF7D00D5D823 /* Simple Track Playback.app */;
 			productType = "com.apple.product-type.application";
 		};
-		37E2C9F018B4DF7D00D5D823 /* Simple Track PlaybackTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 37E2CA0518B4DF7D00D5D823 /* Build configuration list for PBXNativeTarget "Simple Track PlaybackTests" */;
-			buildPhases = (
-				37E2C9ED18B4DF7D00D5D823 /* Sources */,
-				37E2C9EE18B4DF7D00D5D823 /* Frameworks */,
-				37E2C9EF18B4DF7D00D5D823 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				37E2C9F718B4DF7D00D5D823 /* PBXTargetDependency */,
-			);
-			name = "Simple Track PlaybackTests";
-			productName = "Empty iOS SDK ProjectTests";
-			productReference = 37E2C9F118B4DF7D00D5D823 /* Simple Track PlaybackTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -186,11 +143,6 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Your Company";
-				TargetAttributes = {
-					37E2C9F018B4DF7D00D5D823 = {
-						TestTargetID = 37E2C9CC18B4DF7D00D5D823;
-					};
-				};
 			};
 			buildConfigurationList = 37E2C9C818B4DF7D00D5D823 /* Build configuration list for PBXProject "Simple Track Playback" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -206,7 +158,6 @@
 			projectRoot = "";
 			targets = (
 				37E2C9CC18B4DF7D00D5D823 /* Simple Track Playback */,
-				37E2C9F018B4DF7D00D5D823 /* Simple Track PlaybackTests */,
 			);
 		};
 /* End PBXProject section */
@@ -219,13 +170,6 @@
 				37E2C9EC18B4DF7D00D5D823 /* Images.xcassets in Resources */,
 				37E2C9E418B4DF7D00D5D823 /* Main_iPhone.storyboard in Resources */,
 				37E2C9DB18B4DF7D00D5D823 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		37E2C9EF18B4DF7D00D5D823 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,22 +186,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		37E2C9ED18B4DF7D00D5D823 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		37E2C9F718B4DF7D00D5D823 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 37E2C9CC18B4DF7D00D5D823 /* Simple Track Playback */;
-			targetProxy = 37E2C9F618B4DF7D00D5D823 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		37E2C9D918B4DF7D00D5D823 /* InfoPlist.strings */ = {
@@ -385,48 +314,6 @@
 			};
 			name = Release;
 		};
-		37E2CA0618B4DF7D00D5D823 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Empty iOS SDK Project.app/Empty iOS SDK Project";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Empty iOS SDK Project/Empty iOS SDK Project-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Empty iOS SDK ProjectTests/Single Track PlaybackTests-Info.plist";
-				PRODUCT_NAME = "Simple Track PlaybackTests";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		37E2CA0718B4DF7D00D5D823 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Empty iOS SDK Project.app/Empty iOS SDK Project";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Empty iOS SDK Project/Empty iOS SDK Project-Prefix.pch";
-				INFOPLIST_FILE = "Empty iOS SDK ProjectTests/Single Track PlaybackTests-Info.plist";
-				PRODUCT_NAME = "Simple Track PlaybackTests";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -444,15 +331,6 @@
 			buildConfigurations = (
 				37E2CA0318B4DF7D00D5D823 /* Debug */,
 				37E2CA0418B4DF7D00D5D823 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		37E2CA0518B4DF7D00D5D823 /* Build configuration list for PBXNativeTarget "Simple Track PlaybackTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				37E2CA0618B4DF7D00D5D823 /* Debug */,
-				37E2CA0718B4DF7D00D5D823 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

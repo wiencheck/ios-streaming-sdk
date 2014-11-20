@@ -19,7 +19,7 @@ static NSString * const kClientId = @"e6695c6d22214e0f832006889566df9c";
 static NSString * const kCallbackURL = @"spotifyiossdkexample://";
 // If you're hosting your token swap service somewhere other than running the default script
 // on this Mac, make sure you change the URL below as appropriate.
-static NSString * const kTokenSwapServiceURL = @"http://localhost:1234/swap";
+static NSString * const kTokenSwapServiceURL = @""; // or http://localhost:1234/swap if you want to use the example service
 
 @implementation AppDelegate
 
@@ -29,11 +29,23 @@ static NSString * const kTokenSwapServiceURL = @"http://localhost:1234/swap";
 	 STEP 1: Get a login URL from SPAuth and open it in Safari. Note that you must open
 	 this URL using -[UIApplication openURL:].
 	 */
-	NSURL *loginPageURL = [[SPTAuth defaultInstance] loginURLForClientId:kClientId
-													 declaredRedirectURL:[NSURL URLWithString:kCallbackURL]
-																  scopes:self.selectedScopes];
-
-	[[UIApplication sharedApplication] openURL:loginPageURL];
+    
+    NSURL *loginURL;
+    if (kTokenSwapServiceURL == nil || [kTokenSwapServiceURL isEqualToString:@""]) {
+        // If we don't have a token exchange service, we need to request the token response type.
+        loginURL = [[SPTAuth defaultInstance]  loginURLForClientId:kClientId
+                                               declaredRedirectURL:[NSURL URLWithString:kCallbackURL]
+                                                            scopes:self.selectedScopes
+                                                  withResponseType:@"token"];
+    }
+    else {
+        loginURL = [[SPTAuth defaultInstance]  loginURLForClientId:kClientId
+                                               declaredRedirectURL:[NSURL URLWithString:kCallbackURL]
+                                                            scopes:self.selectedScopes];
+        
+    }
+    
+    [[UIApplication sharedApplication] openURL:loginURL];
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
@@ -62,11 +74,15 @@ static NSString * const kTokenSwapServiceURL = @"http://localhost:1234/swap";
 	 
 	 Make sure the token swap endpoint URL matches your auth service URL.
 	 */
+    
+    
+    
+    
 	if ([[SPTAuth defaultInstance] canHandleURL:url withDeclaredRedirectURL:[NSURL URLWithString:kCallbackURL]]) {
 		[[SPTAuth defaultInstance] handleAuthCallbackWithTriggeredAuthURL:url
                                             tokenSwapServiceEndpointAtURL:[NSURL URLWithString:kTokenSwapServiceURL]
-																 callback:authCallback];
-		return YES;
+        														 callback:authCallback];
+        return YES;
 	}
 
 	return NO;

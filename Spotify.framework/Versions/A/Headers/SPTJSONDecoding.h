@@ -23,7 +23,18 @@
 
 @protocol SPTJSONObject <NSObject>
 
+/** Initialise the object with the given decoded JSON response from the web API
+  (typically an `NSDictionary`, but not always).
+ 
+ @param decodedObject The decoded representation of the object.
+ @param error An error pointer that will contain an error if a problem occurred. 
+ @return Returns the initalised object, or `nil` if a problem occurred.
+ */
 -(id)initWithDecodedJSONObject:(id)decodedObject error:(NSError **)error;
+
+/** Returns the original decoded object (typically an `NSDictionary`, but not always)
+ that was used to create the object. Useful for serialising. */
+@property (nonatomic, readonly, copy) id decodedJSONObject;
 
 @end
 
@@ -69,3 +80,10 @@
 +(id)partialSPObjectFromEncodedJSON:(NSData *)json error:(NSError **)error;
 
 @end
+
+@interface SPTJSONObjectBase : NSObject<SPTJSONObject>
+
+@property (nonatomic, readwrite, copy) id decodedJSONObject;
+
+@end
+

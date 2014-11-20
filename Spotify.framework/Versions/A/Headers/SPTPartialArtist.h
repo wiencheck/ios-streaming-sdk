@@ -25,7 +25,7 @@
 
 /** Represents a "partial" artist on the Spotify service. You can promote this
  to a full artist object using `SPTRequest`. */
-@interface SPTPartialArtist : NSObject <SPTPartialObject, SPTJSONObject>
+@interface SPTPartialArtist : SPTJSONObjectBase<SPTPartialObject>
 
 /** The id of the artist. */
 @property (nonatomic, readonly, copy) NSString *identifier;

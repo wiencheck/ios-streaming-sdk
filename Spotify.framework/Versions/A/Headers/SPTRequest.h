@@ -98,6 +98,27 @@ typedef NS_ENUM(NSUInteger, SPTSearchQueryType) {
 /// @name Search
 ///----------------------------
 
+/** Performs a search with a given query, offset and market filtering
+ 
+ @param searchQuery The query to pass to the search.
+ @param searchQueryType The type of search to do.
+ @param offset The index at which to start returning results.
+ @param session An authenticated session. Can be `nil`.
+ @param market Either a ISO 3166-1 country code to filter the results to, or `from_token` to pick the market from the session (requires the `user-read-private` scope), or `nil` for no market filtering.
+ @param block The block to be called when the operation is complete. The block will pass an `SPTListPage` containing results on success, otherwise an error.
+ */
++(void)performSearchWithQuery:(NSString *)searchQuery queryType:(SPTSearchQueryType)searchQueryType offset:(NSInteger)offset session:(SPTSession *)session market:(NSString *)market callback:(SPTRequestCallback)block;
+
+/** Performs a search with a given query and market filtering
+
+ @param searchQuery The query to pass to the search.
+ @param searchQueryType The type of search to do.
+ @param session An authenticated session. Can be `nil`.
+ @param market Either a ISO 3166-1 country code to filter the results to, or `from_token` to pick the market from the session (requires the `user-read-private` scope), or `nil` for no market filtering.
+ @param block The block to be called when the operation is complete. The block will pass an `SPTListPage` containing results on success, otherwise an error.
+ */
++(void)performSearchWithQuery:(NSString *)searchQuery queryType:(SPTSearchQueryType)searchQueryType session:(SPTSession *)session market:(NSString *)market callback:(SPTRequestCallback)block;
+
 /** Performs a search with a given query and offset
  
  @param searchQuery The query to pass to the search.
@@ -109,7 +130,7 @@ typedef NS_ENUM(NSUInteger, SPTSearchQueryType) {
 +(void)performSearchWithQuery:(NSString *)searchQuery queryType:(SPTSearchQueryType)searchQueryType offset:(NSInteger)offset session:(SPTSession *)session callback:(SPTRequestCallback)block;
 
 /** Performs a search with a given query.
-
+ 
  @param searchQuery The query to pass to the search.
  @param searchQueryType The type of search to do.
  @param session An authenticated session. Can be `nil`.
@@ -155,4 +176,31 @@ typedef NS_ENUM(NSUInteger, SPTSearchQueryType) {
  @param block The block to be called when the operation is complete.
 */
 +(void)removeTracksFromSaved:(NSArray *)tracks forUserInSession:(SPTSession *)session callback:(SPTRequestCallback)block;
+
+/** Get a list of featured playlists
+ 
+ See https://developer.spotify.com/web-api/get-list-featured-playlists/ for more information on parameters
+ 
+ @param country A ISO 3166-1 country code to get playlists for, or `nil` to get global recommendations.
+ @param limit The number of results to return, max 50.
+ @param offset The index at which to start returning results.
+ @param locale The locale of the user, for localized recommendations, `nil` will default to American English.
+ @param timestamp The time of day to get recommendations for (without timezone), or `nil` for current local time
+ @param session An authenticated session. Must be valid and authenticated with the
+ @param block The block to be called when the operation is complete, containing a `SPTFeaturedPlaylistList`
+ */
++(void)requestFeaturedPlaylistsForCountry:(NSString *)country limit:(NSInteger)limit offset:(NSInteger)offset locale:(NSString *)locale timestamp:(NSDate*)timestamp session:(SPTSession *)session callback:(SPTRequestCallback)block;
+
+/** Get a list of new releases.
+ 
+ See https://developer.spotify.com/web-api/get-list-new-releases/ for more information on parameters
+
+ @param country A ISO 3166-1 country code to get releases for, or `nil` for global releases.
+ @param limit The number of results to return, max 50.
+ @param offset The index at which to start returning results.
+ @param session An authenticated session. Must be valid and authenticated with the `SPTAuthUserLibraryModify` scope.
+ @param block The block to be called when the operation is complete, containing a `SPTListPage`
+ */
++(void)requestNewReleasesForCountry:(NSString *)country limit:(NSInteger)limit offset:(NSInteger)offset session:(SPTSession *)session callback:(SPTRequestCallback)block;
+
 @end

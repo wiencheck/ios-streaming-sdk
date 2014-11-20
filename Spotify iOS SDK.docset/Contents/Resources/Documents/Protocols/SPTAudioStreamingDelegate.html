@@ -47,11 +47,15 @@
 	
 	<option value="//api/name/audioStreaming:didReceiveMessage:">&nbsp;&nbsp;&nbsp;&nbsp;- audioStreaming:didReceiveMessage:</option>
 	
+	<option value="//api/name/audioStreamingDidDisconnect:">&nbsp;&nbsp;&nbsp;&nbsp;- audioStreamingDidDisconnect:</option>
+	
 	<option value="//api/name/audioStreamingDidEncounterTemporaryConnectionError:">&nbsp;&nbsp;&nbsp;&nbsp;- audioStreamingDidEncounterTemporaryConnectionError:</option>
 	
 	<option value="//api/name/audioStreamingDidLogin:">&nbsp;&nbsp;&nbsp;&nbsp;- audioStreamingDidLogin:</option>
 	
 	<option value="//api/name/audioStreamingDidLogout:">&nbsp;&nbsp;&nbsp;&nbsp;- audioStreamingDidLogout:</option>
+	
+	<option value="//api/name/audioStreamingDidReconnect:">&nbsp;&nbsp;&nbsp;&nbsp;- audioStreamingDidReconnect:</option>
 	
 	
 	
@@ -85,11 +89,15 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/audioStreaming:didReceiveMessage:">audioStreaming:didReceiveMessage:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/audioStreamingDidDisconnect:">audioStreamingDidDisconnect:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/audioStreamingDidEncounterTemporaryConnectionError:">audioStreamingDidEncounterTemporaryConnectionError:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/audioStreamingDidLogin:">audioStreamingDidLogin:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/audioStreamingDidLogout:">audioStreamingDidLogout:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/audioStreamingDidReconnect:">audioStreamingDidReconnect:</a></span></li>
 	
 </ul></li>
 
@@ -174,6 +182,18 @@
 	</span>
 	
 	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/audioStreamingDidDisconnect:">&ndash;&nbsp;audioStreamingDidDisconnect:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/audioStreamingDidReconnect:">&ndash;&nbsp;audioStreamingDidReconnect:</a></code>
+	</span>
+	
+	
 </li>
 						</ul>
 						
@@ -203,7 +223,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(id)<em>audioStreaming</em> didEncounterError:(id)<em>error</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didEncounterError:(NSError *)<em>error</em></code></div>
 
     
 	
@@ -259,7 +279,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(id)<em>audioStreaming</em> didReceiveMessage:(id)<em>message</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)audioStreaming:(SPTAudioStreamingController *)<em>audioStreaming</em> didReceiveMessage:(NSString *)<em>message</em></code></div>
 
     
 	
@@ -304,6 +324,52 @@
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/audioStreamingDidDisconnect:" title="audioStreamingDidDisconnect:"></a>
+	<h3 class="subsubtitle method-title">audioStreamingDidDisconnect:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when network connectivity is lost.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidDisconnect:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>audioStreaming</em></dt>
+			<dd><p>The object that sent the message.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTAudioStreamingController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/audioStreamingDidEncounterTemporaryConnectionError:" title="audioStreamingDidEncounterTemporaryConnectionError:"></a>
 	<h3 class="subsubtitle method-title">audioStreamingDidEncounterTemporaryConnectionError:</h3>
 	
@@ -315,7 +381,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidEncounterTemporaryConnectionError:(id)<em>audioStreaming</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidEncounterTemporaryConnectionError:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
 
     
 	
@@ -366,7 +432,7 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidLogin:(id)<em>audioStreaming</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidLogin:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
 
     
 	
@@ -412,7 +478,53 @@
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidLogout:(id)<em>audioStreaming</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidLogout:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>audioStreaming</em></dt>
+			<dd><p>The object that sent the message.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTAudioStreamingController.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/audioStreamingDidReconnect:" title="audioStreamingDidReconnect:"></a>
+	<h3 class="subsubtitle method-title">audioStreamingDidReconnect:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when network connectivitiy is back after being lost.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)audioStreamingDidReconnect:(SPTAudioStreamingController *)<em>audioStreaming</em></code></div>
 
     
 	
@@ -464,7 +576,7 @@
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-09-04)</span><br />
+						<p><span class="copyright">&copy; 2014 Spotify AB. All rights reserved. (Last updated: 2014-11-21)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

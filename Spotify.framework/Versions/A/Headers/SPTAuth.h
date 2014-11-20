@@ -18,17 +18,17 @@ FOUNDATION_EXPORT NSString * const SPTAuthPlaylistModifyPublicScope;
 /** Scope that lets you modify private playlists of the authenticated user. */
 FOUNDATION_EXPORT NSString * const SPTAuthPlaylistModifyPrivateScope;
 
-/** Scope that lets you read the email address of the authenticated user. */
+/** Scope that lets you read email from the authenticated user. */
 FOUNDATION_EXPORT NSString * const SPTAuthUserReadEmailScope;
 
-/** Scope that lets you read private information about the authenticated user. */
+/** Scope that lets you read the private user information of the authenticated user. */
 FOUNDATION_EXPORT NSString * const SPTAuthUserReadPrivateScope;
 
 /** Scope that lets you read user's Your Music library. */
-FOUNDATION_EXPORT NSString * const SPTAuthUserLibraryRead;
+FOUNDATION_EXPORT NSString * const SPTAuthUserLibraryReadScope;
 
 /** Scope that lets you modify user's Your Music library. */
-FOUNDATION_EXPORT NSString * const SPTAuthUserLibraryModify;
+FOUNDATION_EXPORT NSString * const SPTAuthUserLibraryModifyScope;
 
 @class SPTSession;
 

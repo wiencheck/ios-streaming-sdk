@@ -66,7 +66,10 @@
 /** The popularity of the track as a value between 0.0 (least popular) to 100.0 (most popular). */
 @property (nonatomic, readonly) double popularity;
 
-/** The album of the track. */
+/** The album this track is. */
 @property (nonatomic, readonly, strong) SPTPartialAlbum *album;
+
+/** Any external IDs of the track, such as the ISRC code. */
+@property (nonatomic, readonly, copy) NSDictionary *externalIds;
 
 @end

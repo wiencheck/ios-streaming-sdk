@@ -3,15 +3,16 @@ require 'net/http'
 require 'net/https'
 require 'base64'
 require 'json'
-require 'sqlite3'
+require 'encrypted_strings'
 
 # This is an example token swap service written
 # as a Ruby/Sinatra service. This is required by
 # the iOS SDK to authenticate a user.
 #
-# The service requires the Sinatra gem be installed:
+# The service requires the Sinatra and
+# encrypted_strings gems be installed:
 #
-# $ gem install sinatra
+# $ gem install sinatra encrypted_strings
 #
 # To run the service, enter your client ID, client
 # secret and client callback URL below and run the
@@ -43,24 +44,14 @@ print "\7\7"
 sleep(2)
 CLIENT_ID = "e6695c6d22214e0f832006889566df9c"
 CLIENT_SECRET = "29eb02041ba646179a1189dccac112c7"
+ENCRYPTION_SECRET = "cFJLyifeUJUBFWdHzVbykfDmPHtLKLGzViHW9aHGmyTLD8hGXC"
 CLIENT_CALLBACK_URL = "spotifyiossdkexample://"
 AUTH_HEADER = "Basic " + Base64.strict_encode64(CLIENT_ID + ":" + CLIENT_SECRET)
 SPOTIFY_ACCOUNTS_ENDPOINT = URI.parse("https://accounts.spotify.com")
-SPOTIFY_API_ENDPOINT = URI.parse("https://api.spotify.com")
 
 set :port, 1234 # The port to bind to.
 set :bind, '0.0.0.0' # IP address of the interface to listen on (all)
 
-# A DB for storing refresh tokens for user access tokens.
-db = SQLite3::Database.new("spotify_token_swap.db")
-
-db.execute <<-SQL
-    CREATE TABLE IF NOT EXISTS user_token (
-        username TEXT,
-        refresh_token TEXT
-    );
-    CREATE INDEX IF NOT EXISTS username_index ON user_token (username);
-SQL
 
 post '/swap' do
 
@@ -86,13 +77,13 @@ post '/swap' do
 
     response = http.request(request)
 
+    # encrypt the refresh token before forwarding to the client
     if response.code.to_i == 200
         token_data = JSON.parse(response.body)
-        profile_data = get_profile_data(token_data["access_token"])
-        db.execute("DELETE FROM user_token WHERE username = (?)", profile_data["id"])
-        # Store user ID and refresh token in DB, so that we can retrieve it later.
-        db.execute("INSERT INTO user_token (username, refresh_token) VALUES (?, ?)",
-            profile_data["id"], token_data["refresh_token"])
+        refresh_token = token_data["refresh_token"]
+        encrypted_token = refresh_token.encrypt(:symmetric, :password => ENCRYPTION_SECRET)
+        token_data["refresh_token"] = encrypted_token
+        response.body = JSON.dump(token_data)
     end
 
     status response.code.to_i
@@ -101,8 +92,7 @@ end
 
 post '/refresh' do
 
-    # Request a new access token using the POST:ed access token
-    # by looking up the corresponding refresh token in the DB.
+    # Request a new access token using the POST:ed refresh token
 
     http = Net::HTTP.new(SPOTIFY_ACCOUNTS_ENDPOINT.host, SPOTIFY_ACCOUNTS_ENDPOINT.port)
     http.use_ssl = true
@@ -111,7 +101,8 @@ post '/refresh' do
 
     request.add_field("Authorization", AUTH_HEADER)
 
-    refresh_token = db.get_first_value("SELECT refresh_token FROM user_token WHERE username = ?", params[:id])
+    encrypted_token = params[:refresh_token]
+    refresh_token = encrypted_token.decrypt(:symmetric, :password => ENCRYPTION_SECRET)
 
     request.form_data = {
         "grant_type" => "refresh_token",
@@ -125,15 +116,5 @@ post '/refresh' do
 
 end
 
-def get_profile_data(access_token)
 
-    http = Net::HTTP.new(SPOTIFY_API_ENDPOINT.host, SPOTIFY_API_ENDPOINT.port)
-    http.use_ssl = true
 
-    request = Net::HTTP::Get.new("/v1/me")
-    request.add_field("Authorization", "Bearer " + access_token)
-    response = http.request(request)
-
-    return JSON.parse(response.body)
-
-end

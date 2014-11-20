@@ -50,6 +50,7 @@
 #import "SPTImage.h"
 #import "SPTUser.h"
 #import "SPTListPage.h"
+#import "SPTFeaturedPlaylistList.h"
 
 // Audio playback
 

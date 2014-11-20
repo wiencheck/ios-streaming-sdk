@@ -26,7 +26,7 @@
 
 /** Represents a "partial" track on the Spotify service. You can promote this
  to a full track object using `SPTRequest`. */
-@interface SPTPartialTrack : NSObject <SPTJSONObject, SPTPartialObject, SPTTrackProvider>
+@interface SPTPartialTrack : SPTJSONObjectBase<SPTPartialObject, SPTTrackProvider>
 
 ///----------------------------
 /// @name Properties
@@ -58,9 +58,6 @@
 
 /** An array of ISO 3166 country codes in which the album is available. */
 @property (nonatomic, readonly, copy) NSArray *availableTerritories;
-
-/** Any external IDs of the track, such as the ISRC code. */
-@property (nonatomic, readonly, copy) NSDictionary *externalIds;
 
 /** The HTTP URL of a 30-second preview MP3 of the track. */
 @property (nonatomic, readonly, copy) NSURL *previewURL;

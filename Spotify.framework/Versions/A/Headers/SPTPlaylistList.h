@@ -43,6 +43,6 @@ typedef void (^SPTPlaylistCreationCallback)(NSError *error, SPTPlaylistSnapshot 
  `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
  @param block The callback block to be fired when playlist creation is completed (or fails).
  */
--(void)createPlaylistWithName:(NSString *)name public:(BOOL)isPublic session:(SPTSession *)session callback:(SPTPlaylistCreationCallback)block;
+-(void)createPlaylistWithName:(NSString *)name publicFlag:(BOOL)isPublic session:(SPTSession *)session callback:(SPTPlaylistCreationCallback)block;
 
 @end

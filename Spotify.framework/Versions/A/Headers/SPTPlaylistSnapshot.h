@@ -37,8 +37,6 @@ FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotPublicKey;
 /** The field indicating the name of the playlist. */
 FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotNameKey;
 
-typedef void (^SPTPlaylistMutationCallback)(NSError *error, SPTPlaylistSnapshot *playlist);
-
 /** Represents a user's playlist on the Spotify service. */
 @interface SPTPlaylistSnapshot : SPTPartialPlaylist <SPTJSONObject>
 
@@ -86,86 +84,81 @@ typedef void (^SPTPlaylistMutationCallback)(NSError *error, SPTPlaylistSnapshot 
 @property (nonatomic, readonly) long followerCount;
 
 /** The description of the playlist */
-@property (nonatomic, readonly, copy) NSString *description;
+@property (nonatomic, readonly, copy) NSString *descriptionText;
 
-/** Returns a list of playlist image in various sizes, as `SPTImage` objects.
- 
- Will be `nil` if the playlist doesn't have a custom image.
- */
-@property (nonatomic, readonly, copy) NSArray *images;
-
-/** Convenience method that returns the smallest available playlist image.
- 
- Will be `nil` if the playlist doesn't have a custom image.
- */
-@property (nonatomic, readonly) SPTImage *smallestImage;
-
-/** Convenience method that returns the largest available playlist image.
- 
- Will be `nil` if the playlist doesn't have a custom image.
- */
-@property (nonatomic, readonly) SPTImage *largestImage;
 
 ///----------------------------
 /// @name Playlist Manipulation
 ///----------------------------
 
 /** Append tracks to the playlist.
+ 
+ @note This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.
 
  @param tracks The tracks to add, as `SPTTrack` or `SPTPartialTrack` objects.
  @param session An authenticated session. Must be valid and authenticated with the
  `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
- @param block The block to be called when the operation is complete. This block will pass an error if the operation failed, otherwise a new playlist snapshot reflecting the change.
+ @param block The block to be called when the operation is started. This block will pass an error if the operation failed.
  */
--(void)addTracksToPlaylist:(NSArray *)tracks withSession:(SPTSession *)session callback:(SPTPlaylistMutationCallback)block;
+-(void)addTracksToPlaylist:(NSArray *)tracks withSession:(SPTSession *)session callback:(SPTErrorableOperationCallback)block;
 
 /** Add tracks to the playlist at a certain position.
 
+ @note This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.
+ 
  @param tracks The tracks to add, as `SPTTrack` or `SPTPartialTrack` objects.
  @param position The position in which the tracks will be added, being 0 the top position.
  @param session An authenticated session. Must be valid and authenticated with the
  `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
- @param block The block to be called when the operation is complete. This block will pass an error if the operation failed, otherwise a new playlist snapshot reflecting the change.
+ @param block The block to be called when the operation is started. This block will pass an error if the operation failed.
  */
--(void)addTracksWithPositionToPlaylist:(NSArray *)tracks withPosition:(int)position withSession:(SPTSession *)session callback:(SPTPlaylistMutationCallback)block;
+-(void)addTracksWithPositionToPlaylist:(NSArray *)tracks withPosition:(int)position withSession:(SPTSession *)session callback:(SPTErrorableOperationCallback)block;
 
 /** Replace the tracks in a playlist, overwriting any tracks already in it
 
+ @note This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.
+ 
  @param tracks The tracks to set, as `SPTTrack` or `SPTPartialTrack` objects.
  @param session An authenticated session. Must be valid and authenticated with the
  `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
- @param block The block to be called when the operation is complete. This block will pass an error if the operation failed, otherwise a new playlist snapshot reflecting the change.
+ @param block The block to be called when the operation is started. This block will pass an error if the operation failed.
  */
--(void)replaceTracksInPlaylist:(NSArray *)tracks withSession:(SPTSession *)session callback:(SPTPlaylistMutationCallback)block;
+-(void)replaceTracksInPlaylist:(NSArray *)tracks withSession:(SPTSession *)session callback:(SPTErrorableOperationCallback)block;
 
 /** Change playlist details
 
+ @note This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.
+ 
  @param data The data to be changed. Use the key constants to refer to the field to change
  (e.g. `SPTPlaylistSnapshotNameKey`, `SPTPlaylistSnapshotPublicKey`). When passing boolean values, use @YES or @NO.
  @param session An authenticated session. Must be valid and authenticated with the
  `SPTAuthPlaylistModifyScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
- @param block The block to be called when the operation is complete. This block will pass an error if the operation failed, otherwise a new playlist snapshot reflecting the change.
+ @param block The block to be called when the operation is started. This block will pass an error if the operation failed.
  */
 -(void)changePlaylistDetails:(NSDictionary *)data
 				 withSession:(SPTSession *)session
-					callback:(SPTPlaylistMutationCallback)block;
+					callback:(SPTErrorableOperationCallback)block;
 
 /** Remove tracks from playlist. It removes all occurrences of the tracks in the playlist.
 
+ @note This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.
+ 
  @param tracks The tracks to remove, as `SPTTrack` or `SPTPartialTrack` objects.
  @param session An authenticated session. Must be valid and authenticated with the
  `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
- @param block The block to be called when the operation is complete. This block will pass an error if the operation failed, otherwise a new playlist snapshot reflecting the change.
+ @param block The block to be called when the operation is started. This block will pass an error if the operation failed.
  */
--(void)removeTracksFromPlaylist:(NSArray *)tracks withSession:(SPTSession *)session callback:(SPTPlaylistMutationCallback)block;
+-(void)removeTracksFromPlaylist:(NSArray *)tracks withSession:(SPTSession *)session callback:(SPTErrorableOperationCallback)block;
 
 /** Remove tracks that are in specific positions from playlist.
-
+ 
+ @note This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.
+ 
  @param tracks An array of dictionaries with 2 keys: `track` with the track to remove, as `SPTTrack` or `SPTPartialTrack` objects, and `positions` that is an array of integers with the positions the track will be removed from.
  @param session An authenticated session. Must be valid and authenticated with the
  `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
- @param block The block to be called when the operation is complete. This block will pass an error if the operation failed, otherwise a new playlist snapshot reflecting the change.
+ @param block The block to be called when the operation is started. This block will pass an error if the operation failed.
  */
--(void)removeTracksWithPositionsFromPlaylist:(NSArray *)tracks withSession:(SPTSession *)session callback:(SPTPlaylistMutationCallback)block;
+-(void)removeTracksWithPositionsFromPlaylist:(NSArray *)tracks withSession:(SPTSession *)session callback:(SPTErrorableOperationCallback)block;
 
 @end

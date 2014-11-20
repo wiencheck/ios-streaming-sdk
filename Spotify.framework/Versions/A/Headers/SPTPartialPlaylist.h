@@ -23,12 +23,13 @@
 #import "SPTPartialObject.h"
 #import "SPTJSONDecoding.h"
 #import "SPTTypes.h"
+#import "SPTImage.h"
 
 @class SPTUser;
 
 /** Represents a "partial" playlist on the Spotify service. You can promote this
  to a full playlist object using `SPTRequest`. */
-@interface SPTPartialPlaylist : NSObject <SPTPartialObject, SPTJSONObject, SPTTrackProvider>
+@interface SPTPartialPlaylist : SPTJSONObjectBase<SPTPartialObject, SPTTrackProvider>
 
 ///----------------------------
 /// @name Properties
@@ -54,5 +55,23 @@
 
 /** The number of tracks in the playlist. */
 @property (nonatomic, readonly) NSUInteger trackCount;
+
+/** Returns a list of playlist image in various sizes, as `SPTImage` objects.
+ 
+ Will be `nil` if the playlist doesn't have a custom image.
+ */
+@property (nonatomic, readonly, copy) NSArray *images;
+
+/** Convenience method that returns the smallest available playlist image.
+ 
+ Will be `nil` if the playlist doesn't have a custom image.
+ */
+@property (nonatomic, readonly) SPTImage *smallestImage;
+
+/** Convenience method that returns the largest available playlist image.
+ 
+ Will be `nil` if the playlist doesn't have a custom image.
+ */
+@property (nonatomic, readonly) SPTImage *largestImage;
 
 @end

@@ -1,3 +1,85 @@
+Spotify iOS SDK Beta 6
+======================
+
+**What's New**
+
+* You are now allowed to release apps based on this version in the App Store.
+
+* Removed the Release Candidate flag - please be aware that some API calls may
+  change before final release.
+
+* Improved playback stability, better error handling for lossy network
+  connections and when switching between Wi-Fi and cellular networks.
+
+* Added events to notify the app about connectivity changes.
+
+* Added methods for New releases / Featured playlists.
+  ([Issue #165](https://github.com/spotify/ios-sdk/issues/165))
+
+* Example token swap service is now stateless and stores an encrypted refresh
+  token in your app instead of on the server, no more SQLite.
+  ([Issue #159](https://github.com/spotify/ios-sdk/issues/159))
+  ([Issue #155](https://github.com/spotify/ios-sdk/issues/155))
+
+* All models are updated to include the fields returned by the
+  current Web API.
+
+* More control over track queueing and the currently queued tracks.
+
+* New events for which tracks starts and stops playing, not only when track
+  changes.
+
+* `SPTAudioStreamingController` constructor has changed to require a Client ID
+  instead of optional company/appname.
+
+**Bugs fixed**
+
+* `SPTSession` now contains an encrypted refresh token.
+  ([Issue #155](https://github.com/spotify/ios-sdk/issues/155))
+
+* Simple Track Playback example updated.
+  ([Issue #154](https://github.com/spotify/ios-sdk/issues/154))
+
+* `skipNext` doesn't jump over tracks anymore.
+  ([Issue #152](https://github.com/spotify/ios-sdk/issues/152))
+
+* Renamed 'public' in selector for Swift users.
+  ([Issue #141](https://github.com/spotify/ios-sdk/issues/141))
+
+* seekToOffset now works in play callbacks.
+  ([Issue #135](https://github.com/spotify/ios-sdk/issues/135))
+
+* Playlists with local tracks crashes.
+  ([Issue #132](https://github.com/spotify/ios-sdk/issues/132))
+
+* Scope constants lacking Scope suffix.
+  ([Issue #129](https://github.com/spotify/ios-sdk/issues/129))
+
+* `queueURI:clearQueue` not clearing queue.
+  ([Issue #126](https://github.com/spotify/ios-sdk/issues/126))
+
+* `playTrackProvider:fromIndex` not skipping to correct track.
+  ([Issue #124](https://github.com/spotify/ios-sdk/issues/124))
+
+* Create playlist returned bad request.
+  ([Issue #123](https://github.com/spotify/ios-sdk/issues/123))
+  ([Issue #137](https://github.com/spotify/ios-sdk/issues/137))
+
+* Exception thrown parsing playlist response.
+  ([Issue #121](https://github.com/spotify/ios-sdk/issues/121))
+
+* Lots of stability and playback issues fixed to the playback code.
+
+* You can now start playing a playlist from other than the first track.
+
+
+** Known issues **
+
+* Reading `shuffle`/`repeat` properties within the `didChangeShuffleStatus`/
+  `didChangeRepeatStatus` callbacks might return the wrong value, but the
+  values passed to the callbacks are correct.
+
+
 Spotify iOS SDK Beta 5 (Release Candidate)
 ==========================================
 

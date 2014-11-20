@@ -84,6 +84,9 @@
 /** The popularity of the artist as a value between 0.0 (least popular) to 100.0 (most popular). */
 @property (nonatomic, readonly) double popularity;
 
+/** The number of followers this artist has. */
+@property (nonatomic, readonly) long followerCount;
+
 ///----------------------------
 /// @name Requesting Artist Catalogs
 ///----------------------------
