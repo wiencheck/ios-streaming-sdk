@@ -1,8 +1,18 @@
-//
-//  AppDelegate.m
-//  Basic Auth
-//
-//  Created by Daniel Kennett on 02/08/2012.
+/*
+ Copyright 2015 Spotify AB
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ */
 
 /*
  This project is a simple project that does nothing but authenticate a user against the Spotify
@@ -24,35 +34,18 @@ static NSString * const kTokenSwapServiceURL = @""; // or http://localhost:1234/
 @implementation AppDelegate
 
 -(IBAction)logIn:(id)sender {
+    [[SPTAuth defaultInstance] setRequestedScopes:self.selectedScopes];
 
 	/*
-	 STEP 1: Get a login URL from SPAuth and open it in Safari. Note that you must open
-	 this URL using -[UIApplication openURL:].
+	 STEP 1: Get a login URL from SPAuth and open it in Safari.
 	 */
-    
-    NSURL *loginURL;
-    if (kTokenSwapServiceURL == nil || [kTokenSwapServiceURL isEqualToString:@""]) {
-        // If we don't have a token exchange service, we need to request the token response type.
-        loginURL = [[SPTAuth defaultInstance]  loginURLForClientId:kClientId
-                                               declaredRedirectURL:[NSURL URLWithString:kCallbackURL]
-                                                            scopes:self.selectedScopes
-                                                  withResponseType:@"token"];
-    }
-    else {
-        loginURL = [[SPTAuth defaultInstance]  loginURLForClientId:kClientId
-                                               declaredRedirectURL:[NSURL URLWithString:kCallbackURL]
-                                                            scopes:self.selectedScopes];
-        
-    }
-    
-    [[UIApplication sharedApplication] openURL:loginURL];
+    [[UIApplication sharedApplication] openURL:[SPTAuth defaultInstance].loginURL];
 }
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
 
 	SPTAuthCallback authCallback = ^(NSError *error, SPTSession *session) {
 		// This is the callback that'll be triggered when auth is completed (or fails).
-
 		if (error != nil) {
             UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Authentication Failed"
                                                            message:[NSString stringWithFormat:@"%@\n\n Are you sure your token swap service is set up correctly?",
@@ -61,10 +54,8 @@ static NSString * const kTokenSwapServiceURL = @""; // or http://localhost:1234/
                                                  cancelButtonTitle:@"OK"
                                                  otherButtonTitles:nil];
             [view show];
-
 			return;
 		}
-
 		[self performTestCallWithSession:session];
 	};
 
@@ -74,14 +65,8 @@ static NSString * const kTokenSwapServiceURL = @""; // or http://localhost:1234/
 	 
 	 Make sure the token swap endpoint URL matches your auth service URL.
 	 */
-    
-    
-    
-    
-	if ([[SPTAuth defaultInstance] canHandleURL:url withDeclaredRedirectURL:[NSURL URLWithString:kCallbackURL]]) {
-		[[SPTAuth defaultInstance] handleAuthCallbackWithTriggeredAuthURL:url
-                                            tokenSwapServiceEndpointAtURL:[NSURL URLWithString:kTokenSwapServiceURL]
-        														 callback:authCallback];
+	if ([[SPTAuth defaultInstance] canHandleURL:url]) {
+        [[SPTAuth defaultInstance] handleAuthCallbackWithTriggeredAuthURL:url callback:authCallback];
         return YES;
 	}
 
@@ -89,12 +74,10 @@ static NSString * const kTokenSwapServiceURL = @""; // or http://localhost:1234/
 }
 
 -(void)performTestCallWithSession:(SPTSession *)session {
-
 	/*
 	 STEP 3: Execute a simple authenticated API call using our new credentials.
 	 */
 	[SPTRequest userInformationForUserInSession:session callback:^(NSError *error, SPTUser *user) {
-
         if (error != nil) {
             UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Getting User Info Failed"
                                                            message:error.userInfo[NSLocalizedDescriptionKey]
@@ -147,11 +130,13 @@ static NSString * const kTokenSwapServiceURL = @""; // or http://localhost:1234/
 #define S(s) @#s
 
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
     self.scopes = @[SPTAuthUserReadPrivateScope, SPTAuthUserReadEmailScope];
     self.scopeDisplayNames = @[S(SPTAuthUserReadPrivateScope), S(SPTAuthUserReadEmailScope)];
     self.selectedScopes = [NSMutableArray new];
     [self.tableView reloadData];
+
+    [[SPTAuth defaultInstance] setClientID:kClientId];
+    [[SPTAuth defaultInstance] setRedirectURL:[NSURL URLWithString:kCallbackURL]];
 
     if (kClientId.length == 0 || kCallbackURL.length == 0) {
         UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Missing Details!"

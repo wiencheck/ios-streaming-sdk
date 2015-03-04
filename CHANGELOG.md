@@ -1,3 +1,50 @@
+Spotify iOS SDK Beta 7
+======================
+
+**What's New**
+
+* A wrapper that allows for having the login flow inside your app without
+  bouncing out through Safari and back has been added - it's called
+  `SPTAuthViewController` and the sample application has been updated to
+  make use of this.
+  ([Issue #198](https://github.com/spotify/ios-sdk/issues/198))
+
+* The web page which does the actual authentication does not contain any
+  links to signup which blocked a few from releasing with the previous
+  version on the AppStore.
+  ([Issue #242](https://github.com/spotify/ios-sdk/issues/242))
+
+* You can now request items that are available in a specific market, or
+  the market of the current user. This should get rid of all unplayable
+  tracks [if there's an alternative available](https://developer.spotify.com/web-api/track-relinking-guide/).
+
+* Some methods in `SPTAudioStreamingController` has been marked as
+  deprecated in favor of a future simpler API.
+
+* Authentication information can now be persisted by `SPTAuth`, it also
+  provides a singleton to make it even more easy.
+
+**Bugs fixed**
+
+* You can search for playlists.
+  ([Issue #227](https://github.com/spotify/ios-sdk/issues/227))
+
+* You can now get playlists for other users.
+  ([Issue #241](https://github.com/spotify/ios-sdk/issues/241))
+
+* Crashes due to null/unavailable values should be solved.
+  ([Issue #172](https://github.com/spotify/ios-sdk/issues/172))
+  ([Issue #251](https://github.com/spotify/ios-sdk/issues/251))
+  ([Issue #218](https://github.com/spotify/ios-sdk/issues/218))
+  ([Issue #210](https://github.com/spotify/ios-sdk/issues/210))
+
+* You can now seek immediately when starting playback.
+  ([Issue #190](https://github.com/spotify/ios-sdk/issues/190))
+
+* KVO observing works on more properties.
+  ([Issue #157](https://github.com/spotify/ios-sdk/issues/157))
+
+
 Spotify iOS SDK Beta 6
 ======================
 
