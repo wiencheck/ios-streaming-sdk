@@ -21,6 +21,7 @@
 @interface LoginController () <SPTAuthViewDelegate>
 
 @property (atomic, readwrite) SPTAuthViewController *authViewController;
+@property (atomic, readwrite) BOOL firstLoad;
 
 @end
 
@@ -30,6 +31,7 @@
 - (void)viewDidLoad {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdatedNotification:) name:@"sessionUpdated" object:nil];
     self.statusLabel.text = @"";
+    self.firstLoad = YES;
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -47,6 +49,7 @@
 }
 
 -(void)showPlayer {
+    self.firstLoad = NO;
     self.statusLabel.text = @"Logged in.";
     [self performSegueWithIdentifier:@"ShowPlayer" sender:nil];
 }
@@ -107,9 +110,9 @@
     }
 
     // Check if it's still valid
-    if ([auth.session isValid]) {
+    if ([auth.session isValid] && self.firstLoad) {
         // It's still valid, show the player.
-        [self performSegueWithIdentifier:@"ShowPlayer" sender:nil];
+        [self showPlayer];
         return;
     }
 

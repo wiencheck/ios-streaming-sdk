@@ -1,3 +1,67 @@
+Spotify iOS SDK Beta 8
+======================
+
+**What's New**
+
+* Most metadata methods inside `SPTRequest` have been moved into
+  their respective container classes, like `SPTTrack`, `SPTFollow`,
+  `SPTYourMusic` etc.
+
+* Most metadata objects like `SPTTrack`, `SPTAlbum` and `SPTPlaylistSnapshot`
+  now provide separate request creation and response parsing functions. This
+  will allow you to use custom libraries like `AFNetworking` to manage your
+  HTTP requests, also allowing for better caching and throttling of the
+  requests. These methods also take an access token string instead of a
+  `SPTSession` object.
+  ([Issue #92](https://github.com/spotify/ios-sdk/issues/92))
+
+* More following api's implemented in `SPTFollow` and `SPTPlaylistSnapshot`
+  which allows for subscription to someone else's playlists.
+  ([Issue #278](https://github.com/spotify/ios-sdk/issues/278))
+  ([Issue #22](https://github.com/spotify/ios-sdk/issues/22))
+
+* Lots of null pointer exceptions, unrecognised selectors and similar bugs
+  should now be fixed.
+  ([Issue #296](https://github.com/spotify/ios-sdk/issues/296))
+  ([Issue #280](https://github.com/spotify/ios-sdk/issues/280))
+  ([Issue #257](https://github.com/spotify/ios-sdk/issues/257))
+  ([Issue #219](https://github.com/spotify/ios-sdk/issues/219))
+
+* Many methods now supports a market parameter providing backend filtering
+  of available tracks.
+  ([Issue #295](https://github.com/spotify/ios-sdk/issues/295))
+
+* Appledoc comments improved, you might even find some examples in there.
+
+**Bugs fixed**
+
+* Playback related issues.
+  ([Issue #317](https://github.com/spotify/ios-sdk/issues/317))
+  ([Issue #297](https://github.com/spotify/ios-sdk/issues/297))
+  ([Issue #214](https://github.com/spotify/ios-sdk/issues/214))
+  ([Issue #194](https://github.com/spotify/ios-sdk/issues/194))
+    
+* URL encoding issues.
+  ([Issue #292](https://github.com/spotify/ios-sdk/issues/292))
+  ([Issue #284](https://github.com/spotify/ios-sdk/issues/284))
+
+* "Appears on" album type properly supported by `SPTAlbum`.
+  ([Issue #277](https://github.com/spotify/ios-sdk/issues/277))
+
+* SPTAuthViewController bugs.
+  ([Issue #302](https://github.com/spotify/ios-sdk/issues/302))
+  ([Issue #271](https://github.com/spotify/ios-sdk/issues/271))
+  ([Issue #267](https://github.com/spotify/ios-sdk/issues/267))
+
+* Misc XCode warning.
+  ([Issue #276](https://github.com/spotify/ios-sdk/issues/276))
+  ([Issue #264](https://github.com/spotify/ios-sdk/issues/264))
+
+* Misc old bugs that seems to be mitigated recently.
+  ([Issue #143](https://github.com/spotify/ios-sdk/issues/143))
+
+
+
 Spotify iOS SDK Beta 7
 ======================
 

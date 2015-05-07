@@ -97,15 +97,15 @@
 -(void)updateUI {
     SPTAuth *auth = [SPTAuth defaultInstance];
 
-    if (self.player.currentTrackMetadata == nil) {
+    if (self.player.currentTrackURI == nil) {
         self.coverView.image = nil;
         self.coverView2.image = nil;
         return;
     }
     
     [self.spinner startAnimating];
-    
-    [SPTTrack trackWithURI:[NSURL URLWithString:[self.player.currentTrackMetadata valueForKey:SPTAudioStreamingMetadataTrackURI]]
+
+    [SPTTrack trackWithURI:self.player.currentTrackURI
                    session:auth.session
                   callback:^(NSError *error, SPTTrack *track) {
 
@@ -176,18 +176,20 @@
 		}
 
         [self updateUI];
-
-		[SPTRequest requestItemAtURI:[NSURL URLWithString:@"spotify:user:cariboutheband:playlist:4Dg0J0ICj9kKTGDyFu0Cv4"]
-                         withSession:auth.session
-                            callback:^(NSError *error, id object) {
-
+        
+        NSURLRequest *playlistReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:[NSURL URLWithString:@"spotify:user:cariboutheband:playlist:4Dg0J0ICj9kKTGDyFu0Cv4"]
+                                                                             accessToken:auth.session.accessToken
+                                                                                   error:nil];
+        
+        [[SPTRequest sharedHandler] performRequest:playlistReq callback:^(NSError *error, NSURLResponse *response, NSData *data) {
             if (error != nil) {
-                NSLog(@"*** Album lookup got error %@", error);
+                NSLog(@"*** Failed to get playlist %@", error);
                 return;
             }
-
-            [self.player playTrackProvider:(id <SPTTrackProvider>)object callback:nil];
-
+            
+            SPTPlaylistSnapshot *playlistSnapshot = [SPTPlaylistSnapshot playlistSnapshotFromData:data withResponse:response error:nil];
+            
+            [self.player playURIs:playlistSnapshot.firstTrackPage.items fromIndex:0 callback:nil];
         }];
 	}];
 }
