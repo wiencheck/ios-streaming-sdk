@@ -50,6 +50,7 @@
 #import "SPTFollow.h"
 #import "SPTBrowse.h"
 #import "SPTYourMusic.h"
+#import "SPTSearch.h"
 
 // Audio playback
 

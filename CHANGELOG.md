@@ -1,3 +1,13 @@
+Spotify iOS SDK Beta 9
+======================
+
+**Bugs fixed**
+
+* This release fixes one breaking authentication issue that was introduced when
+  the latest Spotify Application was rolled out.
+  ([Issue #357](https://github.com/spotify/ios-sdk/issues/357))
+
+
 Spotify iOS SDK Beta 8
 ======================
 
