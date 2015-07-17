@@ -4,10 +4,9 @@ Spotify iOS SDK Beta 10
 **Bugs fixed**
 
 * This release fixes SDK crash/instability due to poor/no network. Method [NSJSONSerialization JSONObjectWithData:options:error:] can not take nil data and will crash the app when fetching playlist.
-
-([Issue #380](https://github.com/spotify/ios-sdk/issues/380))
-([Issue #374](https://github.com/spotify/ios-sdk/issues/374))
-([Issue #331](https://github.com/spotify/ios-sdk/issues/331))
+  ([Issue #380](https://github.com/spotify/ios-sdk/issues/380))
+  ([Issue #374](https://github.com/spotify/ios-sdk/issues/374))
+  ([Issue #331](https://github.com/spotify/ios-sdk/issues/331))
 
 
 Spotify iOS SDK Beta 9
