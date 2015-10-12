@@ -1,12 +1,22 @@
+Spotify iOS SDK Beta 11
+======================
+
+**Bugs fixed**
+
+* This release fixes the problem where Apple would reject your App in App Store due the app showing pages where you can purchase Spotify outside of App Store.
+
+([Issue #463](https://github.com/spotify/ios-sdk/issues/463))
+
 Spotify iOS SDK Beta 10
 ======================
 
 **Bugs fixed**
 
 * This release fixes SDK crash/instability due to poor/no network. Method [NSJSONSerialization JSONObjectWithData:options:error:] can not take nil data and will crash the app when fetching playlist.
-  ([Issue #380](https://github.com/spotify/ios-sdk/issues/380))
-  ([Issue #374](https://github.com/spotify/ios-sdk/issues/374))
-  ([Issue #331](https://github.com/spotify/ios-sdk/issues/331))
+
+([Issue #380](https://github.com/spotify/ios-sdk/issues/380))
+([Issue #374](https://github.com/spotify/ios-sdk/issues/374))
+([Issue #331](https://github.com/spotify/ios-sdk/issues/331))
 
 
 Spotify iOS SDK Beta 9

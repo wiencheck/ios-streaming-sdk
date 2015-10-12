@@ -56,12 +56,11 @@ you need to get going. The classes that'll get you started are:
 
   **Note:** To perform audio playback, you must request the `SPTAuthStreamingScope`
   scope when using `SPTAuth`. To do so, pass an array containing the constant to
-  `-loginURLForClientId:declaredRedirectURL:scopes:`. The supplied demo
+  `-loginURLForClientId:withRedirectURL:scopes:responseType:`. The supplied demo
   projects already do this if needed.
 
-* `SPTRequest` contains methods for searching, getting playlists and doing
-  metadata lookup. Most metadata classes (`SPTTrack`, `SPTArtist`, `SPTAlbum` and
-  so on) contain convenience methods too.
+*   Metadata classes contain methods for doing corresponding metadata lookup. `SPTUser` is for userinfo, `SPTSearch` for searching. [Take a look at the list of metadata classes](https://github.com/spotify/ios-sdk/tree/master/Spotify.framework/Versions/A/Headers)
+
 
 Authenticating and Scopes
 =======
@@ -133,18 +132,22 @@ if (session == nil) {
     // Session expired - we need to refresh it before continuing.
     // This process doesn't involve user interaction unless it fails.
     NSURL *refreshServiceEndpoint = …;
-    [[SPTAuth defaultInstance] renewSession:session
-                   withServiceEndpointAtURL:refreshServiceEndpoint
-                                   callback:^(NSError *error, SPTSession *session)
-        {
-            if (error == nil) {
+    [SPTAuth defaultInstance] renewSession:session 
+    							   callback:^(NSError *error, SPTSession *session)
+     {
+          if (error == nil) {
                 [self playMusicWithSession:session];
             } else {
                 [self handleError:error];
             }
-        }];
+    }];
 }
 ```
+
+Beginner's tutorial 
+=======
+Please visit [developer website](https://developer.spotify.com/technologies/spotify-ios-sdk/tutorial/) for step-by-step through the creation of a simple app that uses the Spotify iOS SDK 
+
 
 Migrating from CocoaLibSpotify
 =======
