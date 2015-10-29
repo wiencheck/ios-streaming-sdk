@@ -1,3 +1,13 @@
+Spotify iOS SDK Beta 12
+======================
+
+**Bugs fixed**
+
+* This release fixes the problem following issues.
+
+([Issue #472](https://github.com/spotify/ios-sdk/issues/472))
+([Issue #409](https://github.com/spotify/ios-sdk/issues/409))
+
 Spotify iOS SDK Beta 11
 ======================
 
