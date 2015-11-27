@@ -100,6 +100,10 @@ new scopes.
 **Important:** Only ask for the scopes your application needs. Requesting playlist
 access when your app doesn't use playlists, for example, is bad form.
 
+Registering your bundle id
+=======
+To communicate with Spotify you need to register your application’s bundle id section in the [Developer Portal](https://developer.spotify.com/my-applications/#!/applications). This value is used to authenticate your application against Spotify client.
+
 Session Lifetime
 =======
 
