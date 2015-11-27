@@ -1,3 +1,12 @@
+Spotify iOS SDK Beta 13
+======================
+**New features**
+* This release introduces SSO for authentication. Now the SDK launches the Spotify app for authentication instead of handling it through a web view. 
+
+**Bugs fixed**
+* This release fixes the issue : "SPTAuth canHandleURL is crashing with NSInvalidArgumentException"
+([Issue #372](https://github.com/spotify/ios-sdk/issues/372))
+
 Spotify iOS SDK Beta 12
 ======================
 
