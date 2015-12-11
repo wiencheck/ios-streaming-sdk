@@ -1,3 +1,11 @@
+Spotify iOS SDK Beta 14
+======================
+**New features**
+* This SDK now supports bitcode!
+
+**Bugs fixed**
+* Work done around Wifi to 3G switching issues. related tickets:  #409 #420 #479 .
+
 Spotify iOS SDK Beta 13
 ======================
 **New features**
