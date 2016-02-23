@@ -136,15 +136,15 @@ if (session == nil) {
     // Session expired - we need to refresh it before continuing.
     // This process doesn't involve user interaction unless it fails.
     NSURL *refreshServiceEndpoint = …;
-    [SPTAuth defaultInstance] renewSession:session 
+    [[SPTAuth defaultInstance] renewSession:session 
     							   callback:^(NSError *error, SPTSession *session)
      {
-          if (error == nil) {
-                [self playMusicWithSession:session];
-            } else {
-                [self handleError:error];
-            }
-    }];
+         if (error == nil) {
+             [self playMusicWithSession:session];
+         } else {
+             [self handleError:error];
+         }
+     }];
 }
 ```
 
