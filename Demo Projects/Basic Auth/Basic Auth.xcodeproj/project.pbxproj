@@ -284,7 +284,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Basic Auth/Basic Auth-Prefix.pch";
 				INFOPLIST_FILE = "Basic Auth/Basic Auth-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Basic Auth";
 				WRAPPER_EXTENSION = app;
@@ -302,7 +302,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Basic Auth/Basic Auth-Prefix.pch";
 				INFOPLIST_FILE = "Basic Auth/Basic Auth-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Basic Auth";
 				WRAPPER_EXTENSION = app;
