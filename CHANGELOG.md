@@ -1,3 +1,14 @@
+Spotify iOS SDK Beta 16
+======================
+**Features introduced**
+Bitcode support enabled for archiving
+
+Issues related : 
+Bitcode still not working on beta 14 #511 
+Missing bitcode #493 
+Bitcode support #445 
+
+
 Spotify iOS SDK Beta 15
 ======================
 **Bugs fixed**
