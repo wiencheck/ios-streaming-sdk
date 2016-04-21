@@ -12,10 +12,11 @@ Bitcode support #445
 Spotify iOS SDK Beta 15
 ======================
 **Bugs fixed**
-*Crashes related to runbackgroundloop #585
-*Crash in SPTPlaylistSnapShot #571
-*Crash SPTAudioStreamingController runBackgroundLoop #541
-*Crash in dealloc of SPTAudioStreamingController
+* Crashes related to runbackgroundloop #585
+* Crash in SPTPlaylistSnapShot #571
+* Crash SPTAudioStreamingController runBackgroundLoop #541
+* Crash in dealloc of SPTAudioStreamingController
+
 
 Spotify iOS SDK Beta 14
 ======================
