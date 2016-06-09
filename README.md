@@ -1,4 +1,4 @@
-**Note: The Spotify iOS SDK does not support IPv6. This has now surfaced as a bigger problem with Apple not accepting applications not supporting IPv6. We are working on a solution (IPv6 support). In the meantime if you have comments or further input on the subject please add it to the issue #676**
+**Note: The Spotify iOS SDK does not support IPv6. This has now surfaced as a bigger problem with Apple not accepting applications not supporting IPv6. We are working on a solution (IPv6 support). In the meantime if you have comments or further input on the subject please add it to the issue [#676](https://github.com/spotify/ios-sdk/issues/676)**
 
 **WARNING: This is a beta release of the Spotify iOS SDK.**
 
