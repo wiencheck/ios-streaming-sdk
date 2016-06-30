@@ -43,7 +43,7 @@
     if(self.navigationController.topViewController == self) {
         SPTAuth *auth = [SPTAuth defaultInstance];
         if (auth.session && [auth.session isValid]) {
-            [self performSegueWithIdentifier:@"ShowPlayer" sender:nil];
+            [self showPlayer];
         }
     }
 }
@@ -57,15 +57,19 @@
 - (void)authenticationViewController:(SPTAuthViewController *)viewcontroller didFailToLogin:(NSError *)error {
     self.statusLabel.text = @"Login failed.";
     NSLog(@"*** Failed to log in: %@", error);
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)authenticationViewController:(SPTAuthViewController *)viewcontroller didLoginWithSession:(SPTSession *)session {
     self.statusLabel.text = @"";
-    [self showPlayer];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self showPlayer];
+    }];
 }
 
 - (void)authenticationViewControllerDidCancelLogin:(SPTAuthViewController *)authenticationViewController {
     self.statusLabel.text = @"Login cancelled.";
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)openLoginPage {

@@ -7,7 +7,7 @@
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
 </head>
 <body class="appledoc">
 	<header>
@@ -70,6 +70,8 @@
 		
 		<option value="//api/name/diskCache">diskCache</option>
 		
+		<option value="//api/name/initialized">initialized</option>
+		
 		<option value="//api/name/isPlaying">isPlaying</option>
 		
 		<option value="//api/name/loggedIn">loggedIn</option>
@@ -92,6 +94,12 @@
 	
 
 	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/sharedInstance">+ sharedInstance</option>
+		
+	</optgroup>
+	
 
 	
 	<optgroup label="Instance Methods">
@@ -100,13 +108,9 @@
 		
 		<option value="//api/name/getRelativeTrackMetadata:callback:">- getRelativeTrackMetadata:callback:</option>
 		
-		<option value="//api/name/initWithClientId:">- initWithClientId:</option>
+		<option value="//api/name/loginWithAccessToken:">- loginWithAccessToken:</option>
 		
-		<option value="//api/name/initWithClientId:audioController:">- initWithClientId:audioController:</option>
-		
-		<option value="//api/name/loginWithSession:callback:">- loginWithSession:callback:</option>
-		
-		<option value="//api/name/logout:">- logout:</option>
+		<option value="//api/name/logout">- logout</option>
 		
 		<option value="//api/name/playTrackProvider:callback:">- playTrackProvider:callback:</option>
 		
@@ -150,7 +154,13 @@
 		
 		<option value="//api/name/skipPrevious:">- skipPrevious:</option>
 		
+		<option value="//api/name/startWithClientId:audioController:error:">- startWithClientId:audioController:error:</option>
+		
+		<option value="//api/name/startWithClientId:error:">- startWithClientId:error:</option>
+		
 		<option value="//api/name/stop:">- stop:</option>
+		
+		<option value="//api/name/stopWithError:">- stopWithError:</option>
 		
 	</optgroup>
 	
@@ -202,8 +212,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/initWithClientId:" title="initWithClientId:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithClientId:">&ndash;&nbsp;initWithClientId:</a></code>
+	<a name="//api/name/sharedInstance" title="sharedInstance"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sharedInstance">+&nbsp;sharedInstance</a></code>
 </h3>
 
 	<div class="method-info">
@@ -213,32 +223,20 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Initialise a new <code>SPAudioStreamingController</code>.</p>
+				<p>Access the shared <code>SPAudioStreamingController</code> instance</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (id)initWithClientId:(NSString *)<em>clientId</em></code></div>
+			<div class="method-subsection method-declaration"><code>+ (instancetype)sharedInstance</code></div>
 
 		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>clientId</code></th>
-						<td><p>Your client id.</p></td>
-					</tr>
-				
-				</table>
-			</div>
 			
 
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>Returns an initialised <code>SPAudioStreamingController</code> instance.</p>
+				<p>Returns the shared <code>SPAudioStreamingController</code> instance</p>
 			</div>
 			
 
@@ -260,8 +258,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/initWithClientId:audioController:" title="initWithClientId:audioController:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithClientId:audioController:">&ndash;&nbsp;initWithClientId:audioController:</a></code>
+	<a name="//api/name/startWithClientId:audioController:error:" title="startWithClientId:audioController:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startWithClientId:audioController:error:">&ndash;&nbsp;startWithClientId:audioController:error:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -271,12 +269,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Initialise a new <code>SPAudioStreamingController</code> with a custom audio controller.</p>
+				<p>Start the <code>SPAudioStreamingController</code> thread with a custom audio controller.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (id)initWithClientId:(NSString *)<em>clientId</em> audioController:(SPTCoreAudioController *)<em>audioController</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (BOOL)startWithClientId:(NSString *)<em>clientId</em> audioController:(SPTCoreAudioController *)<em>audioController</em> error:(NSError *__autoreleasing *)<em>error</em></code></div>
 
 		    
 			
@@ -286,12 +284,17 @@
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>clientId</code></th>
-						<td><p>Your client id.</p></td>
+						<td><p>Your client id found at developer.spotify.com</p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>audioController</code></th>
-						<td><p>Audio controller.</p></td>
+						<td><p>Custom audio controller</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>If method returns NO, error will be set</p></td>
 					</tr>
 				
 				</table>
@@ -301,12 +304,17 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>Returns an initialised <code>SPAudioStreamingController</code> instance.</p>
+				<p>Returns YES if initialization was successful</p>
 			</div>
 			
 
 			
 
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> You MUST initialize the <code>SPAudioStreamingController </code>sharedInstance<code></code> before calling any other method.</p></div>
+			</div>
 			
 
 			
@@ -323,8 +331,140 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/loginWithSession:callback:" title="loginWithSession:callback:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/loginWithSession:callback:">&ndash;&nbsp;loginWithSession:callback:</a></code>
+	<a name="//api/name/startWithClientId:error:" title="startWithClientId:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startWithClientId:error:">&ndash;&nbsp;startWithClientId:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Start the <code>SPAudioStreamingController</code> thread with the default audioController.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)startWithClientId:(NSString *)<em>clientId</em> error:(NSError *__autoreleasing *)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>clientId</code></th>
+						<td><p>Your client id found at developer.spotify.com</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>If method returns NO, error will be set</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns YES if initialization was successful</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> You need to start the <code>SPAudioStreamingController </code>sharedInstance<code></code> before calling any other method.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/stopWithError:" title="stopWithError:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/stopWithError:">&ndash;&nbsp;stopWithError:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Shut down the <code>SPTAudioStreamingController</code> thread.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)stopWithError:(NSError *__autoreleasing *)<em>error</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>error</code></th>
+						<td><p>If method returns NO, error will be set</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns YES if initialization was successful</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="note"><p><strong>Note:</strong> If a user is currently logged in, the application should first call
+  <a href="#//api/name/logout">logout</a> and wait for the <code>-audioStreamingDidLogout:</code> <a href="#//api/name/delegate">delegate</a> method</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/loginWithAccessToken:" title="loginWithAccessToken:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/loginWithAccessToken:">&ndash;&nbsp;loginWithAccessToken:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -339,7 +479,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)loginWithSession:(SPTSession *)<em>session</em> callback:(SPTErrorableOperationCallback)<em>block</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)loginWithAccessToken:(NSString *)<em>accessToken</em></code></div>
 
 		    
 			
@@ -348,15 +488,8 @@
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>session</code></th>
-						<td><p>The session to log in with. Must be valid and authenticated with the
-<code>SPTAuthStreamingScope</code> scope.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>block</code></th>
-						<td><p>The callback block to be executed when login succeeds or fails. In the cause of
-failure, an <code>NSError</code> object will be passed.</p></td>
+						<th scope="row" class="argument-name"><code>accessToken</code></th>
+						<td><p>An authenticated access token authorized with the <code>SPTAuthStreamingScope</code> scope.</p></td>
 					</tr>
 				
 				</table>
@@ -370,7 +503,9 @@ failure, an <code>NSError</code> object will be passed.</p></td>
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Audio playback will not be available until the receiver is successfully logged in.</p>
+				<p>Audio playback will not be available until the receiver is successfully logged in.</p><p>Login is asynchronous.
+Success will be notified on the <code>audioStreamingDidLogin:</code> <a href="#//api/name/delegate">delegate</a> method and
+failure will be notified on the <code>audioStreaming:didEncounterError:</code> <a href="#//api/name/delegate">delegate</a> method.</p>
 			</div>
 			
 
@@ -388,8 +523,8 @@ failure, an <code>NSError</code> object will be passed.</p></td>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/logout:" title="logout:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/logout:">&ndash;&nbsp;logout:</a></code>
+	<a name="//api/name/logout" title="logout"></a>
+	<h3 class="method-title"><code><a href="#//api/name/logout">&ndash;&nbsp;logout</a></code>
 </h3>
 
 	<div class="method-info">
@@ -404,28 +539,21 @@ failure, an <code>NSError</code> object will be passed.</p></td>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)logout:(SPTErrorableOperationCallback)<em>block</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)logout</code></div>
 
 		    
 			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>block</code></th>
-						<td><p>The callback block to be executed when logout succeeds or fails. In the cause of
-failure, an <code>NSError</code> object will be passed.</p></td>
-					</tr>
-				
-				</table>
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is asynchronous. When logout is complete you will be notified by the
+<code>audioStreamingDidLogout:</code> <a href="#//api/name/delegate">delegate</a> method.</p>
 			</div>
-			
-
-			
-
-			
-
 			
 
 			
@@ -450,6 +578,47 @@ failure, an <code>NSError</code> object will be passed.</p></td>
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/initialized" title="initialized"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initialized">&nbsp;&nbsp;initialized</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>YES while the <code>SPTAudioStreamingController</code> is initialized</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, assign) BOOL initialized</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTAudioStreamingController.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/loggedIn" title="loggedIn"></a>
 	<h3 class="method-title"><code><a href="#//api/name/loggedIn">&nbsp;&nbsp;loggedIn</a></code>
 </h3>
@@ -502,7 +671,7 @@ failure, an <code>NSError</code> object will be passed.</p></td>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The receiver&rsquo;s delegate, which deals with session events such as login, logout, errors, etc.</p>
+				<p>The receiver&rsquo;s delegate, which deals with session events such as login, <a href="#//api/name/logout">logout</a>, errors, etc.</p>
 			</div>
 			
 		    
@@ -2853,15 +3022,17 @@ received, which will pass back an <code>NSError</code> object if an error ocurre
 					
 
                     
+                    
+          
 				</main>
 
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 Spotify AB. All rights reserved. Updated: 2015-12-11</p>
+						<p class="copyright">Copyright &copy; 2016 Spotify AB. All rights reserved. Updated: 2016-06-30</p>
 						
 						
-						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
 						
 					</div>
 				</footer>

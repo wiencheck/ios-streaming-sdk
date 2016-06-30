@@ -59,12 +59,8 @@
 }
 
 - (IBAction)logoutClicked:(id)sender {
-    SPTAuth *auth = [SPTAuth defaultInstance];
     if (self.player) {
-        [self.player logout:^(NSError *error) {
-            auth.session = nil;
-            [self.navigationController popViewControllerAnimated:YES];
-        }];
+        [self.player logout];
     } else {
         [self.navigationController popViewControllerAnimated:YES];
     }
@@ -163,35 +159,21 @@
     SPTAuth *auth = [SPTAuth defaultInstance];
 
     if (self.player == nil) {
-        self.player = [[SPTAudioStreamingController alloc] initWithClientId:auth.clientID];
-        self.player.playbackDelegate = self;
-        self.player.diskCache = [[SPTDiskCache alloc] initWithCapacity:1024 * 1024 * 64];
-    }
-
-    [self.player loginWithSession:auth.session callback:^(NSError *error) {
-
-		if (error != nil) {
-			NSLog(@"*** Enabling playback got error: %@", error);
-			return;
-		}
-
-        [self updateUI];
-        
-        NSURLRequest *playlistReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:[NSURL URLWithString:@"spotify:user:cariboutheband:playlist:4Dg0J0ICj9kKTGDyFu0Cv4"]
-                                                                             accessToken:auth.session.accessToken
-                                                                                   error:nil];
-        
-        [[SPTRequest sharedHandler] performRequest:playlistReq callback:^(NSError *error, NSURLResponse *response, NSData *data) {
-            if (error != nil) {
-                NSLog(@"*** Failed to get playlist %@", error);
-                return;
-            }
-            
-            SPTPlaylistSnapshot *playlistSnapshot = [SPTPlaylistSnapshot playlistSnapshotFromData:data withResponse:response error:nil];
-            
-            [self.player playURIs:playlistSnapshot.firstTrackPage.items fromIndex:0 callback:nil];
-        }];
-	}];
+        NSError *error = nil;
+        self.player = [SPTAudioStreamingController sharedInstance];
+        if ([self.player startWithClientId:auth.clientID error:&error]) {
+            self.player.delegate = self;
+            self.player.playbackDelegate = self;
+            self.player.diskCache = [[SPTDiskCache alloc] initWithCapacity:1024 * 1024 * 64];
+            [self.player loginWithAccessToken:auth.session.accessToken];
+        } else {
+            self.player = nil;
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error init" message:[error description] preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+            [self presentViewController:alert animated:YES completion:nil];
+            [self audioStreamingDidLogout:nil];
+        }
+    }   
 }
 
 #pragma mark - Track Player Delegates
@@ -216,6 +198,46 @@
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePlaybackStatus:(BOOL)isPlaying {
     NSLog(@"is playing = %d", isPlaying);
+}
+
+- (void)audioStreamingDidLogout:(SPTAudioStreamingController *)audioStreaming {
+    NSError *error = nil;
+    if (![self.player stopWithError:&error]) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error deinit" message:[error description] preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+        [self audioStreamingDidLogout:nil];
+    }
+    [SPTAuth defaultInstance].session = nil;
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didEncounterError:(NSError *)error {
+    if (error != nil) {
+        NSLog(@"*** Playback got error: %@", error);
+        return;
+    }
+}
+
+- (void)audioStreamingDidLogin:(SPTAudioStreamingController *)audioStreaming {
+    
+    [self updateUI];
+    NSString *accessToken = [SPTAuth defaultInstance].session.accessToken;
+    NSURL *url = [NSURL URLWithString:@"spotify:user:cariboutheband:playlist:4Dg0J0ICj9kKTGDyFu0Cv4"];
+    NSURLRequest *playlistReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:url
+                                                                         accessToken:accessToken
+                                                                               error:nil];
+    
+    [[SPTRequest sharedHandler] performRequest:playlistReq callback:^(NSError *error, NSURLResponse *response, NSData *data) {
+        if (error != nil) {
+            NSLog(@"*** Failed to get playlist %@", error);
+            return;
+        }
+        
+        SPTPlaylistSnapshot *playlistSnapshot = [SPTPlaylistSnapshot playlistSnapshotFromData:data withResponse:response error:nil];
+        
+        [self.player playURIs:playlistSnapshot.firstTrackPage.items fromIndex:0 callback:nil];
+    }];
 }
 
 @end

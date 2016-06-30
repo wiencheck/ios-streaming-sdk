@@ -1,3 +1,11 @@
+Spotify iOS SDK Beta 17
+======================
+**Features introduced**
+* Control library life time
+
+**Bugs fixed**
+* Crashes related to library lifetime
+
 Spotify iOS SDK Beta 16
 ======================
 **Features introduced**
