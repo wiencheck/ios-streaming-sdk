@@ -1,7 +1,7 @@
 Spotify iOS SDK Beta 20
 ======================
 
-** Important Notes**
+**Important Notes**
 
 * set `allowNativeLogin` to `NO` if you want to disable native/SSO login through Spotify App
 * use `-(BOOL)startWithClientId:clientId audioController: allowCaching: error:` with `allowCaching` set to `NO` to run it on tvOS
@@ -23,7 +23,6 @@ Functions not deprecated that has been removed
 * -(void)playURIs:(NSArray *)uris withOptions:(SPTPlayOptions *)options callback:(SPTErrorableOperationCallback)block;
 * -(void)replaceURIs:(NSArray *)uris withCurrentTrack:(int)index callback:(SPTErrorableOperationCallback)block;
 * -(void)queueURIs:(NSArray *)uris clearQueue:(BOOL)clear callback:(SPTErrorableOperationCallback)block;
-* @property (nonatomic, readonly, assign) BOOL initialized;
 * @property (nonatomic, readonly) int trackListSize;
 * -(void)stop:(SPTErrorableOperationCallback)block;
 
