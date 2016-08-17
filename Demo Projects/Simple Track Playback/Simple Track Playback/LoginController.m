@@ -29,6 +29,8 @@
 
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdatedNotification:) name:@"sessionUpdated" object:nil];
     self.statusLabel.text = @"";
     self.firstLoad = YES;
@@ -43,7 +45,9 @@
     if(self.navigationController.topViewController == self) {
         SPTAuth *auth = [SPTAuth defaultInstance];
         if (auth.session && [auth.session isValid]) {
-            [self showPlayer];
+            [self authenticationViewController:self.authViewController didLoginWithSession:auth.session];
+        } else {
+            [self authenticationViewController:self.authViewController didFailToLogin:nil];
         }
     }
 }
@@ -57,19 +61,15 @@
 - (void)authenticationViewController:(SPTAuthViewController *)viewcontroller didFailToLogin:(NSError *)error {
     self.statusLabel.text = @"Login failed.";
     NSLog(@"*** Failed to log in: %@", error);
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)authenticationViewController:(SPTAuthViewController *)viewcontroller didLoginWithSession:(SPTSession *)session {
     self.statusLabel.text = @"";
-    [self dismissViewControllerAnimated:YES completion:^{
-        [self showPlayer];
-    }];
+    [self showPlayer];
 }
 
 - (void)authenticationViewControllerDidCancelLogin:(SPTAuthViewController *)authenticationViewController {
     self.statusLabel.text = @"Login cancelled.";
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)openLoginPage {
@@ -90,6 +90,8 @@
 - (void)renewTokenAndShowPlayer {
     self.statusLabel.text = @"Refreshing token...";
     SPTAuth *auth = [SPTAuth defaultInstance];
+    // Uncomment to turn off native/SSO/flip-flop login flow
+    //auth.allowNativeLogin = NO;
 
     [auth renewSession:auth.session callback:^(NSError *error, SPTSession *session) {
         auth.session = session;
@@ -105,7 +107,11 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
     SPTAuth *auth = [SPTAuth defaultInstance];
+    // Uncomment to turn off native/SSO/flip-flop login flow
+    //auth.allowNativeLogin = NO;
 
     // Check if we have a token at all
     if (auth.session == nil) {
