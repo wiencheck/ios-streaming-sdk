@@ -146,32 +146,4 @@ if (session == nil) {
 
 Beginner's tutorial 
 =======
-Please visit [developer website](https://developer.spotify.com/technologies/spotify-ios-sdk/tutorial/) for step-by-step through the creation of a simple app that uses the Spotify iOS SDK 
-
-
-Migrating from CocoaLibSpotify
-=======
-
-CocoaLibSpotify is based on the libspotify library, which contains a lot of
-legacy and is a very complex library. While this provided a great deal of
-functionality, it could also eat up a large amount of RAM and CPU resources,
-which isn't ideal for mobile platforms.
-
-The Spotify iOS SDK is based on a completely new technology stack that aims to
-avoid these problems while still providing a rich set of functionality. Due to
-this new architecture, we took the decision to start from scratch with the
-Spotify iOS SDK's API rather than trying to squeeze the new technology into
-CocoaLibSpotify's API. This has resulted in a library that's much easier to use
-and has a vastly smaller CPU and RAM footprint compared to CocoaLibSpotify.
-
-The Spotify iOS API does *not* have 1:1 feature parity with CocoaLibSpotify.
-It contains functionality that CocoaLibSpotify does not, and CocoaLibSpotify
-has features that the Spotify iOS SDK does not. We're working to close that
-gap, and if there's a feature missing from the Spotify iOS SDK that's
-particularly important to you, please get in touch so we can prioritise
-correctly.
-
-Due to the API and feature differences between CocoaLibSpotify and the Spotify
-iOS SDK, we understand that migration may be difficult. Due to this,
-CocoaLibSpotify will remain available for a reasonable amount of time after
-this SDK exits beta status.
+Please refer to the demo app in `Demo Project` directory.

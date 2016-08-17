@@ -1,38 +1,47 @@
 Spotify iOS SDK Beta 20
 ======================
 
+** Important Notes**
+
+* set `allowNativeLogin` to `NO` if you want to disable native/SSO login through Spotify App
+* use `-(BOOL)startWithClientId:clientId audioController: allowCaching: error:` with `allowCaching` set to `NO` to run it on tvOS
+* to recieve update on current playback state and metadata use `-(void)audioStreaming: didChangePlaybackState:` callback of `SPTAudioStreamingPlaybackDelegate`. Check the demo app for more info.
+
 **Bugs fixed**
 
 * [IPV6 Support is Required for App Store Submission](https://github.com/spotify/ios-sdk/issues/676)
 
 **API Changes** 
-Updated functions
--(void)playURI:(NSURL *)uri callback:(SPTErrorableOperationCallback)block;
--(void)queueURI:(NSURL *)uri callback:(SPTErrorableOperationCallback)block;
+Updated functions:
+
+* -(void)playURI:(NSURL *)uri callback:(SPTErrorableOperationCallback)block;
+* -(void)queueURI:(NSURL *)uri callback:(SPTErrorableOperationCallback)block;
 
 Functions not deprecated that has been removed
--(void)playURIs:(NSArray *)uris fromIndex:(int)index callback:(SPTErrorableOperationCallback)block;
--(void)playURIs:(NSArray *)uris withOptions:(SPTPlayOptions *)options callback:(SPTErrorableOperationCallback)block;
--(void)replaceURIs:(NSArray *)uris withCurrentTrack:(int)index callback:(SPTErrorableOperationCallback)block;
--(void)queueURIs:(NSArray *)uris clearQueue:(BOOL)clear callback:(SPTErrorableOperationCallback)block;
-@property (nonatomic, readonly, assign) BOOL initialized;
-@property (nonatomic, readonly) int trackListSize;
--(void)stop:(SPTErrorableOperationCallback)block;
+
+* -(void)playURIs:(NSArray *)uris fromIndex:(int)index callback:(SPTErrorableOperationCallback)block;
+* -(void)playURIs:(NSArray *)uris withOptions:(SPTPlayOptions *)options callback:(SPTErrorableOperationCallback)block;
+* -(void)replaceURIs:(NSArray *)uris withCurrentTrack:(int)index callback:(SPTErrorableOperationCallback)block;
+* -(void)queueURIs:(NSArray *)uris clearQueue:(BOOL)clear callback:(SPTErrorableOperationCallback)block;
+* @property (nonatomic, readonly, assign) BOOL initialized;
+* @property (nonatomic, readonly) int trackListSize;
+* -(void)stop:(SPTErrorableOperationCallback)block;
 
 Deprecated functions that has been removed
--(void)playURI:(NSURL *)uri fromIndex:(int)index callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
--(void)setURIs:(NSArray *)uris callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
--(void)playURIsFromIndex:(int)index callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
--(void)playTrackProvider:(id<SPTTrackProvider>)provider callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
--(void)playTrackProvider:(id<SPTTrackProvider>)provider fromIndex:(int)index callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
--(void)queueURI:(NSURL *)uri clearQueue:(BOOL)clear callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
--(void)queueTrackProvider:(id<SPTTrackProvider>)provider clearQueue:(BOOL)clear callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
--(void)queuePlay:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
--(void)queueClear:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
--(void)getRelativeTrackMetadata:(int)index callback:(void (^)(NSDictionary *))block DEPRECATED_ATTRIBUTE;
--(void)getAbsoluteTrackMetadata:(int)index callback:(void (^)(NSDictionary *))block DEPRECATED_ATTRIBUTE;
-@property (nonatomic, readwrite) int trackListPosition DEPRECATED_ATTRIBUTE;
-@property (nonatomic, readonly) int queueSize DEPRECATED_ATTRIBUTE;
+
+* -(void)playURI:(NSURL *)uri fromIndex:(int)index callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+* -(void)setURIs:(NSArray *)uris callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+* -(void)playURIsFromIndex:(int)index callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+* -(void)playTrackProvider:(id<SPTTrackProvider>)provider callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+* -(void)playTrackProvider:(id<SPTTrackProvider>)provider fromIndex:(int)index callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+* -(void)queueURI:(NSURL *)uri clearQueue:(BOOL)clear callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+* -(void)queueTrackProvider:(id<SPTTrackProvider>)provider clearQueue:(BOOL)clear callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+* -(void)queuePlay:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+* -(void)queueClear:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+* -(void)getRelativeTrackMetadata:(int)index callback:(void (^)(NSDictionary *))block DEPRECATED_ATTRIBUTE;
+* -(void)getAbsoluteTrackMetadata:(int)index callback:(void (^)(NSDictionary *))block DEPRECATED_ATTRIBUTE;
+* @property (nonatomic, readwrite) int trackListPosition DEPRECATED_ATTRIBUTE;
+* @property (nonatomic, readonly) int queueSize DEPRECATED_ATTRIBUTE;
 
 Spotify iOS SDK Beta 12
 ======================
