@@ -17,7 +17,6 @@
 #import "AppDelegate.h"
 #import <Spotify/Spotify.h>
 #import "Config.h"
-#import "ViewController.h"
 
 @implementation AppDelegate
 

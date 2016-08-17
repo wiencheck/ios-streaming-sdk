@@ -28,6 +28,10 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @property (nonatomic, strong) SPTAudioStreamingController *player;
+@property (nonatomic, strong) SPTPlaybackState* playbackState;
+
+@property IBOutlet UIButton* nextButton;
+@property IBOutlet UIButton* prevButton;
 
 @end
 
@@ -93,7 +97,7 @@
 -(void)updateUI {
     SPTAuth *auth = [SPTAuth defaultInstance];
 
-    if (self.player.currentTrackURI == nil) {
+    if (self.playbackState.currentTrack == nil) {
         self.coverView.image = nil;
         self.coverView2.image = nil;
         return;
@@ -101,7 +105,10 @@
     
     [self.spinner startAnimating];
 
-    [SPTTrack trackWithURI:self.player.currentTrackURI
+    self.nextButton.enabled = self.playbackState.nextTrack != nil;
+    self.prevButton.enabled = self.playbackState.prevTrack != nil;
+
+    [SPTTrack trackWithURI: [NSURL URLWithString:self.playbackState.currentTrack.uri]
                    session:auth.session
                   callback:^(NSError *error, SPTTrack *track) {
 
@@ -161,7 +168,7 @@
     if (self.player == nil) {
         NSError *error = nil;
         self.player = [SPTAudioStreamingController sharedInstance];
-        if ([self.player startWithClientId:auth.clientID error:&error]) {
+        if ([self.player startWithClientId:auth.clientID audioController:nil allowCaching:YES error:&error]) {
             self.player.delegate = self;
             self.player.playbackDelegate = self;
             self.player.diskCache = [[SPTDiskCache alloc] initWithCapacity:1024 * 1024 * 64];
@@ -191,13 +198,14 @@
     NSLog(@"failed to play track: %@", trackUri);
 }
 
-- (void) audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeToTrack:(NSDictionary *)trackMetadata {
-    NSLog(@"track changed = %@", [trackMetadata valueForKey:SPTAudioStreamingMetadataTrackURI]);
-    [self updateUI];
-}
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePlaybackStatus:(BOOL)isPlaying {
     NSLog(@"is playing = %d", isPlaying);
+}
+
+-(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePlaybackState:(SPTPlaybackState *)playbackState {
+    self.playbackState = playbackState;
+    [self updateUI];
 }
 
 - (void)audioStreamingDidLogout:(SPTAudioStreamingController *)audioStreaming {
@@ -220,24 +228,14 @@
 }
 
 - (void)audioStreamingDidLogin:(SPTAudioStreamingController *)audioStreaming {
-    
+
     [self updateUI];
-    NSString *accessToken = [SPTAuth defaultInstance].session.accessToken;
-    NSURL *url = [NSURL URLWithString:@"spotify:user:cariboutheband:playlist:4Dg0J0ICj9kKTGDyFu0Cv4"];
-    NSURLRequest *playlistReq = [SPTPlaylistSnapshot createRequestForPlaylistWithURI:url
-                                                                         accessToken:accessToken
-                                                                               error:nil];
-    
-    [[SPTRequest sharedHandler] performRequest:playlistReq callback:^(NSError *error, NSURLResponse *response, NSData *data) {
+    NSURL *url = [NSURL URLWithString:@"spotify:user:spotify:playlist:5wDvHZhgPBlWyDEZ3jSMF4"];
+    [self.player playURI:url startingWithIndex:10 callback:^(NSError *error) {
         if (error != nil) {
-            NSLog(@"*** Failed to get playlist %@", error);
+            NSLog(@"*** failed to play: %@", error);
             return;
         }
-        
-        SPTPlaylistSnapshot *playlistSnapshot = [SPTPlaylistSnapshot playlistSnapshotFromData:data withResponse:response error:nil];
-        
-        [self.player playURIs:playlistSnapshot.firstTrackPage.items fromIndex:0 callback:nil];
     }];
 }
-
 @end

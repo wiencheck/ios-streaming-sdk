@@ -1,51 +1,45 @@
-Spotify iOS SDK Beta 17
+Spotify iOS SDK Beta 20
 ======================
-**Features introduced**
-* Control library life time
 
 **Bugs fixed**
-* Crashes related to library lifetime
 
-Spotify iOS SDK Beta 16
-======================
-**Features introduced**
-* Bitcode still not working on beta 14 #511 
-* Missing bitcode #493 
-* Bitcode support #445 
+* [IPV6 Support is Required for App Store Submission](https://github.com/spotify/ios-sdk/issues/676)
 
+**API Changes** 
+Updated functions
+-(void)playURI:(NSURL *)uri callback:(SPTErrorableOperationCallback)block;
+-(void)queueURI:(NSURL *)uri callback:(SPTErrorableOperationCallback)block;
 
-Spotify iOS SDK Beta 15
-======================
-**Bugs fixed**
-* Crashes related to runbackgroundloop #585
-* Crash in SPTPlaylistSnapShot #571
-* Crash SPTAudioStreamingController runBackgroundLoop #541
-* Crash in dealloc of SPTAudioStreamingController
+Functions not deprecated that has been removed
+-(void)playURIs:(NSArray *)uris fromIndex:(int)index callback:(SPTErrorableOperationCallback)block;
+-(void)playURIs:(NSArray *)uris withOptions:(SPTPlayOptions *)options callback:(SPTErrorableOperationCallback)block;
+-(void)replaceURIs:(NSArray *)uris withCurrentTrack:(int)index callback:(SPTErrorableOperationCallback)block;
+-(void)queueURIs:(NSArray *)uris clearQueue:(BOOL)clear callback:(SPTErrorableOperationCallback)block;
+@property (nonatomic, readonly, assign) BOOL initialized;
+@property (nonatomic, readonly) int trackListSize;
+-(void)stop:(SPTErrorableOperationCallback)block;
 
-
-Spotify iOS SDK Beta 14
-======================
-**New features**
-* This SDK now supports bitcode!
-
-**Bugs fixed**
-* Work done around Wifi to 3G switching issues. related tickets:  #409 #420 #479 .
-
-Spotify iOS SDK Beta 13
-======================
-**New features**
-* This SDK now uses Spotify iOS app to obtain access tokens using your app's bundle id. For more information see [registering your bundle ID](https://developer.spotify.com/technologies/spotify-ios-sdk/#registering-your-bundle-id)
-
-**Bugs fixed**
-* This release fixes the issue : "SPTAuth canHandleURL is crashing with NSInvalidArgumentException"
-([Issue #372](https://github.com/spotify/ios-sdk/issues/372))
+Deprecated functions that has been removed
+-(void)playURI:(NSURL *)uri fromIndex:(int)index callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+-(void)setURIs:(NSArray *)uris callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+-(void)playURIsFromIndex:(int)index callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+-(void)playTrackProvider:(id<SPTTrackProvider>)provider callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+-(void)playTrackProvider:(id<SPTTrackProvider>)provider fromIndex:(int)index callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+-(void)queueURI:(NSURL *)uri clearQueue:(BOOL)clear callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+-(void)queueTrackProvider:(id<SPTTrackProvider>)provider clearQueue:(BOOL)clear callback:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+-(void)queuePlay:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+-(void)queueClear:(SPTErrorableOperationCallback)block DEPRECATED_ATTRIBUTE;
+-(void)getRelativeTrackMetadata:(int)index callback:(void (^)(NSDictionary *))block DEPRECATED_ATTRIBUTE;
+-(void)getAbsoluteTrackMetadata:(int)index callback:(void (^)(NSDictionary *))block DEPRECATED_ATTRIBUTE;
+@property (nonatomic, readwrite) int trackListPosition DEPRECATED_ATTRIBUTE;
+@property (nonatomic, readonly) int queueSize DEPRECATED_ATTRIBUTE;
 
 Spotify iOS SDK Beta 12
 ======================
 
 **Bugs fixed**
 
-* This release fixes the problem following issues.
+* This release fixes the following issues.
 
 ([Issue #472](https://github.com/spotify/ios-sdk/issues/472))
 ([Issue #409](https://github.com/spotify/ios-sdk/issues/409))

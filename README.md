@@ -1,5 +1,3 @@
-**Note: The Spotify iOS SDK does not support IPv6. This has now surfaced as a bigger problem with Apple not accepting applications not supporting IPv6. We are working on a solution (IPv6 support). In the meantime if you have comments or further input on the subject please add it to the issue [#676](https://github.com/spotify/ios-sdk/issues/676)**
-
 **WARNING: This is a beta release of the Spotify iOS SDK.**
 
 
@@ -102,10 +100,6 @@ new scopes.
 **Important:** Only ask for the scopes your application needs. Requesting playlist
 access when your app doesn't use playlists, for example, is bad form.
 
-Registering your bundle id
-=======
-To communicate with Spotify you need to register your application’s bundle id section in the [Developer Portal](https://developer.spotify.com/my-applications/#!/applications). This value is used to authenticate your application against Spotify client.
-
 Session Lifetime
 =======
 
@@ -138,15 +132,15 @@ if (session == nil) {
     // Session expired - we need to refresh it before continuing.
     // This process doesn't involve user interaction unless it fails.
     NSURL *refreshServiceEndpoint = …;
-    [[SPTAuth defaultInstance] renewSession:session 
+    [SPTAuth defaultInstance] renewSession:session 
     							   callback:^(NSError *error, SPTSession *session)
      {
-         if (error == nil) {
-             [self playMusicWithSession:session];
-         } else {
-             [self handleError:error];
-         }
-     }];
+          if (error == nil) {
+                [self playMusicWithSession:session];
+            } else {
+                [self handleError:error];
+            }
+    }];
 }
 ```
 
