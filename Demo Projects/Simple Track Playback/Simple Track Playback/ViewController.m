@@ -20,18 +20,20 @@
 
 @interface ViewController () <SPTAudioStreamingDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *albumLabel;
-@property (weak, nonatomic) IBOutlet UILabel *artistLabel;
+@property (weak, nonatomic) IBOutlet UILabel *trackTitle;
+@property (weak, nonatomic) IBOutlet UILabel *artistTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView;
 @property (weak, nonatomic) IBOutlet UIImageView *coverView2;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet UISlider *progressSlider;
+@property (weak, nonatomic) IBOutlet UILabel *playbackSourceTitle;
 
 @property (nonatomic, strong) SPTAudioStreamingController *player;
-@property (nonatomic, strong) SPTPlaybackState* playbackState;
 
 @property IBOutlet UIButton* nextButton;
 @property IBOutlet UIButton* prevButton;
+
+@property (nonatomic) BOOL isChangingProgress;
 
 @end
 
@@ -39,9 +41,8 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
-    self.titleLabel.text = @"Nothing Playing";
-    self.albumLabel.text = @"";
-    self.artistLabel.text = @"";
+    self.trackTitle.text = @"Nothing Playing";
+    self.artistTitle.text = @"";
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -55,11 +56,17 @@
 }
 
 -(IBAction)playPause:(id)sender {
-    [self.player setIsPlaying:!self.player.isPlaying callback:nil];
+    [self.player setIsPlaying:!self.player.playbackState.isPlaying callback:nil];
 }
 
 -(IBAction)fastForward:(id)sender {
     [self.player skipNext:nil];
+}
+
+- (IBAction)seekValueChanged:(id)sender {
+    self.isChangingProgress = NO;
+    NSUInteger dest = self.player.metadata.currentTrack.duration * self.progressSlider.value;
+    [self.player seekTo:dest callback:nil];
 }
 
 - (IBAction)logoutClicked:(id)sender {
@@ -69,6 +76,11 @@
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
+
+- (IBAction)proggressTouchDown:(id)sender {
+    self.isChangingProgress = YES;
+}
+
 
 #pragma mark - Logic
 
@@ -97,7 +109,7 @@
 -(void)updateUI {
     SPTAuth *auth = [SPTAuth defaultInstance];
 
-    if (self.playbackState.currentTrack == nil) {
+    if (self.player.metadata == nil || self.player.metadata.currentTrack == nil) {
         self.coverView.image = nil;
         self.coverView2.image = nil;
         return;
@@ -105,18 +117,15 @@
     
     [self.spinner startAnimating];
 
-    self.nextButton.enabled = self.playbackState.nextTrack != nil;
-    self.prevButton.enabled = self.playbackState.prevTrack != nil;
+    self.nextButton.enabled = self.player.metadata.nextTrack != nil;
+    self.prevButton.enabled = self.player.metadata.prevTrack != nil;
+    self.trackTitle.text = self.player.metadata.currentTrack.name;
+    self.artistTitle.text = self.player.metadata.currentTrack.artistName;
+    self.playbackSourceTitle.text = self.player.metadata.currentTrack.playbackSourceName;
 
-    [SPTTrack trackWithURI: [NSURL URLWithString:self.playbackState.currentTrack.uri]
+    [SPTTrack trackWithURI: [NSURL URLWithString:self.player.metadata.currentTrack.uri]
                    session:auth.session
                   callback:^(NSError *error, SPTTrack *track) {
-
-                      self.titleLabel.text = track.name;
-                      self.albumLabel.text = track.album.name;
-
-                      SPTPartialArtist *artist = [track.artists objectAtIndex:0];
-                      self.artistLabel.text = artist.name;
 
                       NSURL *imageURL = track.album.largestCover.imageURL;
                       if (imageURL == nil) {
@@ -194,18 +203,22 @@
     [alertView show];
 }
 
-- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didFailToPlayTrack:(NSURL *)trackUri {
-    NSLog(@"failed to play track: %@", trackUri);
-}
-
-
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePlaybackStatus:(BOOL)isPlaying {
     NSLog(@"is playing = %d", isPlaying);
 }
 
--(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePlaybackState:(SPTPlaybackState *)playbackState {
-    self.playbackState = playbackState;
+-(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeMetadata:(SPTPlaybackMetadata *)metadata {
     [self updateUI];
+}
+
+-(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didReceivePlaybackEvent:(SpPlaybackEvent)event withName:(NSString *)name {
+    NSLog(@"didReceivePlaybackEvent: %zd %@", event, name);
+    NSLog(@"isPlaying=%d isRepeating=%d isShuffling=%d isActiveDevice=%d positionMs=%f",
+          self.player.playbackState.isPlaying,
+          self.player.playbackState.isRepeating,
+          self.player.playbackState.isShuffling,
+          self.player.playbackState.isActiveDevice,
+          self.player.playbackState.position);
 }
 
 - (void)audioStreamingDidLogout:(SPTAudioStreamingController *)audioStreaming {
@@ -220,18 +233,35 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didEncounterError:(NSError *)error {
-    if (error != nil) {
-        NSLog(@"*** Playback got error: %@", error);
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didReceiveError:(SpErrorCode)errorCode withName:(NSString *)name {
+    NSLog(@"didReceiveError: %zd %@", errorCode, name);
+}
+
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePosition:(NSTimeInterval)position {
+    if (self.isChangingProgress) {
         return;
     }
+    self.progressSlider.value = position/self.player.metadata.currentTrack.duration;
+
+}
+
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSString *)trackUri {
+    NSLog(@"Starting %@", trackUri);
+    NSLog(@"Source %@", self.player.metadata.currentTrack.playbackSourceUri);
+    // If context is a single track and the uri of the actual track being played is different
+    // than we can assume that relink has happended.
+    BOOL isRelinked = [self.player.metadata.currentTrack.playbackSourceUri containsString: @"spotify:track"]
+                  && ![self.player.metadata.currentTrack.playbackSourceUri isEqualToString:trackUri];
+    NSLog(@"Relinked %d", isRelinked);
+}
+
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStopPlayingTrack:(NSString *)trackUri {
+    NSLog(@"Finishing: %@", trackUri);
 }
 
 - (void)audioStreamingDidLogin:(SPTAudioStreamingController *)audioStreaming {
-
     [self updateUI];
-    NSURL *url = [NSURL URLWithString:@"spotify:user:spotify:playlist:5wDvHZhgPBlWyDEZ3jSMF4"];
-    [self.player playURI:url startingWithIndex:10 callback:^(NSError *error) {
+    [self.player playSpotifyURI:@"spotify:user:spotify:playlist:2yLXxKhhziG2xzy7eyD4TD" startingWithIndex:0 startingWithPosition:10 callback:^(NSError *error) {
         if (error != nil) {
             NSLog(@"*** failed to play: %@", error);
             return;

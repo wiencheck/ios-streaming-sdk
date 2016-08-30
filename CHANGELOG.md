@@ -1,3 +1,43 @@
+Spotify iOS SDK Beta 21
+======================
+
+**Notes**
+
+Please check the demo app, there were a lot of changes.
+
+**Bugs fixed**
+
+* [seekToOffset 0 breaks music playback in beta20](https://github.com/spotify/ios-sdk/issues/725)
+* [Track URIs being remapped in Beta20](https://github.com/spotify/ios-sdk/issues/724)
+* [audioStreaming:didStartPlayingTrack: & didStopPlayingTrack: missing from beta 20](https://github.com/spotify/ios-sdk/issues/723)
+* [Beta 20 and iOS 7 - login web view fails](https://github.com/spotify/ios-sdk/issues/721)
+* [How to tell if a SPTrack has finished playing in beta 20](https://github.com/spotify/ios-sdk/issues/718)
+
+**Additional APIs**
+
+* SPTAudioStreamingPlaybackDelegate
+  * `-(void)audioStreaming:(SPTAudioStreamingController *) didReceivePlaybackEvent:(SpPlaybackEvent) withName:(NSString*);` exposes 
+  low-level events. See `SPTPlaybackEvent` for reference.
+  * `-(void)audioStreaming:(SPTAudioStreamingController *) didReceiveError:(SpErrorCode) withName:(NSString*);` 
+  exposes low-level errors. 
+  * `-(void)audioStreaming:(SPTAudioStreamingController *) didChangePosition:(NSTimeInterval);` report current track position.
+  * Property `SPTAudioStreamingController.metadata` provides the data on current/previous/next tracks
+  * Property `SPTAudioStreamingController.playbackState` provides data on plaback state, playback mode, current position.
+* `SPTMetadata` contains two new properties `playbackSourceUri` and `playbackSourceName`. 
+If current context is a playlist, than `playbackSourceUri` is the playlist's uri and `playbackSourceName` is its name.
+
+**API Changes**
+
+* `playURI` is `playSpotifyURI` now and it takes `NSString*` instead of `NSURL*`. 
+ Additional parameter `startingWithPosition:(NSTimeInterval)` was added to be able to start playback from a specific position.
+* `queueURI` is `queueSpotifyURI` and also takes `NSString*`
+* `SPTPlaybackState` has only playback related datat now: isPlaying, isRepeating, isShuffling, position, isActiveDevice. 
+Properties `currentPlaybackPosition, currentTrackUri, currentTrackDuration, repeat, shuffle, isPlaying` were removed from `SPTAudioStreamingController`.
+* The data that used to be in `SPTPlaybackState` is now in `SPTMetadata`.
+* `didStartPlayingTrack` and `didStopPlayingTrack` are expecting `NSString*` as an argument! Be careful, it NOT `NSURL*` anymore.
+
+
+
 Spotify iOS SDK Beta 20
 ======================
 
