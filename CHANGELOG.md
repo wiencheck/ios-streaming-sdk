@@ -1,3 +1,11 @@
+Spotify iOS SDK Beta 23
+=======================
+
+**Bugs fixed**
+
+* [Beta 22: `SPTPlaylistSnapshot +playlistsWithURIs...` is gone.](https://github.com/spotify/ios-sdk/issues/761)
+
+
 Spotify iOS SDK Beta 22
 =======================
 

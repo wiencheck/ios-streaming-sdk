@@ -97,6 +97,16 @@ FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotNameKey;
  */
 +(void)playlistWithURI:(NSURL *)uri accessToken:(NSString *)accessToken callback:(SPTRequestCallback)block;
 
+/** Request multiple playlists given an array of Spotify URIs.
+
+ @note This method takes an array of Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
+
+ @param uris An array of Spotify URIs.
+ @param accessToken An authenticated access token. Must be valid and authorized with the unspecified or `playlist-read-private` scope as necessary.
+ @param block The block to be called when the operation is complete. The block will pass an array of Spotify SDK metadata objects on success, otherwise an error.
+ */
++(void)playlistsWithURIs:(NSArray *)uris accessToken:(NSString *)accessToken callback:(SPTRequestCallback)block;
+
 /** Check if a `NSURL` is a valid playlist uri.
  @param uri The Spotify URI of the playlist.
  */
