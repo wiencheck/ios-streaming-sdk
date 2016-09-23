@@ -10,6 +10,8 @@ playlist manipulation, searching and more.
 
 Usage of this SDK is bound under the [Developer Terms of Use](https://developer.spotify.com/developer-terms-of-use/).
 
+#### Bugs or feature requests
+[Open bug tickets](https://github.com/spotify/ios-sdk/labels/bug) | [Open feature requests](https://github.com/spotify/ios-sdk/labels/enhancement) | [All](https://github.com/spotify/ios-sdk/issues) 
 
 Beta Release Information
 =======
