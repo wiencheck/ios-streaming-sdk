@@ -28,28 +28,6 @@
  */
 - (instancetype)initWithCapacity:(NSUInteger)capacity;
 
-/**
- * @brief Evict cache data.
- * @discussion Deletes cached data until the space occupied is <= `capacity`
- * @param error An error pointer that will contain an error if a problem occurred.
- * @return `YES` if eviction was successful, `NO` otherwise.
- */
-- (BOOL)evict:(NSError **)error;
-
-/**
- * @brief Clear all cached data.
- * @param error An error pointer that will contain an error if a problem occurred.
- * @return `YES` if successful, `NO` otherwise.
- */
-- (BOOL)clear:(NSError **)error;
-
-/**
- * @brief The size of all cached data.
- * @note In addition to actual cached data, this includes bookkeeping overhead.
- * @return The total number of bytes used by the disk cache.
- */
-- (NSUInteger)size;
-
 @property (nonatomic, readonly) NSUInteger capacity;
 
 @end

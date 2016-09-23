@@ -35,8 +35,8 @@
 ///----------------------------
 
 /** Create a request for getting the authenticated user's Your Music library tracks
- 
- @param accessToken A valid and authenticated access token with the `SPTAuthUserLibraryRead` scope.
+
+ @param accessToken An authenticated access token. Must be valid and authorized with the `user-library-read` scope.
  @param error An optional pointer to an `NSError` that will receive the error code if operation failed.
  */
 + (NSURLRequest*)createRequestForCurrentUsersSavedTracksWithAccessToken:(NSString *)accessToken
@@ -45,7 +45,7 @@
 /** Create a request for adding a set of tracks to the authenticated user's Your Music library.
  
  @param tracks An array of `SPTTrack`, `SPTPartialTrack` or `NSURI` objects.
- @param accessToken A valid and authenticated access token with the `SPTAuthUserLibraryModify` scope.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `user-library-modify` scope.
  @param error An optional pointer to an `NSError` that will receive the error code if operation failed.
  */
 + (NSURLRequest*)createRequestForSavingTracks:(NSArray *)tracks
@@ -55,7 +55,7 @@
 /** Create a request for checking whether the authenticated user's Your Music library contains a set of tracks.
  
  @param tracks An array of `SPTTrack`, `SPTPartialTrack` or `NSURL` objects.
- @param accessToken A valid and authenticated access token with the `SPTAuthUserLibraryRead` scope.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `user-library-read` scope.
  @param error An optional pointer to an `NSError` that will receive the error code if operation failed.
  */
 + (NSURLRequest*)createRequestForCheckingIfSavedTracksContains:(NSArray *)tracks
@@ -65,7 +65,7 @@
 /** Create a request for removing a set of tracks from the authenticated user's Your Music library.
  
  @param tracks An array of `SPTTrack`, `SPTPartialTrack` or `NSURL` objects.
- @param accessToken A valid and authenticated access token with the `SPTAuthUserLibraryModify` scope.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `user-library-modify` scope.
  @param error An optional pointer to an `NSError` that will receive the error code if operation failed.
  */
 + (NSURLRequest*)createRequestForRemovingTracksFromSaved:(NSArray *)tracks
@@ -84,7 +84,7 @@
  
  This is a convenience method around the createRequest equivalent and the current `SPTRequestHandlerProtocol`
  
- @param accessToken A valid and authenticated access token with the `SPTAuthUserLibraryRead` scope.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `user-library-read` scope.
  @param block The block to be called when the operation is complete, with the data set if success, otherwise an error.
  */
 + (void)savedTracksForUserWithAccessToken:(NSString *)accessToken
@@ -95,7 +95,7 @@
  This is a convenience method around the createRequest equivalent and the current `SPTRequestHandlerProtocol`
  
  @param tracks An array of `SPTTrack`, `SPTPartialTrack` or `NSURI` objects.
- @param accessToken A valid and authenticated access token with the `SPTAuthUserLibraryModify` scope.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `user-library-modify` scope.
  @param block The block to be called when the operation is complete, with the data set if success, otherwise an error.
  */
 + (void)saveTracks:(NSArray *)tracks
@@ -107,7 +107,7 @@ forUserWithAccessToken:(NSString *)accessToken
  This is a convenience method around the createRequest equivalent and the current `SPTRequestHandlerProtocol`
  
  @param tracks An array of `SPTTrack`, `SPTPartialTrack` or `NSURI` objects.
- @param accessToken A valid and authenticated access token with the `SPTAuthUserLibraryRead` scope.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `user-library-read` scope.
  @param block The block to be called when the operation is complete, with the data set if success, otherwise an error.
  */
 + (void)savedTracksContains:(NSArray *)tracks
@@ -119,7 +119,7 @@ forUserWithAccessToken:(NSString *)accessToken
  This is a convenience method around the createRequest equivalent and the current `SPTRequestHandlerProtocol`
 
  @param tracks An array of `SPTTrack`, `SPTPartialTrack` or `NSURL` objects.
- @param accessToken A valid and authenticated access token  with the `SPTAuthUserLibraryModify` scope.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `user-library-modify` scope.
  @param block The block to be called when the operation is complete, with the data set if success, otherwise an error.
  */
 + (void)removeTracksFromSaved:(NSArray *)tracks

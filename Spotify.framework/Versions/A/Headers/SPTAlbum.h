@@ -171,21 +171,6 @@
  This is a convenience method on top of the [SPTAlbum createRequestForAlbum:withAccessToken:market:error:] and the shared SPTRequest handler.
  
  @note This method takes Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
- @note This method is deprecated in favor of [SPTAlbum albumWithURI:accessToken:market:callback:]
- 
- @param uri The Spotify URI of the album to request.
- @param session An authenticated session. Can be `nil`.
- @param block The block to be called when the operation is complete. The block will pass a SPTAlbum object on success, otherwise an error.
- */
-+ (void)albumWithURI:(NSURL *)uri
-			 session:(SPTSession *)session
-			callback:(SPTRequestCallback)block DEPRECATED_ATTRIBUTE;
-
-/** Request the album at the given Spotify URI.
- 
- This is a convenience method on top of the [SPTAlbum createRequestForAlbum:withAccessToken:market:error:] and the shared SPTRequest handler.
- 
- @note This method takes Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
  
  @param uri The Spotify URI of the album to request.
  @param accessToken An optional access token. Can be `nil`.
@@ -196,22 +181,6 @@
 		 accessToken:(NSString *)accessToken
 			  market:(NSString *)market
 			callback:(SPTRequestCallback)block;
-
-/** Request multiple albums given an array of Spotify URIs.
- 
- This is a convenience method on top of the [SPTAlbum createRequestForAlbums:withAccessToken:market:error:] and the shared SPTRequest handler.
- 
- @note This method takes Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
- 
- @note This method is deprecated in favor of [SPTAlbum albumsWithURIs:accessToken:market:callback:]
- 
- @param uris An array of Spotify URIs.
- @param session An authenticated session. Can be `nil`.
- @param block The block to be called when the operation is complete. The block will pass an array of SPTAlbum objects on success, otherwise an error.
- */
-+ (void)albumsWithURIs:(NSArray *)uris
-			   session:(SPTSession *)session
-			  callback:(SPTRequestCallback)block DEPRECATED_ATTRIBUTE;
 
 /** Request multiple albums given an array of Spotify URIs.
  

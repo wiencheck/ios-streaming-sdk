@@ -371,6 +371,5 @@ typedef enum : NSUInteger {
 	SPPrefetchDownloadFailed,
 } SpErrorCode;
 
-NSString* symbolise(SpPlaybackEvent event);
+NSError * NSErrorFromSPErrorCode(SpErrorCode code);
 
-NSString* symboliseError(SpErrorCode event);

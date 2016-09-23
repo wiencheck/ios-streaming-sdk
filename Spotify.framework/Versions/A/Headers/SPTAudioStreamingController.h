@@ -1,12 +1,12 @@
 /*
  Copyright 2015 Spotify AB
-
+ 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
-
+ 
  http://www.apache.org/licenses/LICENSE-2.0
-
+ 
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -28,21 +28,32 @@ typedef double SPTVolume;
 
 /** The playback bitrates availabe. */
 typedef NS_ENUM(NSUInteger, SPTBitrate) {
-	/** The lowest bitrate, roughly equivalent to ~96kbit/sec. */
-	SPTBitrateLow = 0,
-	/** The normal bitrate, roughly equivalent to ~160kbit/sec.  */
-	SPTBitrateNormal = 1,
-	/** The highest bitrate, roughly equivalent to ~320kbit/sec. */
-	SPTBitrateHigh = 2,
+    /** The lowest bitrate, roughly equivalent to ~96kbit/sec. */
+    SPTBitrateLow = 0,
+    /** The normal bitrate, roughly equivalent to ~160kbit/sec.  */
+    SPTBitrateNormal = 1,
+    /** The highest bitrate, roughly equivalent to ~320kbit/sec. */
+    SPTBitrateHigh = 2,
 };
 
-@class SPTSession;
+
+/** Repeat mode options */
+typedef NS_ENUM(NSUInteger, SPTRepeatMode) {
+    /** Repeate disabled */
+    SPTRepeatOff = 0,
+    /** Repeates context */
+    SPTRepeatContext = 1,
+    /** Repeates current song */
+    SPTRepeatOne = 2
+};
+
+
 @class SPTCoreAudioController;
 @protocol SPTAudioStreamingDelegate;
 @protocol SPTAudioStreamingPlaybackDelegate;
 
 /** This class manages audio streaming from Spotify.
-
+ 
  \note There must be only one concurrent instance of this class in your app.
  */
 @interface SPTAudioStreamingController : NSObject
@@ -52,7 +63,7 @@ typedef NS_ENUM(NSUInteger, SPTBitrate) {
 ///----------------------------
 
 // Hide parameterless init
--(id)init __attribute__((unavailable("init not available, use +sharedInstance")));
+- (id)init __attribute__((unavailable("init not available, use +sharedInstance")));
 +(id)new __attribute__((unavailable("new not available, use +sharedInstance")));
 
 
@@ -72,7 +83,7 @@ typedef NS_ENUM(NSUInteger, SPTBitrate) {
  @param allowCaching YES of persisten disk caching is allowed
  @return Returns YES if initialization was successful
  */
--(BOOL)startWithClientId:(NSString *)clientId audioController:(SPTCoreAudioController *)audioController allowCaching:(BOOL)allowCaching error:(NSError *__autoreleasing*)error;
+- (BOOL)startWithClientId:(NSString *)clientId audioController:(SPTCoreAudioController *)audioController allowCaching:(BOOL)allowCaching error:(NSError *__autoreleasing*)error;
 
 /** Start the `SPAudioStreamingController` thread with the default audioController.
  
@@ -82,28 +93,28 @@ typedef NS_ENUM(NSUInteger, SPTBitrate) {
  @param error If method returns NO, error will be set
  @return Returns YES if initialization was successful
  */
--(BOOL)startWithClientId:(NSString *)clientId error:(NSError *__autoreleasing*)error;
+- (BOOL)startWithClientId:(NSString *)clientId error:(NSError *__autoreleasing*)error;
 
 /** Shut down the `SPTAudioStreamingController` thread.
  @note If a user is currently logged in, the application should first call
-  logout and wait for the `-audioStreamingDidLogout:` delegate method
+ logout and wait for the `-audioStreamingDidLogout:` delegate method
  @param error If method returns NO, error will be set
  @return Returns YES if initialization was successful
  */
--(BOOL)stopWithError:(NSError *__autoreleasing*)error;
+- (BOOL)stopWithError:(NSError *__autoreleasing*)error;
 
 
 /** Log into the Spotify service for audio playback.
  
  Audio playback will not be available until the receiver is successfully logged in.
  
- @discussion Login is asynchronous. 
- Success will be notified on the `audioStreamingDidLogin:` delegate method and 
+ @discussion Login is asynchronous.
+ Success will be notified on the `audioStreamingDidLogin:` delegate method and
  failure will be notified on the `audioStreaming:didEncounterError:` delegate method.
  
- @param accessToken An authenticated access token authorized with the `SPTAuthStreamingScope` scope.
+ @param accessToken An authenticated access token authorized with the `streaming` scope.
  */
--(void)loginWithAccessToken:(NSString *)accessToken;
+- (void)loginWithAccessToken:(NSString *)accessToken;
 
 
 /** Log out of the Spotify service
@@ -111,7 +122,7 @@ typedef NS_ENUM(NSUInteger, SPTBitrate) {
  @discussion This method is asynchronous. When logout is complete you will be notified by the
  `audioStreamingDidLogout:` delegate method.
  */
--(void)logout;
+- (void)logout;
 
 ///----------------------------
 /// @name Properties
@@ -141,13 +152,13 @@ typedef NS_ENUM(NSUInteger, SPTBitrate) {
 ///----------------------------
 
 /** Set playback volume to the given level.
-
+ 
  @param volume The volume to change to, as a value between `0.0` and `1.0`.
  @param block The callback block to be executed when the command has been
  received, which will pass back an `NSError` object if an error ocurred.
  @see -volume
  */
--(void)setVolume:(SPTVolume)volume callback:(SPTErrorableOperationCallback)block;
+- (void)setVolume:(SPTVolume)volume callback:(SPTErrorableOperationCallback)block;
 
 /** Set the target streaming bitrate.
  
@@ -159,68 +170,86 @@ typedef NS_ENUM(NSUInteger, SPTBitrate) {
  @param block The callback block to be executed when the command has been
  received, which will pass back an `NSError` object if an error ocurred.
  */
--(void)setTargetBitrate:(SPTBitrate)bitrate callback:(SPTErrorableOperationCallback)block;
+- (void)setTargetBitrate:(SPTBitrate)bitrate callback:(SPTErrorableOperationCallback)block;
 
 /** Seek playback to a given location in the current track.
-
+ 
  @param position in sec to seek to.
  @param block The callback block to be executed when the command has been
  received, which will pass back an `NSError` object if an error ocurred.
  @see -playbackState
  */
--(void)seekTo:(NSTimeInterval)position callback:(SPTErrorableOperationCallback)block;
+- (void)seekTo:(NSTimeInterval)position callback:(SPTErrorableOperationCallback)block;
 
 /** Set the "playing" status of the receiver.
-
+ 
  @param playing Pass `YES` to resume playback, or `NO` to pause it.
  @param block The callback block to be executed when the command has been
  received, which will pass back an `NSError` object if an error ocurred.
  @see -playbackState
  */
--(void)setIsPlaying:(BOOL)playing callback:(SPTErrorableOperationCallback)block;
+- (void)setIsPlaying:(BOOL)playing callback:(SPTErrorableOperationCallback)block;
 
 /** Play a Spotify URI.
  
  Supported URI types: Tracks, Albums and Playlists
-
+ 
  @param spotifyUri The Spotify URI to play.
- @param index The index of an item that should be played first, e.g. 0 - for the very first track 
+ @param index The index of an item that should be played first, e.g. 0 - for the very first track
  in the playlist or a single track
  @param position starting position for playback in sec
  @param block The callback block to be executed when the playback command has been
  received, which will pass back an `NSError` object if an error ocurred.
  */
--(void)playSpotifyURI:(NSString *)spotifyUri startingWithIndex:(NSUInteger)index startingWithPosition:(NSTimeInterval)position callback:(SPTErrorableOperationCallback)block;
+- (void)playSpotifyURI:(NSString *)spotifyUri startingWithIndex:(NSUInteger)index startingWithPosition:(NSTimeInterval)position callback:(SPTErrorableOperationCallback)block;
 
 /** Queue a Spotify URI.
  
  Supported URI types: Tracks
-
+ 
  @param spotifyUri The Spotify URI to queue.
  @param block The callback block to be executed when the playback command has been
  received, which will pass back an `NSError` object if an error ocurred.
  */
--(void)queueSpotifyURI:(NSString *)spotifyUri callback:(SPTErrorableOperationCallback)block;
+- (void)queueSpotifyURI:(NSString *)spotifyUri callback:(SPTErrorableOperationCallback)block;
 
 /** Go to the next track in the queue.
  
  @param block The callback block to be executed when the command has been
  received, which will pass back an `NSError` object if an error ocurred.
  */
--(void)skipNext:(SPTErrorableOperationCallback)block;
+- (void)skipNext:(SPTErrorableOperationCallback)block;
 
 /** Go to the previous track in the queue
  
  @param block The callback block to be executed when the command has been
  received, which will pass back an `NSError` object if an error ocurred.
  */
--(void)skipPrevious:(SPTErrorableOperationCallback)block;
+- (void)skipPrevious:(SPTErrorableOperationCallback)block;
 
-/** Returns `YES` if repeat is on, otherwise `NO`. */
+/** Set state for shuffle, on or off.
+ 
+ @param enable The state to set, YES to enable shuffle and NO to disable.
+ @param block The callback block to be executed when the command has been
+ received, which will pass back an `NSError` object if an error ocurred.
+ */
+- (void)setShuffle:(BOOL)enable callback:(SPTErrorableOperationCallback)block;
+
+/** Set repeat state, on, off or repeat-one
+ 
+ @param mode The state to set, SPTRepeatOff, SPTRepeatContext or SPTRepeatOne.
+ @param block The callback block to be executed when the command has been
+ received, which will pass back an `NSError` object if an error ocurred.
+ */
+- (void)setRepeat:(SPTRepeatMode)mode callback:(SPTErrorableOperationCallback)block;
+
+/** Returns current volume */
 @property (atomic, readonly) SPTVolume volume;
 
+/** Metadata for the currently playing context */
 @property (atomic, readonly) SPTPlaybackMetadata *metadata;
 
+/** The players current state */
 @property (atomic, readonly) SPTPlaybackState *playbackState;
 
 /** Returns the current streaming bitrate the receiver is using. */
@@ -234,44 +263,48 @@ typedef NS_ENUM(NSUInteger, SPTBitrate) {
 
 @optional
 
--(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didReceiveError:(SpErrorCode)errorCode withName:(NSString*)name;
+/** Called on error
+ @param audioStreaming The object that sent the message.
+ @param error An NSError. Domain is SPTAudioStreamingErrorDomain and code is one of SpErrorCode
+ */
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didReceiveError:(NSError *)error;
 
 /** Called when the streaming controller logs in successfully.
  @param audioStreaming The object that sent the message.
  */
--(void)audioStreamingDidLogin:(SPTAudioStreamingController *)audioStreaming;
+- (void)audioStreamingDidLogin:(SPTAudioStreamingController *)audioStreaming;
 
 /** Called when the streaming controller logs out.
  @param audioStreaming The object that sent the message.
  */
--(void)audioStreamingDidLogout:(SPTAudioStreamingController *)audioStreaming;
+- (void)audioStreamingDidLogout:(SPTAudioStreamingController *)audioStreaming;
 
 /** Called when the streaming controller encounters a temporary connection error.
  
  You should not throw an error to the user at this point. The library will attempt to reconnect without further action.
-
+ 
  @param audioStreaming The object that sent the message.
  */
--(void)audioStreamingDidEncounterTemporaryConnectionError:(SPTAudioStreamingController *)audioStreaming;
+- (void)audioStreamingDidEncounterTemporaryConnectionError:(SPTAudioStreamingController *)audioStreaming;
 
 /** Called when the streaming controller recieved a message for the end user from the Spotify service.
-
+ 
  This string should be presented to the user in a reasonable manner.
-
+ 
  @param audioStreaming The object that sent the message.
  @param message The message to display to the user.
  */
--(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didReceiveMessage:(NSString *)message;
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didReceiveMessage:(NSString *)message;
 
 /** Called when network connectivity is lost.
  @param audioStreaming The object that sent the message.
  */
--(void)audioStreamingDidDisconnect:(SPTAudioStreamingController *)audioStreaming;
+- (void)audioStreamingDidDisconnect:(SPTAudioStreamingController *)audioStreaming;
 
 /** Called when network connectivitiy is back after being lost.
  @param audioStreaming The object that sent the message.
  */
--(void)audioStreamingDidReconnect:(SPTAudioStreamingController *)audioStreaming;
+- (void)audioStreamingDidReconnect:(SPTAudioStreamingController *)audioStreaming;
 
 @end
 
@@ -281,39 +314,48 @@ typedef NS_ENUM(NSUInteger, SPTBitrate) {
 
 @optional
 
--(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didReceivePlaybackEvent:(SpPlaybackEvent)event withName:(NSString*)name;
+/** Called for each received low-level event
+ @param audioStreaming The object that sent the message.
+ @param event The event code
+ */
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didReceivePlaybackEvent:(SpPlaybackEvent)event;
 
--(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePosition:(NSTimeInterval)position;
+/** Called when playback has progressed
+ @param audioStreaming The object that sent the message.
+ @param position The new playback location in sec.
+ */
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePosition:(NSTimeInterval)position;
 
 /** Called when playback status changes.
  @param audioStreaming The object that sent the message.
  @param isPlaying Set to `YES` if the object is playing audio, `NO` if it is paused.
  */
--(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePlaybackStatus:(BOOL)isPlaying;
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePlaybackStatus:(BOOL)isPlaying;
 
 /** Called when playback is seeked "unaturally" to a new location.
  @param audioStreaming The object that sent the message.
  @param position The new playback location in sec.
  */
--(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didSeekToPosition:(NSTimeInterval)position;
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didSeekToPosition:(NSTimeInterval)position;
 
 /** Called when playback volume changes.
  @param audioStreaming The object that sent the message.
  @param volume The new volume.
  */
--(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeVolume:(SPTVolume)volume;
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeVolume:(SPTVolume)volume;
 
 /** Called when shuffle status changes.
  @param audioStreaming The object that sent the message.
- @param isShuffled Set to `YES` if the object requests shuffled playback, otherwise `NO`.
+ @param enabled Set to `YES` if the object requests shuffled playback, otherwise `NO`.
  */
--(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeShuffleStatus:(BOOL)isShuffled;
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeShuffleStatus:(BOOL)enabled;
+
 
 /** Called when repeat status changes.
  @param audioStreaming The object that sent the message.
- @param isRepeated Set to `YES` if the object requests repeated playback, otherwise `NO`.
+ @param repeateMode Set to `SPTRepeatOff`, `SPTRepeatContext` or `SPTRepeatOne`.
  */
--(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeRepeatStatus:(BOOL)isRepeated;
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeRepeatStatus:(SPTRepeatMode)repeateMode;
 
 
 /** Called when metadata for current, previous, or next track is changed.
@@ -326,55 +368,55 @@ typedef NS_ENUM(NSUInteger, SPTBitrate) {
  @param audioStreaming The object that sent the message.
  @param metadata for previous, current, and next tracks
  */
--(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeMetadata:(SPTPlaybackMetadata *)metadata;
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeMetadata:(SPTPlaybackMetadata *)metadata;
 
 /** Called when the streaming controller begins playing a new track.
  
  @param audioStreaming The object that sent the message.
  @param trackUri The Spotify URI of the track that started to play.
  */
--(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSString *)trackUri;
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSString *)trackUri;
 
 /** Called before the streaming controller begins playing another track.
  
  @param audioStreaming The object that sent the message.
  @param trackUri The Spotify URI of the track that stopped.
  */
--(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStopPlayingTrack:(NSString *)trackUri;
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStopPlayingTrack:(NSString *)trackUri;
 
 /** Called when the audio streaming object requests playback skips to the next track.
  @param audioStreaming The object that sent the message.
  */
--(void)audioStreamingDidSkipToNextTrack:(SPTAudioStreamingController *)audioStreaming;
+- (void)audioStreamingDidSkipToNextTrack:(SPTAudioStreamingController *)audioStreaming;
 
 /** Called when the audio streaming object requests playback skips to the previous track.
  @param audioStreaming The object that sent the message.
  */
--(void)audioStreamingDidSkipToPreviousTrack:(SPTAudioStreamingController *)audioStreaming;
+- (void)audioStreamingDidSkipToPreviousTrack:(SPTAudioStreamingController *)audioStreaming;
 
 /** Called when the audio streaming object becomes the active playback device on the user's account.
  @param audioStreaming The object that sent the message.
  */
--(void)audioStreamingDidBecomeActivePlaybackDevice:(SPTAudioStreamingController *)audioStreaming;
+- (void)audioStreamingDidBecomeActivePlaybackDevice:(SPTAudioStreamingController *)audioStreaming;
 
 /** Called when the audio streaming object becomes an inactive playback device on the user's account.
  @param audioStreaming The object that sent the message.
  */
--(void)audioStreamingDidBecomeInactivePlaybackDevice:(SPTAudioStreamingController *)audioStreaming;
+- (void)audioStreamingDidBecomeInactivePlaybackDevice:(SPTAudioStreamingController *)audioStreaming;
 
 /** Called when the streaming controller lost permission to play audio.
-
+ 
  This typically happens when the user plays audio from their account on another device.
-
+ 
  @param audioStreaming The object that sent the message.
  */
--(void)audioStreamingDidLosePermissionForPlayback:(SPTAudioStreamingController *)audioStreaming;
+- (void)audioStreamingDidLosePermissionForPlayback:(SPTAudioStreamingController *)audioStreaming;
 
 /** Called when the streaming controller popped a new item from the playqueue.
  
  @param audioStreaming The object that sent the message.
  */
--(void)audioStreamingDidPopQueue:(SPTAudioStreamingController *)audioStreaming;
+- (void)audioStreamingDidPopQueue:(SPTAudioStreamingController *)audioStreaming;
 
 
 @end

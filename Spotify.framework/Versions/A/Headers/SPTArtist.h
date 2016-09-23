@@ -203,34 +203,10 @@
  @note This method takes Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
  
  @param uri The Spotify URI of the artist to request.
- @param session An authenticated session. Can be `nil`.
- @param block The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.
- */
-+(void)artistWithURI:(NSURL *)uri session:(SPTSession *)session callback:(SPTRequestCallback)block;
-
-/** Request the artist at the given Spotify URI.
- 
- This is a convenience method on top of the `+createRequestForArtist:withAccessToken:error:` and `SPTRequest performRequest:callback:`
- 
- @note This method takes Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
- 
- @param uri The Spotify URI of the artist to request.
  @param accessToken An optional access token. Can be `nil`.
  @param block The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.
  */
 +(void)artistWithURI:(NSURL *)uri accessToken:(NSString *)accessToken callback:(SPTRequestCallback)block;
-
-/** Request multiple artists given an array of Spotify URIs.
- 
- This is a convenience method on top of the +createRequestForArtists:withAccessToken:error:` and `SPTRequest performRequest:callback:`
- 
- @note This method takes an array Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
- 
- @param uris An array of Spotify URIs.
- @param session An authenticated session. Can be `nil`.
- @param block The block to be called when the operation is complete. The block will pass an array of `SPTArtist` objects on success, otherwise an error.
- */
-+(void)artistsWithURIs:(NSArray *)uris session:(SPTSession *)session callback:(SPTRequestCallback)block;
 
 /** Request multiple artists given an array of Spotify URIs.
  
@@ -251,23 +227,6 @@
  `SPTUser`'s `territory` property for best results.
  
  @param type The type of albums to get.
- @param session A valid `SPTSession`.
- @param territory An ISO 3166 country code of the territory to get albums for, or `nil`.
- @param block The block to be called when the operation is complete. The block will pass an
- `SPTListPage` object on success, otherwise an error.
- */
--(void)requestAlbumsOfType:(SPTAlbumType)type
-			   withSession:(SPTSession *)session
-	  availableInTerritory:(NSString *)territory
-				  callback:(SPTRequestCallback)block;
-
-/** Request the artist's albums.
- 
- The territory parameter of this method can be `nil` to specify "any country", but expect a lot of
- duplicates as the Spotify catalog often has different albums for each country. Pair this with an
- `SPTUser`'s `territory` property for best results.
- 
- @param type The type of albums to get.
  @param accessToken An optional access token. Can be `nil`.
  @param territory An ISO 3166 country code of the territory to get albums for, or `nil`.
  @param block The block to be called when the operation is complete. The block will pass an
@@ -284,19 +243,6 @@
  `SPTUser`'s `territory` property for best results.
  
  @param territory An ISO 3166 country code of the territory to get top tracks for.
- @param session A valid `SPTSession`.
- @param block The block to be called when the operation is complete. The block will pass an
- `NSArray` object containing `SPTTrack`s on success, otherwise an error.
- */
--(void)requestTopTracksForTerritory:(NSString *)territory
-						withSession:(SPTSession *)session
-						   callback:(SPTRequestCallback)block;
-/** Request the artist's top tracks.
- 
- The territory parameter of this method is required. Pair this with an
- `SPTUser`'s `territory` property for best results.
- 
- @param territory An ISO 3166 country code of the territory to get top tracks for.
  @param accessToken An optional access token. Can be `nil`.
  @param block The block to be called when the operation is complete. The block will pass an
  `NSArray` object containing `SPTTrack`s on success, otherwise an error.
@@ -304,16 +250,6 @@
 -(void)requestTopTracksForTerritory:(NSString *)territory
 		   withAccessToken:(NSString *)accessToken
 						   callback:(SPTRequestCallback)block;
-
-/** Request the artist's related artists.
- 
- @param session A valid `SPTSession`.
- @param block The block to be called when the operation is complete. The block will pass an
- `NSArray` object containing `SPTArtist`s on success, otherwise an error.
- */
--(void)requestRelatedArtistsWithSession:(SPTSession *)session
-							   callback:(SPTRequestCallback)block;
-
 
 /** Request the artist's related artists.
  

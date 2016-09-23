@@ -78,7 +78,7 @@
  See https://developer.spotify.com/web-api/follow-artists-users/ for more information on parameters
  
  @param artistUris An array of `NSURL`s for artist to follow.
- @param accessToken A valid and authenticated access token with the `SPTAuthFollowModifyScope` scope.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `user-follow-modify` scope.
  @param error An optional pointer to a `NSError` that receives an error if request creation failed.
  @return The created `NSURLRequest`.
  */
@@ -93,7 +93,7 @@
  See https://developer.spotify.com/web-api/unfollow-artists-users/ for more information on parameters
  
  @param artistUris An array of `NSURL`s for artists to unfollow.
- @param accessToken A valid and authenticated access token with the `SPTAuthFollowModifyScope` scope.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `user-follow-modify` scope.
  @param error An optional pointer to a `NSError` that receives an error if request creation failed.
  @return The created `NSURLRequest`.
  */
@@ -110,7 +110,7 @@
  See https://developer.spotify.com/web-api/check-current-user-follows/ for more information on parameters
  
  @param artistUris An array of `NSURL`s for artists to check.
- @param accessToken A valid and authenticated access token with the `SPTAuthFollowModifyScope` scope.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `user-follow-modify` scope.
  @param error An optional pointer to a `NSError` that receives an error if request creation failed.
  @return The created `NSURLRequest`.
  */
@@ -127,7 +127,7 @@
  See https://developer.spotify.com/web-api/follow-artists-users/ for more information on parameters
  
  @param usernames An array of `NSString`s containing spotify usernames to follow.
- @param accessToken A valid and authenticated access token with the `SPTAuthFollowModifyScope` scope.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `user-follow-modify` scope.
  @param error An optional pointer to a `NSError` that receives an error if request creation failed.
  @return The created `NSURLRequest`.
  */
@@ -142,7 +142,7 @@
  See https://developer.spotify.com/web-api/unfollow-artists-users/ for more information on parameters
  
  @param usernames An array of `NSString`s containing spotify usernames to unfollow.
- @param accessToken A valid and authenticated access token with the `SPTAuthFollowModifyScope` scope.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `user-follow-modify` scope.
  @param error An optional pointer to a `NSError` that receives an error if request creation failed.
  @return The created `NSURLRequest`.
  */
@@ -159,7 +159,7 @@
  See https://developer.spotify.com/web-api/check-current-user-follows/ for more information on parameters
  
  @param username A `NSString`s containing spotify username to check.
- @param accessToken A valid and authenticated access token with the `SPTAuthFollowModifyScope` scope.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `user-follow-modify` scope.
  @param error An optional pointer to a `NSError` that receives an error if request creation failed.
  @return The created `NSURLRequest`.
  */
@@ -176,7 +176,7 @@
  
  @param playlistUri The playlist URI to follow.
  @param secret Follow this playlist secretly.
- @param accessToken A valid and authenticated access token with the `SPTAuthPlaylistModifyPrivateScope` or `SPTAuthPlaylistModifyPublicScope` scope depending on if you're following it publicly or not.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `playlist-modify-private` or `playlist-modify-public` scope depending on if you're following it publicly or not.
  @param error An optional pointer to a `NSError` that receives an error if request creation failed.
  @return The created `NSURLRequest`.
  */
@@ -192,7 +192,7 @@
  See https://developer.spotify.com/web-api/get-list-new-releases/ for more information on parameters
  
  @param playlistUri A playlist URI.
- @param accessToken A valid and authenticated access token with the `SPTAuthFollowModifyScope` scope.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `user-follow-modify` scope.
  @param error An optional pointer to a `NSError` that receives an error if request creation failed.
  @return The created `NSURLRequest`.
  */
@@ -210,7 +210,7 @@
  
  @param usernames A list of spotify usernames.
  @param playlistUri A playlist URI.
- @param accessToken A valid and authenticated access token with the `SPTAuthFollowModifyScope` scope.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `user-follow-modify` scope.
  @param error An optional pointer to a `NSError` that receives an error if request creation failed.
  @return The created `NSURLRequest`.
  */

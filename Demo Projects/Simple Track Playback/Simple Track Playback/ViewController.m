@@ -124,7 +124,8 @@
     self.playbackSourceTitle.text = self.player.metadata.currentTrack.playbackSourceName;
 
     [SPTTrack trackWithURI: [NSURL URLWithString:self.player.metadata.currentTrack.uri]
-                   session:auth.session
+               accessToken:auth.session.accessToken
+                    market:nil
                   callback:^(NSError *error, SPTTrack *track) {
 
                       NSURL *imageURL = track.album.largestCover.imageURL;
@@ -163,7 +164,7 @@
                           });
                       });
 
-    }];
+                  }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -189,7 +190,7 @@
             [self presentViewController:alert animated:YES completion:nil];
             [self audioStreamingDidLogout:nil];
         }
-    }   
+    }
 }
 
 #pragma mark - Track Player Delegates
@@ -251,7 +252,7 @@
     // If context is a single track and the uri of the actual track being played is different
     // than we can assume that relink has happended.
     BOOL isRelinked = [self.player.metadata.currentTrack.playbackSourceUri containsString: @"spotify:track"]
-                  && ![self.player.metadata.currentTrack.playbackSourceUri isEqualToString:trackUri];
+    && ![self.player.metadata.currentTrack.playbackSourceUri isEqualToString:trackUri];
     NSLog(@"Relinked %d", isRelinked);
 }
 

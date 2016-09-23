@@ -51,7 +51,7 @@ typedef NS_ENUM(NSUInteger, SPTProduct) {
 /** The full display name of the user.
  
  Will be `nil` unless your session has been granted the
- `SPTAuthUserReadPrivateScope` scope.
+ ``user-read-private`` scope.
  */
 @property (nonatomic, readonly, copy) NSString *displayName;
 
@@ -66,7 +66,7 @@ typedef NS_ENUM(NSUInteger, SPTProduct) {
 /** The user's email address.
  
  Will be `nil` unless your session has been granted the
- `SPTAuthUserReadEmailScope` scope.
+ `user-read-email` scope.
  */
 @property (nonatomic, readonly, copy) NSString *emailAddress;
 
@@ -79,28 +79,28 @@ typedef NS_ENUM(NSUInteger, SPTProduct) {
 /** Returns a list of user images in various sizes, as `SPTImage` objects.
  
  Will be `nil` unless your session has been granted the
- `SPTAuthUserReadPrivateScope` scope.
+ ``user-read-private`` scope.
  */
 @property (nonatomic, readonly, copy) NSArray *images;
 
 /** Convenience method that returns the smallest available user image.
  
  Will be `nil` unless your session has been granted the
- `SPTAuthUserReadPrivateScope` scope.
+ ``user-read-private`` scope.
  */
 @property (nonatomic, readonly) SPTImage *smallestImage;
 
 /** Convenience method that returns the largest available user image.
  
  Will be `nil` unless your session has been granted the
- `SPTAuthUserReadPrivateScope` scope.
+ ``user-read-private`` scope.
  */
 @property (nonatomic, readonly) SPTImage *largestImage;
 
 /** The product of the user. For example, only Premium users can stream audio.
  
  Will be `SPTProductUnknown` unless your session has been granted the
- `SPTAuthUserReadPrivateScope` scope.
+ ``user-read-private`` scope.
  */
 @property (nonatomic, readonly) SPTProduct product;
 
@@ -121,7 +121,7 @@ typedef NS_ENUM(NSUInteger, SPTProduct) {
 
  See: https://developer.spotify.com/web-api/console/get-current-user/
  
- @param accessToken A valid and authenticated access token.
+ @param accessToken An authenticated access token. Must be valid and authorized.
  @param error An optional pointer to an `NSError` that will receive the error code if operation failed.
  */
 + (NSURLRequest *)createRequestForCurrentUserWithAccessToken:(NSString *)accessToken error:(NSError **)error;
@@ -131,7 +131,7 @@ typedef NS_ENUM(NSUInteger, SPTProduct) {
  
  See: https://developer.spotify.com/web-api/console/get-current-user/
  
- @param accessToken A valid and authenticated access token.
+ @param accessToken An authenticated access token. Must be valid and authorized.
  @param block The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.
  */
 +(void)requestCurrentUserWithAccessToken:(NSString *)accessToken callback:(SPTRequestCallback)block;
@@ -142,7 +142,7 @@ typedef NS_ENUM(NSUInteger, SPTProduct) {
  See: https://developer.spotify.com/web-api/console/get-users-profile/
  
  @param username The username of the user to request
- @param accessToken A valid and authenticated access token, or `nil`
+ @param accessToken An authenticated access token that must be valid and authorized or `nil`. 
  @param block The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.
  */
 +(void)requestUser:(NSString *)username withAccessToken:(NSString *)accessToken callback:(SPTRequestCallback)block;

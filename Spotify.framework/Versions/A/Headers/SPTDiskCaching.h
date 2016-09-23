@@ -17,52 +17,62 @@
 #import <Foundation/Foundation.h>
 
 /**
- * @brief Size of blocks of data handled by the disk cache.
- */
-FOUNDATION_EXPORT const NSUInteger SPTDiskCacheBlockSize;
+ @brief The `SPTDiskCaching` protocol is implemented by classes that handle caching of Spotify data to persistent storage.
+ 
+ Methods of this protocol will be called from within Spotify SDK when it requires access to persistent storage for caching.
 
-/**
- * @brief The `SPTCacheData` protocol is implemented by classes representing Spotify data that are to be cached to persistent storage.
- */
-@protocol SPTCacheData <NSObject>
-
-/**
- * @brief The unique identifier for the cached object.
- */
-@property (nonatomic, copy) NSString *itemID;
-
-/**
- * @brief The offset of the cached object.
- * @note This is always a multiple of `SPTDiskCacheBlockSize`.
- */
-@property (nonatomic) NSUInteger offset;
-
-/**
- * @brief The data of the cached object.
- */
-@property (nonatomic, copy) NSData *data;
-
-/**
- * @brief The total size of the cached object.
- */
-@property (nonatomic) NSUInteger totalSize;
-
-@end
-
-
-
-
-/**
- * @brief The `SPTDiskCaching` protocol is implemented by classes that handle caching of Spotify data to persistent storage.
  */
 @protocol SPTDiskCaching <NSObject>
 
+/**
+ Creates a disk cache of certain size or changes the size of an existing cache.
 
-- (id <SPTCacheData>)readCacheDataWithKey:(NSString*)key
-                                   length:(NSUInteger)length
-                                   offset:(NSUInteger)offset;
+ This method will be called when a new cache needs to be created or when the size of an existing cache needs to be changed. The cache should be accessible via other 'SPTDiskCaching' methods when using the same key as provided in this method.
 
-- (BOOL)writeCacheData:(id <SPTCacheData>)cacheData;
+ @param key An alphanumeric string, through which the cache is identified and accessed via 'SPTDiskCaching' methods.
+ @param size The requested amount of bytes in the cache.
+ @return `YES` if the cache of requested size has been allocated successfully, otherwise `NO`.
+ */
+- (BOOL)allocateCacheWithKey:(NSString *)key
+                        size:(NSUInteger)size;
+
+/**
+ Reads data from the existing disk cache.
+
+ This method will be called whenever a data needs to be read from the existing disk cache. The cache is identified by its key.
+
+ @param key The identifier of the cache.
+ @param length The amount of bytes to be read from the cache.
+ @param offset The amount of bytes to be skipped from the beginning of the cache before reading starts.
+ @return An instance of NSData containing the data read from the cache; 'nil' if reading failed.
+ */
+- (NSData *)readCacheDataWithKey:(NSString *)key
+                          length:(NSUInteger)length
+                          offset:(NSUInteger)offset;
+
+/**
+ Writes data to the existing disk cache.
+
+ This method will be called whenever a data needs to be written to the existing disk cache. The cache is identified by its key.
+
+ @param key The identifier of the cache.
+ @param data Bytes to be written to the cache.
+ @param offset The amount of bytes to be skipped from the beginning of the cache before writing starts.
+ @return `YES` if writing to the cache has been successful, otherwise 'NO'.
+ */
+- (BOOL)writeCacheDataWithKey:(NSString *)key
+                         data:(NSData *)data
+                       offset:(NSUInteger)offset;
+
+/**
+ Closes the existing disk cache.
+
+ This method will be called when a cache is no longer needed and can be deleted.
+
+ @param key The identifier of the cache.
+
+ */
+- (void)closeCacheWithKey:(NSString *)key;
 
 @end
 

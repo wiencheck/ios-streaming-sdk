@@ -46,7 +46,7 @@
  @param offset The index at which to start returning results.
  @param locale The locale of the user, for localized recommendations, `nil` will default to American English.
  @param timestamp The time of day to get recommendations for (without timezone), or `nil` for current local time
- @param accessToken An authenticated access token. Must be valid and authenticated
+ @param accessToken An authenticated access token. Must be valid and authorized.
  @param error An optional error value, will be set if the creation of the request failed.
  @return The request
  */
@@ -67,7 +67,7 @@
  @param country A ISO 3166-1 country code to get releases for, or `nil` for global releases.
  @param limit The number of results to return, max 50.
  @param offset The index at which to start returning results.
- @param accessToken An authenticated access token. Must be valid and authenticated
+ @param accessToken An authenticated access token. Must be valid and authorized.
  @param error An optional error value, will be set if the creation of the request failed.
  */
 + (NSURLRequest *)createRequestForNewReleasesInCountry:(NSString *)country
@@ -121,7 +121,8 @@
  @param offset The index at which to start returning results.
  @param locale The locale of the user, for localized recommendations, `nil` will default to American English.
  @param timestamp The time of day to get recommendations for (without timezone), or `nil` for current local time
- @param accessToken An authenticated access token. Must be valid and authenticated
+ @param accessToken An authenticated access token. Must be valid and authorized with the `user-library-modify` scope.
+ @param accessTokenType The string that describes how the access token may be used. Should always be equal to "Bearer".
  @param block The block to be called when the operation is complete, containing a `SPTFeaturedPlaylistList`
  */
 + (void)requestFeaturedPlaylistsForCountry:(NSString *)country
@@ -130,6 +131,7 @@
 									locale:(NSString *)locale
 								 timestamp:(NSDate*)timestamp
 							   accessToken:(NSString *)accessToken
+						   accessTokenType:(NSString *)accessTokenType
 								  callback:(SPTRequestCallback)block;
 
 /** Get a list of new releases.
@@ -141,7 +143,7 @@
  @param country A ISO 3166-1 country code to get releases for, or `nil` for global releases.
  @param limit The number of results to return, max 50.
  @param offset The index at which to start returning results.
- @param accessToken An authenticated access token. Must be valid and authenticated
+ @param accessToken An authenticated access token. Must be valid and authorized.
  @param block The block to be called when the operation is complete, containing a `SPTListPage`
  */
 + (void)requestNewReleasesForCountry:(NSString *)country

@@ -1,3 +1,40 @@
+Spotify iOS SDK Beta 22
+=======================
+
+In preparation for splitting our SDK into distinct components the focus of this release is to decouple future components.
+SDK is now grouped into Authentication, Metadata and AudioPlayback functionality modules independent from each other. This functionality grouping is reflected in the "Spotify.h" header. SDK will be split into three libraries representing these functionality modules in an upcoming release.
+Decoupling manifested in that all methods concerning Metadata that previously took a SPTSession object now instead take an `NSString *accessToken` argument which is a property of the `SPTSession` object.
+E.g. `SPTArtist` method `requestTopTracksForTerritory:withSession:callback:` becomes `requestTopTracksForTerritory:withAccessToken:callback:`. If such a method was already present then the method referencing session was simply removed.
+
+**Notes**
+
+* SDK version added into SDK "Spotify.h" header.   
+
+**Bugs fixed**
+
+* [Beta 21 works perfect!](https://github.com/spotify/ios-sdk/issues/740) (but hopefully this version also works perfect...)
+* [Beta 20: allowCaching and diskCache - may cause issue with subsequent track plays] (https://github.com/spotify/ios-sdk/issues/722)
+* [Beta 21: Symbols 'symbolise' and 'symboliseError' are un-prefixed] (https://github.com/spotify/ios-sdk/issues/741)
+* [SPTAudioStreamingController loginWithAccessToken results to "audioStreaming:didReceiveError:withName: unrecognized selector sent to instance"] (https://github.com/spotify/ios-sdk/issues/747)
+* [Unable to set repeat status but SPTPlaybackState has an isRepeating property] (https://github.com/spotify/ios-sdk/issues/749)
+* Improved performance mentioned in [Massive skipNext performance degradation in Beta 21] (https://github.com/spotify/ios-sdk/issues/746)
+* Improved performance mentioned in [Seek 20-25x slower in Beta 21] (https://github.com/spotify/ios-sdk/issues/750)
+
+**Additional APIs**
+
+* `SPTAudioStreamingController` has exposed the following functionality:
+  * exposed `-(void)setShuffle:(BOOL)enable callback:(SPTErrorableOperationCallback)block` to allow setting shuffle option.
+  * exposed `-(void)setRepeat:(SPTRepeatMode)mode callback:(SPTErrorableOperationCallback)block` to allow setting repeat mode.
+
+**API Changes**
+
+* Removed all methods marked as deprecated in `SPTArtist` and `SPTRequest`. These methods have been previously moved to other interfaces, but not deleted at their original location.
+* `SPTAudioStreamingController` has now the following functionality changes:
+  * changed `-(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didReceiveError:(SpErrorCode)errorCode withName:(NSString*)name` to `- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didReceiveError:(NSError *)error`. Latter method has one argument `NSError *error` instead of two arguments: `errorCode` and `errorName`.
+  * Removed argument `name` from the method `- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didReceivePlaybackEvent:(SpPlaybackEvent)event withName:(NSString *)name`. 
+* `SPTDiskCaching` protocol has been updated and extended.
+* Basic implementation of `SPTDiskCaching` protocol, interface `SPTDiskCache` has been refactored as well and works properly.
+
 Spotify iOS SDK Beta 21
 ======================
 
@@ -63,6 +100,7 @@ Functions not deprecated that has been removed
 * -(void)playURIs:(NSArray *)uris withOptions:(SPTPlayOptions *)options callback:(SPTErrorableOperationCallback)block;
 * -(void)replaceURIs:(NSArray *)uris withCurrentTrack:(int)index callback:(SPTErrorableOperationCallback)block;
 * -(void)queueURIs:(NSArray *)uris clearQueue:(BOOL)clear callback:(SPTErrorableOperationCallback)block;
+* @property (nonatomic, readonly, assign) BOOL initialized;
 * @property (nonatomic, readonly) int trackListSize;
 * -(void)stop:(SPTErrorableOperationCallback)block;
 

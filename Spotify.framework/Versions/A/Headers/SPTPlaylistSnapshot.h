@@ -22,7 +22,6 @@
 #import "SPTImage.h"
 
 @class SPTPlaylistSnapshot;
-@class SPTSession;
 @class SPTUser;
 @class SPTListPage;
 
@@ -93,32 +92,10 @@ FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotNameKey;
  @note This method takes Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
  
  @param uri The Spotify URI of the playlist to request.
- @param session An authenticated session. Must be valid and authenticated with the
- `SPTAuthPlaylistReadScope` or `SPTAuthPlaylistReadPrivateScope` scope as necessary.
- @param block The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.
- */
-+(void)playlistWithURI:(NSURL *)uri session:(SPTSession *)session callback:(SPTRequestCallback)block;
-
-/** Request the playlist at the given Spotify URI.
- 
- @note This method takes Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
- 
- @param uri The Spotify URI of the playlist to request.
- @param accessToken A valid access token authenticated with the `SPTAuthPlaylistReadScope` or `SPTAuthPlaylistReadPrivateScope` scope as necessary.
+ @param accessToken An authenticated access token. Must be valid and authorized with the unspecified or `playlist-read-private` scope as necessary.
  @param block The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.
  */
 +(void)playlistWithURI:(NSURL *)uri accessToken:(NSString *)accessToken callback:(SPTRequestCallback)block;
-
-/** Request multiple playlists given an array of Spotify URIs.
- 
- @note This method takes an array of Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
- 
- @param uris An array of Spotify URIs.
- @param session An authenticated session. Must be valid and authenticated with the
- `SPTAuthPlaylistReadScope` or `SPTAuthPlaylistReadPrivateScope` scope as necessary.
- @param block The block to be called when the operation is complete. The block will pass an array of Spotify SDK metadata objects on success, otherwise an error.
- */
-+(void)playlistsWithURIs:(NSArray *)uris session:(SPTSession *)session callback:(SPTRequestCallback)block;
 
 /** Check if a `NSURL` is a valid playlist uri.
  @param uri The Spotify URI of the playlist.
@@ -130,30 +107,15 @@ FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotNameKey;
  */
 +(BOOL)isStarredURI:(NSURL*)uri;
 
-
-/** Get the authenticated user's starred playlist.
- 
- @param session An authenticated session. Must be valid and authenticated with the
- `SPTAuthPlaylistReadScope` or `SPTAuthPlaylistReadPrivateScope` scope as necessary.
- @param block The block to be called when the operation is complete. The block will pass an `SPTPlaylistSnapshot` object on success, otherwise an error.
- */
-+ (void)requestStarredListForUserWithSession:(SPTSession *)session
-									callback:(SPTRequestCallback)block;
-
 /** Request the starred playlist for a user
  
  @param username The user to get the starred playlist for
- @param accessToken A valid authenticated access token.
+ @param accessToken An authenticated access token. Must be valid and authorized.
  @param block The block to be called when the operation is complete. The block will pass an `SPTPlaylistSnapshot` object on success, otherwise an error.
  */
 + (void)requestStarredListForUser:(NSString *)username
 				  withAccessToken:(NSString *)accessToken
 						 callback:(SPTRequestCallback)block;
-
-
-
-
-
 
 ///-----------------------------------------------
 /// @name Helper methods for playlist manipulation
@@ -164,19 +126,7 @@ FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotNameKey;
  @note This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.
  
  @param tracks The tracks to add, as `SPTTrack` or `SPTPartialTrack` objects.
- @param session An authenticated session. Must be valid and authenticated with the `SPTAuthPlaylistModifyScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
- @param block The block to be called when the operation is started. This block will pass an error if the operation failed.
- */
--(void)addTracksToPlaylist:(NSArray *)tracks
-			   withSession:(SPTSession *)session
-				  callback:(SPTErrorableOperationCallback)block;
-
-/** Append tracks to the playlist.
- 
- @note This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.
- 
- @param tracks The tracks to add, as `SPTTrack` or `SPTPartialTrack` objects.
- @param accessToken A valid access token authenticated with the `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
+ @param accessToken An authenticated access token. Must be valid and authorized with the playlist-modify-public` or `playlist-modify-private` scope as necessary.
  @param block The block to be called when the operation is started. This block will pass an error if the operation failed.
  */
 -(void)addTracksToPlaylist:(NSArray *)tracks
@@ -189,22 +139,7 @@ FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotNameKey;
  
  @param tracks The tracks to add, as `SPTTrack` or `SPTPartialTrack` objects.
  @param position The position in which the tracks will be added, being 0 the top position.
- @param session An authenticated session. Must be valid and authenticated with the `SPTAuthPlaylistModifyScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
- @param block The block to be called when the operation is started. This block will pass an error if the operation failed.
- */
--(void)addTracksWithPositionToPlaylist:(NSArray *)tracks
-						  withPosition:(int)position
-							   session:(SPTSession *)session
-							  callback:(SPTErrorableOperationCallback)block ;
-
-
-/** Add tracks to the playlist at a certain position.
- 
- @note This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.
- 
- @param tracks The tracks to add, as `SPTTrack` or `SPTPartialTrack` objects.
- @param position The position in which the tracks will be added, being 0 the top position.
- @param accessToken A valid access token authenticated with the `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `playlist-modify-public` or `playlist-modify-private` scope as necessary.
  @param block The block to be called when the operation is started. This block will pass an error if the operation failed.
  */
 -(void)addTracksWithPositionToPlaylist:(NSArray *)tracks
@@ -217,7 +152,7 @@ FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotNameKey;
  @note This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.
  
  @param tracks The tracks to set, as `SPTTrack` or `SPTPartialTrack` objects.
- @param accessToken A valid access token authenticated with the `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `playlist-modify-public` or `playlist-modify-private` scope as necessary.
  @param block The block to be called when the operation is started. This block will pass an error if the operation failed.
  */
 -(void)replaceTracksInPlaylist:(NSArray *)tracks
@@ -230,7 +165,7 @@ FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotNameKey;
  
  @param data The data to be changed. Use the key constants to refer to the field to change
  (e.g. `SPTPlaylistSnapshotNameKey`, `SPTPlaylistSnapshotPublicKey`). When passing boolean values, use @YES or @NO.
- @param accessToken A valid access token authenticated with the `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `playlist-modify-public` or `playlist-modify-private` scope as necessary.
  @param block The block to be called when the operation is started. This block will pass an error if the operation failed.
  */
 -(void)changePlaylistDetails:(NSDictionary *)data
@@ -242,7 +177,7 @@ FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotNameKey;
  @note This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.
  
  @param tracks The tracks to remove, as `SPTTrack` or `SPTPartialTrack` objects.
- @param accessToken A valid access token authenticated with the `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `playlist-modify-public` or `playlist-modify-private` scope as necessary.
  @param block The block to be called when the operation is started. This block will pass an error if the operation failed.
  */
 -(void)removeTracksFromPlaylist:(NSArray *)tracks
@@ -254,7 +189,7 @@ FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotNameKey;
  @note This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.
  
  @param tracks An array of dictionaries with 2 keys: `track` with the track to remove, as `SPTTrack` or `SPTPartialTrack` objects, and `positions` that is an array of integers with the positions the track will be removed from.
- @param accessToken A valid access token authenticated with the `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `playlist-modify-public` or `playlist-modify-private` scope as necessary.
  @param block The block to be called when the operation is started. This block will pass an error if the operation failed.
  */
 -(void)removeTracksWithPositionsFromPlaylist:(NSArray *)tracks
@@ -277,7 +212,7 @@ FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotNameKey;
  
  @param tracks The tracks to add, as `SPTTrack`, `SPTPartialTrack` or `NSURL` objects.
  @param playlist The playlist to manipulate.
- @param accessToken A valid access token authenticated with the `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `playlist-modify-public` or `playlist-modify-private` scope as necessary.
  @param error An optional pointer to a `NSError` object that will be set if an error occured.
  @return A `NSURLRequest` object
  */
@@ -293,7 +228,7 @@ FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotNameKey;
  @param tracks The tracks to add, as `SPTTrack`, `SPTPartialTrack` or `NSURL` objects.
  @param playlist The playlist to manipulate.
  @param position The position in which the tracks will be added, being 0 the top position.
- @param accessToken A valid access token authenticated with the `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `playlist-modify-public` or `playlist-modify-private` scope as necessary.
  @param error An optional pointer to a `NSError` object that will be set if an error occured.
  @return A `NSURLRequest` object
  */
@@ -309,7 +244,7 @@ FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotNameKey;
  
  @param tracks The new tracks, as `SPTTrack`, `SPTPartialTrack` or `NSURL` objects.
  @param playlist The playlist to manipulate.
- @param accessToken A valid access token authenticated with the `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `playlist-modify-public` or `playlist-modify-private` scope as necessary.
  @param error An optional pointer to a `NSError` object that will be set if an error occured.
  @return A `NSURLRequest` object
  */
@@ -336,7 +271,7 @@ FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotNameKey;
  @param data The data to be changed. Use the key constants to refer to the field to change
  (e.g. `SPTPlaylistSnapshotNameKey`, `SPTPlaylistSnapshotPublicKey`). When passing boolean values, use @YES or @NO.
  @param playlist The playlist to manipulate.
- @param accessToken A valid access token authenticated with the `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `playlist-modify-public` or `playlist-modify-private` scope as necessary.
  @param error An optional pointer to a `NSError` object that will be set if an error occured.
  @return A `NSURLRequest` object
  */
@@ -369,7 +304,7 @@ FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotNameKey;
  
  @param tracks An array of dictionaries with 2 keys: `track` with the track to remove, as `SPTTrack`, `SPTPartialTrack` or `NSURL` objects, and `positions` that is an array of integers with the positions the track will be removed from.
  @param playlist The playlist to manipulate.
- @param accessToken A valid access token authenticated with the `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `playlist-modify-public` or `playlist-modify-private` scope as necessary.
  @param snapshotId The playlist snapshotId to manipulate.
  @param error An optional pointer to a `NSError` object that will be set if an error occured.
  @return A `NSURLRequest` object
@@ -386,7 +321,7 @@ FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotNameKey;
  
  @param tracks An array of `SPTTrack`, `SPTPartialTrack` or `NSURL` objects.
  @param playlist The playlist to manipulate.
- @param accessToken A valid access token authenticated with the `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `playlist-modify-public` or `playlist-modify-private` scope as necessary.
  @param snapshotId The playlist snapshotId to manipulate.
  @param error An optional pointer to a `NSError` object that will be set if an error occured.
  @return A `NSURLRequest` object
@@ -402,7 +337,7 @@ FOUNDATION_EXPORT NSString * const SPTPlaylistSnapshotNameKey;
  @note This operation is asynchronous on the server, it can take a couple of seconds for your changes to propagate everywhere after this operation has started.
  
  @param uri The playlist to get.
- @param accessToken A valid access token authenticated with the appropriate scope as necessary.
+ @param accessTokenAn authenticated access token. Must be valid and authorized with the appropriate scope as necessary.
  @param error An optional pointer to a `NSError` object that will be set if an error occured.
  @return A `NSURLRequest` object
  */

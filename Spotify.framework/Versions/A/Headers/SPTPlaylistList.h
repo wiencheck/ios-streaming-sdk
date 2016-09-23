@@ -18,8 +18,6 @@
 #import "SPTPlaylistSnapshot.h"
 #import "SPTListPage.h"
 
-@class SPTSession;
-
 /** The callback that gets called after a playlist creation, will contain your newly created playlist. */
 typedef void (^SPTPlaylistCreationCallback)(NSError *error, SPTPlaylistSnapshot *playlist);
 
@@ -47,25 +45,9 @@ typedef void (^SPTPlaylistCreationCallback)(NSError *error, SPTPlaylistSnapshot 
  See: https://developer.spotify.com/web-api/create-playlist/
  
  @param name The name of the newly-created playlist.
- @param isPublic Whether the newly-created playlist is public.
- @param session An authenticated session. Must be valid and authenticated with the
- `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
- @param block The callback block to be fired when playlist creation is completed (or fails).
- */
-+ (void)createPlaylistWithName:(NSString *)name
-					publicFlag:(BOOL)isPublic
-					   session:(SPTSession *)session
-					  callback:(SPTPlaylistCreationCallback)block;
-
-/**
- Create a new playlist and add it to the this playlist list.
- 
- See: https://developer.spotify.com/web-api/create-playlist/
- 
- @param name The name of the newly-created playlist.
  @param username The user to create the playlist for. (Needs to be the currently authenticated user)
  @param isPublic Whether the newly-created playlist is public.
- @param accessToken An valid access token with the `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `playlist-modify-public` or `playlist-modify-private` scope as necessary.
  @param block The callback block to be fired when playlist creation is completed (or fails).
  */
 + (void)createPlaylistWithName:(NSString *)name
@@ -80,44 +62,17 @@ typedef void (^SPTPlaylistCreationCallback)(NSError *error, SPTPlaylistSnapshot 
 /// @name Listing a user's playlists
 ///---------------------------------
 
-/** Get the authenticated user's playlist list.
- 
- See: https://developer.spotify.com/web-api/get-list-users-playlists/
- 
- @param session An authenticated session. Must be valid and authenticated with the
- `SPTAuthPlaylistReadScope` or `SPTAuthPlaylistReadPrivateScope` scope as necessary.
- @param block The block to be called when the operation is complete. The block will pass an `SPTPlaylistList` object on success, otherwise an error.
- */
-+ (void)playlistsForUserWithSession:(SPTSession *)session
-						   callback:(SPTRequestCallback)block;
-
 /** Get the a user's playlist list.
  
  See: https://developer.spotify.com/web-api/get-list-users-playlists/
  
  @param username The username of the user to get playlists for.
- @param accessToken An authenticated access token with the `SPTAuthPlaylistReadScope` or `SPTAuthPlaylistReadPrivateScope` scope as necessary.
+ @param accessToken An authenticated access token. Must be valid and authorized with the unspecified or `playlist-read-private` scope as necessary.
  @param block The block to be called when the operation is complete. The block will pass an `SPTPlaylistList` object on success, otherwise an error.
  */
 + (void)playlistsForUser:(NSString *)username
 		 withAccessToken:(NSString *)accessToken
 				callback:(SPTRequestCallback)block;
-
-/** Get the a user's playlist list.
- 
- See: https://developer.spotify.com/web-api/get-list-users-playlists/
-
- @param username The username of the user to get playlists for.
- @param session An authenticated session. Must be valid and authenticated with the `SPTAuthPlaylistReadScope` scope as necessary.
- @param block The block to be called when the operation is complete. The block will pass an `SPTPlaylistList` object on success, otherwise an error.
- */
-+ (void)playlistsForUser:(NSString *)username
-			 withSession:(SPTSession *)session
-				callback:(SPTRequestCallback)block;
-
-
-
-
 
 ///------------------------------------------------
 /// @name Playlist listing request creation methods
@@ -131,7 +86,7 @@ typedef void (^SPTPlaylistCreationCallback)(NSError *error, SPTPlaylistSnapshot 
  @param name The name of the newly-created playlist.
  @param username The username of the user to create the playlist for. (Must be the current user)
  @param isPublic Whether the newly-created playlist is public.
- @param accessToken An authenticated access token. Must be valid and authenticated with the `SPTAuthPlaylistModifyPublicScope` or `SPTAuthPlaylistModifyPrivateScope` scope as necessary.
+ @param accessToken An authenticated access token. Must be valid and authorized with the `playlist-modify-public` or `playlist-modify-private` scope as necessary.
  @param error An optional pointer to an `NSError` that will receive the error code if operation failed.
  */
 + (NSURLRequest*)createRequestForCreatingPlaylistWithName:(NSString *)name
@@ -163,7 +118,7 @@ typedef void (^SPTPlaylistCreationCallback)(NSError *error, SPTPlaylistSnapshot 
  See: https://developer.spotify.com/web-api/get-list-users-playlists/
 
  @param username The username of the user to get playlists for.
- @param accessToken An authenticated access token. Must be valid and authenticated with the `SPTAuthPlaylistReadPublicScope` or `SPTAuthPlaylistReadPrivateScope` scope as necessary.
+ @param accessToken An authenticated access token. Must be valid and authorized with the unspecified or `playlist-read-private` scope as necessary.
  @param error An optional pointer to an `NSError` that will receive the error code if operation failed.
  */
 + (NSURLRequest*)createRequestForGettingPlaylistsForUser:(NSString *)username

@@ -83,14 +83,14 @@
 
 /** Create a request for fetching the next page in the source list.
  
- @param accessToken An authenticated and valid access token.
+ @param accessToken An authenticated access token. Must be valid and authorized.
  @param error An optional `NSError` that will be set if an error occured.
  */
 - (NSURLRequest*)createRequestForNextPageWithAccessToken:(NSString *)accessToken error:(NSError**)error;
 
 /** Create a request for fetching the previous page in the source list.
  
- @param accessToken An authenticated and valid access token.
+ @param accessToken An authenticated access token. Must be valid and authorized.
  @param error An optional `NSError` that will be set if an error occured.
  */
 - (NSURLRequest*)createRequestForPreviousPageWithAccessToken:(NSString *)accessToken error:(NSError**)error;
@@ -154,33 +154,15 @@
 
 /** Request the next page in the source list.
  
- @param session The authenticated session. Must be valid and authenticated with the
- appropriate scopes to retrieve the requested list.
- @param block The block to be called when the operation is complete. This block will pass an error if the operation 
- failed, otherwise the next `SPTListPage` in the source list.
- */
-- (void)requestNextPageWithSession:(SPTSession *)session callback:(SPTRequestCallback)block;
-
-/** Request the next page in the source list.
- 
- @param accessToken An authenticated and valid access token.
+ @param accessToken An authenticated access token. Must be valid and authorized.
  @param block The block to be called when the operation is complete. This block will pass an error if the operation
  failed, otherwise the next `SPTListPage` in the source list.
  */
 - (void)requestNextPageWithAccessToken:(NSString *)accessToken callback:(SPTRequestCallback)block;
 
 /** Request the previous page in the source list.
- 
- @param session The authenticated session. Must be valid and authenticated with the
- appropriate scopes to retrieve the requested list.
- @param block The block to be called when the operation is complete. This block will pass an error if the operation
- failed, otherwise the previous `SPTListPage` in the source list.
- */
-- (void)requestPreviousPageWithSession:(SPTSession *)session callback:(SPTRequestCallback)block;
 
-/** Request the previous page in the source list.
-
- @param accessToken An authenticated and valid access token.
+ @param accessToken An authenticated access token. Must be valid and authorized.
  @param block The block to be called when the operation is complete. This block will pass an error if the operation
  failed, otherwise the previous `SPTListPage` in the source list.
  */

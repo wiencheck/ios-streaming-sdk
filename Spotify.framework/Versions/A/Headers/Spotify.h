@@ -14,8 +14,8 @@
  limitations under the License.
  */
 
-#define SPOTIFY_IOS_SDK_VERSION_INT 21
-#define SPOTIFY_IOS_SDK_VERSION "beta21"
+#define SPOTIFY_IOS_SDK_VERSION_INT 22
+#define SPOTIFY_IOS_SDK_VERSION "beta22"
 
 #import <Foundation/Foundation.h>
 #import "SPTTypes.h"

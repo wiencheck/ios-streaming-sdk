@@ -152,20 +152,6 @@
 
 /** Request the track at the given Spotify URI.
  
- This is a convenience method on top of the `SPTTrack createRequestForTrack:withAccessToken:error:` and `SPTRequest performRequest:callback:` methods
- 
- See: https://developer.spotify.com/web-api/get-track/
- 
- @note This method takes Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
- 
- @param uri The Spotify URI of the track to request.
- @param session An authenticated session. Can be `nil`.
- @param block The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.
- */
-+ (void)trackWithURI:(NSURL *)uri session:(SPTSession *)session callback:(SPTRequestCallback)block;
-
-/** Request the track at the given Spotify URI.
- 
  This is a convenience method on top of the `SPTTrack createRequestForTracks:withAccessToken:error:` and `SPTRequest performRequest:callback:` methods
  
  See: https://developer.spotify.com/web-api/get-track/
@@ -178,21 +164,6 @@
  @param block The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.
  */
 + (void)trackWithURI:(NSURL *)uri accessToken:(NSString *)accessToken market:(NSString *)market callback:(SPTRequestCallback)block;
-
-/** Request multiple tracks with given an array of Spotify URIs.
- 
- This is a convenience method on top of the `SPTTrack createRequestForTrack:withAccessToken:error:` and `SPTRequest performRequest:callback:` methods
- 
- See: https://developer.spotify.com/web-api/get-several-tracks/
- 
- @note This method takes an array of Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
- 
- @param uris An array of Spotify Track URIs.
- @param session An authenticated session. Can be `nil`.
- @param block The block to be called when the operation is complete. The block will pass an array of Spotify SDK metadata objects on success, otherwise an error.
- */
-
-+ (void)tracksWithURIs:(NSArray *)uris session:(SPTSession *)session callback:(SPTRequestCallback)block;
 
 /** Request multiple tracks with given an array of Spotify URIs.
  
