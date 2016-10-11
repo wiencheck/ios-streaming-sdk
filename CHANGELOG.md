@@ -1,3 +1,24 @@
+Spotify iOS SDK Beta 24
+=======================
+
+SDK is now split into Authentication, Metadata and AudioPlayback frameworks independent from each other.
+
+**API Changes**
+
+All classes and methods have been moved into appropriate frameworks.
+
+**Bugs fixed**
+
+* Fixed library hanging on 32 bit systems. (#772, #777)
+* `SPTPartialPlaylist` now correctly parses name and uri as nil when the object is `NSNull`
+* [SPTPlaylistTrack decodedJSONObject is nil](https://github.com/spotify/ios-sdk/issues/396)
+* [requestNewReleasesForCountry returns nil items](https://github.com/spotify/ios-sdk/issues/387])
+
+**Improvements**
+
+* Added the scopes SPTAuthPlaylistReadCollaborativeScope (user-top-read) and SPTAuthUserReadTopScope (playlist-read-collaborative).
+* Added new `SPTStoreViewController` - Display an App Store page to promote the Spotify app. If you use it, link with the StoreKit framework.
+
 Spotify iOS SDK Beta 23
 =======================
 

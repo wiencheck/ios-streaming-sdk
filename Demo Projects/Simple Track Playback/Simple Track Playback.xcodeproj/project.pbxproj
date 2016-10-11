@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		377A23B918BDFE2300EC584A /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377A23B818BDFE2300EC584A /* Spotify.framework */; };
+		0744C19C1D9C03EA00C051FF /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0744C1991D9C03EA00C051FF /* SpotifyAudioPlayback.framework */; };
+		0744C19D1D9C03EA00C051FF /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0744C19A1D9C03EA00C051FF /* SpotifyAuthentication.framework */; };
+		0744C19E1D9C03EA00C051FF /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0744C19B1D9C03EA00C051FF /* SpotifyMetadata.framework */; };
 		378297E518BCDF4000EFF728 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378297E418BCDF4000EFF728 /* Security.framework */; };
 		378297E718BCDF4700EFF728 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378297E618BCDF4700EFF728 /* AVFoundation.framework */; };
 		37E2C9D118B4DF7D00D5D823 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37E2C9D018B4DF7D00D5D823 /* Foundation.framework */; };
@@ -26,7 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		377A23B818BDFE2300EC584A /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = ../../Spotify.framework; sourceTree = "<group>"; };
+		0744C1991D9C03EA00C051FF /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		0744C19A1D9C03EA00C051FF /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
+		0744C19B1D9C03EA00C051FF /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
 		378297E418BCDF4000EFF728 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		378297E618BCDF4700EFF728 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		37E2C9CD18B4DF7D00D5D823 /* Simple Track Playback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Track Playback.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,13 +60,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0744C19E1D9C03EA00C051FF /* SpotifyMetadata.framework in Frameworks */,
 				DD3274FE1A26C53F00957EF7 /* CoreData.framework in Frameworks */,
+				0744C19C1D9C03EA00C051FF /* SpotifyAudioPlayback.framework in Frameworks */,
 				DD76375C1A2039CF00AE0BDC /* libsqlite3.dylib in Frameworks */,
 				378297E718BCDF4700EFF728 /* AVFoundation.framework in Frameworks */,
-				377A23B918BDFE2300EC584A /* Spotify.framework in Frameworks */,
 				378297E518BCDF4000EFF728 /* Security.framework in Frameworks */,
 				37E2C9D318B4DF7D00D5D823 /* CoreGraphics.framework in Frameworks */,
 				37E2C9D518B4DF7D00D5D823 /* UIKit.framework in Frameworks */,
+				0744C19D1D9C03EA00C051FF /* SpotifyAuthentication.framework in Frameworks */,
 				37E2C9D118B4DF7D00D5D823 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,9 +96,11 @@
 		37E2C9CF18B4DF7D00D5D823 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0744C1991D9C03EA00C051FF /* SpotifyAudioPlayback.framework */,
+				0744C19A1D9C03EA00C051FF /* SpotifyAuthentication.framework */,
+				0744C19B1D9C03EA00C051FF /* SpotifyMetadata.framework */,
 				DD3274FD1A26C53F00957EF7 /* CoreData.framework */,
 				DD76375A1A2007F100AE0BDC /* libsqlite3.dylib */,
-				377A23B818BDFE2300EC584A /* Spotify.framework */,
 				378297E618BCDF4700EFF728 /* AVFoundation.framework */,
 				378297E418BCDF4000EFF728 /* Security.framework */,
 				37E2C9D018B4DF7D00D5D823 /* Foundation.framework */,

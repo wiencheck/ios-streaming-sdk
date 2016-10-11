@@ -15,7 +15,9 @@
  */
 
 #import "AppDelegate.h"
-#import <Spotify/Spotify.h>
+#import <SpotifyAuthentication/SpotifyAuthentication.h>
+#import <SpotifyMetadata/SpotifyMetadata.h>
+#import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
 #import "Config.h"
 
 @implementation AppDelegate

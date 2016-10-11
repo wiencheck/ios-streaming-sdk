@@ -15,10 +15,12 @@
  */
 
 #import "LoginController.h"
-#import <Spotify/Spotify.h>
+#import <SpotifyAuthentication/SpotifyAuthentication.h>
+#import <SpotifyMetadata/SpotifyMetadata.h>
+#import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
 #import "Config.h"
 
-@interface LoginController () <SPTAuthViewDelegate>
+@interface LoginController () <SPTAuthViewDelegate, SPTStoreControllerDelegate>
 
 @property (atomic, readwrite) SPTAuthViewController *authViewController;
 @property (atomic, readwrite) BOOL firstLoad;
@@ -28,82 +30,14 @@
 @implementation LoginController
 
 
+#pragma mark - View Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdatedNotification:) name:@"sessionUpdated" object:nil];
     self.statusLabel.text = @"";
     self.firstLoad = YES;
-}
-
-- (BOOL)prefersStatusBarHidden {
-    return YES;
-}
-
--(void)sessionUpdatedNotification:(NSNotification *)notification {
-    self.statusLabel.text = @"";
-    if(self.navigationController.topViewController == self) {
-        SPTAuth *auth = [SPTAuth defaultInstance];
-        if (auth.session && [auth.session isValid]) {
-            [self authenticationViewController:self.authViewController didLoginWithSession:auth.session];
-        } else {
-            [self authenticationViewController:self.authViewController didFailToLogin:nil];
-        }
-    }
-}
-
--(void)showPlayer {
-    self.firstLoad = NO;
-    self.statusLabel.text = @"Logged in.";
-    [self performSegueWithIdentifier:@"ShowPlayer" sender:nil];
-}
-
-- (void)authenticationViewController:(SPTAuthViewController *)viewcontroller didFailToLogin:(NSError *)error {
-    self.statusLabel.text = @"Login failed.";
-    NSLog(@"*** Failed to log in: %@", error);
-}
-
-- (void)authenticationViewController:(SPTAuthViewController *)viewcontroller didLoginWithSession:(SPTSession *)session {
-    self.statusLabel.text = @"";
-    [self showPlayer];
-}
-
-- (void)authenticationViewControllerDidCancelLogin:(SPTAuthViewController *)authenticationViewController {
-    self.statusLabel.text = @"Login cancelled.";
-}
-
-- (void)openLoginPage {
-    self.statusLabel.text = @"Logging in...";
-
-    self.authViewController = [SPTAuthViewController authenticationViewController];
-    self.authViewController.delegate = self;
-    self.authViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    self.authViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
-    self.modalPresentationStyle = UIModalPresentationCurrentContext;
-    self.definesPresentationContext = YES;
-
-    [self presentViewController:self.authViewController animated:NO completion:nil];
-}
-
-
-- (void)renewTokenAndShowPlayer {
-    self.statusLabel.text = @"Refreshing token...";
-    SPTAuth *auth = [SPTAuth defaultInstance];
-    // Uncomment to turn off native/SSO/flip-flop login flow
-    //auth.allowNativeLogin = NO;
-
-    [auth renewSession:auth.session callback:^(NSError *error, SPTSession *session) {
-        auth.session = session;
-
-        if (error) {
-            self.statusLabel.text = @"Refreshing token failed.";
-            NSLog(@"*** Error renewing session: %@", error);
-            return;
-        }
-
-        [self showPlayer];
-    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -136,8 +70,99 @@
     // Else, just show login dialog
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+- (void)sessionUpdatedNotification:(NSNotification *)notification {
+    self.statusLabel.text = @"";
+    if(self.navigationController.topViewController == self) {
+        SPTAuth *auth = [SPTAuth defaultInstance];
+        if (auth.session && [auth.session isValid]) {
+            [self authenticationViewController:self.authViewController didLoginWithSession:auth.session];
+        } else {
+            [self authenticationViewController:self.authViewController didFailToLogin:nil];
+        }
+    }
+}
+
+- (void)showPlayer {
+    self.firstLoad = NO;
+    self.statusLabel.text = @"Logged in.";
+    [self performSegueWithIdentifier:@"ShowPlayer" sender:nil];
+}
+
+
+#pragma mark - SPTAuthViewDelegate
+
+- (void)authenticationViewController:(SPTAuthViewController *)viewcontroller didFailToLogin:(NSError *)error {
+    self.statusLabel.text = @"Login failed.";
+    NSLog(@"*** Failed to log in: %@", error);
+}
+
+- (void)authenticationViewController:(SPTAuthViewController *)viewcontroller didLoginWithSession:(SPTSession *)session {
+    self.statusLabel.text = @"";
+    [self showPlayer];
+}
+
+- (void)authenticationViewControllerDidCancelLogin:(SPTAuthViewController *)authenticationViewController {
+    self.statusLabel.text = @"Login cancelled.";
+}
+
+
+#pragma mark - SPTStoreControllerDelegate
+
+- (void)productViewControllerDidFinish:(SPTStoreViewController *)viewController {
+    self.statusLabel.text = @"App Store Dismissed.";
+    [viewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)openLoginPage {
+    self.statusLabel.text = @"Logging in...";
+
+    self.authViewController = [SPTAuthViewController authenticationViewController];
+    self.authViewController.delegate = self;
+    self.authViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    self.authViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+
+    self.modalPresentationStyle = UIModalPresentationCurrentContext;
+    self.definesPresentationContext = YES;
+
+    [self presentViewController:self.authViewController animated:NO completion:nil];
+}
+
+- (void)renewTokenAndShowPlayer {
+    self.statusLabel.text = @"Refreshing token...";
+    SPTAuth *auth = [SPTAuth defaultInstance];
+    // Uncomment to turn off native/SSO/flip-flop login flow
+    //auth.allowNativeLogin = NO;
+
+    [auth renewSession:auth.session callback:^(NSError *error, SPTSession *session) {
+        auth.session = session;
+
+        if (error) {
+            self.statusLabel.text = @"Refreshing token failed.";
+            NSLog(@"*** Error renewing session: %@", error);
+            return;
+        }
+
+        [self showPlayer];
+    }];
+}
+
+
+
+#pragma mark - IBActions
+
 - (IBAction)loginClicked:(id)sender {
     [self openLoginPage];
+}
+
+- (IBAction)showSpotifyAppStoreClicked:(id)sender {
+    self.statusLabel.text = @"Presenting App Store...";
+    SPTStoreViewController *storeVC = [[SPTStoreViewController alloc] initWithCampaignToken:@"your_campaign_token"
+                                                                              storeDelegate:self];
+    [self presentViewController:storeVC animated:YES completion:nil];
 }
 
 - (IBAction)clearCookiesClicked:(id)sender {

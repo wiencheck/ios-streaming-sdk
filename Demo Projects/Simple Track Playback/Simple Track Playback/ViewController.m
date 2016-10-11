@@ -16,7 +16,9 @@
 
 #import "Config.h"
 #import "ViewController.h"
-#import <Spotify/SPTDiskCache.h>
+#import <SpotifyAuthentication/SpotifyAuthentication.h>
+#import <SpotifyMetadata/SpotifyMetadata.h>
+#import <AVFoundation/AVAudioSession.h>
 
 @interface ViewController () <SPTAudioStreamingDelegate>
 
@@ -206,6 +208,11 @@
 
 - (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePlaybackStatus:(BOOL)isPlaying {
     NSLog(@"is playing = %d", isPlaying);
+    if (isPlaying) {
+        [self activateAudioSession];
+    } else {
+        [self deactivateAudioSession];
+    }
 }
 
 -(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeMetadata:(SPTPlaybackMetadata *)metadata {
@@ -269,4 +276,19 @@
         }
     }];
 }
+
+#pragma mark - Audio Session
+
+- (void)activateAudioSession
+{
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
+                                           error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+}
+
+- (void)deactivateAudioSession
+{
+    [[AVAudioSession sharedInstance] setActive:NO error:nil];
+}
+
 @end

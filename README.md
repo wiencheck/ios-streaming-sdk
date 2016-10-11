@@ -39,27 +39,49 @@ and `i386` and `x86_64` for the iOS Simulator. The `i386` and `x86_64` slices
 Getting Started
 =======
 
+iOS SDK consists of three frameworks each responsible for an independent functionality set. 
+
+### Spotify Authentication framework
+
+This framework contains functionality pertaining to authentication of the user:
+
+* Managing the authentication session.
+* Branding.
+* Single Sign-On.
+
+### Spotify Metadata
+
+This framework is a wrapper for the [Spotify Web API](https://developer.spotify.com/web-api/):
+
+### Spotify Audio Playback
+
+This framework contains functionality necessary to stream audio content from Spotify.
+
+### Using the frameworks from Spotify iOS SDK
+
 Getting the Spotify iOS SDK into your application is easy:
 
-1. Add the `Spotify.framework` library to your Xcode project.
+1. Add one or several libraries from the set (`SpotifyAuthentication.framework`,
+`SpotifyMetadata.framework`, `SpotifyAudioPlayback.framework`) to your Xcode project.
 2. Add the `-ObjC` flag to your project's `Other Linker Flags` build setting.
-3. Add `AVFoundation.framework` to the "Link Binary With Libraries" build phase
-   of your project.
-4. `#import <Spotify/Spotify.h>` into your source files and away you go!
+3. Import appropriate headers from the frameworks you used into your source files. 
+4. If you are using the `Spotify Audio Playback` framework, link with the `AVFoundation.framework`.
 
-The library's headers are extensively documented, and it comes with an Xcode
+After that you are ready to develop your application.
+
+The library's headers are extensively documented, and they come with an Xcode
 documentation set which can be indexed by Xcode itself and applications like
-Dash. This, along with the included demo projects, should give you everything
+Dash. This, along with the included demo project, should give you everything
 you need to get going. The classes that'll get you started are:
 
-* `SPTAuth` contains methods of authenticating users. See the "Basic Auth" demo
-  project for a working example of this. Be sure to to read the "Authentication and
-  Scopes" and "Session Lifetime" sections below, as authentication is quite involved.
+* `SPTAuth` contains methods of authenticating users. See the demo
+project for a working example of this. Be sure to to read the "Authentication and
+Scopes" and "Session Lifetime" sections below, as authentication is quite involved.
 
-  **Note:** To perform audio playback, you must request the `SPTAuthStreamingScope`
-  scope when using `SPTAuth`. To do so, pass an array containing the constant to
-  `-loginURLForClientId:withRedirectURL:scopes:responseType:`. The supplied demo
-  projects already do this if needed.
+**Note:** To perform audio playback, you must request the `SPTAuthStreamingScope`
+scope when using `SPTAuth`. To do so, pass an array containing the constant to
+`-loginURLForClientId:withRedirectURL:scopes:responseType:`. The supplied demo
+projects already do this if needed.
 
 *   Metadata classes contain methods for doing corresponding metadata lookup. `SPTUser` is for userinfo, `SPTSearch` for searching. [Take a look at the list of metadata classes](https://github.com/spotify/ios-sdk/tree/master/Spotify.framework/Versions/A/Headers)
 
@@ -85,13 +107,13 @@ Common scopes include:
 * `SPTAuthStreamingScope` allows music streaming for Premium users.
 
 * `SPTAuthUserReadPrivateScope` allows access to a user's private information, such
-  as full display name, user photo, etc.
+as full display name, user photo, etc.
 
 * `SPTAuthPlaylistReadScope` and `SPTAuthPlaylistReadPrivateScope` allows access to
-  a user's public and private playlists, respectively.
+a user's public and private playlists, respectively.
 
 * `SPTAuthPlaylistModifyScope` and `SPTAuthPlaylistModifyPrivateScope` allows
-  modification of a user's public and private playlists, respectively.
+modification of a user's public and private playlists, respectively.
 
 A full list of scopes is available in the documentation and in `SPTAuth.h`.
 
@@ -125,19 +147,17 @@ if (session == nil) {
     // No session at all - use SPTAuth to ask the user
     // for access to their account.
     [self presentFirstTimeLoginToUser];
-
 } else if ([session isValid]) {
     // Our session is valid - go straight to music playback.
     [self playMusicWithSession:session];
-
 } else {
     // Session expired - we need to refresh it before continuing.
     // This process doesn't involve user interaction unless it fails.
     NSURL *refreshServiceEndpoint = …;
-    [SPTAuth defaultInstance] renewSession:session 
-    							   callback:^(NSError *error, SPTSession *session)
-     {
-          if (error == nil) {
+    [SPTAuth defaultInstance] renewSession:session
+                                  callback:^(NSError *error, SPTSession *session)
+       {
+            if (error == nil) {
                 [self playMusicWithSession:session];
             } else {
                 [self handleError:error];
@@ -146,6 +166,6 @@ if (session == nil) {
 }
 ```
 
-Beginner's tutorial 
+Beginner's tutorial
 =======
 Please refer to the demo app in `Demo Project` directory.
