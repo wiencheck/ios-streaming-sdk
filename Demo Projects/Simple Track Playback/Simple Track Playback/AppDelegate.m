@@ -44,12 +44,11 @@
     SPTAuthCallback authCallback = ^(NSError *error, SPTSession *session) {
         // This is the callback that'll be triggered when auth is completed (or fails).
 
-        if (error != nil) {
+        if (error) {
             NSLog(@"*** Auth error: %@", error);
-            return;
+        } else {
+            auth.session = session;
         }
-
-        auth.session = session;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"sessionUpdated" object:self];
     };
     

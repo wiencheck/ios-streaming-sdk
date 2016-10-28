@@ -110,7 +110,7 @@
  
  @note This method takes Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
  
- @param uris An array of Spotify URIs.
+ @param uris An array of Spotify URIs. A maxiumum of 20 URIs can be supplied per request.
  @param accessToken An optional access token. Can be `nil`.
  @param market An optional market parameter. Can be `nil`.
  @param error An optional `NSError` that will be set if an error occured.

@@ -39,15 +39,11 @@
 	
 	<option value="properties">Properties</option>
 	
-	<option value="//api/name/allowNativeLogin">&nbsp;&nbsp;&nbsp;&nbsp;allowNativeLogin</option>
-	
 	<option value="//api/name/clientID">&nbsp;&nbsp;&nbsp;&nbsp;clientID</option>
 	
 	<option value="//api/name/hasTokenRefreshService">&nbsp;&nbsp;&nbsp;&nbsp;hasTokenRefreshService</option>
 	
 	<option value="//api/name/hasTokenSwapService">&nbsp;&nbsp;&nbsp;&nbsp;hasTokenSwapService</option>
-	
-	<option value="//api/name/loginURL">&nbsp;&nbsp;&nbsp;&nbsp;loginURL</option>
 	
 	<option value="//api/name/redirectURL">&nbsp;&nbsp;&nbsp;&nbsp;redirectURL</option>
 	
@@ -68,7 +64,9 @@
 	
 	<option value="//api/name/defaultInstance">&nbsp;&nbsp;&nbsp;&nbsp;+ defaultInstance</option>
 	
-	<option value="//api/name/loginURLForClientId:withRedirectURL:scopes:responseType:allowNativeLogin:">&nbsp;&nbsp;&nbsp;&nbsp;+ loginURLForClientId:withRedirectURL:scopes:responseType:allowNativeLogin:</option>
+	<option value="//api/name/loginURLForClientId:withRedirectURL:scopes:responseType:">&nbsp;&nbsp;&nbsp;&nbsp;+ loginURLForClientId:withRedirectURL:scopes:responseType:</option>
+	
+	<option value="//api/name/loginURLForClientId:withRedirectURL:scopes:responseType:campaignId:">&nbsp;&nbsp;&nbsp;&nbsp;+ loginURLForClientId:withRedirectURL:scopes:responseType:campaignId:</option>
 	
 	<option value="//api/name/spotifyApplicationIsInstalled">&nbsp;&nbsp;&nbsp;&nbsp;+ spotifyApplicationIsInstalled</option>
 	
@@ -84,6 +82,10 @@
 	<option value="//api/name/handleAuthCallbackWithTriggeredAuthURL:callback:">&nbsp;&nbsp;&nbsp;&nbsp;- handleAuthCallbackWithTriggeredAuthURL:callback:</option>
 	
 	<option value="//api/name/renewSession:callback:">&nbsp;&nbsp;&nbsp;&nbsp;- renewSession:callback:</option>
+	
+	<option value="//api/name/spotifyAppAuthenticationURL">&nbsp;&nbsp;&nbsp;&nbsp;- spotifyAppAuthenticationURL</option>
+	
+	<option value="//api/name/spotifyWebAuthenticationURL">&nbsp;&nbsp;&nbsp;&nbsp;- spotifyWebAuthenticationURL</option>
 	
 	
 	
@@ -119,15 +121,11 @@
 
 <li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/allowNativeLogin">allowNativeLogin</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/clientID">clientID</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasTokenRefreshService">hasTokenRefreshService</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hasTokenSwapService">hasTokenSwapService</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loginURL">loginURL</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/redirectURL">redirectURL</a></span></li>
 	
@@ -149,7 +147,9 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/defaultInstance">defaultInstance</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loginURLForClientId:withRedirectURL:scopes:responseType:allowNativeLogin:">loginURLForClientId:withRedirectURL:scopes:responseType:allowNativeLogin:</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loginURLForClientId:withRedirectURL:scopes:responseType:">loginURLForClientId:withRedirectURL:scopes:responseType:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loginURLForClientId:withRedirectURL:scopes:responseType:campaignId:">loginURLForClientId:withRedirectURL:scopes:responseType:campaignId:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/spotifyApplicationIsInstalled">spotifyApplicationIsInstalled</a></span></li>
 	
@@ -166,6 +166,10 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/handleAuthCallbackWithTriggeredAuthURL:callback:">handleAuthCallbackWithTriggeredAuthURL:callback:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/renewSession:callback:">renewSession:callback:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/spotifyAppAuthenticationURL">spotifyAppAuthenticationURL</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/spotifyWebAuthenticationURL">spotifyWebAuthenticationURL</a></span></li>
 	
 </ul></li>
 
@@ -255,12 +259,6 @@ authentication service.</p>
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/allowNativeLogin">&nbsp;&nbsp;allowNativeLogin</a></code>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
 		<code><a href="#//api/name/session">&nbsp;&nbsp;session</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
@@ -305,13 +303,13 @@ authentication service.</p>
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/loginURL">&nbsp;&nbsp;loginURL</a></code>
+		<code><a href="#//api/name/loginURLForClientId:withRedirectURL:scopes:responseType:">+&nbsp;loginURLForClientId:withRedirectURL:scopes:responseType:</a></code>
 	</span>
-	<span class="task-item-suffix">property</span>
+	
 	
 </li><li>
 	<span class="tooltip">
-		<code><a href="#//api/name/loginURLForClientId:withRedirectURL:scopes:responseType:allowNativeLogin:">+&nbsp;loginURLForClientId:withRedirectURL:scopes:responseType:allowNativeLogin:</a></code>
+		<code><a href="#//api/name/loginURLForClientId:withRedirectURL:scopes:responseType:campaignId:">+&nbsp;loginURLForClientId:withRedirectURL:scopes:responseType:campaignId:</a></code>
 	</span>
 	
 	
@@ -324,6 +322,18 @@ authentication service.</p>
 
 						<ul class="task-list">
 							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/spotifyWebAuthenticationURL">&ndash;&nbsp;spotifyWebAuthenticationURL</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/spotifyAppAuthenticationURL">&ndash;&nbsp;spotifyAppAuthenticationURL</a></code>
+	</span>
+	
+	
+</li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/canHandleURL:">&ndash;&nbsp;canHandleURL:</a></code>
 	</span>
@@ -373,43 +383,6 @@ authentication service.</p>
 					<div class="section section-methods">
 						<a title="Properties" name="properties"></a>
 						<h2 class="subtitle subtitle-methods">Properties</h2>
-						
-						<div class="section-method">
-	<a name="//api/name/allowNativeLogin" title="allowNativeLogin"></a>
-	<h3 class="subsubtitle method-title">allowNativeLogin</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Allow login through Spotify App if installed. &lsquo;YES&rsquo; by default.
-If set to &lsquo;NO&rsquo; WebView login flow is used.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (readwrite) BOOL allowNativeLogin</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">SPTAuth.h</code><br />
-	</div>				
-	
-	
-</div>
 						
 						<div class="section-method">
 	<a name="//api/name/clientID" title="clientID"></a>
@@ -496,42 +469,6 @@ If set to &lsquo;NO&rsquo; WebView login flow is used.</p>
     
 
 	<div class="method-subsection method-declaration"><code>@property (readonly) BOOL hasTokenSwapService</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">SPTAuth.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/loginURL" title="loginURL"></a>
-	<h3 class="subsubtitle method-title">loginURL</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>A URL that, when opened, will begin the Spotify authentication process.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (readonly) NSURL *loginURL</code></div>
 
     
 	
@@ -822,8 +759,8 @@ a <a href="#//api/name/sessionUserDefaultsKey"><code>sessionUserDefaultsKey</cod
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/loginURLForClientId:withRedirectURL:scopes:responseType:allowNativeLogin:" title="loginURLForClientId:withRedirectURL:scopes:responseType:allowNativeLogin:"></a>
-	<h3 class="subsubtitle method-title">loginURLForClientId:withRedirectURL:scopes:responseType:allowNativeLogin:</h3>
+	<a name="//api/name/loginURLForClientId:withRedirectURL:scopes:responseType:" title="loginURLForClientId:withRedirectURL:scopes:responseType:"></a>
+	<h3 class="subsubtitle method-title">loginURLForClientId:withRedirectURL:scopes:responseType:</h3>
 	
 	
 	
@@ -833,7 +770,79 @@ a <a href="#//api/name/sessionUserDefaultsKey"><code>sessionUserDefaultsKey</cod
 	
     
 
-	<div class="method-subsection method-declaration"><code>+ (NSURL *)loginURLForClientId:(NSString *)<em>clientId</em> withRedirectURL:(NSURL *)<em>redirectURL</em> scopes:(NSArray *)<em>scopes</em> responseType:(NSString *)<em>responseType</em> allowNativeLogin:(BOOL)<em>allowNativeLogin</em></code></div>
+	<div class="method-subsection method-declaration"><code>+ (NSURL *)loginURLForClientId:(NSString *)<em>clientId</em> withRedirectURL:(NSURL *)<em>redirectURL</em> scopes:(NSArray *)<em>scopes</em> responseType:(NSString *)<em>responseType</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>clientId</em></dt>
+			<dd><p>Your client ID as declared in the Spotify Developer Centre.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>redirectURL</em></dt>
+			<dd><p>Your callback URL as declared in the Spotify Developer Centre.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>scopes</em></dt>
+			<dd><p>The custom scopes to request from the auth API.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>responseType</em></dt>
+			<dd><p>Authentication response code type, defaults to &ldquo;code&rdquo;, use &ldquo;token&rdquo; if you want to bounce directly to the app without refresh tokens.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The URL to pass to <code>UIApplication</code>&rsquo;s <code>-openURL:</code> method.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<div class="warning"><p><strong>Warning:</strong> You must open this URL with the system handler to have the auth process
+happen in Safari. Displaying this inside your application is against the Spotify ToS.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTAuth.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/loginURLForClientId:withRedirectURL:scopes:responseType:campaignId:" title="loginURLForClientId:withRedirectURL:scopes:responseType:campaignId:"></a>
+	<h3 class="subsubtitle method-title">loginURLForClientId:withRedirectURL:scopes:responseType:campaignId:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a URL that, when opened, will begin the Spotify authentication process.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (NSURL *)loginURLForClientId:(NSString *)<em>clientId</em> withRedirectURL:(NSURL *)<em>redirectURL</em> scopes:(NSArray *)<em>scopes</em> responseType:(NSString *)<em>responseType</em> campaignId:(NSString *)<em>campaignId</em></code></div>
 
     
 	
@@ -861,8 +870,8 @@ a <a href="#//api/name/sessionUserDefaultsKey"><code>sessionUserDefaultsKey</cod
 		</dl>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>allowNativeLogin</em></dt>
-			<dd><p>Allow login through Spotify App if installed. &lsquo;YES&rsquo; by default. If set to &lsquo;NO&rsquo; WebView login flow is used.</p></dd>
+			<dt><em>campaignId</em></dt>
+			<dd><p>A Spotify-provided campaign token.</p></dd>
 		</dl>
 		
 	</div>
@@ -1159,6 +1168,101 @@ triggered.</p>
 	
 </div>
 						
+						<div class="section-method">
+	<a name="//api/name/spotifyAppAuthenticationURL" title="spotifyAppAuthenticationURL"></a>
+	<h3 class="subsubtitle method-title">spotifyAppAuthenticationURL</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a spotify-action:// URL that you can use to retrieve an access token
+if <a href="#//api/name/supportsApplicationAuthentication"><code>[SPTAuth supportsApplicationAuthentication]</code></a> returns YES.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSURL *)spotifyAppAuthenticationURL</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>spotify-action:// URL for initiating a Spotfiy Client SSO attempt.</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Pass this URL to <code>[UIApplication openURL:]</code> to launch the Spotify application on the device.</p><div class="note"><p><strong>Note:</strong> This will authenticate and authorise for the user currently logged in to the Spotfiy application. There might be no option to switch user.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTAuth.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/spotifyWebAuthenticationURL" title="spotifyWebAuthenticationURL"></a>
+	<h3 class="subsubtitle method-title">spotifyWebAuthenticationURL</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a https:// URL that you can use to retrieve an access token.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSURL *)spotifyWebAuthenticationURL</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>https:// URL for authenticating and authorising with the Spotify service</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Display this URL within a SFSafariViewController on iOS 9 and up, or UIWebView.</p>
+
+<p>This is the preffered mode of authentication.</p><div class="note"><p><strong>Note:</strong> This will always display an option to switch user.</p></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">SPTAuth.h</code><br />
+	</div>				
+	
+	
+</div>
+						
 					</div>
 					
 					
@@ -1174,7 +1278,7 @@ triggered.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2016 Spotify AB. All rights reserved. (Last updated: 2016-10-11)</span><br />
+						<p><span class="copyright">&copy; 2016 Spotify AB. All rights reserved. (Last updated: 2016-10-28)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

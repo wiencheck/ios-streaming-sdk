@@ -86,7 +86,7 @@ typedef void (^SPTAuthCallback)(NSError *error, SPTSession *session);
 
  @return A pre-created default `SPTAuth` instance.
  */
-+(SPTAuth *)defaultInstance;
++ (SPTAuth *)defaultInstance;
 
 
 ///----------------------------
@@ -107,12 +107,6 @@ typedef void (^SPTAuthCallback)(NSError *error, SPTSession *session);
  Required scopes for the app, used by authentication steps
  */
 @property (strong, readwrite) NSArray *requestedScopes;
-
-/**
- Allow login through Spotify App if installed. 'YES' by default.
- If set to 'NO' WebView login flow is used.
- */
-@property (readwrite) BOOL allowNativeLogin;
 
 /**
  The current session, Note: setting this will persist it in `NSUserDefaults standardUserDefaults` if
@@ -150,10 +144,22 @@ typedef void (^SPTAuthCallback)(NSError *error, SPTSession *session);
 ///----------------------------
 
 /**
- A URL that, when opened, will begin the Spotify authentication process.
- */
-@property (readonly) NSURL *loginURL;
+ Returns a URL that, when opened, will begin the Spotify authentication process.
 
+ @warning You must open this URL with the system handler to have the auth process
+ happen in Safari. Displaying this inside your application is against the Spotify ToS.
+
+ @param clientId Your client ID as declared in the Spotify Developer Centre.
+ @param redirectURL Your callback URL as declared in the Spotify Developer Centre.
+ @param scopes The custom scopes to request from the auth API.
+ @param responseType Authentication response code type, defaults to "code", use "token" if you want to bounce directly to the app without refresh tokens.
+ 
+ @return The URL to pass to `UIApplication`'s `-openURL:` method.
+ */
++ (NSURL *)loginURLForClientId:(NSString *)clientId
+               withRedirectURL:(NSURL *)redirectURL
+                        scopes:(NSArray *)scopes
+                  responseType:(NSString *)responseType;
 
 /**
  Returns a URL that, when opened, will begin the Spotify authentication process.
@@ -165,18 +171,43 @@ typedef void (^SPTAuthCallback)(NSError *error, SPTSession *session);
  @param redirectURL Your callback URL as declared in the Spotify Developer Centre.
  @param scopes The custom scopes to request from the auth API.
  @param responseType Authentication response code type, defaults to "code", use "token" if you want to bounce directly to the app without refresh tokens.
- @param allowNativeLogin Allow login through Spotify App if installed. 'YES' by default. If set to 'NO' WebView login flow is used.
+ @param campaignId A Spotify-provided campaign token.
  @return The URL to pass to `UIApplication`'s `-openURL:` method.
  */
 + (NSURL *)loginURLForClientId:(NSString *)clientId
                withRedirectURL:(NSURL *)redirectURL
                         scopes:(NSArray *)scopes
                   responseType:(NSString *)responseType
-              allowNativeLogin:(BOOL)allowNativeLogin;
+                    campaignId:(NSString *)campaignId;
 
 ///----------------------------
 /// @name Handling Authentication Callback URLs
 ///----------------------------
+
+/**
+ Returns a https:// URL that you can use to retrieve an access token.
+ 
+ Display this URL within a SFSafariViewController on iOS 9 and up, or UIWebView.
+ 
+ This is the preffered mode of authentication.
+ 
+ @note This will always display an option to switch user.
+ 
+ @return https:// URL for authenticating and authorising with the Spotify service
+ */
+- (NSURL *)spotifyWebAuthenticationURL;
+
+/**
+ Returns a spotify-action:// URL that you can use to retrieve an access token 
+ if `-[SPTAuth supportsApplicationAuthentication]` returns YES.
+ 
+ Pass this URL to `-[UIApplication openURL:]` to launch the Spotify application on the device.
+ 
+ @note This will authenticate and authorise for the user currently logged in to the Spotfiy application. There might be no option to switch user.
+ 
+ @return spotify-action:// URL for initiating a Spotfiy Client SSO attempt.
+ */
+- (NSURL *)spotifyAppAuthenticationURL;
 
 /**
  Find out if the given URL appears to be a Spotify authentication URL.
@@ -187,7 +218,7 @@ typedef void (^SPTAuthCallback)(NSError *error, SPTSession *session);
  @param callbackURL The complete callback URL as triggered in your application.
  @return Returns `YES` if the callback URL appears to be a Spotify auth callback, otherwise `NO`.
  */
--(BOOL)canHandleURL:(NSURL *)callbackURL;
+- (BOOL)canHandleURL:(NSURL *)callbackURL;
 
 /**
  Handle a Spotify authentication callback URL, returning a Spotify username and OAuth credential.
@@ -199,19 +230,20 @@ typedef void (^SPTAuthCallback)(NSError *error, SPTSession *session);
  @param url The complete callback URL as triggered in your application.
  @param block The callback block to be triggered when authentication succeeds or fails.
  */
--(void)handleAuthCallbackWithTriggeredAuthURL:(NSURL *)url callback:(SPTAuthCallback)block;
+- (void)handleAuthCallbackWithTriggeredAuthURL:(NSURL *)url callback:(SPTAuthCallback)block;
 
 /**
  Check if "flip-flop" application authentication is supported.
  @return YES if supported, NO otherwise.
  */
-+(BOOL)supportsApplicationAuthentication;
++ (BOOL)supportsApplicationAuthentication;
 
 /**
  Check if Spotify application is installed.
  @return YES if installed, NO otherwise.
  */
-+(BOOL)spotifyApplicationIsInstalled;
++ (BOOL)spotifyApplicationIsInstalled;
+
 
 ///----------------------------
 /// @name Renewing Sessions
@@ -225,7 +257,7 @@ typedef void (^SPTAuthCallback)(NSError *error, SPTSession *session);
  @param session An SPTSession object with a valid refresh token.
  @param block The callback block that will be invoked when the request has been performed.
  */
--(void)renewSession:(SPTSession *)session callback:(SPTAuthCallback)block;
+- (void)renewSession:(SPTSession *)session callback:(SPTAuthCallback)block;
 
 
 @end

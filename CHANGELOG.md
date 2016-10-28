@@ -1,3 +1,27 @@
+Spotify iOS SDK Beta 25
+=======================
+
+**Authentication changes**
+
+We have simplified the authentication flow a bit. 
+
+`-[SPTAuth loginURL]` returned URLs with different schemas depending on a number of parameters. This method has been replaced by two methods
+
+- `-[SPTAuth spotifyWebAuthenticationURL]` returns a https://accounts.spotify.com URL that you should open in a Safari View Controller (or UIWebView if supporting iOS versions prior to 9)
+- `-[SPTAuth spotifyAppAuthenticationURL]` will always return a spotify-action:// URI that you should open with `-[UIApplication openURL:]` if `+[SPTAuth supportsApplicationAuthentication]` returns YES, in order to perform SSO authentication against the Spotify application.
+
+**API Changes**
+
+* Auth: Removed BOOL SPTAuthViewController.hideSignup. It was not actually used.
+* Auth: Deprecated `SPTAuthViewController`. Please use SFSafariViewController
+
+**Bugs fixed**
+
+* [`SPTSearch performSearchWithQuery:` offset is broken](https://github.com/spotify/ios-sdk/issues/478)
+* [`SPTSearch performSearchWithQuery:` crash](https://github.com/spotify/ios-sdk/issues/766)
+* [Beta 24 emits a lot of warnings](https://github.com/spotify/ios-sdk/issues/782)
+* [b24 frameworks do not support bitcode while b23 did](https://github.com/spotify/ios-sdk/issues/786)
+
 Spotify iOS SDK Beta 24
 =======================
 

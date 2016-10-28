@@ -20,9 +20,13 @@
 #import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
 #import "Config.h"
 
-@interface LoginController () <SPTAuthViewDelegate, SPTStoreControllerDelegate>
+#import <SafariServices/SafariServices.h>
+#import <WebKit/WebKit.h>
+#import "WebViewController.h"
 
-@property (atomic, readwrite) SPTAuthViewController *authViewController;
+@interface LoginController () <SFSafariViewControllerDelegate, WebViewControllerDelegate, SPTStoreControllerDelegate>
+
+@property (atomic, readwrite) UIViewController *authViewController;
 @property (atomic, readwrite) BOOL firstLoad;
 
 @end
@@ -32,7 +36,8 @@
 
 #pragma mark - View Lifecycle
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionUpdatedNotification:) name:@"sessionUpdated" object:nil];
@@ -40,7 +45,8 @@
     self.firstLoad = YES;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
 
     SPTAuth *auth = [SPTAuth defaultInstance];
@@ -70,72 +76,77 @@
     // Else, just show login dialog
 }
 
-- (BOOL)prefersStatusBarHidden {
+- (BOOL)prefersStatusBarHidden
+{
     return YES;
 }
 
-- (void)sessionUpdatedNotification:(NSNotification *)notification {
+- (UIViewController *)authViewControllerWithURL:(NSURL *)url
+{
+    UIViewController *viewController;
+    if ([SFSafariViewController class]) {
+        SFSafariViewController *safari = [[SFSafariViewController alloc] initWithURL:url];
+        safari.delegate = self;
+        viewController = safari;
+    } else {
+        WebViewController *webView = [[WebViewController alloc] initWithURL:url];
+        webView.delegate = self;
+        viewController = [[UINavigationController alloc] initWithRootViewController:webView];
+    }
+    viewController.modalPresentationStyle = UIModalPresentationPageSheet;
+    return viewController;
+}
+
+- (void)sessionUpdatedNotification:(NSNotification *)notification
+{
     self.statusLabel.text = @"";
-    if(self.navigationController.topViewController == self) {
-        SPTAuth *auth = [SPTAuth defaultInstance];
-        if (auth.session && [auth.session isValid]) {
-            [self authenticationViewController:self.authViewController didLoginWithSession:auth.session];
-        } else {
-            [self authenticationViewController:self.authViewController didFailToLogin:nil];
-        }
+
+    SPTAuth *auth = [SPTAuth defaultInstance];
+    [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
+    
+    
+    if (auth.session && [auth.session isValid]) {
+        self.statusLabel.text = @"";
+        [self showPlayer];
+    } else {
+        self.statusLabel.text = @"Login failed.";
+        NSLog(@"*** Failed to log in");
     }
 }
 
-- (void)showPlayer {
+- (void)showPlayer
+{
     self.firstLoad = NO;
     self.statusLabel.text = @"Logged in.";
     [self performSegueWithIdentifier:@"ShowPlayer" sender:nil];
 }
 
-
-#pragma mark - SPTAuthViewDelegate
-
-- (void)authenticationViewController:(SPTAuthViewController *)viewcontroller didFailToLogin:(NSError *)error {
-    self.statusLabel.text = @"Login failed.";
-    NSLog(@"*** Failed to log in: %@", error);
-}
-
-- (void)authenticationViewController:(SPTAuthViewController *)viewcontroller didLoginWithSession:(SPTSession *)session {
-    self.statusLabel.text = @"";
-    [self showPlayer];
-}
-
-- (void)authenticationViewControllerDidCancelLogin:(SPTAuthViewController *)authenticationViewController {
-    self.statusLabel.text = @"Login cancelled.";
-}
-
-
 #pragma mark - SPTStoreControllerDelegate
 
-- (void)productViewControllerDidFinish:(SPTStoreViewController *)viewController {
+- (void)productViewControllerDidFinish:(SPTStoreViewController *)viewController
+{
     self.statusLabel.text = @"App Store Dismissed.";
     [viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)openLoginPage {
+- (void)openLoginPage
+{
     self.statusLabel.text = @"Logging in...";
-
-    self.authViewController = [SPTAuthViewController authenticationViewController];
-    self.authViewController.delegate = self;
-    self.authViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    self.authViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
-    self.modalPresentationStyle = UIModalPresentationCurrentContext;
-    self.definesPresentationContext = YES;
-
-    [self presentViewController:self.authViewController animated:NO completion:nil];
+    SPTAuth *auth = [SPTAuth defaultInstance];
+    
+    if ([SPTAuth supportsApplicationAuthentication]) {
+        [[UIApplication sharedApplication] openURL:[auth spotifyAppAuthenticationURL]];
+    } else {
+        self.authViewController = [self authViewControllerWithURL:[[SPTAuth defaultInstance] spotifyWebAuthenticationURL]];
+        self.definesPresentationContext = YES;
+        [self presentViewController:self.authViewController animated:YES completion:nil];
+    }
 }
 
-- (void)renewTokenAndShowPlayer {
+- (void)renewTokenAndShowPlayer
+{
     self.statusLabel.text = @"Refreshing token...";
     SPTAuth *auth = [SPTAuth defaultInstance];
-    // Uncomment to turn off native/SSO/flip-flop login flow
-    //auth.allowNativeLogin = NO;
 
     [auth renewSession:auth.session callback:^(NSError *error, SPTSession *session) {
         auth.session = session;
@@ -150,24 +161,45 @@
     }];
 }
 
+#pragma mark WebViewControllerDelegate
 
+- (void)webViewControllerDidFinish:(WebViewController *)controller
+{
+    // User tapped the close button. Treat as auth error
+}
+
+#pragma mark SFSafariViewControllerDelegate
+
+- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller
+{
+    // User tapped the close button. Treat as auth error
+}
 
 #pragma mark - IBActions
 
-- (IBAction)loginClicked:(id)sender {
+- (IBAction)loginClicked:(id)sender
+{
     [self openLoginPage];
 }
 
-- (IBAction)showSpotifyAppStoreClicked:(id)sender {
+- (IBAction)showSpotifyAppStoreClicked:(id)sender
+{
     self.statusLabel.text = @"Presenting App Store...";
     SPTStoreViewController *storeVC = [[SPTStoreViewController alloc] initWithCampaignToken:@"your_campaign_token"
                                                                               storeDelegate:self];
     [self presentViewController:storeVC animated:YES completion:nil];
 }
 
-- (IBAction)clearCookiesClicked:(id)sender {
-    self.authViewController = [SPTAuthViewController authenticationViewController];
-    [self.authViewController clearCookies:nil];
+- (IBAction)clearCookiesClicked:(id)sender
+{
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *cookie in [storage cookies]) {
+        if ([cookie.domain rangeOfString:@"spotify."].length > 0 ||
+            [cookie.domain rangeOfString:@"facebook."].length > 0) {
+            [storage deleteCookie:cookie];
+        }
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
     self.statusLabel.text = @"Cookies cleared.";
 }
 

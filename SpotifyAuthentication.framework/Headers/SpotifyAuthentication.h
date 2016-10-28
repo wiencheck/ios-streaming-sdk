@@ -23,6 +23,7 @@ FOUNDATION_EXPORT const unsigned char SpotifyAuthenticationVersionString[];
 #import <SpotifyAuthentication/SPTConnectButton.h>
 #import <SpotifyAuthentication/SPTAuthViewController.h>
 #import <SpotifyAuthentication/SPTStoreViewController.h>
+#import <SpotifyAuthentication/SPTEmbeddedImages.h>
 #endif
 
 

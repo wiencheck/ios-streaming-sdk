@@ -39,6 +39,8 @@ and `i386` and `x86_64` for the iOS Simulator. The `i386` and `x86_64` slices
 Getting Started
 =======
 
+[Spotify Developer Portal](https://developer.spotify.com/technologies/spotify-ios-sdk/) | [API Reference](https://spotify.github.io/ios-sdk/)
+
 iOS SDK consists of three frameworks each responsible for an independent functionality set. 
 
 ### Spotify Authentication framework
