@@ -51,9 +51,11 @@ This framework contains functionality pertaining to authentication of the user:
 * Branding.
 * Single Sign-On.
 
-### Spotify Metadata
+### Spotify Metadata - Deprecated 
 
 This framework is a wrapper for the [Spotify Web API](https://developer.spotify.com/web-api/):
+
+The Metadata framework has been deprecated and will not be developed further by Spotify. The source code is released as is to [this repository](https://github.com/erdtman/spotify-ios-metadata/).
 
 ### Spotify Audio Playback
 
@@ -84,9 +86,6 @@ Scopes" and "Session Lifetime" sections below, as authentication is quite involv
 scope when using `SPTAuth`. To do so, pass an array containing the constant to
 `-loginURLForClientId:withRedirectURL:scopes:responseType:`. The supplied demo
 projects already do this if needed.
-
-*   Metadata classes contain methods for doing corresponding metadata lookup. `SPTUser` is for userinfo, `SPTSearch` for searching. [Take a look at the list of metadata classes](https://github.com/spotify/ios-sdk/tree/master/Spotify.framework/Versions/A/Headers)
-
 
 Authenticating and Scopes
 =======
