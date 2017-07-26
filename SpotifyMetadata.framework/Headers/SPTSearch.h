@@ -36,7 +36,7 @@
  @param searchQuery The query to pass to the search.
  @param searchQueryType The type of search to do.
  @param offset The index at which to start returning results.
- @param accessToken A valid access token, or `nil`.
+ @param accessToken A valid access token.
  @param market Either a ISO 3166-1 country code to filter the results to, or "from_token" (`SPTMarketFromToken`) to pick the market from the session (requires the `user-read-private` scope), or `nil` for no market filtering.
  @param block The block to be called when the operation is complete. The block will pass an `SPTListPage` containing results on success, otherwise an error.
  */
@@ -52,7 +52,7 @@
  @param searchQuery The query to pass to the search.
  @param searchQueryType The type of search to do.
  @param offset The index at which to start returning results.
- @param accessToken A valid access token, or `nil`.
+ @param accessToken A valid access token.
  @param market Either a ISO 3166-1 country code to filter the results to, or "from_token" (`SPTMarketFromToken`) to pick the market from the session (requires the `user-read-private` scope), or `nil` for no market filtering.
  @param error An optional pointer to an `NSError` that will receive the error code if operation failed.
  */
@@ -69,7 +69,7 @@
  
  @param searchQuery The query to pass to the search.
  @param searchQueryType The type of search to do.
- @param accessToken A valid access token, or `nil`.
+ @param accessToken A valid access token.
  @param market Either a ISO 3166-1 country code to filter the results to, or `from_token` to pick the market from the session (requires the `user-read-private` scope), or `nil` for no market filtering.
  @param block The block to be called when the operation is complete. The block will pass an `SPTListPage` containing results on success, otherwise an error.
  */
@@ -83,7 +83,7 @@
  
  @param searchQuery The query to pass to the search.
  @param searchQueryType The type of search to do.
- @param accessToken A valid access token, or `nil`.
+ @param accessToken A valid access token.
  @param market Either a ISO 3166-1 country code to filter the results to, or `from_token` to pick the market from the session (requires the `user-read-private` scope), or `nil` for no market filtering.
  @param error An optional pointer to an `NSError` that will receive the error code if operation failed.
  */
@@ -100,7 +100,7 @@
  @param searchQuery The query to pass to the search.
  @param searchQueryType The type of search to do.
  @param offset The index at which to start returning results.
- @param accessToken A valid access token, or `nil`.
+ @param accessToken A valid access token.
  @param block The block to be called when the operation is complete. The block will pass an `SPTListPage` containing results on success, otherwise an error.
  */
 + (void)performSearchWithQuery:(NSString *)searchQuery
@@ -114,7 +114,7 @@
  @param searchQuery The query to pass to the search.
  @param searchQueryType The type of search to do.
  @param offset The index at which to start returning results.
- @param accessToken A valid access token, or `nil`.
+ @param accessToken A valid access token.
  @param error An optional pointer to an `NSError` that will receive the error code if operation failed.
  */
 + (NSURLRequest*)createRequestForSearchWithQuery:(NSString *)searchQuery
@@ -129,7 +129,7 @@
 
  @param searchQuery The query to pass to the search.
  @param searchQueryType The type of search to do.
- @param accessToken A valid access token, or `nil`.
+ @param accessToken A valid access token.
  @param block The block to be called when the operation is complete. The block will pass an `SPTListPage` containing results on success, otherwise an error.
  */
 + (void)performSearchWithQuery:(NSString *)searchQuery
@@ -141,7 +141,7 @@
  
  @param searchQuery The query to pass to the search.
  @param searchQueryType The type of search to do.
- @param accessToken A valid access token, or `nil`.
+ @param accessToken A valid access token.
  @param error An optional pointer to an `NSError` that will receive the error code if operation failed.
  */
 + (NSURLRequest*)createRequestForSearchWithQuery:(NSString *)searchQuery

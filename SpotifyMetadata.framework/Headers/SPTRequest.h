@@ -155,7 +155,7 @@ FOUNDATION_EXPORT NSString * const SPTMarketFromToken;
 /** Helper function for creates an authenticated `NSURLRequest` for a Spotify API resource.
  
  @param url The HTTPS URL to request, this is a Spotify API URL, not a spotify URI.
- @param accessToken A valid access token, or `nil` if authentication isn't needed.
+ @param accessToken A valid access token.
  @param httpMethod The HTTP method to use eg. `GET` `POST` etc.
  @param values The arguments to send to the URL
  @param encodeAsJSON Encode arguments as an JSON object in the body of the request instead of QueryString encoding them.

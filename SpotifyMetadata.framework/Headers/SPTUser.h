@@ -142,7 +142,7 @@ typedef NS_ENUM(NSUInteger, SPTProduct) {
  See: https://developer.spotify.com/web-api/console/get-users-profile/
  
  @param username The username of the user to request
- @param accessToken An authenticated access token that must be valid and authorized or `nil`. 
+ @param accessToken An authenticated access token. Must be valid and authorized. 
  @param block The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.
  */
 +(void)requestUser:(NSString *)username withAccessToken:(NSString *)accessToken callback:(SPTRequestCallback)block;

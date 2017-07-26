@@ -73,7 +73,7 @@
  @note This method takes Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
  
  @param uri The Spotify URI of the artist to request.
- @param accessToken An optional access token. Can be `nil`.
+ @param accessToken An access token.
  @param error An optional `NSError` that will be set if an error occured.
  @return A NSURLRequest for requesting the album
  */
@@ -86,7 +86,7 @@
  @note This method takes Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
  
  @param uris An array of Spotify URIs.
- @param accessToken An optional access token. Can be `nil`.
+ @param accessToken An access token.
  @param error An optional `NSError` that will be set if an error occured.
  @return A NSURLRequest for requesting the albums
  */
@@ -102,7 +102,7 @@
  
  @param artist The Spotify URI of the artist.
  @param type The type of albums to get.
- @param accessToken An optional access token. Can be `nil`.
+ @param accessToken An access token.
  @param market An ISO 3166 country code of the territory to get albums for, or `nil`.
  @param error An optional `NSError` that will be set if an error occured.
  */
@@ -118,7 +118,7 @@
  `SPTUser`'s `territory` property for best results.
  
  @param artist The Spotify URI of the artist.
- @param accessToken An optional access token. Can be `nil`.
+ @param accessToken An access token.
  @param market An ISO 3166 country code of the territory to get top tracks for.
  @param error An optional `NSError` that will be set if an error occured.
  */
@@ -130,7 +130,7 @@
 /** Request the artist's related artists.
  
  @param artist The Spotify URI of the artist.
- @param accessToken An optional access token. Can be `nil`.
+ @param accessToken An access token.
  @param error An optional `NSError` that will be set if an error occured.
  */
 + (NSURLRequest*)createRequestForArtistsRelatedTo:(NSURL *)artist
@@ -203,7 +203,7 @@
  @note This method takes Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
  
  @param uri The Spotify URI of the artist to request.
- @param accessToken An optional access token. Can be `nil`.
+ @param accessToken An access token.
  @param block The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.
  */
 +(void)artistWithURI:(NSURL *)uri accessToken:(NSString *)accessToken callback:(SPTRequestCallback)block;
@@ -215,7 +215,7 @@
  @note This method takes an array Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
  
  @param uris An array of Spotify URIs.
- @param accessToken An optional access token. Can be `nil`.
+ @param accessToken An access token.
  @param block The block to be called when the operation is complete. The block will pass an array of `SPTArtist` objects on success, otherwise an error.
  */
 +(void)artistsWithURIs:(NSArray *)uris accessToken:(NSString *)accessToken callback:(SPTRequestCallback)block;
@@ -227,7 +227,7 @@
  `SPTUser`'s `territory` property for best results.
  
  @param type The type of albums to get.
- @param accessToken An optional access token. Can be `nil`.
+ @param accessToken An access token.
  @param territory An ISO 3166 country code of the territory to get albums for, or `nil`.
  @param block The block to be called when the operation is complete. The block will pass an
  `SPTListPage` object on success, otherwise an error.
@@ -243,7 +243,7 @@
  `SPTUser`'s `territory` property for best results.
  
  @param territory An ISO 3166 country code of the territory to get top tracks for.
- @param accessToken An optional access token. Can be `nil`.
+ @param accessToken An access token.
  @param block The block to be called when the operation is complete. The block will pass an
  `NSArray` object containing `SPTTrack`s on success, otherwise an error.
  */
@@ -253,7 +253,7 @@
 
 /** Request the artist's related artists.
  
- @param accessToken An optional access token. Can be `nil`.
+ @param accessToken An access token.
  @param block The block to be called when the operation is complete. The block will pass an
  `NSArray` object containing `SPTArtist`s on success, otherwise an error.
  */

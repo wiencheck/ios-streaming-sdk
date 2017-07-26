@@ -92,7 +92,7 @@
  @note This method takes Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
  
  @param uri The Spotify URI of the album to request.
- @param accessToken An optional access token. Can be `nil`.
+ @param accessToken An access token.
  @param market An optional market parameter. Can be `nil`.
  @param error An optional `NSError` that will be set if an error occured.
  @return A `NSURLRequest` for requesting the album
@@ -111,7 +111,7 @@
  @note This method takes Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
  
  @param uris An array of Spotify URIs. A maxiumum of 20 URIs can be supplied per request.
- @param accessToken An optional access token. Can be `nil`.
+ @param accessToken An access token.
  @param market An optional market parameter. Can be `nil`.
  @param error An optional `NSError` that will be set if an error occured.
  @return A `NSURLRequest` for requesting the albums
@@ -173,7 +173,7 @@
  @note This method takes Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
  
  @param uri The Spotify URI of the album to request.
- @param accessToken An optional access token. Can be `nil`.
+ @param accessToken An access token.
  @param market An optional market parameter. Can be `nil`.
  @param block The block to be called when the operation is complete. The block will pass a SPTAlbum object on success, otherwise an error.
  */
@@ -189,7 +189,7 @@
  @note This method takes Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
  
  @param uris An array of Spotify URIs.
- @param accessToken An optional access token. Can be `nil`.
+ @param accessToken An access token.
  @param market An optional market parameter. Can be `nil`.
  @param block The block to be called when the operation is complete. The block will pass an array of SPTAlbum objects on success, otherwise an error.
  */

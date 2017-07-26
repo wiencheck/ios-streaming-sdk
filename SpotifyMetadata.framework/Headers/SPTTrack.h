@@ -63,7 +63,7 @@
  See https://developer.spotify.com/web-api/get-list-new-releases/ for more information on parameters
  
  @param uri The Spotify URI of the track to request.
- @param accessToken An access token, or `nil`.
+ @param accessToken An access token.
  @param market Either a ISO 3166-1 country code to filter the results to, or `from_token` to pick the market from the session (requires the `user-read-private` scope), or `nil` for no market filtering.
  @param error An optional pointer to an `NSError` that will receive the error code if operation failed.
  */
@@ -79,7 +79,7 @@
  See https://developer.spotify.com/web-api/get-list-new-releases/ for more information on parameters
  
  @param uris An array of Spotify Track URIs.
- @param accessToken An access token, or `nil`.
+ @param accessToken An access token.
  @param market Either a ISO 3166-1 country code to filter the results to, or `from_token` to pick the market from the session (requires the `user-read-private` scope), or `nil` for no market filtering.
  @param error An optional pointer to an `NSError` that will receive the error code if operation failed.
  */
@@ -159,7 +159,7 @@
  @note This method takes Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
  
  @param uri The Spotify URI of the track to request.
- @param accessToken An access token, or `nil`.
+ @param accessToken An access token.
  @param market Either a ISO 3166-1 country code to filter the results to, or `from_token` to pick the market from the session (requires the `user-read-private` scope), or `nil` for no market filtering.
  @param block The block to be called when the operation is complete. The block will pass a Spotify SDK metadata object on success, otherwise an error.
  */
@@ -174,7 +174,7 @@
  @note This method takes an array of Spotify URIs in the form `spotify:*`, NOT HTTP URLs.
  
  @param uris An array of Spotify Track URIs.
- @param accessToken An access token, or `nil`.
+ @param accessToken An access token.
  @param market Either a ISO 3166-1 country code to filter the results to, or `from_token` to pick the market from the session (requires the `user-read-private` scope), or `nil` for no market filtering.
  @param block The block to be called when the operation is complete. The block will pass an array of Spotify SDK metadata objects on success, otherwise an error.
  */
