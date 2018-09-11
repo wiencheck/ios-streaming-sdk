@@ -4,6 +4,8 @@
 Spotify iOS Streaming SDK Readme
 =======
 
+## Check out our updated iOS SDK [here](https://github.com/spotify/ios-sdk)!
+
 Welcome to Spotify iOS SDK! This ReadMe is for people who wish to develop iOS
 applications containing Spotify-related functionality, such as audio streaming,
 playlist manipulation, searching and more.
