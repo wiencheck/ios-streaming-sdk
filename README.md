@@ -1,7 +1,7 @@
 **WARNING: This is a beta release of the Spotify iOS SDK.**
 
 
-Spotify iOS SDK Readme
+Spotify iOS Streaming SDK Readme
 =======
 
 Welcome to Spotify iOS SDK! This ReadMe is for people who wish to develop iOS
