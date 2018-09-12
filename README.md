@@ -13,7 +13,7 @@ playlist manipulation, searching and more.
 Usage of this SDK is bound under the [Developer Terms of Use](https://developer.spotify.com/developer-terms-of-use/).
 
 #### Bugs or feature requests
-[Open bug tickets](https://github.com/spotify/ios-sdk/labels/bug) | [Open feature requests](https://github.com/spotify/ios-sdk/labels/enhancement) | [All](https://github.com/spotify/ios-sdk/issues) 
+[Open bug tickets](https://github.com/spotify/ios-streaming-sdk/labels/bug) | [Open feature requests](https://github.com/spotify/ios-streaming-sdk/labels/enhancement) | [All](https://github.com/spotify/ios-streaming-sdk/issues) 
 
 Beta Release Information
 =======
@@ -25,7 +25,7 @@ making sure you search for existing issues and adding your voice to those
 rather than duplicating.
 
 For known issues and release notes, see the
-[CHANGELOG.md](https://github.com/spotify/ios-sdk/blob/master/CHANGELOG.md)
+[CHANGELOG.md](https://github.com/spotify/ios-streaming-sdk/blob/master/CHANGELOG.md)
 file.
 
 
@@ -41,7 +41,7 @@ and `i386` and `x86_64` for the iOS Simulator. The `i386` and `x86_64` slices
 Getting Started
 =======
 
-[Spotify Developer Portal](https://developer.spotify.com/technologies/spotify-ios-sdk/) | [API Reference](https://spotify.github.io/ios-sdk/)
+[API Reference](https://spotify.github.io/ios-streaming-sdk/)
 
 iOS SDK consists of three frameworks each responsible for an independent functionality set. 
 
