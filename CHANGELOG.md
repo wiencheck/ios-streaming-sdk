@@ -1,4 +1,18 @@
-Spotify iOS SDK Beta 25
+Spotify iOS Streaming SDK Beta 27
+=======================
+Updates to `SPTPlaylistSnapshot` to support V2 playlist URI's. For for information see https://developer.spotify.com/community/news/2018/06/12/changes-to-playlist-uris/
+
+**Please Note:** This is only a temporary patch. We recommend you migrate your integrations over to use new SDK instead which can be found here https://github.com/spotify/ios-sdk
+
+Spotify iOS Streaming SDK Beta 26
+=======================
+
+**API Changes**
+
+* `SPTDiskCaching` protocol has been extended with a method to delete cache.
+* Interface `SPTDiskCache` has been updated to accomodate the `SPTDiskCaching` protocol changes.
+
+Spotify iOS Streaming SDK Beta 25
 =======================
 
 **Authentication changes**
@@ -22,7 +36,7 @@ We have simplified the authentication flow a bit.
 * [Beta 24 emits a lot of warnings](https://github.com/spotify/ios-sdk/issues/782)
 * [b24 frameworks do not support bitcode while b23 did](https://github.com/spotify/ios-sdk/issues/786)
 
-Spotify iOS SDK Beta 24
+Spotify iOS Streaming SDK Beta 24
 =======================
 
 SDK is now split into Authentication, Metadata and AudioPlayback frameworks independent from each other.
@@ -43,7 +57,7 @@ All classes and methods have been moved into appropriate frameworks.
 * Added the scopes SPTAuthPlaylistReadCollaborativeScope (user-top-read) and SPTAuthUserReadTopScope (playlist-read-collaborative).
 * Added new `SPTStoreViewController` - Display an App Store page to promote the Spotify app. If you use it, link with the StoreKit framework.
 
-Spotify iOS SDK Beta 23
+Spotify iOS Streaming SDK Beta 23
 =======================
 
 **Bugs fixed**
@@ -51,7 +65,7 @@ Spotify iOS SDK Beta 23
 * [Beta 22: `SPTPlaylistSnapshot +playlistsWithURIs...` is gone.](https://github.com/spotify/ios-sdk/issues/761)
 
 
-Spotify iOS SDK Beta 22
+Spotify iOS Streaming SDK Beta 22
 =======================
 
 In preparation for splitting our SDK into distinct components the focus of this release is to decouple future components.
@@ -88,7 +102,7 @@ E.g. `SPTArtist` method `requestTopTracksForTerritory:withSession:callback:` bec
 * `SPTDiskCaching` protocol has been updated and extended.
 * Basic implementation of `SPTDiskCaching` protocol, interface `SPTDiskCache` has been refactored as well and works properly.
 
-Spotify iOS SDK Beta 21
+Spotify iOS Streaming SDK Beta 21
 ======================
 
 **Notes**
@@ -128,7 +142,7 @@ Properties `currentPlaybackPosition, currentTrackUri, currentTrackDuration, repe
 
 
 
-Spotify iOS SDK Beta 20
+Spotify iOS Streaming SDK Beta 20
 ======================
 
 **Important Notes**
@@ -173,7 +187,7 @@ Deprecated functions that has been removed
 * @property (nonatomic, readwrite) int trackListPosition DEPRECATED_ATTRIBUTE;
 * @property (nonatomic, readonly) int queueSize DEPRECATED_ATTRIBUTE;
 
-Spotify iOS SDK Beta 12
+Spotify iOS Streaming SDK Beta 12
 ======================
 
 **Bugs fixed**
@@ -183,7 +197,7 @@ Spotify iOS SDK Beta 12
 ([Issue #472](https://github.com/spotify/ios-sdk/issues/472))
 ([Issue #409](https://github.com/spotify/ios-sdk/issues/409))
 
-Spotify iOS SDK Beta 11
+Spotify iOS Streaming SDK Beta 11
 ======================
 
 **Bugs fixed**
@@ -192,7 +206,7 @@ Spotify iOS SDK Beta 11
 
 ([Issue #463](https://github.com/spotify/ios-sdk/issues/463))
 
-Spotify iOS SDK Beta 10
+Spotify iOS Streaming SDK Beta 10
 ======================
 
 **Bugs fixed**
@@ -204,7 +218,7 @@ Spotify iOS SDK Beta 10
 ([Issue #331](https://github.com/spotify/ios-sdk/issues/331))
 
 
-Spotify iOS SDK Beta 9
+Spotify iOS Streaming SDK Beta 9
 ======================
 
 **Bugs fixed**
@@ -214,7 +228,7 @@ Spotify iOS SDK Beta 9
   ([Issue #357](https://github.com/spotify/ios-sdk/issues/357))
 
 
-Spotify iOS SDK Beta 8
+Spotify iOS Streaming SDK Beta 8
 ======================
 
 **What's New**
@@ -278,7 +292,7 @@ Spotify iOS SDK Beta 8
 
 
 
-Spotify iOS SDK Beta 7
+Spotify iOS Streaming SDK Beta 7
 ======================
 
 **What's New**
@@ -325,7 +339,7 @@ Spotify iOS SDK Beta 7
   ([Issue #157](https://github.com/spotify/ios-sdk/issues/157))
 
 
-Spotify iOS SDK Beta 6
+Spotify iOS Streaming SDK Beta 6
 ======================
 
 **What's New**
@@ -407,7 +421,7 @@ Spotify iOS SDK Beta 6
   values passed to the callbacks are correct.
 
 
-Spotify iOS SDK Beta 5 (Release Candidate)
+Spotify iOS Streaming SDK Beta 5 (Release Candidate)
 ==========================================
 
 **What's New**
@@ -460,7 +474,7 @@ Spotify iOS SDK Beta 5 (Release Candidate)
   available territories and external urls.)
 
 
-Spotify iOS SDK Beta 4
+Spotify iOS Streaming SDK Beta 4
 ======================
 
 **What's New**
@@ -522,7 +536,7 @@ Spotify iOS SDK Beta 4
 * Scopes are now working properly
   ([Issue #99](https://github.com/spotify/ios-sdk/issues/99)).
 
-Spotify iOS SDK Beta 3
+Spotify iOS Streaming SDK Beta 3
 ======================
 
 **What's New**
@@ -596,7 +610,7 @@ Spotify iOS SDK Beta 3
   ([Issue #12](https://github.com/spotify/ios-sdk/issues/12)).
 
 
-Spotify iOS SDK Beta 2
+Spotify iOS Streaming SDK Beta 2
 ======================
 
 **What's New**
@@ -628,7 +642,7 @@ Spotify iOS SDK Beta 2
 * For other open issues, see the project's [Issue Tracker](https://github.com/spotify/ios-sdk/issues).
 
 
-Spotify iOS SDK Beta 1
+Spotify iOS Streaming SDK Beta 1
 =============
 
 **What's New**

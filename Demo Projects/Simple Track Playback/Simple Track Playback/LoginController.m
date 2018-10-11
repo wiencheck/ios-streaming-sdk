@@ -1,5 +1,5 @@
 /*
- Copyright 2015 Spotify AB
+ Copyright 2017 Spotify AB
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -193,7 +193,7 @@
 - (IBAction)clearCookiesClicked:(id)sender
 {
     NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (NSHTTPCookie *cookie in [storage cookies]) {
+    for (NSHTTPCookie *cookie in storage.cookies) {
         if ([cookie.domain rangeOfString:@"spotify."].length > 0 ||
             [cookie.domain rangeOfString:@"facebook."].length > 0) {
             [storage deleteCookie:cookie];

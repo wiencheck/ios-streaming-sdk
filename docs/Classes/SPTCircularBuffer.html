@@ -1,143 +1,112 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
-		<title>SPTCircularBuffer Class Reference</title>
-		<meta id="xcode-display" name="xcode-display" content="render"/>
-		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
-		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
-		<meta name="generator" content="appledoc 2.2 (build 963)" />
-	</head>
-	<body>
-		<header id="top_header">
-			<div id="library" class="hideInXcode">
-				<h1><a id="libraryTitle" href="../index.html">Spotify iOS SDK </a></h1>
-				<a id="developerHome" href="../index.html">Spotify AB</a>
-			</div>
+<head>
+	<meta charset="utf-8">
+
+	<title>SPTCircularBuffer Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
 			
-			<div id="title" role="banner">
-				<h1 class="hideInXcode">SPTCircularBuffer Class Reference</h1>
-			</div>
-			<ul id="headerButtons" role="toolbar">
-				<li id="toc_button">
-					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
-				</li>
-				<li id="jumpto_button" role="navigation">
-					<select id="jumpTo">
+			<h1 id="library-title">
+				<a href="../index.html">Spotify iOS SDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Spotify AB</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
 	<option value="overview">Overview</option>
 	
-	
+
 	
 	
 	<option value="tasks">Tasks</option>
 	
 	
+
 	
 	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/length">length</option>
+		
+		<option value="//api/name/maximumLength">maximumLength</option>
+		
+	</optgroup>
 	
-	<option value="properties">Properties</option>
+
 	
-	<option value="//api/name/length">&nbsp;&nbsp;&nbsp;&nbsp;length</option>
+
 	
-	<option value="//api/name/maximumLength">&nbsp;&nbsp;&nbsp;&nbsp;maximumLength</option>
-	
-	
-	
-	
-	
-	
-	<option value="instance_methods">Instance Methods</option>
-	
-	<option value="//api/name/attemptAppendData:ofLength:">&nbsp;&nbsp;&nbsp;&nbsp;- attemptAppendData:ofLength:</option>
-	
-	<option value="//api/name/attemptAppendData:ofLength:chunkSize:">&nbsp;&nbsp;&nbsp;&nbsp;- attemptAppendData:ofLength:chunkSize:</option>
-	
-	<option value="//api/name/clear">&nbsp;&nbsp;&nbsp;&nbsp;- clear</option>
-	
-	<option value="//api/name/initWithMaximumLength:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithMaximumLength:</option>
-	
-	<option value="//api/name/readDataOfLength:intoAllocatedBuffer:">&nbsp;&nbsp;&nbsp;&nbsp;- readDataOfLength:intoAllocatedBuffer:</option>
-	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/attemptAppendData:ofLength:">- attemptAppendData:ofLength:</option>
+		
+		<option value="//api/name/attemptAppendData:ofLength:chunkSize:">- attemptAppendData:ofLength:chunkSize:</option>
+		
+		<option value="//api/name/clear">- clear</option>
+		
+		<option value="//api/name/initWithMaximumLength:">- initWithMaximumLength:</option>
+		
+		<option value="//api/name/readDataOfLength:intoAllocatedBuffer:">- readDataOfLength:intoAllocatedBuffer:</option>
+		
+	</optgroup>
 	
 	
 </select>
-				</li>
-			</ul>
-		</header>
-		<nav id="tocContainer" class="isShowingTOC">
-			<ul id="toc" role="tree">
-				
-<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
 
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">SPTCircularBuffer Class Reference</h1>
 
-
-
-<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
-	
-</ul></li>
-
-
-
-
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/length">length</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/maximumLength">maximumLength</a></span></li>
-	
-</ul></li>
-
-
-
-
-
-<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/attemptAppendData:ofLength:">attemptAppendData:ofLength:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/attemptAppendData:ofLength:chunkSize:">attemptAppendData:ofLength:chunkSize:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/clear">clear</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithMaximumLength:">initWithMaximumLength:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/readDataOfLength:intoAllocatedBuffer:">readDataOfLength:intoAllocatedBuffer:</a></span></li>
-	
-</ul></li>
-
-
-			</ul>
-		</nav>
-		<article>
-			<div id="contents" class="isShowingTOC" role="main">
-				<a title="SPTCircularBuffer Class Reference" name="top"></a>
-				<div class="main-navigation navigation-top">
-					<ul>
-	<li><a href="../index.html">Index</a></li>
-	<li><a href="../hierarchy.html">Hierarchy</a></li>
-</ul>
-				</div>
-				<div id="header">
-					<div class="section-header">
-						<h1 class="title title-header">SPTCircularBuffer Class Reference</h1>
-					</div>		
-				</div>
-				<div id="container">	
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<td class="specification-title">Inherits from</td>
-	<td class="specification-value">NSObject</td>
+	<th>Inherits from</th>
+	<td>NSObject</td>
 </tr><tr>
-	<td class="specification-title">Declared in</td>
-	<td class="specification-value">SPTCircularBuffer.h</td>
+	<th>Declared in</th>
+	<td>SPTCircularBuffer.h</td>
 </tr>
 						</tbody></table></div>
 					
-                    
+
                     
 					
 					<div class="section section-overview">
@@ -151,274 +120,254 @@ used with the iOS SDK, this isn&rsquo;t a problem as we can ask the library to r
 					</div>
 					
 					
-					
+
 					
 					
 					<div class="section section-tasks">
 						<a title="Tasks" name="tasks"></a>
-						<h2 class="subtitle subtitle-tasks">Tasks</h2>
 						
-						
+
 						
 						
 
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/initWithMaximumLength:">&ndash;&nbsp;initWithMaximumLength:</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/clear">&ndash;&nbsp;clear</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/attemptAppendData:ofLength:">&ndash;&nbsp;attemptAppendData:ofLength:</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/attemptAppendData:ofLength:chunkSize:">&ndash;&nbsp;attemptAppendData:ofLength:chunkSize:</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/readDataOfLength:intoAllocatedBuffer:">&ndash;&nbsp;readDataOfLength:intoAllocatedBuffer:</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/length">&nbsp;&nbsp;length</a></code>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/maximumLength">&nbsp;&nbsp;maximumLength</a></code>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li>
-						</ul>
-						
-					</div>
-					
-					
-					
-					
-					
-					<div class="section section-methods">
-						<a title="Properties" name="properties"></a>
-						<h2 class="subtitle subtitle-methods">Properties</h2>
-						
-						<div class="section-method">
-	<a name="//api/name/length" title="length"></a>
-	<h3 class="subsubtitle method-title">length</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Returns the amount of data currently in the buffer, in bytes.</p>
-	</div>		
-	
-    
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/initWithMaximumLength:" title="initWithMaximumLength:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithMaximumLength:">&ndash;&nbsp;initWithMaximumLength:</a></code>
+</h3>
 
-	<div class="method-subsection method-declaration"><code>@property (readonly) NSUInteger length</code></div>
+	<div class="method-info">
+		<div class="pointy-thing"></div>
 
-    
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">SPTCircularBuffer.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/maximumLength" title="maximumLength"></a>
-	<h3 class="subsubtitle method-title">maximumLength</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Returns the maximum amount of data that the buffer can hold, in bytes.</p>
-	</div>		
-	
-    
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initialize a new buffer.</p>
+			</div>
+			
+		    
 
-	<div class="method-subsection method-declaration"><code>@property (readonly, nonatomic) NSUInteger maximumLength</code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithMaximumLength:(NSUInteger)<em>size</em></code></div>
 
-    
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">SPTCircularBuffer.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-					</div>
-					
-					
-					
-					
-					
-					<div class="section section-methods">
-						<a title="Instance Methods" name="instance_methods"></a>
-						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
-						
-						<div class="section-method">
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>size</code></th>
+						<td><p>The maximum size of the buffer, in bytes.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns the newly created SPTCircularBuffer.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Initial size will be zero, with a maximum size as provided.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTCircularBuffer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/clear" title="clear"></a>
+	<h3 class="method-title"><code><a href="#//api/name/clear">&ndash;&nbsp;clear</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Clears all data from the buffer.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)clear</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTCircularBuffer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/attemptAppendData:ofLength:" title="attemptAppendData:ofLength:"></a>
-	<h3 class="subsubtitle method-title">attemptAppendData:ofLength:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Attempt to copy new data into the buffer.</p>
-	</div>		
-	
-    
+	<h3 class="method-title"><code><a href="#//api/name/attemptAppendData:ofLength:">&ndash;&nbsp;attemptAppendData:ofLength:</a></code>
+</h3>
 
-	<div class="method-subsection method-declaration"><code>- (NSUInteger)attemptAppendData:(const void *)<em>data</em> ofLength:(NSUInteger)<em>dataLength</em></code></div>
+	<div class="method-info">
+		<div class="pointy-thing"></div>
 
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>data</em></dt>
-			<dd><p>A buffer containing the data to be copied in.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>dataLength</em></dt>
-			<dd><p>The <a href="#//api/name/length">length</a> of the data, in bytes.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>Returns the amount of data copied into the buffer, in bytes. If this number is
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Attempt to copy new data into the buffer.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSUInteger)attemptAppendData:(const void *)<em>data</em> ofLength:(NSUInteger)<em>dataLength</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>data</code></th>
+						<td><p>A buffer containing the data to be copied in.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>dataLength</code></th>
+						<td><p>The <a href="#//api/name/length">length</a> of the data, in bytes.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns the amount of data copied into the buffer, in bytes. If this number is
 smaller than dataLength, only this number of bytes was copied in from the start of the given buffer.</p>
-	</div>
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Data is copied using the following heuristic:</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Data is copied using the following heuristic:</p>
 
 <ul>
 <li>If dataLength &lt;= (<a href="#//api/name/maximumLength">maximumLength</a> - <a href="#//api/name/length">length</a>), copy all data.</li>
 <li>Otherwise, copy (<a href="#//api/name/maximumLength">maximumLength</a> - <a href="#//api/name/length">length</a>) bytes.</li>
 </ul>
 
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTCircularBuffer.h</code></p>
+			</div>
+			
+			
+		</div>
 	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">SPTCircularBuffer.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
+</div><div class="section-method">
 	<a name="//api/name/attemptAppendData:ofLength:chunkSize:" title="attemptAppendData:ofLength:chunkSize:"></a>
-	<h3 class="subsubtitle method-title">attemptAppendData:ofLength:chunkSize:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Attempt to copy new data into the buffer.</p>
-	</div>		
-	
-    
+	<h3 class="method-title"><code><a href="#//api/name/attemptAppendData:ofLength:chunkSize:">&ndash;&nbsp;attemptAppendData:ofLength:chunkSize:</a></code>
+</h3>
 
-	<div class="method-subsection method-declaration"><code>- (NSUInteger)attemptAppendData:(const void *)<em>data</em> ofLength:(NSUInteger)<em>dataLength</em> chunkSize:(NSUInteger)<em>chunkSize</em></code></div>
+	<div class="method-info">
+		<div class="pointy-thing"></div>
 
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>data</em></dt>
-			<dd><p>A buffer containing the data to be copied in.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>dataLength</em></dt>
-			<dd><p>The <a href="#//api/name/length">length</a> of the data, in bytes.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>chunkSize</em></dt>
-			<dd><p>Ensures the number of bytes copies in is a multiple of this number.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>Returns the amount of data copied into the buffer, in bytes. If this number is
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Attempt to copy new data into the buffer.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSUInteger)attemptAppendData:(const void *)<em>data</em> ofLength:(NSUInteger)<em>dataLength</em> chunkSize:(NSUInteger)<em>chunkSize</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>data</code></th>
+						<td><p>A buffer containing the data to be copied in.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>dataLength</code></th>
+						<td><p>The <a href="#//api/name/length">length</a> of the data, in bytes.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>chunkSize</code></th>
+						<td><p>Ensures the number of bytes copies in is a multiple of this number.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns the amount of data copied into the buffer, in bytes. If this number is
 smaller than dataLength, only this number of bytes was copied in from the start of the given buffer.</p>
-	</div>
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Data is copied using the following heuristic:</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Data is copied using the following heuristic:</p>
 
 <ul>
 <li>If dataLength &lt;= (<a href="#//api/name/maximumLength">maximumLength</a> - <a href="#//api/name/length">length</a>), copy all data.</li>
@@ -427,283 +376,193 @@ smaller than dataLength, only this number of bytes was copied in from the start 
  integrally be divided by chunkSize.</li>
 </ul>
 
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">SPTCircularBuffer.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/clear" title="clear"></a>
-	<h3 class="subsubtitle method-title">clear</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Clears all data from the buffer.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)clear</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">SPTCircularBuffer.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/initWithMaximumLength:" title="initWithMaximumLength:"></a>
-	<h3 class="subsubtitle method-title">initWithMaximumLength:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Initialize a new buffer.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (id)initWithMaximumLength:(NSUInteger)<em>size</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>size</em></dt>
-			<dd><p>The maximum size of the buffer, in bytes.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>Returns the newly created SPTCircularBuffer.</p>
-	</div>
-	
-	
-	
-	
-	
-	<div class="method-subsection discussion-section">
-		<h4 class="method-subtitle">Discussion</h4>
-		<p>Initial size will be zero, with a maximum size as provided.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">SPTCircularBuffer.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/readDataOfLength:intoAllocatedBuffer:" title="readDataOfLength:intoAllocatedBuffer:"></a>
-	<h3 class="subsubtitle method-title">readDataOfLength:intoAllocatedBuffer:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Read data out of the buffer into a pre-allocated buffer.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (NSUInteger)readDataOfLength:(NSUInteger)<em>desiredLength</em> intoAllocatedBuffer:(void **)<em>outBuffer</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>desiredLength</em></dt>
-			<dd><p>The desired number of bytes to copy out.</p></dd>
-		</dl>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>outBuffer</em></dt>
-			<dd><p>A pointer to a buffer, which must be malloc'ed with at least <code>desiredLength</code> bytes.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>Returns the amount of data copied into the given buffer, in bytes.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">SPTCircularBuffer.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-					</div>
-					
-					
-                    
-                    
-				</div>
-				<div class="main-navigation navigation-bottom">
-					<ul>
-	<li><a href="../index.html">Index</a></li>
-	<li><a href="../hierarchy.html">Hierarchy</a></li>
-</ul>
-				</div>
-				<div id="footer">
-					<hr />
-					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2016 Spotify AB. All rights reserved. (Last updated: 2016-10-28)</span><br />
-						
-						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
-						
-					</div>
-				</div>
 			</div>
-		</article>
-		<script type="text/javascript">
-			function jumpToChange()
-			{
-				window.location.hash = this.options[this.selectedIndex].value;
-			}
 			
-			function toggleTOC()
-			{
-				var contents = document.getElementById('contents');
-				var tocContainer = document.getElementById('tocContainer');
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTCircularBuffer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/readDataOfLength:intoAllocatedBuffer:" title="readDataOfLength:intoAllocatedBuffer:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/readDataOfLength:intoAllocatedBuffer:">&ndash;&nbsp;readDataOfLength:intoAllocatedBuffer:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Read data out of the buffer into a pre-allocated buffer.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSUInteger)readDataOfLength:(NSUInteger)<em>desiredLength</em> intoAllocatedBuffer:(void **)<em>outBuffer</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
 				
-				if (this.getAttribute('class') == 'open')
-				{
-					this.setAttribute('class', '');
-					contents.setAttribute('class', '');
-					tocContainer.setAttribute('class', '');
+					<tr>
+						<th scope="row" class="argument-name"><code>desiredLength</code></th>
+						<td><p>The desired number of bytes to copy out.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>outBuffer</code></th>
+						<td><p>A pointer to a buffer, which must be malloc'ed with at least <code>desiredLength</code> bytes.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns the amount of data copied into the given buffer, in bytes.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTCircularBuffer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/length" title="length"></a>
+	<h3 class="method-title"><code><a href="#//api/name/length">&nbsp;&nbsp;length</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the amount of data currently in the buffer, in bytes.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readonly) NSUInteger length</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTCircularBuffer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/maximumLength" title="maximumLength"></a>
+	<h3 class="method-title"><code><a href="#//api/name/maximumLength">&nbsp;&nbsp;maximumLength</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the maximum amount of data that the buffer can hold, in bytes.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readonly, nonatomic) NSUInteger maximumLength</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">SPTCircularBuffer.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
 					
-					window.name = "hideTOC";
-				}
-				else
-				{
-					this.setAttribute('class', 'open');
-					contents.setAttribute('class', 'isShowingTOC');
-					tocContainer.setAttribute('class', 'isShowingTOC');
 					
-					window.name = "";
-				}
-				return false;
-			}
-			
-			function toggleTOCEntryChildren(e)
-			{
-				e.stopPropagation();
-				var currentClass = this.getAttribute('class');
-				if (currentClass == 'children') {
-					this.setAttribute('class', 'children open');
-				}
-				else if (currentClass == 'children open') {
-					this.setAttribute('class', 'children');
-				}
-				return false;
-			}
-			
-			function tocEntryClick(e)
-			{
-				e.stopPropagation();
-				return true;
-			}
-			
-			function init()
-			{
-				var selectElement = document.getElementById('jumpTo');
-				selectElement.addEventListener('change', jumpToChange, false);
-				
-				var tocButton = document.getElementById('table_of_contents');
-				tocButton.addEventListener('click', toggleTOC, false);
-				
-				var taskTreeItem = document.getElementById('task_treeitem');
-				if (taskTreeItem.getElementsByTagName('li').length > 0)
-				{
-					taskTreeItem.setAttribute('class', 'children');
-					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
-				}
-				
-				var tocList = document.getElementById('toc');
-				
-				var tocEntries = tocList.getElementsByTagName('li');
-				for (var i = 0; i < tocEntries.length; i++) {
-					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
-				}
-				
-				var tocLinks = tocList.getElementsByTagName('a');
-				for (var i = 0; i < tocLinks.length; i++) {
-					tocLinks[i].addEventListener('click', tocEntryClick, false);
-				}
-				
-				if (window.name == "hideTOC") {
-					toggleTOC.call(tocButton);
-				}
-			}
-			
-			window.onload = init;
-			
-			// If showing in Xcode, hide the TOC and Header
-			if (navigator.userAgent.match(/xcode/i)) {
-				document.getElementById("contents").className = "hideInXcode"
-				document.getElementById("tocContainer").className = "hideInXcode"
-				document.getElementById("top_header").className = "hideInXcode"
-			}
-			
-		</script>
-	</body>
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2018 Spotify AB. All rights reserved. Updated: 2018-10-11</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
 </html>

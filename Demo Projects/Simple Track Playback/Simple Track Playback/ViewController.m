@@ -1,5 +1,5 @@
 /*
- Copyright 2015 Spotify AB
+ Copyright 2017 Spotify AB
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -99,7 +99,7 @@
     CIContext *context = [CIContext contextWithOptions:nil];
 
     CGImageRef outImage = [context createCGImage: outputImage
-                                        fromRect: [outputImage extent]];
+                                        fromRect: outputImage.extent];
 
     UIImage *ret = [UIImage imageWithCGImage: outImage];
 
@@ -187,7 +187,7 @@
             [self.player loginWithAccessToken:auth.session.accessToken];
         } else {
             self.player = nil;
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error init" message:[error description] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error init" message:error.description preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
             [self presentViewController:alert animated:YES completion:nil];
             [self closeSession];
@@ -198,7 +198,7 @@
 - (void)closeSession {
     NSError *error = nil;
     if (![self.player stopWithError:&error]) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error deinit" message:[error description] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error deinit" message:error.description preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
         [self presentViewController:alert animated:YES completion:nil];
     }
@@ -208,7 +208,8 @@
 
 #pragma mark - Track Player Delegates
 
-- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didReceiveMessage:(NSString *)message {
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming
+     didReceiveMessage:(NSString *)message {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message from Spotify"
                                                         message:message
                                                        delegate:nil
@@ -217,7 +218,8 @@
     [alertView show];
 }
 
-- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePlaybackStatus:(BOOL)isPlaying {
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming
+didChangePlaybackStatus:(BOOL)isPlaying {
     NSLog(@"is playing = %d", isPlaying);
     if (isPlaying) {
         [self activateAudioSession];
@@ -226,11 +228,13 @@
     }
 }
 
--(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangeMetadata:(SPTPlaybackMetadata *)metadata {
+-(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming
+    didChangeMetadata:(SPTPlaybackMetadata *)metadata {
     [self updateUI];
 }
 
--(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didReceivePlaybackEvent:(SpPlaybackEvent)event withName:(NSString *)name {
+-(void)audioStreaming:(SPTAudioStreamingController *)audioStreaming
+didReceivePlaybackEvent:(SpPlaybackEvent)event withName:(NSString *)name {
     NSLog(@"didReceivePlaybackEvent: %zd %@", event, name);
     NSLog(@"isPlaying=%d isRepeating=%d isShuffling=%d isActiveDevice=%d positionMs=%f",
           self.player.playbackState.isPlaying,
@@ -240,11 +244,14 @@
           self.player.playbackState.position);
 }
 
-- (void)audioStreamingDidLogout:(SPTAudioStreamingController *)audioStreaming {
+- (void)audioStreamingDidLogout:(SPTAudioStreamingController *)audioStreaming
+{
     [self closeSession];
 }
 
-- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didReceiveError:(NSError* )error {
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming
+       didReceiveError:(NSError* )error
+{
     NSLog(@"didReceiveError: %zd %@", error.code, error.localizedDescription);
 
     if (error.code == SPErrorNeedsPremium) {
@@ -257,7 +264,9 @@
     }
 }
 
-- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didChangePosition:(NSTimeInterval)position {
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming
+     didChangePosition:(NSTimeInterval)position
+{
     if (self.isChangingProgress) {
         return;
     }
@@ -265,7 +274,9 @@
 
 }
 
-- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStartPlayingTrack:(NSString *)trackUri {
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming
+  didStartPlayingTrack:(NSString *)trackUri
+{
     NSLog(@"Starting %@", trackUri);
     NSLog(@"Source %@", self.player.metadata.currentTrack.playbackSourceUri);
     // If context is a single track and the uri of the actual track being played is different
@@ -275,7 +286,9 @@
     NSLog(@"Relinked %d", isRelinked);
 }
 
-- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming didStopPlayingTrack:(NSString *)trackUri {
+- (void)audioStreaming:(SPTAudioStreamingController *)audioStreaming
+   didStopPlayingTrack:(NSString *)trackUri
+{
     NSLog(@"Finishing: %@", trackUri);
 }
 

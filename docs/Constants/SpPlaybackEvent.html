@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>SpPlaybackEvent Constants Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">Spotify iOS SDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Spotify AB</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">SpPlaybackEvent Constants Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Declared in</th>
+	<td>SPTPlaybackEvent.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+
+                    
+                    <h3 class="subsubtitle method-title">SpPlaybackEvent</h3>
+                    
+                    <div class="section">
+                        <!-- display enum values -->
+                        
+                        <h4 class="method-subtitle">Definition</h4>
+                        <code>typedef NS_ENUM(NSUInteger, SpPlaybackEvent ) {<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPlaybackNotifyPlay</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPlaybackNotifyPause</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPlaybackNotifyTrackChanged</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPlaybackNotifyNext</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPlaybackNotifyPrev</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPlaybackNotifyShuffleOn</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPlaybackNotifyShuffleOff</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPlaybackNotifyRepeatOn</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPlaybackNotifyRepeatOff</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPlaybackNotifyBecameActive</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPlaybackNotifyBecameInactive</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPlaybackNotifyLostPermission</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPlaybackEventAudioFlush</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPlaybackNotifyAudioDeliveryDone</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPlaybackNotifyContextChanged</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPlaybackNotifyTrackDelivered</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPlaybackNotifyMetadataChanged</a>,<br>
+                            
+                            };</code>
+                    
+                    </div>
+                    
+                    <div class="section section-methods">
+                        <h4 class="method-subtitle">Constants</h4>
+                        <dl class="termdef">
+                            
+                            <dt><a name="" title="SPPlaybackNotifyPlay"></a><code>SPPlaybackNotifyPlay</code></dt>
+<dd>
+
+
+<p>Playback has started or has resumed</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPPlaybackNotifyPause"></a><code>SPPlaybackNotifyPause</code></dt>
+<dd>
+
+
+<p>Playback has been paused</p>
+
+<p>If the device is the active speaker (according to SpPlaybackIsActiveDevice()),
+the application should stop playing audio immediately.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPPlaybackNotifyTrackChanged"></a><code>SPPlaybackNotifyTrackChanged</code></dt>
+<dd>
+
+
+<p>The current track or its metadata has changed</p>
+
+<p>This event occurs when playback of a new/different track starts. If your
+application displays metadata of the current track, use SpGetMetadata() to
+reload the metadata when you receive this event.</p>
+
+<p>Note : SPPlaybackNotifyTrackChanged is only sent if the current
+track was changed. SPPlaybackNotifyMetadataChanged is a more general
+event that can be used to detect all kinds of UI changes. If you
+display information about the previous and next tracks you should
+use SPPlaybackNotifyMetadataChanged to detect updates to those
+as well.  For example, if the upcoming track is changed then
+SPPlaybackNotifyTrackChanged will not be sent but
+SPPlaybackNotifyMetadataChanged will be.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPPlaybackNotifyNext"></a><code>SPPlaybackNotifyNext</code></dt>
+<dd>
+
+
+<p>Playback has skipped to the next track</p>
+
+<p>This event occurs when SpPlaybackSkipToNext() was invoked or when
+the user skipped to the next track using Spotify Connect. It does not
+occur when playback goes to a new track after the previous track has
+reached the end. (<b class="deprecated">Deprecated:</b><span class="deprecated"> Use SPPlaybackNotifyMetadataChanged instead.
+     </span>)</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPPlaybackNotifyPrev"></a><code>SPPlaybackNotifyPrev</code></dt>
+<dd>
+
+
+<p>Playback as skipped to the previous track (<b class="deprecated">Deprecated:</b><span class="deprecated"> Use SPPlaybackNotifyMetadataChanged instead.
+     </span>)</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPPlaybackNotifyShuffleOn"></a><code>SPPlaybackNotifyShuffleOn</code></dt>
+<dd>
+
+
+<p>&ldquo;Shuffle&rdquo; was switched on</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPPlaybackNotifyShuffleOff"></a><code>SPPlaybackNotifyShuffleOff</code></dt>
+<dd>
+
+
+<p>&ldquo;Shuffle&rdquo; was switched off</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPPlaybackNotifyRepeatOn"></a><code>SPPlaybackNotifyRepeatOn</code></dt>
+<dd>
+
+
+<p>&ldquo;Repeat&rdquo; was switched on</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPPlaybackNotifyRepeatOff"></a><code>SPPlaybackNotifyRepeatOff</code></dt>
+<dd>
+
+
+<p>&ldquo;Repeat&rdquo; was switched off</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPPlaybackNotifyBecameActive"></a><code>SPPlaybackNotifyBecameActive</code></dt>
+<dd>
+
+
+<p>This device has become the active playback device</p>
+
+<p>This event occurs when the users moves playback to this device using
+Spotify Connect, or when playback is moved to this device as a side-effect
+of invoking one of the SpPlayback&hellip;() functions.</p>
+
+<p>When this event occurs, it may be a good time to initialize the audio
+pipeline of the application.  You should not unpause when you receive this
+event &ndash; wait for SPPlaybackNotifyPlay.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPPlaybackNotifyBecameInactive"></a><code>SPPlaybackNotifyBecameInactive</code></dt>
+<dd>
+
+
+<p>This device is no longer the active playback device</p>
+
+<p>This event occurs when the user moves playback to a different device using
+Spotify Connect.</p>
+
+<p>When this event occurs, the application should stop producing audio
+immediately. The application should not take any other action. Specifically,
+the application must not invoke any of the SpPlayback&hellip;() functions
+unless requested by some subsequent user interaction.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPPlaybackNotifyLostPermission"></a><code>SPPlaybackNotifyLostPermission</code></dt>
+<dd>
+
+
+<p>This device has temporarily lost permission to stream audio from Spotify</p>
+
+<p>A user can only stream audio on one of her devices at any given time.
+If playback is started on a different device, this event may occur.
+If the other device is Spotify Connect-enabled, the event
+SPPlaybackNotifyBecameInactive may occur instead of or in addition to this
+event.</p>
+
+<p>When this event occurs, the application should stop producing audio
+immediately. The application should not take any other action. Specifically,
+the application must not invoke any of the SpPlayback&hellip;() functions
+unless requested by some subsequent user interaction.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPPlaybackEventAudioFlush"></a><code>SPPlaybackEventAudioFlush</code></dt>
+<dd>
+
+
+<p>The application should flush its audio buffers</p>
+
+<p>This event occurs for example when seeking to a different position within
+a track. If possible, the application should discard all samples that it
+has received in SpCallbackPlaybackAudioData() but that it has not played yet.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPPlaybackNotifyAudioDeliveryDone"></a><code>SPPlaybackNotifyAudioDeliveryDone</code></dt>
+<dd>
+
+
+<p>The library will not send any more audio data</p>
+
+<p>This event occurs when the library reaches the end of a playback context
+and has no more audio to deliver.  This occurs, for instance, at the end
+of a playlist when repeat is disabled.  When the application receives this
+event, it should finish playing out all of its buffered audio, including
+padding with silence if necessary, until it can report samples_buffered
+as 0 to SpCallbackPlaybackAudioData().</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPPlaybackNotifyContextChanged"></a><code>SPPlaybackNotifyContextChanged</code></dt>
+<dd>
+
+
+<p>Playback changed to a different Spotify context</p>
+
+<p>This event occurs when playback starts or changes to a different context
+than was playing before, such as a change in album or playlist.  This is
+an informational event that does not require action, but may be used to
+update the UI display, such as whether the user is playing from a preset. (<b class="deprecated">Deprecated:</b><span class="deprecated"> Use SPPlaybackNotifyMetadataChanged instead.
+     </span>)</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPPlaybackNotifyTrackDelivered"></a><code>SPPlaybackNotifyTrackDelivered</code></dt>
+<dd>
+
+
+<p>Application accepted all samples from the current track</p>
+
+<p>This is an informative event that indicates that all samples from the
+current track have been delivered to and accepted by the application.
+The track has not finished yet (\see SPPlaybackNotifyTrackChanged).
+No action is necessary by the application, but this event may be used
+to store track boundary information if desired.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPPlaybackNotifyMetadataChanged"></a><code>SPPlaybackNotifyMetadataChanged</code></dt>
+<dd>
+
+
+<p>Metadata is changed</p>
+
+<p>This event occurs when playback starts or changes to a different context,
+when a track switch occurs, etc. This is an informational event that does
+not require action, but should be used to keep the UI display updated with
+the latest metadata information.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                        </dl>
+                    </div>
+                    
+
+                    
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2018 Spotify AB. All rights reserved. Updated: 2018-10-11</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

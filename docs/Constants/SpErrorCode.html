@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>SpErrorCode Constants Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">Spotify iOS SDK </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Spotify AB</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">SpErrorCode Constants Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Declared in</th>
+	<td>SPTPlaybackEvent.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+
+                    
+                    <h3 class="subsubtitle method-title">SpErrorCode</h3>
+                    
+                    <div class="section">
+                        <!-- display enum values -->
+                        
+                        <h4 class="method-subtitle">Definition</h4>
+                        <code>typedef NS_ENUM(NSUInteger, SpErrorCode ) {<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorOk</a> = 0,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorFailed</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorInitFailed</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorWrongAPIVersion</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorNullArgument</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorInvalidArgument</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorUninitialized</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorAlreadyInitialized</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorLoginBadCredentials</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorNeedsPremium</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorTravelRestriction</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorApplicationBanned</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorGeneralLoginError</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorUnsupported</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorNotActiveDevice</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorAPIRateLimited</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorPlaybackErrorStart</a> = 1000,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorGeneralPlaybackError</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorPlaybackRateLimited</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorPlaybackCappingLimitReached</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorAdIsPlaying</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorCorruptTrack</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorContextFailed</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPErrorPrefetchItemUnavailable</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPAlreadyPrefetching</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPStorageWriteError</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">SPPrefetchDownloadFailed</a>,<br>
+                            
+                            };</code>
+                    
+                    </div>
+                    
+                    <div class="section section-methods">
+                        <h4 class="method-subtitle">Constants</h4>
+                        <dl class="termdef">
+                            
+                            <dt><a name="" title="SPErrorOk"></a><code>SPErrorOk</code></dt>
+<dd>
+
+
+<p>The operation was successful.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorFailed"></a><code>SPErrorFailed</code></dt>
+<dd>
+
+
+<p>The operation failed due to an unspecified issue.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorInitFailed"></a><code>SPErrorInitFailed</code></dt>
+<dd>
+
+
+<p>The library could not be initialized.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorWrongAPIVersion"></a><code>SPErrorWrongAPIVersion</code></dt>
+<dd>
+
+
+<p>The library could not be initialized because of an incompatible API version.</p>
+
+<p>When calling SpInit(), you are required to set the field SpConfig::api_version
+to SP_API_VERSION. This error indicates that the library that the application
+is linked against was built for a different SP_API_VERSION. There might be
+an issue with the include or library paths in the build environment,
+or the wrong SDK shared object is loaded at runtime.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorNullArgument"></a><code>SPErrorNullArgument</code></dt>
+<dd>
+
+
+<p>An unexpected NULL pointer was passed as an argument to a function.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorInvalidArgument"></a><code>SPErrorInvalidArgument</code></dt>
+<dd>
+
+
+<p>An unexpected argument value was passed to a function.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorUninitialized"></a><code>SPErrorUninitialized</code></dt>
+<dd>
+
+
+<p>A function was invoked before SpInit() or after SpFree() was called.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorAlreadyInitialized"></a><code>SPErrorAlreadyInitialized</code></dt>
+<dd>
+
+
+<p>SpInit() was called more than once.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorLoginBadCredentials"></a><code>SPErrorLoginBadCredentials</code></dt>
+<dd>
+
+
+<p>Login to Spotify failed because of invalid credentials.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorNeedsPremium"></a><code>SPErrorNeedsPremium</code></dt>
+<dd>
+
+
+<p>The operation requires a Spotify Premium account</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorTravelRestriction"></a><code>SPErrorTravelRestriction</code></dt>
+<dd>
+
+
+<p>The Spotify user is not allowed to log in from this country.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorApplicationBanned"></a><code>SPErrorApplicationBanned</code></dt>
+<dd>
+
+
+<p>The application has been banned by Spotify.</p>
+
+<p>This most likely means that the application key specified in SpConfig::app_key
+has been revoked.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorGeneralLoginError"></a><code>SPErrorGeneralLoginError</code></dt>
+<dd>
+
+
+<p>An unspecified login error occurred.</p>
+
+<p>In order to help debug the issue, the application should register the callback
+SpCallbackDebugMessage(), which receives additional information
+about the error.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorUnsupported"></a><code>SPErrorUnsupported</code></dt>
+<dd>
+
+
+<p>The operation is not supported.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorNotActiveDevice"></a><code>SPErrorNotActiveDevice</code></dt>
+<dd>
+
+
+<p>The operation is not supported if the device is not the active playback
+device.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorAPIRateLimited"></a><code>SPErrorAPIRateLimited</code></dt>
+<dd>
+
+
+<p>The API has been rate-limited.</p>
+
+<p>The API is rate-limited if it is asked to perform too many actions
+in a short amount of time.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorPlaybackErrorStart"></a><code>SPErrorPlaybackErrorStart</code></dt>
+<dd>
+
+
+<p>Error range reserved for playback-related errors.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorGeneralPlaybackError"></a><code>SPErrorGeneralPlaybackError</code></dt>
+<dd>
+
+
+<p>An unspecified playback error occurred.</p>
+
+<p>In order to help debug the issue, the application should register the callback
+SpCallbackDebugMessage(), which receives additional information
+about the error.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorPlaybackRateLimited"></a><code>SPErrorPlaybackRateLimited</code></dt>
+<dd>
+
+
+<p>The application has been rate-limited.</p>
+
+<p>The application is rate-limited if it requests the playback of too many
+tracks within a given amount of time.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorPlaybackCappingLimitReached"></a><code>SPErrorPlaybackCappingLimitReached</code></dt>
+<dd>
+
+
+<p>The Spotify user has reached a capping limit that is in effect
+in this country and/or for this track.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorAdIsPlaying"></a><code>SPErrorAdIsPlaying</code></dt>
+<dd>
+
+
+<p>Cannot change track while ad is playing.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorCorruptTrack"></a><code>SPErrorCorruptTrack</code></dt>
+<dd>
+
+
+<p>The track is (temporarily) corrupt in the Spotify catalogue.</p>
+
+<p>This track will be skipped because it cannot be downloaded.  This is a
+temporary issue with the Spotify catalogue that will be resolved.  The
+error is for informational purposes only.  No action is required.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorContextFailed"></a><code>SPErrorContextFailed</code></dt>
+<dd>
+
+
+<p>Unable to read all tracks from the playing context.</p>
+
+<p>This could be caused by temporary communication or server problems, or
+by the underlying context being removed or shortened during playback (for
+instance, the user deleted all tracks in the playlist while listening.)</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPErrorPrefetchItemUnavailable"></a><code>SPErrorPrefetchItemUnavailable</code></dt>
+<dd>
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPAlreadyPrefetching"></a><code>SPAlreadyPrefetching</code></dt>
+<dd>
+
+
+<p>An item is already actively being prefetched. You must stop the current prefetch request to start another one.
+This error is only relevant for builds with offline storage enabled.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPStorageWriteError"></a><code>SPStorageWriteError</code></dt>
+<dd>
+
+
+<p>A permanent error was encountered while writing to a registered file storage callback.
+This error is only relevant for builds with offline storage enabled.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="SPPrefetchDownloadFailed"></a><code>SPPrefetchDownloadFailed</code></dt>
+<dd>
+
+
+<p>Prefetched item was not fully downloaded or failed. If error happens prefetch can be retried.
+This error is only relevant for builds with offline storage enabled.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">SPTPlaybackEvent.h</code>.
+	</p>
+	
+</dd>
+                            
+                        </dl>
+                    </div>
+                    
+
+                    
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2018 Spotify AB. All rights reserved. Updated: 2018-10-11</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
