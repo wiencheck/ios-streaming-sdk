@@ -1,0 +1,383 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3E82AA3F2180A4E20049408D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82AA3E2180A4E20049408D /* AppDelegate.swift */; };
+		3E82AA412180A4E20049408D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82AA402180A4E20049408D /* ViewController.swift */; };
+		3E82AA442180A4E20049408D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E82AA422180A4E20049408D /* Main.storyboard */; };
+		3E82AA462180A4E30049408D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E82AA452180A4E30049408D /* Assets.xcassets */; };
+		3E82AA492180A4E30049408D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E82AA472180A4E30049408D /* LaunchScreen.storyboard */; };
+		3E82AA692180A6A60049408D /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E82AA682180A6A60049408D /* SpotifyMetadata.framework */; };
+		3E902BF52180A77100BA3E94 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E902BF42180A77100BA3E94 /* AVFoundation.framework */; };
+		3E902BF82180A77F00BA3E94 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E902BF62180A77F00BA3E94 /* SpotifyAudioPlayback.framework */; };
+		3E902BF92180A77F00BA3E94 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E902BF72180A77F00BA3E94 /* SpotifyAuthentication.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3E82AA3B2180A4E20049408D /* Simple Track Playback_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Track Playback_Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E82AA3E2180A4E20049408D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3E82AA402180A4E20049408D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3E82AA432180A4E20049408D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3E82AA452180A4E30049408D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3E82AA482180A4E30049408D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3E82AA4A2180A4E30049408D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E82AA5A2180A5190049408D /* Simple Track Playback_Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Simple Track Playback_Swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		3E82AA682180A6A60049408D /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyMetadata.framework; path = ../../SpotifyMetadata.framework; sourceTree = SOURCE_ROOT; };
+		3E902BF42180A77100BA3E94 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3E902BF62180A77F00BA3E94 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAudioPlayback.framework; path = ../../SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		3E902BF72180A77F00BA3E94 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAuthentication.framework; path = ../../SpotifyAuthentication.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3E82AA382180A4E20049408D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E902BF82180A77F00BA3E94 /* SpotifyAudioPlayback.framework in Frameworks */,
+				3E902BF92180A77F00BA3E94 /* SpotifyAuthentication.framework in Frameworks */,
+				3E902BF52180A77100BA3E94 /* AVFoundation.framework in Frameworks */,
+				3E82AA692180A6A60049408D /* SpotifyMetadata.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3E82AA322180A4E20049408D = {
+			isa = PBXGroup;
+			children = (
+				3E82AA3D2180A4E20049408D /* Simple Track Playback_Swift */,
+				3E82AA3C2180A4E20049408D /* Products */,
+				3E82AA502180A4FA0049408D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3E82AA3C2180A4E20049408D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3E82AA3B2180A4E20049408D /* Simple Track Playback_Swift.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3E82AA3D2180A4E20049408D /* Simple Track Playback_Swift */ = {
+			isa = PBXGroup;
+			children = (
+				3E82AA592180A5030049408D /* Supporting Files */,
+				3E82AA3E2180A4E20049408D /* AppDelegate.swift */,
+				3E82AA402180A4E20049408D /* ViewController.swift */,
+			);
+			path = "Simple Track Playback_Swift";
+			sourceTree = "<group>";
+		};
+		3E82AA502180A4FA0049408D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E902BF62180A77F00BA3E94 /* SpotifyAudioPlayback.framework */,
+				3E902BF72180A77F00BA3E94 /* SpotifyAuthentication.framework */,
+				3E902BF42180A77100BA3E94 /* AVFoundation.framework */,
+				3E82AA682180A6A60049408D /* SpotifyMetadata.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3E82AA592180A5030049408D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3E82AA422180A4E20049408D /* Main.storyboard */,
+				3E82AA452180A4E30049408D /* Assets.xcassets */,
+				3E82AA472180A4E30049408D /* LaunchScreen.storyboard */,
+				3E82AA4A2180A4E30049408D /* Info.plist */,
+				3E82AA5A2180A5190049408D /* Simple Track Playback_Swift-Bridging-Header.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3E82AA3A2180A4E20049408D /* Simple Track Playback_Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E82AA4D2180A4E30049408D /* Build configuration list for PBXNativeTarget "Simple Track Playback_Swift" */;
+			buildPhases = (
+				3E82AA372180A4E20049408D /* Sources */,
+				3E82AA382180A4E20049408D /* Frameworks */,
+				3E82AA392180A4E20049408D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Simple Track Playback_Swift";
+			productName = "Simple Track Playback_Swift";
+			productReference = 3E82AA3B2180A4E20049408D /* Simple Track Playback_Swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3E82AA332180A4E20049408D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = adam.wienconek;
+				TargetAttributes = {
+					3E82AA3A2180A4E20049408D = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+					};
+				};
+			};
+			buildConfigurationList = 3E82AA362180A4E20049408D /* Build configuration list for PBXProject "Simple Track Playback_Swift" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3E82AA322180A4E20049408D;
+			productRefGroup = 3E82AA3C2180A4E20049408D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3E82AA3A2180A4E20049408D /* Simple Track Playback_Swift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3E82AA392180A4E20049408D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E82AA492180A4E30049408D /* LaunchScreen.storyboard in Resources */,
+				3E82AA462180A4E30049408D /* Assets.xcassets in Resources */,
+				3E82AA442180A4E20049408D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3E82AA372180A4E20049408D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E82AA412180A4E20049408D /* ViewController.swift in Sources */,
+				3E82AA3F2180A4E20049408D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3E82AA422180A4E20049408D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3E82AA432180A4E20049408D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3E82AA472180A4E30049408D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3E82AA482180A4E30049408D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3E82AA4B2180A4E30049408D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3E82AA4C2180A4E30049408D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3E82AA4E2180A4E30049408D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5346R7RC8E;
+				FRAMEWORK_SEARCH_PATHS = ../../;
+				INFOPLIST_FILE = "$(SRCROOT)/Simple Track Playback_Swift/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adw.Simple-Track-Playback-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Simple Track Playback_Swift/Supporting Files/Simple Track Playback_Swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3E82AA4F2180A4E30049408D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5346R7RC8E;
+				FRAMEWORK_SEARCH_PATHS = ../../;
+				INFOPLIST_FILE = "$(SRCROOT)/Simple Track Playback_Swift/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.adw.Simple-Track-Playback-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Simple Track Playback_Swift/Supporting Files/Simple Track Playback_Swift-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3E82AA362180A4E20049408D /* Build configuration list for PBXProject "Simple Track Playback_Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E82AA4B2180A4E30049408D /* Debug */,
+				3E82AA4C2180A4E30049408D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E82AA4D2180A4E30049408D /* Build configuration list for PBXNativeTarget "Simple Track Playback_Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E82AA4E2180A4E30049408D /* Debug */,
+				3E82AA4F2180A4E30049408D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3E82AA332180A4E20049408D /* Project object */;
+}
