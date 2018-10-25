@@ -14,17 +14,16 @@ struct Message {
 }
 
 extension UIViewController {
-    func displayErrorMessage(error: Error) {
-        let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        present(alertController, animated: true, completion: nil)
+    func displayErrorMessage(error: Error, completion: (() -> Void)? = nil) {
+        let message = Message(title: "Error", message: error.localizedDescription)
+        displayMessage(message, completion: completion)
     }
     
     func displayMessage(_ message: Message, completion: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: message.title, message: message.message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default) { _ in
             completion?()
-        }))
+        })
         present(alertController, animated: true, completion: nil)
     }
 }

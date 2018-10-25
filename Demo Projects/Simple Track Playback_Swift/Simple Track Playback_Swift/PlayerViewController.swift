@@ -18,6 +18,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var artworkImageView: UIImageView!
     @IBOutlet weak var progressSlider: UISlider!
+    @IBOutlet weak var playbackButton: UIButton!
     
     private var isChangingProgress = false
     
@@ -66,11 +67,16 @@ class PlayerViewController: UIViewController {
     private func updateUIWithoutTrack() {
         titleLabel.text = "Nothing playing"
         artistLabel.text = ""
+        artworkImageView.image = nil
     }
     
     func handleNewSession() {
         if player == nil {
             player = SPTAudioStreamingController.sharedInstance()
+            guard player.initialized == false else {
+                print("*** player is already initialized")
+                return
+            }
             do {
                 try player.start(withClientId: auth.clientID!, audioController: nil, allowCaching: true)
                 player.delegate = self
@@ -87,6 +93,7 @@ class PlayerViewController: UIViewController {
     func closeSession() {
         do {
             try player.stop()
+            auth.session = nil
         } catch let error {
             displayErrorMessage(error: error)
         }
@@ -160,6 +167,8 @@ extension PlayerViewController: SPTAudioStreamingPlaybackDelegate {
     func audioStreaming(_ audioStreaming: SPTAudioStreamingController, didChangePlaybackStatus isPlaying: Bool) {
         print("is playing: \(isPlaying)")
         isPlaying ? activateAudioSession() : deactivateAudioSession()
+        let buttonTitle = isPlaying ? "Pause" : "Play"
+        playbackButton.setTitle(buttonTitle, for: .normal)
     }
     
     func audioStreaming(_ audioStreaming: SPTAudioStreamingController, didChange metadata: SPTPlaybackMetadata) {

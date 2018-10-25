@@ -17,7 +17,7 @@
 		3E902BF92180A77F00BA3E94 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E902BF72180A77F00BA3E94 /* SpotifyAuthentication.framework */; };
 		3E902BFB2180A83E00BA3E94 /* backdrop.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E902BFA2180A83E00BA3E94 /* backdrop.png */; };
 		3E902BFD2180A8D400BA3E94 /* SpotifyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E902BFC2180A8D400BA3E94 /* SpotifyConstants.swift */; };
-		3E902C012180A90600BA3E94 /* UIViewController+DisplayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E902BFE2180A90600BA3E94 /* UIViewController+DisplayError.swift */; };
+		3E902C012180A90600BA3E94 /* UIViewController+DisplayMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E902BFE2180A90600BA3E94 /* UIViewController+DisplayMessage.swift */; };
 		3E902C022180A90600BA3E94 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E902BFF2180A90600BA3E94 /* LoginViewController.swift */; };
 		3E902C032180A90600BA3E94 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E902C002180A90600BA3E94 /* PlayerViewController.swift */; };
 /* End PBXBuildFile section */
@@ -36,7 +36,7 @@
 		3E902BF72180A77F00BA3E94 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyAuthentication.framework; path = ../../SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		3E902BFA2180A83E00BA3E94 /* backdrop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backdrop.png; sourceTree = "<group>"; };
 		3E902BFC2180A8D400BA3E94 /* SpotifyConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyConstants.swift; sourceTree = "<group>"; };
-		3E902BFE2180A90600BA3E94 /* UIViewController+DisplayError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DisplayError.swift"; sourceTree = "<group>"; };
+		3E902BFE2180A90600BA3E94 /* UIViewController+DisplayMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DisplayMessage.swift"; sourceTree = "<group>"; };
 		3E902BFF2180A90600BA3E94 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3E902C002180A90600BA3E94 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,7 +79,7 @@
 				3E82AA3E2180A4E20049408D /* AppDelegate.swift */,
 				3E902BFF2180A90600BA3E94 /* LoginViewController.swift */,
 				3E902C002180A90600BA3E94 /* PlayerViewController.swift */,
-				3E902BFE2180A90600BA3E94 /* UIViewController+DisplayError.swift */,
+				3E902BFE2180A90600BA3E94 /* UIViewController+DisplayMessage.swift */,
 				3E902BFC2180A8D400BA3E94 /* SpotifyConstants.swift */,
 				3E82AA592180A5030049408D /* Supporting Files */,
 			);
@@ -186,7 +186,7 @@
 				3E902C022180A90600BA3E94 /* LoginViewController.swift in Sources */,
 				3E82AA3F2180A4E20049408D /* AppDelegate.swift in Sources */,
 				3E902BFD2180A8D400BA3E94 /* SpotifyConstants.swift in Sources */,
-				3E902C012180A90600BA3E94 /* UIViewController+DisplayError.swift in Sources */,
+				3E902C012180A90600BA3E94 /* UIViewController+DisplayMessage.swift in Sources */,
 				3E902C032180A90600BA3E94 /* PlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,8 +334,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5346R7RC8E;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = ../../;
 				INFOPLIST_FILE = "$(SRCROOT)/Simple Track Playback_Swift/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -344,8 +345,9 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.adw.Simple-Track-Playback-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.spotify.Simple-Track-Playback-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Simple Track Playback_Swift/Supporting Files/Simple Track Playback_Swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -358,8 +360,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5346R7RC8E;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = ../../;
 				INFOPLIST_FILE = "$(SRCROOT)/Simple Track Playback_Swift/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -368,8 +371,9 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.adw.Simple-Track-Playback-Swift";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.spotify.Simple-Track-Playback-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Simple Track Playback_Swift/Supporting Files/Simple Track Playback_Swift-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

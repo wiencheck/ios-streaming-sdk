@@ -15,12 +15,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // Set up shared authentication information
         let auth = SPTAuth.defaultInstance()
+        
         auth.clientID = SpotifyConstants.clientID
         auth.requestedScopes = [SPTAuthStreamingScope]
         auth.redirectURL = SpotifyConstants.redirectURL
-        //        auth.tokenSwapURL = SpotifyConstants.tokenSwapURL
-        //        auth.tokenRefreshURL = SpotifyConstants.tokenRefreshURL
+        
+        if let tokenSwapURL = SpotifyConstants.tokenSwapURL {
+            auth.tokenSwapURL = tokenSwapURL
+        }
+        if let tokenRefreshURL = SpotifyConstants.tokenRefreshURL {
+            auth.tokenRefreshURL = tokenRefreshURL
+        }
+        
         auth.sessionUserDefaultsKey = SpotifyConstants.sessionUserDefaultsKey
         
         return true
