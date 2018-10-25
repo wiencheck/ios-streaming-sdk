@@ -22,14 +22,10 @@ class PlayerViewController: UIViewController {
     
     private var isChangingProgress = false
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateUIWithoutTrack()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         handleNewSession()
+        updateUI()
     }
     
     private func updateUI() {
@@ -41,7 +37,7 @@ class PlayerViewController: UIViewController {
         titleLabel.text = currentTrack.name
         artistLabel.text = currentTrack.artistName
         
-        /* If you get "No registered class for type 'artist'" error, add '-ObjC' to "Other Linker Flags" in your target's settings */
+        /* If you get "No registered class for type '****'" error, add '-ObjC' to "Other Linker Flags" in your target's settings */
         SPTTrack.track(withURI: URL(string: currentTrack.uri)!, accessToken: auth.session?.accessToken, market: nil) { error, track in
             if let error = error {
                 print("*** Couldn't update UI with SPTTrack with error: \(error.localizedDescription)")
