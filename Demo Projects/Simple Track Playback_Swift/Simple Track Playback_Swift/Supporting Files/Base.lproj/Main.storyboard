@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -118,38 +119,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="lkB-5Z-kRs">
-                                <rect key="frame" x="35" y="102.5" width="305" height="462"/>
+                                <rect key="frame" x="10" y="74" width="355" height="519"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4jN-Il-IeJ">
-                                        <rect key="frame" x="32.5" y="0.0" width="240" height="240"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4jN-Il-IeJ">
+                                        <rect key="frame" x="49" y="0.0" width="257" height="257"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.44081763698630139" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="4jN-Il-IeJ" secondAttribute="height" multiplier="1:1" id="Pyz-Ab-4Yv"/>
+                                            <constraint firstAttribute="height" constant="257" id="zbG-Ih-ezm"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mc-Gq-ZKi">
-                                        <rect key="frame" x="131.5" y="271" width="42" height="20.5"/>
+                                        <rect key="frame" x="156.5" y="288" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctF-A2-Tlo">
-                                        <rect key="frame" x="131.5" y="322.5" width="42" height="20.5"/>
+                                        <rect key="frame" x="156.5" y="339.5" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="n8a-7o-YWf">
-                                        <rect key="frame" x="-2" y="374" width="309" height="31"/>
+                                        <rect key="frame" x="-2" y="391" width="359" height="31"/>
                                         <color key="minimumTrackTintColor" red="0.39607843139999999" green="0.82745098039999998" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="sliderMoved:" destination="EVO-fI-jim" eventType="valueChanged" id="1l1-Fi-SPA"/>
                                         </connections>
                                     </slider>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GxH-iC-cmK">
-                                        <rect key="frame" x="0.0" y="435" width="305" height="27"/>
+                                        <rect key="frame" x="0.0" y="452" width="355" height="67"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXf-Qv-hX1">
-                                                <rect key="frame" x="0.0" y="0.0" width="96.5" height="27"/>
+                                                <rect key="frame" x="0.0" y="20" width="113" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                 <state key="normal" title="Previous">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -159,7 +162,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqb-rH-1Xo">
-                                                <rect key="frame" x="104.5" y="0.0" width="96" height="27"/>
+                                                <rect key="frame" x="121" y="20" width="113" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                 <state key="normal" title="Play / Pause">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -169,7 +172,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRo-We-OBk">
-                                                <rect key="frame" x="208.5" y="0.0" width="96.5" height="27"/>
+                                                <rect key="frame" x="242" y="20" width="113" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                 <state key="normal" title="Next">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -191,6 +194,8 @@
                         <constraints>
                             <constraint firstItem="lkB-5Z-kRs" firstAttribute="centerX" secondItem="IZr-cE-LBH" secondAttribute="centerX" id="VW9-Ce-fPG"/>
                             <constraint firstItem="lkB-5Z-kRs" firstAttribute="centerY" secondItem="IZr-cE-LBH" secondAttribute="centerY" id="i1k-vz-Y8l"/>
+                            <constraint firstItem="lkB-5Z-kRs" firstAttribute="leading" secondItem="IZr-cE-LBH" secondAttribute="leading" constant="10" id="nf5-oH-rWV"/>
+                            <constraint firstItem="lkB-5Z-kRs" firstAttribute="top" secondItem="Tzn-Im-66n" secondAttribute="top" constant="10" id="qib-19-7EM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tzn-Im-66n"/>
                     </view>

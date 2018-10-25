@@ -343,6 +343,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.adw.Simple-Track-Playback-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Simple Track Playback_Swift/Supporting Files/Simple Track Playback_Swift-Bridging-Header.h";
@@ -366,6 +367,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.adw.Simple-Track-Playback-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Simple Track Playback_Swift/Supporting Files/Simple Track Playback_Swift-Bridging-Header.h";

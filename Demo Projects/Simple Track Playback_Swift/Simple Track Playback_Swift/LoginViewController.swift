@@ -11,7 +11,7 @@ import SafariServices
 
 class LoginViewController: UIViewController {
     
-    let playerSegueIdentifier = "player"
+    static let playerSegueIdentifier = "player"
     private var firstLoad = true
     
     private let auth = SPTAuth.defaultInstance()
@@ -102,7 +102,7 @@ class LoginViewController: UIViewController {
     }
     
     private func pushToNowPlayingScreen() {
-        performSegue(withIdentifier: playerSegueIdentifier, sender: nil)
+        performSegue(withIdentifier: LoginViewController.playerSegueIdentifier, sender: nil)
         firstLoad = false
     }
     

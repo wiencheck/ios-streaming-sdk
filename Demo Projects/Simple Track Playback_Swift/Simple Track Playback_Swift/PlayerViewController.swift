@@ -40,12 +40,24 @@ class PlayerViewController: UIViewController {
         titleLabel.text = currentTrack.name
         artistLabel.text = currentTrack.artistName
         
+        /* If you get "No registered class for type 'artist'" error, add '-ObjC' to "Other Linker Flags" in your target's settings */
         SPTTrack.track(withURI: URL(string: currentTrack.uri)!, accessToken: auth.session?.accessToken, market: nil) { error, track in
-            if let _ = error {
+            if let error = error {
+                print("*** Couldn't update UI with SPTTrack with error: \(error.localizedDescription)")
                 return
             }
             guard let sptTrack = track as? SPTTrack else {
+                print("*** Couldn't create SPTTrack")
                 return
+            }
+            let imageURL = sptTrack.album.largestCover.imageURL
+            DispatchQueue.main.async { [weak self] in
+                do {
+                    let imageData = try Data(contentsOf: imageURL)
+                    self?.artworkImageView.image = UIImage(data: imageData)
+                } catch let error {
+                    print("*** Couldn't load cover image with error: \(error.localizedDescription)")
+                }
             }
         }
         
@@ -131,7 +143,7 @@ extension PlayerViewController: SPTAudioStreamingDelegate {
     
     func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController) {
         
-        player.playSpotifyURI("spotify:track:6K4t31amVTZDgR3sKmwUJJ", startingWith: 0, startingWithPosition: 0) { error in
+        player.playSpotifyURI("spotify:user:spotify:playlist:2yLXxKhhziG2xzy7eyD4TD", startingWith: 0, startingWithPosition: 0) { error in
             if let error = error {
                 print("*** Failed to play: \(error.localizedDescription)")
             }
